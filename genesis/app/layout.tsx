@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SOA & CHAKRAVYUH | Imperial Hub",
-  description: "CHAKRAVYUH 2K26 — Imperial Hub of SOA. A bastion of intellectual and physical excellence.",
+  title: "SOA & CHAKRAVYUH | Imperial Nexus",
+  description: "CHAKRAVYUH 2K26 - Imperial nexus of SOA. A bastion of intellectual and physical excellence.",
 };
 
 export default function RootLayout({

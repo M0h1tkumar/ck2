@@ -36,7 +36,7 @@ export function EventDashboard() {
             </div>
             <div className="flex items-center gap-4 text-on-surface-variant">
               <span className="material-symbols-outlined">location_on</span>
-              <span>Central Arena</span>
+              <span>Central Grounds</span>
             </div>
           </div>
         </div>
@@ -68,5 +68,4 @@ export function EventDashboard() {
       </div>
     </section>
   );
-  return null;
 }

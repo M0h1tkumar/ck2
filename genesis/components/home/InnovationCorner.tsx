@@ -29,7 +29,7 @@ export function InnovationCorner() {
               <p className="text-xs uppercase text-on-surface-variant">Data Index</p>
             </div>
           </div>
-          <button className="text-secondary font-bold flex items-center gap-2 group">
+          <button className="aurora-hover text-secondary font-bold flex items-center gap-2 group">
             VIEW ALL PROJECTS
             <span className="material-symbols-outlined group-hover:translate-x-2 transition-transform">
               arrow_forward
@@ -50,5 +50,4 @@ export function InnovationCorner() {
       </div>
     </section>
   );
-  return null;
 }

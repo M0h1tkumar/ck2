@@ -10,13 +10,13 @@ export function Footer() {
           council.
         </p>
         <div className="flex gap-4">
-          <span className="material-symbols-outlined text-secondary cursor-pointer hover:scale-110 transition-transform">
+          <span className="material-symbols-outlined aurora-hover text-secondary cursor-pointer hover:scale-110 transition-transform">
             share
           </span>
-          <span className="material-symbols-outlined text-secondary cursor-pointer hover:scale-110 transition-transform">
+          <span className="material-symbols-outlined aurora-hover text-secondary cursor-pointer hover:scale-110 transition-transform">
             mail
           </span>
-          <span className="material-symbols-outlined text-secondary cursor-pointer hover:scale-110 transition-transform">
+          <span className="material-symbols-outlined aurora-hover text-secondary cursor-pointer hover:scale-110 transition-transform">
             public
           </span>
         </div>
@@ -27,10 +27,7 @@ export function Footer() {
             Navigation
           </h5>
           <ul className="space-y-2 text-on-surface-variant text-sm">
-            <li className="hover:text-secondary cursor-pointer">The Hub</li>
-            <li className="hover:text-secondary cursor-pointer">The Arena</li>
-            <li className="hover:text-secondary cursor-pointer">The Relics</li>
-            <li className="hover:text-secondary cursor-pointer">The Prophets</li>
+            <li className="aurora-hover hover:text-secondary cursor-pointer">The Prophets</li>
           </ul>
         </div>
         <div className="space-y-4">
@@ -38,13 +35,12 @@ export function Footer() {
             Legal
           </h5>
           <ul className="space-y-2 text-on-surface-variant text-sm">
-            <li className="hover:text-secondary cursor-pointer">Charter</li>
-            <li className="hover:text-secondary cursor-pointer">Privacy Decree</li>
-            <li className="hover:text-secondary cursor-pointer">Code of Honor</li>
+            <li className="aurora-hover hover:text-secondary cursor-pointer">Charter</li>
+            <li className="aurora-hover hover:text-secondary cursor-pointer">Privacy Decree</li>
+            <li className="aurora-hover hover:text-secondary cursor-pointer">Code of Honor</li>
           </ul>
         </div>
       </div>
     </footer>
   );
-  return null;
 }

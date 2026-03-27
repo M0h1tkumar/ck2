@@ -38,5 +38,4 @@ export function AboutSection() {
       </div>
     </section>
   );
-  return null;
 }

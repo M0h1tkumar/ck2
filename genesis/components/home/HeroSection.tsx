@@ -25,22 +25,11 @@ export function HeroSection() {
         />
       </div>
       <div className="space-y-12 relative z-20">
-        <div className="flex flex-col items-center gap-6">
-          <button className="group relative px-12 py-4 bg-transparent border-2 border-secondary overflow-hidden transition-all duration-300 hover:bg-secondary hover:text-on-secondary-fixed">
-            <span className="relative z-10 flex items-center gap-3 text-xl font-black uppercase tracking-[0.3em]">
-              <span className="material-symbols-outlined text-2xl group-hover:rotate-180 transition-transform duration-700">
-                3d_rotation
-              </span>
-              View in 3D
-            </span>
-            <div className="absolute inset-0 bg-secondary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 -z-0" />
-          </button>
-        </div>
         <div className="flex flex-col items-center gap-4 pt-8 opacity-60 hover:opacity-100 transition-opacity cursor-pointer animate-bounce-slow">
-          <span className="text-secondary font-bold tracking-[0.4em] text-xs uppercase">
+          <span className="aurora-hover text-secondary font-bold tracking-[0.4em] text-xs uppercase">
             Scroll to Explore
           </span>
-          <span className="material-symbols-outlined text-4xl text-secondary">
+          <span className="material-symbols-outlined aurora-hover text-4xl text-secondary">
             keyboard_double_arrow_down
           </span>
         </div>

@@ -107,6 +107,21 @@ body {
   border: 1px solid rgba(233, 195, 73, 0.1);
 }
 
+@keyframes aurora-shift {
+  0% { color: #f8f6ef; text-shadow: 0 0 10px rgba(248, 246, 239, 0.2); }
+  33% { color: #8ec5ff; text-shadow: 0 0 14px rgba(142, 197, 255, 0.35); }
+  66% { color: #e9c349; text-shadow: 0 0 16px rgba(233, 195, 73, 0.4); }
+  100% { color: #f8f6ef; text-shadow: 0 0 10px rgba(248, 246, 239, 0.2); }
+}
+
+.aurora-hover {
+  transition: color 250ms ease, text-shadow 250ms ease, transform 250ms ease, background-color 250ms ease;
+}
+
+.aurora-hover:hover {
+  animation: aurora-shift 2.8s linear infinite;
+}
+
 @keyframes bounce-slow {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(10px); }
