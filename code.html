@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SOA &amp; CHAKRAVYUH | Imperial Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-container": "#c8a900",
+              "error": "#ffb4ab",
+              "surface-variant": "#3f3131",
+              "on-secondary-fixed": "#241a00",
+              "inverse-primary": "#b52619",
+              "surface-container-high": "#342727",
+              "error-container": "#93000a",
+              "background": "#1c1010",
+              "surface": "#1c1010",
+              "surface-container-low": "#241918",
+              "tertiary-fixed": "#ffe16d",
+              "on-tertiary-fixed": "#221b00",
+              "secondary-fixed": "#ffe088",
+              "on-secondary-fixed-variant": "#574500",
+              "surface-dim": "#1c1010",
+              "on-primary-fixed": "#410000",
+              "on-background": "#f4dddd",
+              "on-tertiary-container": "#4b3e00",
+              "secondary-fixed-dim": "#e9c349",
+              "on-secondary": "#3c2f00",
+              "secondary": "#e9c349",
+              "on-error-container": "#ffdad6",
+              "primary-fixed": "#ffdad4",
+              "outline": "#aa8984",
+              "inverse-surface": "#f4dddd",
+              "surface-container": "#291d1c",
+              "surface-container-highest": "#3f3131",
+              "outline-variant": "#5a403c",
+              "on-tertiary-fixed-variant": "#544600",
+              "on-error": "#690005",
+              "primary": "#ffb4a8",
+              "on-secondary-container": "#342800",
+              "primary-fixed-dim": "#ffb4a8",
+              "primary-container": "#8b0000",
+              "on-primary-fixed-variant": "#920703",
+              "tertiary-fixed-dim": "#e9c400",
+              "surface-bright": "#443636",
+              "tertiary": "#e9c400",
+              "on-primary": "#690000",
+              "on-surface-variant": "#e3beb8",
+              "surface-container-lowest": "#160b0b",
+              "inverse-on-surface": "#3b2d2d",
+              "on-tertiary": "#3a3000",
+              "on-surface": "#f4dddd",
+              "on-primary-container": "#ff907f",
+              "secondary-container": "#af8d11",
+              "surface-tint": "#ffb4a8"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Noto Serif"],
+              "label": ["Noto Serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      }
+      .relic-card {
+        background: linear-gradient(135deg, rgba(63, 49, 49, 0.4) 0%, rgba(28, 16, 16, 0.8) 100%);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(233, 195, 73, 0.1);
+      }
+      @keyframes bounce-slow {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(10px); }
+      }
+      .animate-bounce-slow {
+        animation: bounce-slow 2s infinite ease-in-out;
+      }
+    @keyframes rotate-slow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .animate-rotate-slow {
+        animation: rotate-slow 20s linear infinite;
+      }</style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-secondary/30 selection:text-secondary">
+<!-- TopAppBar -->
+<header class="bg-[#1C1010] shadow-[0px_20px_40px_rgba(0,0,0,0.4)] fixed top-0 left-0 right-0 z-50 flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-4">
+<button class="text-[#E9C349] hover:bg-[#342727] p-2 transition-colors duration-300 rounded-sm">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-2xl font-bold text-[#FFB4A8] uppercase tracking-widest font-headline">CHAKRAVYUH 2K26</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8">
+<a class="text-[#E9C349] font-serif tracking-tight text-sm uppercase" href="#">Hub</a>
+<a class="text-[#E3BEB8] hover:text-[#FF907F] font-serif tracking-tight text-sm uppercase transition-colors" href="#">Arena</a>
+<a class="text-[#E3BEB8] hover:text-[#FF907F] font-serif tracking-tight text-sm uppercase transition-colors" href="#">Relics</a>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-1 px-4 py-1.5 border border-secondary/40 text-secondary text-xs font-bold uppercase tracking-widest hover:bg-secondary/10 transition-all">
+<span class="material-symbols-outlined text-sm">3d_rotation</span>
+<span>3D View</span>
+</button>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-1.5 font-bold text-sm uppercase tracking-wider hover:opacity-90 active:scale-95 transition-all">
+                    Log In
+                </button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-20 px-4 md:px-12 max-w-7xl mx-auto space-y-24">
+<!-- Hero / Brand Section -->
+<section class="relative min-h-[80dvh] flex flex-col items-center justify-center text-center py-12">
+<div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-container/40 via-background to-background blur-3xl opacity-60"></div>
+<div class="relative group mb-12"><div class="absolute inset-[-20%] border-[2px] border-dashed border-secondary/20 rounded-full animate-rotate-slow pointer-events-none flex items-center justify-center">
+<div class="w-[95%] h-[95%] border border-secondary/10 rounded-full"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-1 h-full bg-secondary/5"></div>
+<div class="w-1 h-full bg-secondary/5 rotate-45"></div>
+<div class="w-1 h-full bg-secondary/5 rotate-90"></div>
+<div class="w-1 h-full bg-secondary/5 rotate-[135deg]"></div>
+</div>
+</div>
+<div class="absolute inset-0 bg-primary-container/20 blur-2xl rounded-full scale-150 animate-pulse"></div>
+<img alt="Chakravyuh &amp; Genesis 2K26 Logo" class="h-80 md:h-[450px] w-auto relative z-10 drop-shadow-[0_0_50px_rgba(233,195,73,0.3)] transition-transform duration-700 hover:scale-105" src="https://lh3.googleusercontent.com/aida/ADBb0uip5pABfeRFkQhocxWfk5QBKcroTXyvXX5QDgu8gE5hGDYqach78Q_VVjK6gda92ElyLKSKsd4Pn7vKZIfE0Uj4cuuyTLKQGTcI2DqOWwm6RAT2ij_PkbKKRpUW0qbXLFHI7V8dPo6Po_hw3sr0Z0vxpnKHyBT8tDKCSyL1cYg9DZz3DJ6YtNcZX4L-fS_j4e02TLaTUYed9jhsdYvqlc49KTEoKl8jwh5Ax79Vugu7LGh_o0MZ8XrVREsqru_44i6VZwIvRVJEZQ"/>
+</div>
+<div class="space-y-12 relative z-20">
+<div class="flex flex-col items-center gap-6">
+<button class="group relative px-12 py-4 bg-transparent border-2 border-secondary overflow-hidden transition-all duration-300 hover:bg-secondary hover:text-on-secondary-fixed">
+<span class="relative z-10 flex items-center gap-3 text-xl font-black uppercase tracking-[0.3em]">
+<span class="material-symbols-outlined text-2xl group-hover:rotate-180 transition-transform duration-700">3d_rotation</span>
+                            View in 3D
+                        </span>
+<div class="absolute inset-0 bg-secondary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 -z-0"></div>
+</button>
+</div>
+<div class="flex flex-col items-center gap-4 pt-8 opacity-60 hover:opacity-100 transition-opacity cursor-pointer animate-bounce-slow">
+<span class="text-secondary font-bold tracking-[0.4em] text-xs uppercase">Scroll to Explore</span>
+<span class="material-symbols-outlined text-4xl text-secondary">keyboard_double_arrow_down</span>
+</div>
+</div>
+</section>
+<!-- About Section (Asymmetric) -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-7 space-y-6">
+<h3 class="text-secondary font-headline text-4xl font-bold tracking-tight">Our Sacred Vision</h3>
+<div class="h-1 w-24 bg-primary-container"></div>
+<p class="text-on-surface text-xl leading-relaxed">
+                    SOA &amp; CHAKRAVYUH is not merely a club; it is a bastion of intellectual and physical excellence. Born from the legacy of ancient strategies and modern technological prowess, we forge the leaders of tomorrow through rigorous challenge and collaborative innovation.
+                </p>
+<p class="text-on-surface-variant">
+                    Our history stretches back through decades of competitive spirit, evolving from a small gathering of visionaries into an imperial force of student-led excellence.
+                </p>
+</div>
+<div class="md:col-span-5 relative">
+<div class="aspect-[4/5] overflow-hidden bg-surface-container-high rounded-sm shadow-2xl">
+<img alt="History" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Dramatic high-contrast black and white photography of a historic stone hall with sunlight streaming through narrow windows, creating long shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCncr_B54cHTx3KvRWKCpOPOiCz9bMvDVKYIez9k98NHPpw9OPCqYePDVjn6b6D1IsEHw1uUbXE72yxpJy4op9hFuPlyklvNk8v8xLT4ZS_Kfi8kKA6Eu1nbyYO7qrFMViZGb9EXDTn8XeRNCwBp1FnHxI4KiTfg5w-TusfzwA4Ou_JGbxedwzeVwKLQzQeJMwCuG01NoPGHw7xwU7tscdhStSMWYpQDB0E7hJj4Sk9VxB6KnemvBymy_Hmti7QZCR1aQDsJx0J_wg"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-primary-container p-8 shadow-2xl">
+<span class="text-on-primary-container text-4xl font-black block">EST.</span>
+<span class="text-secondary text-5xl font-black tracking-widest">1998</span>
+</div>
+</div>
+</section>
+<!-- Schedule Section (Bento Grid Style) -->
+<section class="space-y-8">
+<div class="flex justify-between items-end">
+<h3 class="text-primary font-headline text-4xl font-bold uppercase tracking-widest">EVENT DASHBOARD</h3>
+<span class="text-secondary font-bold tracking-tighter">PHASE IV • ACTIVE</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="md:col-span-2 md:row-span-2 relic-card p-8 flex flex-col justify-between group border-l-2 border-primary">
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span class="text-[10px] text-green-500 font-bold uppercase tracking-[0.3em]">System Live</span>
+</div>
+<span class="text-secondary text-xs font-bold uppercase tracking-[0.2em] mb-4 block">Main Event</span>
+<h4 class="text-3xl font-bold text-on-surface group-hover:text-primary transition-colors">THE GREAT CHAKRAVYUH</h4>
+<p class="mt-4 text-on-surface-variant">The final confrontation. A 48-hour endurance test of wit, strength, and digital supremacy.</p>
+</div>
+<div class="mt-8">
+<div class="flex items-center gap-4 text-secondary mb-2">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-bold">OCT 24-26</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined">location_on</span>
+<span>Central Arena</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 flex flex-col justify-between border-l-4 border-primary-container">
+<span class="text-secondary text-sm font-bold uppercase">Pre-Trials</span>
+<h5 class="text-xl font-bold mt-2">Logic Gates Duel</h5>
+<p class="text-xs text-on-surface-variant mt-2 uppercase tracking-widest">Sept 15 • 14:00</p>
+</div>
+<div class="bg-surface-container-low p-6 flex flex-col justify-between border-l-4 border-secondary-container">
+<span class="text-secondary text-sm font-bold uppercase">Workshops</span>
+<h5 class="text-xl font-bold mt-2">Quantum Siege</h5>
+<p class="text-xs text-on-surface-variant mt-2 uppercase tracking-widest">Sept 22 • 10:00</p>
+</div>
+<div class="md:col-span-2 bg-surface-container-high p-6 flex items-center justify-between group cursor-pointer hover:bg-primary-container/20 transition-all">
+<div>
+<h5 class="text-2xl font-bold">Registration Deadline</h5>
+<p class="text-on-surface-variant">Secure your place in history before the gates close.</p>
+</div>
+<div class="text-right">
+<span class="text-primary text-3xl font-black">AUG 30</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Activities Section (Visual List) -->
+<section class="space-y-12">
+<h3 class="text-secondary font-headline text-4xl font-bold text-center">TECH OPERATIONS &amp; DEPLOYMENTS</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Activity 1 -->
+<div class="group">
+<div class="relative aspect-video overflow-hidden mb-6">
+<img alt="Tech" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Extreme close-up of high-tech server hardware with glowing red and amber status lights in a dark data center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkoeFpmnX68neLw7sUjtj4J1p73Y12KepPoLp_F6Y0tnFMMm3yJNsXeEWH13JXvXhLUQfd8Pb35FmmvivR65Bj-3Ii61WSZEC1W4KMMW6UcF5ukGXslA_c5BRDNSKY8oic1FAdf3Qc_apDoUx3VQPnTErKN8A9cYsNCvRfBODIpnD_jH2WYQoVwelHqRlf6K5Lnk5njCPIZK03h8q4ruH5L3g9Op8oJm9Fls42Voxa6vG1sa5TXteL_4DWYOlj8nXbd-j8XXNweuA"/>
+<div class="absolute inset-0 bg-primary-container/40 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<h4 class="text-2xl font-bold text-primary flex items-center gap-3">
+<span class="material-symbols-outlined">terminal</span>
+                        Cyber-Warfare
+                    </h4>
+<p class="mt-2 text-on-surface-variant">Defense and offense drills in virtual simulated environments. Real-time threat mitigation.</p>
+</div>
+<!-- Activity 2 -->
+<div class="group">
+<div class="relative aspect-video overflow-hidden mb-6">
+<img alt="Robotics" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Mechanical robotic arm precision welding in a dimly lit factory with sparks flying, creating a warm golden glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcSlgyC_NpO_mz7EWXyj3003IJWrs-iahXMAAsmKiBfr02Jwx6AyVkO2pHMz3NVQUqH_aM21A9UqDfuDsGmRhJg33uj6WNpq-gvQFmKYix9xanUl5_OP0q9HA9W7JdsyEsvUnSbMJfeF8gPXsQBnoJaSUwNzx1PEJVnmXoS-Wr-vJtUtwmGnBwgXzCe57y-t-uAnComFRdA3Pq5w60ts9W2FScAadRm0p3pIZFiVr71AeLUa-_Iu2Yo3QTEv2_F53JjvCtL_Q6WdI"/>
+<div class="absolute inset-0 bg-secondary-container/40 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<h4 class="text-2xl font-bold text-primary flex items-center gap-3">
+<span class="material-symbols-outlined">precision_manufacturing</span>
+                        Iron Sentry Build
+                    </h4>
+<p class="mt-2 text-on-surface-variant">Advanced robotics workshop focusing on autonomous navigation and objective acquisition.</p>
+</div>
+<!-- Activity 3 -->
+<div class="group">
+<div class="relative aspect-video overflow-hidden mb-6">
+<img alt="Workshop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A group of focused individuals silhouetted against a large screen displaying complex data visualizations in a modern tech hub" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ4F6Ftb6oQC9y5a16FR80OoGFKiewkAc2-5d4boN7MePHJDH6eaRyf7LFtVWkSlRpUcYpunOqIDuNE_Bl9jknJ_3TD8jTByF7T35fnlJwE-g4Mf4LBlkrEHxcGxu21XmX_331nou7lrw3cK4yaEh0h5PhvQjs1ysTPZl6Xd5lmR5voUacFKF71vwMVFijJe7JQ_INqqO6-5irCHqWkQXn8VvB_rUaWa5000CbDO73xkpNTOiABq7ZbRnQ-TzDcGLVM-exUa9DTYs"/>
+<div class="absolute inset-0 bg-primary-container/40 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<h4 class="text-2xl font-bold text-primary flex items-center gap-3">
+<span class="material-symbols-outlined">hub</span>
+                        Imperial Strategy
+                    </h4>
+<p class="mt-2 text-on-surface-variant">Collaborative seminars on game theory, historical military tactics, and modern leadership.</p>
+</div>
+</div>
+</section>
+<!-- Innovation Corner (Featured) -->
+<section class="relic-card overflow-hidden border-l-2 border-primary">
+<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="p-12 space-y-8">
+<div class="inline-flex items-center gap-2 bg-secondary/10 px-4 py-1 text-secondary text-sm font-bold uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">lightbulb</span>
+                        Innovation Corner
+                    </div>
+<h3 class="text-4xl font-black text-on-surface leading-tight">Project: VEDAS II<br/><span class="text-primary italic">The Neural Archive</span></h3>
+<p class="text-on-surface-variant text-lg">
+                        Our flagship R&amp;D project involves the creation of a decentralized knowledge base powered by a proprietary LLM trained on the club's 25-year history of technical documents.
+                    </p>
+<div class="flex gap-4">
+<div class="bg-surface-container p-4 flex-1">
+<span class="text-secondary text-2xl font-black">94%</span>
+<p class="text-xs uppercase text-on-surface-variant">Accuracy</p>
+</div>
+<div class="bg-surface-container p-4 flex-1">
+<span class="text-secondary text-2xl font-black">2.4TB</span>
+<p class="text-xs uppercase text-on-surface-variant">Data Index</p>
+</div>
+</div>
+<button class="text-secondary font-bold flex items-center gap-2 group">
+                        VIEW ALL PROJECTS 
+                        <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</button>
+</div>
+<div class="bg-primary-container/20 relative flex items-center justify-center p-12">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-container/30 to-transparent"></div>
+<img alt="Innovation" class="w-full h-full object-cover rounded-sm mix-blend-screen opacity-60" data-alt="Abstract 3D visualization of neural networks and data connections glowing in gold and red against a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOJA5gTXkUDdUAdVNN7MJqO9etJWUXnW-l-NEe_77nBwlE2M7Exd_kh3vgwTGOZV_GihmogQ_spaZAKeoPTDM5EZKaemfU5ERP3B6c5_E7ZDHWlRacc33l0yYZ-0S4_uslrqDWIUD59edyqhBWjqVpj9nM4R6OcouMZvCaHOeIKwT7ktR_MR8ZDpr6QWPJI_2FRPT8kK0lIHCOZmRvRkv5_WwdTeipV60MneGtaZRshx1P0g96N97qnINFcAG8DM957pJiTTdatso"/>
+</div>
+</div>
+</section>
+<!-- Gallery Section (Horizontal Scroll/Grid) -->
+<section class="space-y-8">
+<h3 class="text-secondary font-headline text-4xl font-bold tracking-tight">The Gallery of Victors</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="aspect-square bg-surface-container-high overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125 group-hover:rotate-3" data-alt="Crowded auditorium with colorful stage lighting and a large screen during a major tech event conference" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEvCETYsqZ1r3cfMnD6WBDlEbvrHSfI-U8TFAhBVbmISJqKa2L8vD_bpyBj-b103aXaXRYX-l9RgD9coLKj_M94hsY0DINMbHHt2krGTrWkQQbH_AI6BjyVds06coNQT2ZZa16-YODUH-y4BRASSPz4cXJit2Q-UR537tfUg2ICNcO0mRprLoPjuDCfIVubvbCdwALTvRs1gBvXyNQt6sjk15uoZ10ROFL3ZYCYibc0AdavLMhvDOXxoGAX0UlhANPZx4qOl83kKI"/>
+</div>
+<div class="aspect-square bg-surface-container-high overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125 group-hover:-rotate-3" data-alt="Candid shot of young people working intensely with laptops and technical equipment in a dimly lit collaborative workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBDA1KnLOsgHJ9Pn5Na1jlkBc-0U7om6YH7I9dt4pQKbju2Nl4-jI1PnOi6Qht60CXV_CW8w-qsQiavQbQ1yHmQr4S8JKPQiklAhF5eolbQi39J8Q2r7RzXt410OAHDI-86ePkwn5n6e9EaiAUThLaVKXGiow0OIjtR0ftlscMGxn_ev_dYZDQ35GsiqtJShX59SPmTm4F4WI2aQolglscJsGPEHqRmUtUWqwCH3ki7bGBdtAvMH_ubofto8dL2s_l44ot36D8rnE"/>
+</div>
+<div class="aspect-square bg-surface-container-high overflow-hidden group md:row-span-2">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125" data-alt="Close up of a trophy and award certificate on a dark wood table with cinematic lighting from above" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3g6OPoRJG5t3-yBKoidp3R-37E8m5K8wtVIaHUk3RBIrFlzmCfd5ApO4xJkGe934fAipe6RjH9TMsM0yUDYcgadqTrH2nQCUi6-OEObFzskmkdSGEqnAq_Jjj4piH0ZPlAYUtBCQTHlOK3oIwIGh-NekR3KYlSP9hns73m1o4m5GsxELM4QWEhXTJWXlg-fmqU7VrxgiMb42ceHFJrvRvt62F19ZXpnFZskF_2j63q2iY5oyvNemAf9ZLuj6e7YfIGZimTmTvLHw"/>
+</div>
+<div class="aspect-square bg-surface-container-high overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125 group-hover:rotate-6" data-alt="Silhouette of people cheering at a technology event with blue and magenta stage lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQOVX6qHCHoN4bF1LnBRrHgmLqJafxZgdVuf8hwXXHKvdy44-fwR8dCMnCV7iY9m8BTOZzVKPNKb91GK6kIQlYvv0k1kuq6rGQYSAznm63Ke1kkgfDmcbB3a9Va0UT_KrFi1V64-VsMvoLbJUW04gjbuB_FWad8o0hlACvR0uXsTxOE66U6PFjdMcOWhOpfARHiP8d9GSbrVLURZfAwVQp_9jUl9WabhsgtCnnXMEvybBaXo5v9kT5QXWD5kyEXN8be834fPw7G4o"/>
+</div>
+<div class="aspect-square bg-surface-container-high overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125 group-hover:-rotate-6" data-alt="Abstract patterns of code and digital data reflected on a glass surface in a dark room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuWvKxWmKiQKGaIpFvur1ErfPDIwjaepApPMy7hZpk9cSIjdQg-Newv7u-1_bHW8MT2oCROR1A7GODrukScMTf4LAgqWq4jxku4QiSoy8F2dUvKu0-1-9Y_GG0xOz-2TeSrt7gu6riwB4VvRj8igVgjzTpYCdO2nZhuhfNimhZGvy2KOpZf04OQlB40O2ISV7cVC8qr1_xBs9wu4E6aeWPXvRuLXRZ5W79XTFmMAwR0QtRsQHwceI2bP6Bo5bQD71_6XtUrYT5ZIk"/>
+</div>
+<div class="aspect-square bg-surface-container-high overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125" data-alt="Modern collaborative workspace with glass walls and neon lighting accents at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpvi9u25DaDCajRdo9_uvxY7-PRvIAGuIA5SW8pmEdBdK6phj27n-_fcL1S8atYryJXkmVk4SznSnmiW_u0kPH6Uy2RrKU98aRZvhLzJtHL1iucGbY2q4n5gsaJroytv2bZ92MWGxV0Pnr2ubILaf1dq97RzAdW3ciamESlCo5HP1_mFjVtQZ5oxicloQcatrbDWIKELgLhGVGgZmKnl09zQyNEAVIKDpVQd3yo0fZiah-XCaPs6KD4udWYD7y6xQkkU171dqvJVI"/>
+</div>
+</div>
+</section>
+<!-- Footer / Contact -->
+<footer class="pt-16 pb-32 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between gap-12">
+<div class="space-y-4">
+<h4 class="text-primary font-headline text-2xl font-bold uppercase tracking-widest">SOA &amp; CHAKRAVYUH</h4>
+<p class="text-on-surface-variant max-w-xs">Building the future on the foundations of ancient excellence. Join the council.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:scale-110 transition-transform">share</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:scale-110 transition-transform">mail</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:scale-110 transition-transform">public</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-12">
+<div class="space-y-4">
+<h5 class="text-on-surface font-bold uppercase text-sm tracking-widest">Navigation</h5>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li class="hover:text-secondary cursor-pointer">The Hub</li>
+<li class="hover:text-secondary cursor-pointer">The Arena</li>
+<li class="hover:text-secondary cursor-pointer">The Relics</li>
+<li class="hover:text-secondary cursor-pointer">The Prophets</li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="text-on-surface font-bold uppercase text-sm tracking-widest">Legal</h5>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li class="hover:text-secondary cursor-pointer">Charter</li>
+<li class="hover:text-secondary cursor-pointer">Privacy Decree</li>
+<li class="hover:text-secondary cursor-pointer">Code of Honor</li>
+</ul>
+</div>
+</div>
+</footer>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-[#3F3131]/90 backdrop-blur-xl border-t border-[#5A403C]/20 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] rounded-t-sm">
+<a class="flex flex-col items-center justify-center text-[#E9C349] bg-[#8B0000]/30 rounded-md py-1 px-3 active:scale-110 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">fort</span>
+<span class="font-serif text-[10px] uppercase tracking-tighter mt-1">Hub</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#AA8984] opacity-70 hover:text-[#FF907F] transition-all active:scale-110 duration-200" href="#">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-serif text-[10px] uppercase tracking-tighter mt-1">Arena</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#AA8984] opacity-70 hover:text-[#FF907F] transition-all active:scale-110 duration-200" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-serif text-[10px] uppercase tracking-tighter mt-1">Relics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#AA8984] opacity-70 hover:text-[#FF907F] transition-all active:scale-110 duration-200" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-serif text-[10px] uppercase tracking-tighter mt-1">Prophets</span>
+</a>
+</nav>
+</body></html>
