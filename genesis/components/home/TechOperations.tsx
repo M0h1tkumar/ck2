@@ -3,7 +3,7 @@ import Image from "next/image";
 export function TechOperations() {
   return (
     <section className="space-y-12">
-      <h3 className="text-secondary text-4xl font-bold text-center">
+      <h3 className="text-secondary text-xl sm:text-2xl md:text-4xl font-bold text-center uppercase tracking-tight">
         TECH OPERATIONS &amp; DEPLOYMENTS
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

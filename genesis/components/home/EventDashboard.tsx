@@ -1,16 +1,16 @@
 export function EventDashboard() {
   return (
     <section className="space-y-8">
-      <div className="flex justify-between items-end">
-        <h3 className="text-primary text-4xl font-bold uppercase tracking-widest">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2 sm:gap-0">
+        <h3 className="text-primary text-xl sm:text-2xl md:text-4xl font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] md:tracking-widest">
           EVENT DASHBOARD
         </h3>
-        <span className="text-secondary font-bold tracking-tighter">
-          PHASE IV • ACTIVE
+        <span className="text-secondary font-bold tracking-tighter text-xs sm:text-base">
+          27-28 MARCH 2026
         </span>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="md:col-span-2 md:row-span-2 relic-card p-8 flex flex-col justify-between group border-l-2 border-primary">
+        <div className="md:col-span-2 md:row-span-2 relic-card p-4 sm:p-6 md:p-8 flex flex-col justify-between group border-l-2 border-primary">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />

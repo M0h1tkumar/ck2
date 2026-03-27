@@ -1,15 +1,15 @@
 export function Footer() {
   return (
     <footer className="pt-16 pb-32 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between gap-12">
-      <div className="space-y-4">
+      <div className="space-y-4 text-center md:text-left">
         <h4 className="text-primary text-2xl font-bold uppercase tracking-widest">
           SOA &amp; CHAKRAVYUH
         </h4>
-        <p className="text-on-surface-variant max-w-xs">
+        <p className="text-on-surface-variant max-w-xs mx-auto md:mx-0">
           Building the future on the foundations of ancient excellence. Join the
           council.
         </p>
-        <div className="flex gap-4">
+        <div className="flex justify-center md:justify-start gap-4">
           <span className="material-symbols-outlined aurora-hover text-secondary cursor-pointer hover:scale-110 transition-transform">
             share
           </span>
@@ -21,7 +21,7 @@ export function Footer() {
           </span>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-12">
+      <div className="grid grid-cols-2 gap-12 text-center md:text-left">
         <div className="space-y-4">
           <h5 className="text-on-surface font-bold uppercase text-sm tracking-widest">
             Navigation

@@ -14,8 +14,6 @@ import {
 export default function Home() {
   return (
     <>
-      {/* <TopBar /> */}
-
       <main className="h-dvh overflow-hidden bg-background text-on-background">
         <section aria-label="3D showcase" className="h-full">
           <ThreeDShowcase />

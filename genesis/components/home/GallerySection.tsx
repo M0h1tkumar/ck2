@@ -3,7 +3,7 @@ import Image from "next/image";
 export function GallerySection() {
   return (
     <section className="space-y-8">
-      <h3 className="text-secondary text-4xl font-bold tracking-tight">
+      <h3 className="text-secondary text-xl sm:text-2xl md:text-4xl font-bold tracking-tight uppercase">
         The Gallery of Victors
       </h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
