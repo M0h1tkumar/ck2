@@ -133,6 +133,7 @@
             color: rgba(125, 208, 255, 0.58);
             text-transform: uppercase;
             margin-bottom: 10px;
+            text-align: center;
         }
 
         .ev-title {
@@ -141,20 +142,82 @@
             line-height: 1.1;
             margin-bottom: 14px;
             color: #d7f4ff;
+            text-align: center;
         }
 
         .ev-div {
             width: 40px;
             height: 1px;
-            background: linear-gradient(90deg, #7dd0ff, transparent);
-            margin-bottom: 24px;
+            background: linear-gradient(90deg, transparent, #7dd0ff, transparent);
+            margin: 0 auto 24px;
         }
 
         .ev-copy {
-            max-width: 560px;
+            max-width: 600px;
             color: rgba(222, 243, 255, 0.78);
             line-height: 1.65;
-            margin-bottom: 24px;
+            margin: 0 auto 32px;
+            text-align: center;
+        }
+
+        .logistics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .logistics-card {
+            background: rgba(125, 208, 255, 0.04);
+            border: 1px solid rgba(125, 208, 255, 0.15);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+        }
+
+        .logistics-card:hover {
+            background: rgba(125, 208, 255, 0.08);
+            border-color: rgba(125, 208, 255, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .log-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+            opacity: 0.6;
+            color: #7dd0ff;
+        }
+
+        .log-label {
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(125, 208, 255, 0.5);
+            margin-bottom: 8px;
+        }
+
+        .log-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #d7f4ff;
+            margin-bottom: 4px;
+        }
+
+        .log-content {
+            font-size: 13px;
+            color: rgba(222, 243, 255, 0.6);
+            line-height: 1.5;
         }
 
         .f-row {
@@ -251,16 +314,27 @@
     </div>
 
     <div id="right-col">
-        <div class="ev-marker">West — Jala District</div>
-        <h1 class="ev-title">Register</h1>
-        <div class="ev-div"></div>
-        <p class="ev-copy">Step into the Jala district and reserve your place in the formation. The water channel keeps the experience calm and focused while the registration flow stays right beside the summoning sequence.</p>
-        <div class="f-row"><label>Full Name</label><input type="text" placeholder="Your name"></div>
-        <div class="f-row"><label>Email</label><input type="email" placeholder="you@college.edu"></div>
-        <div class="f-row"><label>College</label><input type="text" placeholder="SOA University"></div>
-        <div class="f-row"><label>Event</label><select><option value="">Choose...</option><option>Code Vyuh</option><option>Yantra Yudh</option><option>Rang Mandal</option><option>Roop Chakra</option><option>Digital Kurukshetra</option><option>All Events</option></select></div>
-        <div class="f-row"><label>Team</label><input type="text" placeholder="Optional"></div>
-        <button class="f-btn">Register</button>
+        <div style="margin: auto 0; width: 100%;">
+            <div class="ev-marker">West — Choose Your Options District</div>
+            <h1 class="ev-title">store</h1>
+            <div class="ev-div"></div>
+            <p class="ev-copy">Step into the Choose Your Options district and reserve your place in the formation. The water channel keeps the experience calm and focused while the store flow stays right beside the summoning sequence.</p>
+            
+            <div class="logistics-grid">
+                <div class="logistics-card">
+                    <div class="log-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg></div>
+                    <div class="log-label">Collection</div>
+                    <div class="log-title">OFFICIAL MERCH</div>
+                    <div class="log-content">Placeholder for merchandise<br>Display the Merch Here</div>
+                </div>
+                <div class="logistics-card">
+                    <div class="log-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                    <div class="log-label">Logistics</div>
+                    <div class="log-title">EVENT VENUE</div>
+                    <div class="log-content">Placeholder for venue details<br>Venue Place Holder Here</div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>

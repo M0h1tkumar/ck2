@@ -1,0 +1,12 @@
+{
+  "name": "ck2-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix genesis",
+    "start": "npm run start --prefix genesis",
+    "build": "npm run build --prefix genesis",
+    "lint": "npm run lint --prefix genesis",
+    "postinstall": "npm install --prefix genesis"
+  }
+}

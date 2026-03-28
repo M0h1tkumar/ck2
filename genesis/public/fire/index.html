@@ -137,6 +137,7 @@
             color: rgba(255, 156, 96, 0.58);
             text-transform: uppercase;
             margin-bottom: 10px;
+            text-align: center;
         }
 
         .ev-title {
@@ -145,13 +146,14 @@
             line-height: 1.1;
             margin-bottom: 14px;
             color: #ffe4c9;
+            text-align: center;
         }
 
         .ev-div {
             width: 36px;
             height: 1px;
-            background: linear-gradient(90deg, #ff9c60, transparent);
-            margin-bottom: 24px;
+            background: linear-gradient(90deg, transparent, #ff9c60, transparent);
+            margin: 0 auto 24px;
         }
 
         .tl-item {
@@ -234,8 +236,8 @@
     </div>
 
     <div id="right-col">
-        <div class="ev-marker">East — Agni District</div>
-        <h1 class="ev-title">Events</h1>
+        <div class="ev-marker">East — Club's Event District</div>
+        <h1 class="ev-title">agenda</h1>
         <div class="ev-div"></div>
         <div class="tl-item"><div class="tl-time">Day 1<br>9 AM</div><div><div class="tl-name">Opening — The Conch Sounds</div><div class="tl-desc">Grand inauguration and unraveling of the Chakravyuh.</div></div></div>
         <div class="tl-item"><div class="tl-time">Day 1<br>11 AM</div><div><div class="tl-name">Code Vyuh — Hackathon</div><div class="tl-desc">24-hour hackathon. Build, break, deploy.</div></div></div>
@@ -243,7 +245,24 @@
         <div class="tl-item"><div class="tl-time">Day 2<br>10 AM</div><div><div class="tl-name">Rang Mandal — Cultural</div><div class="tl-desc">Dance, music, theatre.</div></div></div>
         <div class="tl-item"><div class="tl-time">Day 2<br>4 PM</div><div><div class="tl-name">Roop Chakra — Design Sprint</div><div class="tl-desc">4-hour UI/UX challenge.</div></div></div>
         <div class="tl-item"><div class="tl-time">Day 3<br>11 AM</div><div><div class="tl-name">Digital Kurukshetra — E-Sports</div><div class="tl-desc">Valorant, BGMI, Chess.</div></div></div>
-        <div class="tl-item"><div class="tl-time">Day 3<br>7 PM</div><div><div class="tl-name">Chakra Bhang — Closing</div><div class="tl-desc">DJ night, prizes, the formation breaks.</div></div></div>
+        <div class="tl-item" style="border-left: 2px solid #ff9c60; padding: 20px 12px; background: rgba(255, 156, 96, 0.08); border-radius: 0 20px 20px 0; margin: 12px 0;">
+            <div class="tl-time">Day 3<br>5 PM</div>
+            <div style="flex: 1;">
+                <div class="tl-name" style="color: #ff9c60; font-weight: 800; letter-spacing: 2px; font-size: 18px; margin-bottom: 8px;">STAR NIGHT — THE ASCENSION</div>
+                <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 12px;">
+                    <div style="width: 100px; height: 100px; background: radial-gradient(circle, rgba(255, 156, 96, 0.2) 0%, transparent 70%); border: 1px dashed rgba(255, 156, 96, 0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,156,96,0.3)" stroke-width="1.5" style="width: 40px;"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(255,156,96,0.1), transparent);"></div>
+                    </div>
+                    <div>
+                        <div style="font-size: 14px; color: #ffbb80; font-weight: 700; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px;">Artist Reveal</div>
+                        <div style="font-size: 12px; color: rgba(255,187,128,0.6); font-weight: 600;">REVEALING SOON</div>
+                    </div>
+                </div>
+                <div class="tl-desc" style="color: rgba(255,187,128,0.6); font-weight: 500;">EVENT DETAILS: REVEALING SOON</div>
+            </div>
+        </div>
+        <div class="tl-item"><div class="tl-time">Day 3<br>8 PM</div><div><div class="tl-name">Chakra Bhang — Closing</div><div class="tl-desc">The formation breaks. Prizes, celebrations, and farewells.</div></div></div>
     </div>
 
     <script>

@@ -92,20 +92,20 @@ html.embedded .d-n{top:24%}
 }
 
 /* BACK */
-#back-btn{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:200;font-family:'Cinzel',serif;font-size:clamp(9px, 1.2vw, 13px);letter-spacing:3px;text-transform:uppercase;color:var(--gold-b);padding:clamp(6px, 1vw, 10px) clamp(12px, 2vw, 24px);border:1px solid rgba(194,161,74,.35);border-radius:30px;background:rgba(8,6,4,.85);backdrop-filter:blur(8px);cursor:pointer;transition:all .35s;pointer-events:none;opacity:0;display:flex;align-items:center;gap:6px}
+#back-btn{position:fixed;top:20px;right:24px;z-index:200;font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-b);padding:6px 16px;border:1px solid rgba(194,161,74,0.3);border-radius:20px;background:rgba(8,6,4,0.4);backdrop-filter:blur(6px);cursor:pointer;transition:all .35s;pointer-events:none;opacity:0;display:flex;align-items:center;gap:6px;box-shadow:0 0 15px rgba(194,161,74,0.15)}
 #back-btn.show{opacity:1;pointer-events:auto}
-#back-btn:hover{border-color:var(--gold);background:rgba(194,161,74,.08)}
-#back-btn svg{width:clamp(10px, 1.3vw, 14px);height:clamp(10px, 1.3vw, 14px);stroke:var(--gold-b);fill:none;stroke-width:1.8}
+#back-btn:hover{border-color:var(--gold-b);background:rgba(194,161,74,.08);box-shadow:0 0 25px rgba(194,161,74,0.4);color:#fff}
+#back-btn svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:1.8;opacity:0.8}
 
 /* PANELS */
 .cpanel{position:fixed;inset:0;z-index:150;background:var(--panel-bg);backdrop-filter:blur(14px);opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:65px 16px 36px}
 .cpanel.show{opacity:1;visibility:visible}
 .cp-in{max-width:680px;width:100%;margin:0 auto;opacity:0;transform:translateY(20px);transition:all .5s ease .15s}
 .cpanel.show .cp-in{opacity:1;transform:translateY(0)}
-.cp-marker{font-family:'Cinzel',serif;font-size:clamp(8px, 1.1vw, 10px);letter-spacing:6px;color:var(--gold-d);text-transform:uppercase;margin-bottom:8px}
-.cp-in h1{font-family:'Cinzel',serif;font-size:clamp(26px,4.5vw,42px);font-weight:900;color:var(--gold);line-height:1.15;margin-bottom:16px}
-.cp-div{width:40px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin-bottom:18px}
-.cp-in p{font-size:clamp(14px, 1.8vw, 17px);line-height:1.7;color:var(--txt);opacity:.85;margin-bottom:12px;font-weight:300}
+.cp-marker{font-family:'Cinzel',serif;font-size:clamp(8px, 1.1vw, 10px);letter-spacing:6px;color:var(--gold-d);text-transform:uppercase;margin-bottom:8px;text-align:center}
+.cp-in h1{font-family:'Cinzel',serif;font-size:clamp(26px,4.5vw,42px);font-weight:900;color:var(--gold);line-height:1.15;margin-bottom:16px;text-align:center}
+.cp-div{width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 18px}
+.cp-in p{font-size:clamp(14px, 1.8vw, 17px);line-height:1.7;color:var(--txt);opacity:.85;margin-bottom:12px;font-weight:300;text-align:center}
 .hl{color:var(--gold-b);font-weight:500}
 .tl-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid rgba(194,161,74,.08);transition:padding .3s}
 .tl-item:hover{padding-left:4px}
@@ -146,8 +146,8 @@ html.embedded #choice-prompt{top:50%}
 @media(max-width:768px){
   #choice-prompt{width:min(90vw,520px)}
   #choice-prompt::before{width:min(96%,500px);height:132px;filter:blur(22px)}
-  #choice-prompt .title{letter-spacing:4px}
-  #choice-prompt .sub{letter-spacing:3px}
+  #choice-prompt .title{letter-spacing:3px;font-size:clamp(15px, 3.8vw, 26px)}
+  #choice-prompt .sub{letter-spacing:2.5px;font-size:clamp(7.5px, 1.6vw, 10px);margin-top:6px}
   html.embedded .d-n{top:25%}
 }
 </style>
@@ -167,14 +167,14 @@ html.embedded #choice-prompt{top:50%}
 
 <div id="center-btn">
   <button id="enter-btn"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="5" stroke="#E2C56A" stroke-width="1.2"/><circle cx="20" cy="20" r="13" stroke="#C2A14A" stroke-width=".7" stroke-dasharray="3 3"/><path d="M20 5v5M20 30v5M5 20h5M30 20h5" stroke="#E2C56A" stroke-width="1" stroke-linecap="round"/></svg></button>
-  <div class="lbl">Enter</div><div class="lbl-sub">Tap to begin</div>
+  <div class="lbl">Tap to begin</div><div class="lbl-sub">Enter</div>
 </div>
 
 <div id="dir-nav">
-  <div class="d-btn d-n" data-section="about" data-dir="north"><div class="d-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M7 10l5-5 5 5"/></svg></div><div class="d-lbl">About</div><div class="d-tag">Vayu</div></div>
-  <div class="d-btn d-e" data-section="events" data-dir="east"><div class="d-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M7 10l5-5 5 5"/></svg></div><div class="d-lbl">Events</div><div class="d-tag">Agni</div></div>
-  <div class="d-btn d-s" data-section="clubs" data-dir="south"><div class="d-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M7 10l5-5 5 5"/></svg></div><div class="d-lbl">Clubs</div><div class="d-tag">Prithvi</div></div>
-  <div class="d-btn d-w" data-section="register" data-dir="west"><div class="d-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M7 10l5-5 5 5"/></svg></div><div class="d-lbl">Register</div><div class="d-tag">Jala</div></div>
+  <div class="d-btn d-n" data-section="about" data-dir="north"><div class="d-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M7 10l5-5 5 5"/></svg></div><div class="d-lbl">Star Night</div><div class="d-tag">VAYU</div></div>
+  <div class="d-btn d-e" data-section="events" data-dir="east"><div class="d-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M7 10l5-5 5 5"/></svg></div><div class="d-lbl">AGendA</div><div class="d-tag">AGNI</div></div>
+  <div class="d-btn d-s" data-section="clubs" data-dir="south"><div class="d-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M7 10l5-5 5 5"/></svg></div><div class="d-lbl">Club's Event</div><div class="d-tag">PRITHVI</div></div>
+  <div class="d-btn d-w" data-section="register" data-dir="west"><div class="d-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M7 10l5-5 5 5"/></svg></div><div class="d-lbl">Store</div><div class="d-tag">JAL</div></div>
 </div>
 
 <div id="choice-prompt">
@@ -184,13 +184,24 @@ html.embedded #choice-prompt{top:50%}
 
 <div id="back-btn"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Return</div>
 
-<div class="cpanel" id="panel-about"><div class="cp-close" data-close><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><div class="cp-in"><div class="cp-marker">North — Vayu District</div><h1>Anant Tattva<br>Fest 2026</h1><div class="cp-div"></div><p>Welcome to <span class="hl">Anant Tattva</span> — where infinite elements converge. From the Sanskrit <em>Anant</em> (infinite) and <em>Tattva</em> (element, truth).</p><p>Like the ancient Chakravyuh — a formation no warrior could escape — our fest is a living labyrinth. Four districts woven into the rings, each governed by a primal element.</p><p><span class="hl">Vayu</span> · <span class="hl">Agni</span> · <span class="hl">Prithvi</span> · <span class="hl">Jala</span></p><p><span class="hl">April 18–20, 2026</span> · SOA Campus, Bhubaneswar</p></div></div>
+<div class="cpanel" id="panel-about"><div class="cp-close" data-close><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><div class="cp-in"><div class="cp-marker">North — AGenda District</div><h1>Anant Tattva<br>Fest 2026</h1><div class="cp-div"></div><p>Welcome to <span class="hl">Anant Tattva</span> — where infinite elements converge. From the Sanskrit <em>Anant</em> (infinite) and <em>Tattva</em> (element, truth).</p><p>Like the ancient Chakravyuh — a formation no warrior could escape — our fest is a living labyrinth. Four districts woven into the rings, each governed by a primal element.</p>
+<!-- Artist Teaser -->
+<div style="border: 1px solid rgba(255, 156, 96, 0.4); background: rgba(255, 156, 96, 0.08); border-radius: 20px; padding: 24px; margin: 24px 0; display: flex; align-items: center; gap: 24px;">
+    <div style="width: 80px; height: 80px; background: radial-gradient(circle, rgba(255, 156, 96, 0.3) 0%, transparent 70%); border: 1px dashed rgba(255, 156, 96, 0.5); border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,156,96,0.6)" stroke-width="1.5" style="width: 32px;"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </div>
+    <div style="text-align: left;">
+        <div style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #ff9c60; font-weight: 800; margin-bottom: 4px;">Star Night Reveal</div>
+        <div style="font-size: 16px; color: #fff; font-weight: 700; letter-spacing: 1px;">REVEALING SOON</div>
+    </div>
+</div>
+<p style="text-align: center; margin-top: 16px;"><span class="hl">April 18–20, 2026</span> · SOA Campus, Bhubaneswar</p></div></div>
 
-<div class="cpanel" id="panel-events" style="padding:0;overflow:hidden"><div class="cp-close" data-close style="z-index:200"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><iframe id="fire-frame" src="" style="width:100%;height:100%;border:none;display:block" allow="fullscreen" title="Agni — Events"></iframe></div>
+<div class="cpanel" id="panel-events" style="padding:0;overflow:hidden"><div class="cp-close" data-close style="z-index:200"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><iframe id="fire-frame" src="" style="width:100%;height:100%;border:none;display:block" allow="fullscreen" title="Club's Event — agenda"></iframe></div>
 
-<div class="cpanel" id="panel-register" style="padding:0;overflow:hidden"><div class="cp-close" data-close style="z-index:200"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><iframe id="water-frame" src="" style="width:100%;height:100%;border:none;display:block" allow="fullscreen" title="Jala — Water"></iframe></div>
+<div class="cpanel" id="panel-register" style="padding:0;overflow:hidden"><div class="cp-close" data-close style="z-index:200"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><iframe id="water-frame" src="" style="width:100%;height:100%;border:none;display:block" allow="fullscreen" title="Choose Your Options — store"></iframe></div>
 
-<div class="cpanel" id="panel-clubs" style="padding:0;overflow:hidden"><div class="cp-close" data-close style="z-index:200"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><iframe id="earth-frame" src="" style="width:100%;height:100%;border:none;display:block" allow="fullscreen" title="Prithvi — Clubs"></iframe></div>
+<div class="cpanel" id="panel-clubs" style="padding:0;overflow:hidden"><div class="cp-close" data-close style="z-index:200"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><iframe id="earth-frame" src="" style="width:100%;height:100%;border:none;display:block" allow="fullscreen" title="store — club's event"></iframe></div>
 
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"}}</script>
 <script type="module">
