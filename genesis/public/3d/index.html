@@ -346,19 +346,20 @@ document.querySelectorAll('.d-btn').forEach(btn=>{
 });
 
 $back.addEventListener('click',()=>{
-  if(state===ST.PNL)document.querySelectorAll('.cpanel.show').forEach(p=>p.classList.remove('show'));
-  if(state!==ST.CTR&&state!==ST.PNL)return;
-  $dirNav.classList.remove('show');$back.classList.remove('show');$choicePrompt.classList.remove('show');state=ST.ZM;
-  flyCamera(OV_POS,OV_TGT,2,()=>{state=ST.OV;controls.enabled=true;$enter.classList.remove('hide');$enter.classList.add('show')});
+  if(state!==ST.PNL)return;
+  const panel=document.querySelector('.cpanel.show');
+  if(panel){panel.classList.remove('show');if(panel.id==='panel-events'){const fr=document.getElementById('fire-frame');if(fr)fr.src='';}}
+  state=ST.FLY;
+  flyCamera(CTR_POS,CTR_TGT,1.4,()=>{state=ST.CTR;$dirNav.classList.add('show');$choicePrompt.classList.add('show')});
 });
 
 document.querySelectorAll('.cp-close').forEach(btn=>{
   btn.addEventListener('click',()=>{
-    const panel=btn.closest('.cpanel');
-    panel.classList.remove('show');
-    if(panel.id==='panel-events'){const fr=document.getElementById('fire-frame');if(fr)fr.src='';}
-    state=ST.FLY;
-    flyCamera(CTR_POS,CTR_TGT,1.4,()=>{state=ST.CTR;$dirNav.classList.add('show');$choicePrompt.classList.add('show')})});
+    document.querySelectorAll('.cpanel.show').forEach(p=>p.classList.remove('show'));
+    const fr=document.getElementById('fire-frame');if(fr)fr.src='';
+    $dirNav.classList.remove('show');$back.classList.remove('show');$choicePrompt.classList.remove('show');state=ST.ZM;
+    flyCamera(OV_POS,OV_TGT,2,()=>{state=ST.OV;controls.enabled=true;$enter.classList.remove('hide');$enter.classList.add('show')});
+  });
 });
 
 // INTRO ANIMATION
