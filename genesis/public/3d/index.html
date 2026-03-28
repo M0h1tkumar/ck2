@@ -188,7 +188,7 @@ html.embedded #choice-prompt{top:50%}
 
 <div class="cpanel" id="panel-events" style="padding:0;overflow:hidden"><div class="cp-close" data-close style="z-index:200"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><iframe id="fire-frame" src="" style="width:100%;height:100%;border:none;display:block" allow="fullscreen" title="Agni — Events"></iframe></div>
 
-<div class="cpanel" id="panel-register"><div class="cp-close" data-close><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><div class="cp-in"><div class="cp-marker">West — Jala District</div><h1>Register</h1><div class="cp-div"></div><div style="margin-top:20px"><div class="f-row"><label>Full Name</label><input type="text" placeholder="Your name"></div><div class="f-row"><label>Email</label><input type="email" placeholder="you@college.edu"></div><div class="f-row"><label>College</label><input type="text" placeholder="SOA University"></div><div class="f-row"><label>Event</label><select><option value="">Choose...</option><option>Code Vyuh</option><option>Yantra Yudh</option><option>Rang Mandal</option><option>Roop Chakra</option><option>Digital Kurukshetra</option><option>All Events</option></select></div><div class="f-row"><label>Team</label><input type="text" placeholder="Optional"></div><button class="f-btn">Register</button></div></div></div>
+<div class="cpanel" id="panel-register" style="padding:0;overflow:hidden"><div class="cp-close" data-close style="z-index:200"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><iframe id="water-frame" src="" style="width:100%;height:100%;border:none;display:block" allow="fullscreen" title="Jala — Water"></iframe></div>
 
 <div class="cpanel" id="panel-clubs"><div class="cp-close" data-close><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><div class="cp-in"><div class="cp-marker">South — Prithvi District</div><h1>Clubs</h1><div class="cp-div"></div><div class="clubs-grid"><div class="club-card"><div class="club-type">Tech</div><div class="club-name">Code Conclave</div></div><div class="club-card"><div class="club-type">Tech</div><div class="club-name">Robo Society</div></div><div class="club-card"><div class="club-type">Cultural</div><div class="club-name">Nritya</div></div><div class="club-card"><div class="club-type">Cultural</div><div class="club-name">Swar</div></div><div class="club-card"><div class="club-type">Literary</div><div class="club-name">Quill & Scroll</div></div><div class="club-card"><div class="club-type">Design</div><div class="club-name">PixelCraft</div></div><div class="club-card"><div class="club-type">E-Sports</div><div class="club-name">Cyber Corps</div></div><div class="club-card"><div class="club-type">Social</div><div class="club-name">Seva Mandal</div></div><div class="club-card"><div class="club-type">Media</div><div class="club-name">Lens & Light</div></div><div class="club-card"><div class="club-type">Business</div><div class="club-name">Venture Cell</div></div></div></div></div>
 
@@ -341,14 +341,18 @@ document.querySelectorAll('.d-btn').forEach(btn=>{
     flyMulti([
       {pos:pullPos,tgt:pullTgt,dur:.8},
       {pos:dc.pos,tgt:dc.tgt,dur:1.2},
-    ],()=>{state=ST.PNL;const p=document.getElementById('panel-'+sec);if(p){p.classList.add('show');if(sec==='events'){const fr=document.getElementById('fire-frame');if(fr)fr.src='/fire/index.html';}}});
+    ],()=>{state=ST.PNL;const p=document.getElementById('panel-'+sec);if(p){p.classList.add('show');if(sec==='events'){const fr=document.getElementById('fire-frame');if(fr)fr.src='/fire/index.html';}if(sec==='register'){const fr=document.getElementById('water-frame');if(fr)fr.src='/water/index.html';}}});
   });
 });
 
 $back.addEventListener('click',()=>{
   if(state!==ST.PNL)return;
   const panel=document.querySelector('.cpanel.show');
-  if(panel){panel.classList.remove('show');if(panel.id==='panel-events'){const fr=document.getElementById('fire-frame');if(fr)fr.src='';}}
+  if(panel){
+    panel.classList.remove('show');
+    if(panel.id==='panel-events'){const fr=document.getElementById('fire-frame');if(fr)fr.src='';}
+    if(panel.id==='panel-register'){const fr=document.getElementById('water-frame');if(fr)fr.src='';}
+  }
   state=ST.FLY;
   flyCamera(CTR_POS,CTR_TGT,1.4,()=>{state=ST.CTR;$dirNav.classList.add('show');$choicePrompt.classList.add('show')});
 });
@@ -356,7 +360,8 @@ $back.addEventListener('click',()=>{
 document.querySelectorAll('.cp-close').forEach(btn=>{
   btn.addEventListener('click',()=>{
     document.querySelectorAll('.cpanel.show').forEach(p=>p.classList.remove('show'));
-    const fr=document.getElementById('fire-frame');if(fr)fr.src='';
+    const fireFrame=document.getElementById('fire-frame');if(fireFrame)fireFrame.src='';
+    const waterFrame=document.getElementById('water-frame');if(waterFrame)waterFrame.src='';
     $dirNav.classList.remove('show');$back.classList.remove('show');$choicePrompt.classList.remove('show');state=ST.ZM;
     flyCamera(OV_POS,OV_TGT,2,()=>{state=ST.OV;controls.enabled=true;$enter.classList.remove('hide');$enter.classList.add('show')});
   });
