@@ -13,9 +13,8 @@
             min-height: 100vh;
             display: flex;
             background:
-                radial-gradient(circle at 28% 34%, rgba(154, 226, 255, 0.05), transparent 16%),
-                radial-gradient(circle at 72% 60%, rgba(82, 166, 224, 0.03), transparent 18%),
-                linear-gradient(180deg, #172430 0%, #1b2b38 12%, #213948 50%, #182733 88%, #101a22 100%);
+                radial-gradient(circle at 72% 74%, rgba(82, 166, 224, 0.035), transparent 18%),
+                linear-gradient(180deg, #213948 0%, #213948 70%, #182733 90%, #101a22 100%);
             color: #edf9ff;
         }
 
@@ -29,7 +28,7 @@
         }
 
         body.settled #left-col {
-            width: 38%;
+            width: 42%;
         }
 
         #scene-container {
@@ -58,7 +57,7 @@
         }
 
         body.settled #character {
-            left: 66%;
+            left: 63.5%;
             transform: translateX(-50%) scale(0.98);
         }
 
@@ -94,7 +93,7 @@
         }
 
         body.settled #magic-container {
-            left: 69%;
+            left: 65.5%;
         }
 
         #orb-canvas {
@@ -106,7 +105,7 @@
         }
 
         #right-col {
-            width: 60%;
+            width: 56%;
             min-width: 0;
             height: 100vh;
             padding: 40px 36px 84px 22px;
@@ -164,7 +163,7 @@
             text-align: center;
             font-size: 14px;
         }
-        .sticky-head { position: relative; z-index: 6; padding: 2px 0 10px; margin-bottom: 2px; background: linear-gradient(180deg, rgba(6, 27, 41, 0.96) 0%, rgba(6, 27, 41, 0.88) 72%, rgba(6, 27, 41, 0) 100%); backdrop-filter: blur(10px); }
+        .sticky-head { position: relative; z-index: 6; padding: 2px 0 10px; margin-bottom: 2px; background: transparent; backdrop-filter: none; }
         .content-shell { display: flex; flex-direction: column; flex: 1; min-height: 0; }
         .scroll-body { width: 100%; flex: 1; min-height: 0; overflow-y: auto; padding-bottom: 24px; }
 

@@ -13,9 +13,8 @@
             min-height: 100vh;
             display: flex;
             background:
-                radial-gradient(circle at 28% 34%, rgba(255, 176, 128, 0.05), transparent 16%),
-                radial-gradient(circle at 72% 60%, rgba(228, 116, 72, 0.03), transparent 18%),
-                linear-gradient(180deg, #34211c 0%, #3a241e 12%, #412720 50%, #331f1a 88%, #2a1b17 100%);
+                radial-gradient(circle at 72% 74%, rgba(228, 116, 72, 0.035), transparent 18%),
+                linear-gradient(180deg, #412720 0%, #412720 70%, #331f1a 90%, #2a1b17 100%);
             color: #fff6ef;
         }
 
@@ -172,11 +171,12 @@
             z-index: 6;
             padding: 2px 0 10px;
             margin-bottom: 2px;
-            background: linear-gradient(180deg, rgba(58, 36, 30, 0.96) 0%, rgba(58, 36, 30, 0.88) 72%, rgba(58, 36, 30, 0) 100%);
-            backdrop-filter: blur(10px);
+            background: transparent;
+            backdrop-filter: none;
         }
         .content-shell { display: flex; flex-direction: column; flex: 1; min-height: 0; }
-        .scroll-body { width: 100%; flex: 1; min-height: 0; overflow-y: auto; padding-bottom: 24px; }
+        .scroll-body { width: 100%; flex: 1; min-height: 0; overflow-y: auto; padding-bottom: 24px; scrollbar-width: none; -ms-overflow-style: none; }
+        .scroll-body::-webkit-scrollbar { display: none; }
 
         .tl-item {
             display: flex;

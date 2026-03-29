@@ -11,6 +11,7 @@
 html{-webkit-tap-highlight-color:transparent}
 html,body{width:100%;min-height:var(--app-height)}
 body{overflow:hidden;background:var(--bg);font-family:'Cormorant Garamond',serif;color:var(--txt);touch-action:none;min-height:var(--app-height)}
+body::after{content:'';position:fixed;left:0;right:0;bottom:0;height:34vh;pointer-events:none;z-index:2;background:linear-gradient(180deg,rgba(8,6,4,0) 0%,rgba(40,22,12,.06) 52%,rgba(68,36,18,.16) 100%)}
 canvas{display:block;position:fixed;inset:0;z-index:1}
 
 /* LOADER */
@@ -66,6 +67,7 @@ html.embedded .d-n{top:24%}
 .d-icon svg{width:clamp(14px, 1.8vw, 20px);height:clamp(14px, 1.8vw, 20px);stroke:var(--d-col);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px var(--d-glow))}
 .d-lbl{font-family:'Cinzel',serif;font-size:clamp(12px, 2.2vw, 20px);font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--d-col);transition:all .3s;white-space:nowrap;text-shadow:0 0 10px var(--d-glow),0 2px 10px rgba(0,0,0,.55);text-align:center}
 .d-tag{font-family:'Cinzel',serif;font-size:clamp(9px, 1.4vw, 14px);font-weight:700;letter-spacing:3px;color:rgba(255,255,255,.7);text-transform:uppercase;white-space:nowrap;text-shadow:0 0 8px rgba(255,255,255,.1);text-align:center}
+.d-s .d-tag{color:rgba(198,255,218,.88);text-shadow:0 0 10px rgba(77,255,136,.22),0 2px 10px rgba(0,0,0,.7)}
 
 /* HOVER STATES */
 .d-btn:hover .d-icon{transform:scale(1.1);box-shadow:0 4px 30px var(--d-glow);background:var(--d-glow-b)}
@@ -78,10 +80,10 @@ html.embedded .d-n{top:24%}
   25%{opacity:1;transform:translate(var(--dx),var(--dy)) scale(1.5)}
   100%{transform:translate(var(--dx2),var(--dy2)) scale(0);opacity:0}
 }
-.d-n{top:18%;left:50%;transform:translateX(-50%)}
-.d-e{right:5%;top:50%;transform:translateY(-50%)}
-.d-s{bottom:13%;left:50%;transform:translateX(-50%)}
-.d-w{left:5%;top:50%;transform:translateY(-50%)}
+.d-n{top:16.5%;left:50%;transform:translateX(-50%)}
+.d-e{right:8%;top:49%;transform:translateY(-50%)}
+.d-s{bottom:11%;left:50%;transform:translateX(-50%)}
+.d-w{left:8%;top:49%;transform:translateY(-50%)}
 .d-btn::before{content:'';position:absolute;inset:-8px;border-radius:24px;background:radial-gradient(circle at center,rgba(0,0,0,.22),rgba(0,0,0,0) 72%);opacity:0;transition:opacity .3s;z-index:-1}
 .d-btn:hover::before{opacity:1}
 .d-n .d-icon svg{transform:rotate(0)}.d-e .d-icon svg{transform:rotate(90deg)}.d-s .d-icon svg{transform:rotate(180deg)}.d-w .d-icon svg{transform:rotate(-90deg)}
@@ -225,6 +227,10 @@ html.embedded #choice-prompt{top:50%}
   #choice-prompt .sub{letter-spacing:2.5px;font-size:clamp(7.5px, 1.6vw, 10px);margin-top:6px}
   html.embedded .d-n{top:25%}
 }
+@media (hover:hover) and (pointer:fine){
+  html.embedded .d-n,.d-n{top:13%;left:50%;transform:translateX(-50%)}
+  html.embedded .d-s,.d-s{bottom:7%;left:50%;transform:translateX(-50%)}
+}
 </style>
 </head>
 <body>
@@ -304,8 +310,8 @@ const ST={OV:'ov',ZM:'zm',CTR:'ctr',FLY:'fly',PNL:'pnl',INTRO:'intro'};
 let state=ST.INTRO;
 
 const scene=new THREE.Scene();
-scene.background=new THREE.Color(0x080604);
-scene.fog=new THREE.FogExp2(0x080604,.012);
+scene.background=new THREE.Color(0x000000);
+scene.fog=new THREE.FogExp2(0x000000,.012);
 const initialViewport=getViewport();
 const camera=new THREE.PerspectiveCamera(50,initialViewport.width/initialViewport.height,.1,200);
 camera.position.set(0,28,0.01);
