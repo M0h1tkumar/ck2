@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
 const embedded=new URLSearchParams(window.location.search).get('embedded')==='1';
+const forcedDistrictView=new URLSearchParams(window.location.search).get('districtView');
 if(embedded)document.documentElement.classList.add('embedded');
 const root=document.documentElement;
 const deviceMemory=navigator.deviceMemory||4;
@@ -125,10 +126,15 @@ const DCAM={
   south:{pos:[0,dH,dCamR],tgt:[0,1,dR]},
   west:{pos:[-dCamR,dH,0],tgt:[-dR,1,0]},
 };
+const DISTRICT_PAGE_VERSION='20260329-fire-mobile-bottom-left-1';
 
 function districtPageUrl(name){
-  const mobileView=window.innerWidth<=900;
-  return `/${name}/${mobileView?'mobile.html':'index.html'}`;
+  const mobileView=forcedDistrictView==='mobile'
+    ? true
+    : forcedDistrictView==='desktop'
+      ? false
+      : window.innerWidth<=900;
+  return `/${name}/${mobileView?'mobile.html':'index.html'}?v=${DISTRICT_PAGE_VERSION}`;
 }
 
 const DISTRICT_ASSETS={
@@ -253,7 +259,7 @@ document.querySelectorAll('.cp-close').forEach(btn=>{
 
 // INTRO ANIMATION
 let introStartTime=null;
-const INTRO_DUR=3.0;
+const INTRO_DUR=1.8;
 const INTRO_CAM_FROM=[0,28,0.01];
 const INTRO_CAM_TO=OV_POS;
 function startIntro(){
@@ -344,13 +350,53 @@ function animate(){
 animate();
 
 // LOADER
-const bar=document.getElementById('ld-fill');let lp=0;
-const li=setInterval(()=>{lp+=10+Math.random()*15;if(lp>=100){lp=100;clearInterval(li)}bar.style.width=lp+'%'},140);
-setTimeout(()=>{
-  document.getElementById('loader').classList.add('done');
+const loader=document.getElementById('loader');
+const loaderVideo=document.getElementById('loader-video');
+const bar=document.getElementById('ld-fill');
+let loaderFinished=false;
+
+function finishLoader(){
+  if(loaderFinished||!loader)return;
+  loaderFinished=true;
+  if(bar)bar.style.width='100%';
+  startIntro();
+  requestAnimationFrame(()=>loader.classList.add('done'));
   if(!embedded)$hdr.classList.add('show');
-  setTimeout(()=>{document.getElementById('loader').remove();startIntro()},600);
-},2200);
+  setTimeout(()=>{loader.remove();},1200);
+}
+
+if(loaderVideo){
+  const syncLoaderProgress=()=>{
+    if(loaderFinished)return;
+    const duration=loaderVideo.duration;
+    if(Number.isFinite(duration)&&duration>0){
+      if(duration-loaderVideo.currentTime<=0.6){
+        finishLoader();
+        return;
+      }
+    }
+    if(bar&&Number.isFinite(duration)&&duration>0){
+      const progress=Math.min(100,(loaderVideo.currentTime/duration)*100);
+      bar.style.width=progress+'%';
+    }
+  };
+
+  loaderVideo.addEventListener('loadedmetadata',syncLoaderProgress);
+  loaderVideo.addEventListener('timeupdate',syncLoaderProgress);
+  loaderVideo.addEventListener('ended',finishLoader,{once:true});
+  loaderVideo.addEventListener('error',finishLoader,{once:true});
+
+  const playPromise=loaderVideo.play();
+  if(playPromise&&typeof playPromise.catch==='function'){
+    playPromise.catch(()=>finishLoader());
+  }
+
+  setTimeout(()=>{
+    if(!loaderFinished&&loaderVideo.readyState<2)finishLoader();
+  },5000);
+}else{
+  finishLoader();
+}
 
 function handleViewportResize(){
   syncViewport();

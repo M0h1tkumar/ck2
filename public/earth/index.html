@@ -11,9 +11,7 @@
             overflow: hidden;
             min-height: 100vh;
             display: flex;
-            background:
-                radial-gradient(circle at 72% 74%, rgba(84, 160, 112, 0.035), transparent 18%),
-                linear-gradient(180deg, #29362b 0%, #29362b 70%, #1d271e 90%, #161d17 100%);
+            background: #29362b;
             color: #eef5eb;
         }
         #left-col {
@@ -50,8 +48,8 @@
             backface-visibility: hidden;
             will-change: left, bottom, transform;
         }
-        body.boot #character { bottom: 0; }
-        body.shifting #character { left: 50%; transform: translate3d(calc(-50% + 2vw), 0, 0); }
+        body.boot #character { bottom: -58px; transform: translate3d(calc(-50% + 3vw), 0, 0); }
+        body.shifting #character { left: 50%; transform: translate3d(calc(-50% + 6vw), 0, 0); }
         #magic-container {
             position: absolute;
             left: 50%;
@@ -70,8 +68,8 @@
             filter: drop-shadow(0 0 18px rgba(210, 182, 102, 0.30)) drop-shadow(0 0 42px rgba(121, 92, 38, 0.22));
         }
         body.orb-on #magic-container { opacity: 1; transform: translate3d(-50%, 0, 0) scale(1); }
-        body.orb-on:not(.settled) #magic-container { left: 52.4%; bottom: 25.4%; }
-        body.shifting #magic-container { left: 50%; transform: translate3d(calc(-50% + 8vw), 0, 0) scale(1); }
+        body.orb-on:not(.settled) #magic-container { left: 54.9%; bottom: 19.3%; }
+        body.shifting #magic-container { left: 50%; bottom: 18.9%; transform: translate3d(calc(-50% + 8.1vw), 0, 0) scale(1); }
         #orb-canvas {
             position: absolute;
             inset: -32%;
@@ -84,7 +82,7 @@
             min-width: 0;
             height: 100vh;
             min-height: 0;
-            padding: 38px 34px 140px 24px;
+            padding: 28px 34px 64px 24px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -92,10 +90,20 @@
             transform: translateX(48px);
             transition: opacity 0.85s ease, transform 0.95s ease;
             border-left: 1px solid rgba(123, 205, 143, 0.24);
-            background: linear-gradient(180deg, rgba(26, 48, 32, 0.34), rgba(12, 22, 15, 0.16));
+            background: transparent;
             overflow: hidden;
             contain: layout paint;
             will-change: transform, opacity;
+        }
+        #right-col::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 96px;
+            pointer-events: none;
+            background: linear-gradient(180deg, rgba(41, 54, 43, 0) 0%, rgba(41, 54, 43, 0.82) 58%, #29362b 100%);
         }
         body.settled #right-col { opacity: 1; transform: translateX(0); }
         #right-col::-webkit-scrollbar { width: 6px; }
@@ -117,7 +125,7 @@
             grid-template-columns: repeat(auto-fill, minmax(124px, 1fr));
             gap: 28px 20px;
             max-width: 760px;
-            margin: 0 auto 72px;
+            margin: 0 auto 28px;
             justify-content: center;
         }
         

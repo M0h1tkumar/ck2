@@ -56,10 +56,11 @@
         }
 
         body.boot #character {
-            bottom: 0;
+            bottom: -58px;
+            transform: translate3d(calc(-50% + 3vw), 0, 0);
         }
 
-        body.shifting #character { left: 50%; transform: translate3d(calc(-50% + 2vw), 0, 0) scale(0.98); }
+        body.shifting #character { left: 50%; transform: translate3d(calc(-50% + 6vw), 0, 0) scale(0.98); }
 
         #magic-container {
             position: absolute;
@@ -86,11 +87,11 @@
         body.orb-on #magic-container { opacity: 1; transform: translate3d(-50%, 0, 0) scale(1); }
 
         body.orb-on:not(.settled) #magic-container {
-            left: 51.8%;
-            bottom: 23.9%;
+            left: 54.5%;
+            bottom: 18.6%;
         }
 
-        body.shifting #magic-container { left: 50%; transform: translate3d(calc(-50% + 8vw), 0, 0) scale(1); }
+        body.shifting #magic-container { left: 50%; bottom: 17.2%; transform: translate3d(calc(-50% + 8.1vw), 0, 0) scale(1); }
 
         #orb-canvas {
             position: absolute;
