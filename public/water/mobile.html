@@ -33,9 +33,11 @@
             flex-shrink: 0;
             transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
             overflow: hidden;
+            contain: layout paint;
+            will-change: width;
         }
 
-        body.settled #left-col {
+        body.shifting #left-col {
             width: 38%;
         }
 
@@ -50,13 +52,14 @@
             left: 50%;
             height: 88vh;
             width: auto;
-            transform: translateX(-50%);
+            transform: translate3d(-50%, 0, 0);
             z-index: 1;
             user-select: none;
             -webkit-user-drag: none;
+            backface-visibility: hidden;
+            will-change: left, bottom, transform;
             transition:
                 bottom 1.25s cubic-bezier(0.25, 1, 0.5, 1),
-                left 1.2s cubic-bezier(0.22, 1, 0.36, 1),
                 transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
@@ -64,10 +67,7 @@
             bottom: 0;
         }
 
-        body.settled #character {
-            left: 66%;
-            transform: translateX(-50%) scale(0.98);
-        }
+        body.shifting #character { left: 50%; transform: translate3d(calc(-50% + 2vw), 0, 0) scale(0.98); }
         @media (min-width: 901px) {
             body.desktop-enter #character {
                 bottom: 0;
@@ -85,7 +85,7 @@
             bottom: 23.5%;
             width: min(22vw, 170px);
             aspect-ratio: 1 / 1;
-            transform: translateX(-50%) scale(0.82);
+            transform: translate3d(-50%, 0, 0) scale(0.82);
             transform-origin: center;
             opacity: 0;
             z-index: 2;
@@ -94,27 +94,23 @@
             transition:
                 opacity 0.9s ease,
                 transform 1.15s cubic-bezier(0.22, 1, 0.36, 1),
-                left 1.2s cubic-bezier(0.22, 1, 0.36, 1),
                 bottom 1.2s cubic-bezier(0.22, 1, 0.36, 1),
                 width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: left, bottom, transform, opacity;
+            backface-visibility: hidden;
             filter:
                 drop-shadow(0 0 18px rgba(86, 217, 255, 0.30))
                 drop-shadow(0 0 42px rgba(18, 132, 255, 0.20));
         }
 
-        body.orb-on #magic-container {
-            opacity: 1;
-            transform: translateX(-50%) scale(1);
-        }
+        body.orb-on #magic-container { opacity: 1; transform: translate3d(-50%, 0, 0) scale(1); }
 
         body.orb-on:not(.settled) #magic-container {
             left: 51.8%;
             bottom: 23.9%;
         }
 
-        body.settled #magic-container {
-            left: 69%;
-        }
+        body.shifting #magic-container { left: 50%; transform: translate3d(calc(-50% + 8vw), 0, 0) scale(1); }
 
         #orb-canvas {
             position: absolute;
@@ -136,6 +132,8 @@
             transform: translateX(48px);
             transition: opacity 0.8s ease, transform 0.9s ease;
             border-left: 1px solid rgba(125, 208, 255, 0.12);
+            contain: layout paint;
+            will-change: transform, opacity;
         }
 
         body.settled #right-col {
@@ -306,7 +304,7 @@
             }
 
             #left-col,
-            body.settled #left-col,
+            body.shifting #left-col,
             #right-col {
                 width: 100%;
             }
@@ -327,24 +325,24 @@
                 transform: translateY(0);
             }
 
-            body.settled #character {
+            body.shifting #character {
                 left: 50%;
             }
 
-            body.settled #magic-container {
+            body.shifting #magic-container {
                 left: 52%;
             }
         }
         @media (max-width: 900px) and (orientation: portrait) {
             body { display: block; overflow-y: auto; overflow-x: hidden; }
-            #left-col, body.settled #left-col { position: fixed; inset: 0; width: 100%; min-height: var(--page-height); pointer-events: none; z-index: 3; }
+            #left-col, body.shifting #left-col { position: fixed; inset: 0; width: 100%; min-height: var(--page-height); pointer-events: none; z-index: 3; }
             #scene-container { position: fixed; inset: 0; }
             #character { height: min(64vh, 540px); opacity: 1; filter: none; }
             body.boot #character { left: 50%; bottom: 0; transform: translateX(-50%) scale(1.1); }
-            body.settled #character { left: 26%; bottom: calc(var(--safe-bottom) - 8px); transform: translateX(-50%) scale(0.76); }
+            body.shifting #character { left: 50%; bottom: calc(var(--safe-bottom) - 8px); transform: translate3d(calc(-50% - 24vw), 0, 0) scale(0.76); }
             #magic-container { width: min(18vw, 78px); bottom: 24%; opacity: 1; filter: drop-shadow(0 0 12px rgba(86, 217, 255, 0.3)) drop-shadow(0 0 28px rgba(18, 132, 255, 0.2)); }
             body.orb-on:not(.settled) #magic-container { left: 53%; bottom: 18%; }
-            body.settled #magic-container { left: 33%; bottom: calc(var(--safe-bottom) + 184px); transform: translateX(-50%) scale(0.72); }
+            body.shifting #magic-container { left: 50%; bottom: calc(var(--safe-bottom) + 184px); transform: translate3d(calc(-50% - 17vw), 0, 0) scale(0.72); }
             #right-col { position: relative; z-index: 2; min-height: var(--page-height); height: var(--page-height); padding: calc(var(--safe-top) + 28px) calc(var(--safe-right) + 18px) calc(var(--safe-bottom) + 24px) calc(var(--safe-left) + 18px); transform: none; overflow: hidden; border: 0; background: linear-gradient(180deg, #213948 0, #213948 248px, transparent 248px, transparent 100%); }
             body.settled #right-col { transform: none; }
             .content-shell { margin-top: 0; padding: 16px 0 0; height: 100%; }
@@ -359,10 +357,10 @@
         }
         @media (max-width: 560px) and (orientation: portrait) {
             #character { height: min(60vh, 450px); }
-            body.settled #character { left: 24%; transform: translateX(-50%) scale(0.7); }
+            body.shifting #character { left: 50%; transform: translate3d(calc(-50% - 26vw), 0, 0) scale(0.7); }
             #magic-container { width: min(16vw, 58px); }
             body.orb-on:not(.settled) #magic-container { left: 52.5%; bottom: 17%; }
-            body.settled #magic-container { left: 31%; bottom: calc(var(--safe-bottom) + 148px); transform: translateX(-50%) scale(0.66); }
+            body.shifting #magic-container { left: 50%; bottom: calc(var(--safe-bottom) + 148px); transform: translate3d(calc(-50% - 19vw), 0, 0) scale(0.66); }
             #right-col { padding: calc(var(--safe-top) + 24px) calc(var(--safe-right) + 14px) calc(var(--safe-bottom) + 20px) calc(var(--safe-left) + 14px); }
             .content-shell { padding: 14px 0 0; }
             .sticky-head { padding-bottom: 10px; }
@@ -590,7 +588,7 @@
         function startSequence() {
             if (sequenceStarted) return;
             sequenceStarted = true;
-            document.body.classList.remove('boot', 'orb-on', 'settled', 'desktop-enter', 'desktop-rise');
+            document.body.classList.remove('boot', 'orb-on', 'shifting', 'settled', 'desktop-enter', 'desktop-rise');
             const isDesktop = window.innerWidth > 900;
             void character.offsetHeight;
             if (isDesktop) {
@@ -606,8 +604,11 @@
                     startRenderLoop();
                 }, 1100);
                 setTimeout(() => {
-                    document.body.classList.add('settled');
+                    document.body.classList.add('shifting');
                 }, 2300);
+                setTimeout(() => {
+                    document.body.classList.add('settled');
+                }, 2620);
             } else {
                 requestAnimationFrame(() => {
                     setTimeout(() => {
@@ -619,7 +620,8 @@
                             startRenderLoop();
                         }, 1100);
 
-                        setTimeout(() => document.body.classList.add('settled'), 2100);
+                        setTimeout(() => document.body.classList.add('shifting'), 2100);
+                        setTimeout(() => document.body.classList.add('settled'), 2420);
                     }, 20);
                 });
             }

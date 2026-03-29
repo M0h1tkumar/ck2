@@ -1,0 +1,218 @@
+const character = document.getElementById('character');
+        const canvas = document.getElementById('orb-canvas');
+        const ctx = canvas.getContext('2d');
+let cx = 0, cy = 0, radius = 0, startTime = performance.now(), igniteAt = 0;
+let sequenceStarted = false;
+        const isLowPower = navigator.hardwareConcurrency <= 4 || /Android|iPhone|iPad/i.test(navigator.userAgent);
+        const ringCount = isLowPower ? 3 : 4, shardCount = isLowPower ? 8 : 12, moteCount = isLowPower ? 26 : 40;
+
+        const motes = Array.from({ length: moteCount }, () => ({
+            angle: Math.random() * Math.PI * 2,
+            distance: 0.38 + Math.random() * 0.56,
+            size: 1.4 + Math.random() * 3.4,
+            speed: 0.18 + Math.random() * 0.5,
+            orbit: (Math.random() < 0.5 ? -1 : 1) * (0.14 + Math.random() * 0.32),
+            alpha: 0.28 + Math.random() * 0.42,
+            rise: 0.04 + Math.random() * 0.16
+        }));
+
+        function resizeCanvas() {
+            const rect = canvas.getBoundingClientRect();
+            const dpr = Math.min(window.devicePixelRatio || 1, isLowPower ? 1 : 1.5);
+            canvas.width = Math.max(1, Math.round(rect.width * dpr));
+            canvas.height = Math.max(1, Math.round(rect.height * dpr));
+            ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.scale(dpr, dpr);
+            cx = rect.width / 2; cy = rect.height / 2;
+            radius = Math.min(rect.width, rect.height) * 0.23;
+        }
+
+        function polarPoint(angle, dist, yScale = 1) { return { x: cx + Math.cos(angle) * dist, y: cy + Math.sin(angle) * dist * yScale }; }
+
+        function drawEarthGlow(energy) {
+            const outer = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 2.55);
+            outer.addColorStop(0, `rgba(242, 224, 177, ${0.10 * energy})`);
+            outer.addColorStop(0.24, `rgba(195, 161, 94, ${0.14 * energy})`);
+            outer.addColorStop(0.55, `rgba(120, 88, 36, ${0.12 * energy})`);
+            outer.addColorStop(1, 'rgba(0, 0, 0, 0)');
+            ctx.fillStyle = outer; ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function drawCore(energy, t) {
+            const coreR = radius * (0.79 + Math.sin(t * 1.8) * 0.03);
+            const aura = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 1.6);
+            aura.addColorStop(0, `rgba(250, 241, 214, ${0.9 * energy})`);
+            aura.addColorStop(0.5, `rgba(143, 109, 56, ${0.42 * energy})`);
+            aura.addColorStop(1, 'rgba(0, 0, 0, 0)');
+            ctx.fillStyle = aura; ctx.beginPath(); ctx.arc(cx, cy, radius * 1.6, 0, Math.PI * 2); ctx.fill();
+            const core = ctx.createRadialGradient(cx - radius * 0.08, cy - radius * 0.12, radius * 0.05, cx, cy, coreR);
+            core.addColorStop(0, `rgba(255, 248, 232, ${0.96 * energy})`);
+            core.addColorStop(1, 'rgba(0, 0, 0, 0)');
+            ctx.fillStyle = core; ctx.beginPath(); ctx.arc(cx, cy, coreR, 0, Math.PI * 2); ctx.fill();
+        }
+
+        function drawStoneRings(energy, t) {
+            for (let i = 0; i < ringCount; i++) {
+                const phase = t * (0.8 + i * 0.12) + i * 1.4;
+                const r = radius * (0.94 + i * 0.16 + Math.sin(phase) * 0.02);
+                ctx.strokeStyle = `rgba(216, 188, 122, ${(0.14 - i * 0.02) * energy})`;
+                ctx.lineWidth = Math.max(1, radius * (0.022 - i * 0.003));
+                ctx.beginPath(); ctx.ellipse(cx, cy, r, r * 0.86, phase * 0.08, 0, Math.PI * 2); ctx.stroke();
+            }
+        }
+
+        function drawShards(energy, t) {
+            for (let i = 0; i < shardCount; i++) {
+                const baseAngle = (i / shardCount) * Math.PI * 2 + t * (0.16 + (i % 3) * 0.05);
+                const inner = polarPoint(baseAngle, radius * 0.4), outer = polarPoint(baseAngle + 0.08, radius * 1.02);
+                ctx.strokeStyle = `rgba(198, 163, 94, ${0.46 * energy})`; ctx.lineWidth = radius * 0.024;
+                ctx.beginPath(); ctx.moveTo(inner.x, inner.y); ctx.lineTo(outer.x, outer.y); ctx.stroke();
+            }
+        }
+
+        function drawMotes(energy, t) {
+            for (const mote of motes) {
+                const ang = mote.angle + t * mote.orbit, dist = radius * (1.02 + mote.distance);
+                const x = cx + Math.cos(ang) * dist, y = cy + Math.sin(ang) * dist * 0.84;
+                ctx.fillStyle = `rgba(248, 235, 199, ${mote.alpha * energy})`;
+                ctx.beginPath(); ctx.arc(x, y, mote.size, 0, Math.PI * 2); ctx.fill();
+            }
+        }
+
+        function drawOrb(now) {
+            const t = (now - startTime) / 1000;
+            const reveal = igniteAt ? Math.min(1, (now - igniteAt) / 850) : 0;
+            const energy = 0.35 + 0.65 * reveal;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawEarthGlow(energy); drawStoneRings(energy, t); drawShards(energy, t); drawCore(energy, t); drawMotes(energy, t);
+            requestAnimationFrame(drawOrb);
+        }
+
+        const clubsGrid = document.getElementById('clubs-grid');
+        const clubFocusOverlay = document.getElementById('club-focus-overlay');
+        const clubPopupRoot = document.getElementById('club-popup-root');
+        const eventData = new Map();
+        let activePopup = null;
+
+        function renderClub(club) {
+            const card = document.createElement('div');
+            card.className = 'club-card';
+            card.innerHTML = `
+                <button class="club-logo" type="button" aria-label="Open ${club.name} events"><img src="${club.logo}" alt="${club.name}"></button>
+                <div class="club-info"><div class="club-name">${club.name}</div></div>
+                <div class="club-events-pop">
+                    <button class="club-pop-close" type="button" aria-label="Close">×</button>
+                    <div class="club-pop-top">
+                        <div class="club-pop-logo"><img src="${club.logo}" alt="${club.name}"></div>
+                        <div class="pop-title">${club.type}</div>
+                        <div class="club-pop-name">${club.name}</div>
+                    </div>
+                    <div class="club-pop-list">
+                    ${club.events.map(event => `<button class="ev-item" type="button" data-event-id="${event.id}">${event.name}</button>`).join('')}
+                    </div>
+                </div>
+            `;
+            return card;
+        }
+
+        async function loadClubData() {
+            const response = await fetch('/earth/clubs.json');
+            if (!response.ok) throw new Error('Failed to load club data');
+            const data = await response.json();
+            clubsGrid.innerHTML = '';
+            data.clubs.forEach(club => {
+                club.events.forEach(event => eventData.set(event.id, event));
+                clubsGrid.appendChild(renderClub(club));
+            });
+            bindClubInteractions();
+        }
+
+        const modal = document.getElementById('ev-modal'), closeModal = document.getElementById('modal-close');
+        function openEventDetail(eventId) {
+            const data = eventData.get(eventId); if (!data) return;
+            document.getElementById('m-title').textContent = data.name;
+            document.getElementById('m-date').textContent = data.date;
+            document.getElementById('m-loc').textContent = data.location;
+            document.getElementById('m-prize').textContent = data.prize;
+            document.getElementById('m-contact').textContent = data.contact;
+            document.getElementById('m-desc').textContent = data.description;
+            document.getElementById('m-link').href = data.link;
+            modal.classList.add('open');
+        }
+        closeModal.onclick = () => modal.classList.remove('open');
+        modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('open'); });
+        const modalContent = modal.querySelector('.modal-content');
+        modalContent?.addEventListener('click', (e) => e.stopPropagation());
+
+        function bindClubInteractions() {
+            const clearActiveCards = () => {
+                document.querySelectorAll('.club-card.active').forEach(active => active.classList.remove('active'));
+                if (activePopup) {
+                    activePopup.remove();
+                    activePopup = null;
+                }
+                clubsGrid.classList.remove('focus-mode');
+                document.body.classList.remove('club-focus');
+            };
+            document.querySelectorAll('.club-logo').forEach(logo => {
+                logo.onclick = (e) => {
+                    e.stopPropagation();
+                    const card = logo.closest('.club-card');
+                    const popup = card.querySelector('.club-events-pop');
+                    const shouldOpen = !card.classList.contains('active');
+                    clearActiveCards();
+                    if (shouldOpen) {
+                        card.classList.add('active');
+                        if (popup) {
+                            activePopup = popup.cloneNode(true);
+                            clubPopupRoot.appendChild(activePopup);
+                            requestAnimationFrame(() => activePopup?.classList.add('open'));
+                        }
+                        clubsGrid.classList.add('focus-mode');
+                        document.body.classList.add('club-focus');
+                    }
+                };
+            });
+            clubsGrid.addEventListener('click', (e) => e.stopPropagation());
+            clubFocusOverlay.addEventListener('click', clearActiveCards);
+            clubPopupRoot.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const closeBtn = e.target.closest('.club-pop-close');
+                if (closeBtn) {
+                    clearActiveCards();
+                    return;
+                }
+                const eventBtn = e.target.closest('.ev-item');
+                if (eventBtn) {
+                    openEventDetail(eventBtn.dataset.eventId);
+                }
+            });
+            closeModal.addEventListener('click', clearActiveCards);
+            modal.addEventListener('transitionend', () => {
+                if (!modal.classList.contains('open')) clearActiveCards();
+            });
+        }
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.club-card.active').forEach(active => active.classList.remove('active'));
+            if (activePopup) {
+                activePopup.remove();
+                activePopup = null;
+            }
+            clubsGrid.classList.remove('focus-mode');
+            document.body.classList.remove('club-focus');
+        });
+
+        function startSequence() {
+            if (sequenceStarted) return;
+            sequenceStarted = true;
+            document.body.classList.remove('boot', 'orb-on', 'shifting', 'settled');
+            document.body.classList.add('boot');
+            setTimeout(() => { igniteAt = performance.now(); document.body.classList.add('orb-on'); requestAnimationFrame(drawOrb); }, 1050);
+            setTimeout(() => document.body.classList.add('shifting'), 2100);
+            setTimeout(() => document.body.classList.add('settled'), 2420);
+        }
+        window.addEventListener('resize', resizeCanvas); resizeCanvas();
+        loadClubData().catch((error) => {
+            console.error(error);
+            clubsGrid.innerHTML = '<p style="text-align:center;color:rgba(239,250,241,0.72);">Club data failed to load.</p>';
+        });
+        if (character.complete) startSequence(); else character.addEventListener('load', startSequence, { once: true });

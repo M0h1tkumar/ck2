@@ -31,8 +31,10 @@
             flex-shrink: 0;
             overflow: hidden;
             transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            contain: layout paint;
+            will-change: width;
         }
-        body.settled #left-col { width: 42%; }
+        body.shifting #left-col { width: 42%; }
         #scene-container {
             position: absolute;
             inset: 0;
@@ -48,14 +50,16 @@
             left: 50%;
             height: 88vh;
             width: auto;
-            transform: translateX(-50%);
-            transition: bottom 1.5s cubic-bezier(0.25, 1, 0.5, 1), left 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: translate3d(-50%, 0, 0);
+            transition: bottom 1.5s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
             z-index: 1;
             user-select: none;
             -webkit-user-drag: none;
+            backface-visibility: hidden;
+            will-change: left, bottom, transform;
         }
         body.boot #character { bottom: 0; }
-        body.settled #character { left: 52%; transform: translateX(-50%); }
+        body.shifting #character { left: 50%; transform: translate3d(calc(-50% + 2vw), 0, 0); }
         @media (min-width: 901px) {
             body.desktop-enter #character {
                 bottom: 0;
@@ -72,18 +76,20 @@
             bottom: 25%;
             width: min(24vw, 180px);
             aspect-ratio: 1 / 1;
-            transform: translateX(-50%) scale(0.82);
+            transform: translate3d(-50%, 0, 0) scale(0.82);
             transform-origin: center;
             opacity: 0;
             z-index: 2;
             pointer-events: none;
             overflow: visible;
-            transition: opacity 0.9s ease, transform 1.15s cubic-bezier(0.22, 1, 0.36, 1), left 1.2s cubic-bezier(0.22, 1, 0.36, 1), bottom 1.2s cubic-bezier(0.22, 1, 0.36, 1), width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: opacity 0.9s ease, transform 1.15s cubic-bezier(0.22, 1, 0.36, 1), bottom 1.2s cubic-bezier(0.22, 1, 0.36, 1), width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: left, bottom, transform, opacity;
+            backface-visibility: hidden;
             filter: drop-shadow(0 0 18px rgba(210, 182, 102, 0.30)) drop-shadow(0 0 42px rgba(121, 92, 38, 0.22));
         }
-        body.orb-on #magic-container { opacity: 1; transform: translateX(-50%) scale(1); }
+        body.orb-on #magic-container { opacity: 1; transform: translate3d(-50%, 0, 0) scale(1); }
         body.orb-on:not(.settled) #magic-container { left: 52.4%; bottom: 25.4%; }
-        body.settled #magic-container { left: 58%; }
+        body.shifting #magic-container { left: 50%; transform: translate3d(calc(-50% + 8vw), 0, 0) scale(1); }
         #orb-canvas {
             position: absolute;
             inset: -32%;
@@ -104,6 +110,8 @@
             transition: opacity 0.85s ease, transform 0.95s ease;
             border-left: 1px solid rgba(194, 161, 74, 0.18);
             overflow-y: auto;
+            contain: layout paint;
+            will-change: transform, opacity;
         }
         body.settled #right-col { opacity: 1; transform: translateX(0); }
         #right-col::-webkit-scrollbar { width: 6px; }
@@ -251,24 +259,24 @@
 
         @media (max-width: 900px) {
             body { flex-direction: column; overflow-y: auto; }
-            #left-col, body.settled #left-col, #right-col { width: 100%; }
+            #left-col, body.shifting #left-col, #right-col { width: 100%; }
             #left-col { min-height: 62vh; }
             #right-col { min-height: 38vh; padding: calc(var(--safe-top) + 24px) calc(var(--safe-right) + 20px) calc(var(--safe-bottom) + 28px) calc(var(--safe-left) + 20px); transform: translateY(28px); border-left: 0; border-top: 1px solid rgba(194, 161, 74, 0.18); }
             body.settled #right-col { transform: translateY(0); }
-            body.settled #character { left: 50%; }
-            body.settled #magic-container { left: 52%; }
+            body.shifting #character { left: 50%; }
+            body.shifting #magic-container { left: 52%; }
             .clubs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 16px; }
         }
         @media (max-width: 900px) and (orientation: portrait) {
             body { display: block; overflow-y: auto; overflow-x: hidden; }
-            #left-col, body.settled #left-col { position: fixed; inset: 0; width: 100%; min-height: var(--page-height); pointer-events: none; z-index: 3; }
+            #left-col, body.shifting #left-col { position: fixed; inset: 0; width: 100%; min-height: var(--page-height); pointer-events: none; z-index: 3; }
             #scene-container { position: fixed; inset: 0; align-items: flex-end; }
             #character { height: min(66vh, 560px); opacity: 1; filter: none; }
             body.boot #character { left: 50%; bottom: 0; transform: translateX(-50%) scale(1.1); }
-            body.settled #character { left: 26%; bottom: calc(var(--safe-bottom) - 10px); transform: translateX(-50%) scale(0.78); }
+            body.shifting #character { left: 50%; bottom: calc(var(--safe-bottom) - 10px); transform: translate3d(calc(-50% - 24vw), 0, 0) scale(0.78); }
             #magic-container { width: min(19vw, 82px); bottom: 27%; opacity: 1; filter: drop-shadow(0 0 12px rgba(210, 182, 102, 0.32)) drop-shadow(0 0 26px rgba(121, 92, 38, 0.22)); }
             body.orb-on:not(.settled) #magic-container { left: 53%; bottom: 19.5%; }
-            body.settled #magic-container { left: 33%; bottom: calc(var(--safe-bottom) + 186px); transform: translateX(-50%) scale(0.74); }
+            body.shifting #magic-container { left: 50%; bottom: calc(var(--safe-bottom) + 186px); transform: translate3d(calc(-50% - 17vw), 0, 0) scale(0.74); }
             #right-col { position: relative; z-index: 2; min-height: var(--page-height); height: var(--page-height); padding: calc(var(--safe-top) + 28px) calc(var(--safe-right) + 16px) calc(var(--safe-bottom) + 28px) calc(var(--safe-left) + 16px); transform: none; border: 0; overflow: hidden; background: linear-gradient(180deg, #29362b 0, #29362b 248px, transparent 248px, transparent 100%); }
             body.settled #right-col { transform: none; }
             .content-shell { margin-top: 0; padding: 16px 0 0; height: 100%; }
@@ -284,10 +292,10 @@
         }
         @media (max-width: 560px) and (orientation: portrait) {
             #character { height: min(62vh, 470px); }
-            body.settled #character { left: 24%; transform: translateX(-50%) scale(0.72); }
+            body.shifting #character { left: 50%; transform: translate3d(calc(-50% - 26vw), 0, 0) scale(0.72); }
             #magic-container { width: min(17vw, 64px); }
             body.orb-on:not(.settled) #magic-container { left: 53%; bottom: 18.5%; }
-            body.settled #magic-container { left: 31%; bottom: calc(var(--safe-bottom) + 146px); transform: translateX(-50%) scale(0.68); }
+            body.shifting #magic-container { left: 50%; bottom: calc(var(--safe-bottom) + 146px); transform: translate3d(calc(-50% - 19vw), 0, 0) scale(0.68); }
             #right-col { padding: calc(var(--safe-top) + 24px) calc(var(--safe-right) + 14px) calc(var(--safe-bottom) + 20px) calc(var(--safe-left) + 14px); }
             .content-shell { padding: 14px 0 0; }
             .sticky-head { padding-bottom: 10px; }
@@ -558,7 +566,7 @@
         function startSequence() {
             if (sequenceStarted) return;
             sequenceStarted = true;
-            document.body.classList.remove('boot', 'orb-on', 'settled', 'desktop-enter', 'desktop-rise');
+            document.body.classList.remove('boot', 'orb-on', 'shifting', 'settled', 'desktop-enter', 'desktop-rise');
             const isDesktop = window.innerWidth > 900;
             void character.offsetHeight;
             if (isDesktop) {
@@ -569,13 +577,15 @@
                     });
                 });
                 setTimeout(() => { igniteAt = performance.now(); document.body.classList.add('orb-on'); requestAnimationFrame(drawOrb); }, 1050);
-                setTimeout(() => document.body.classList.add('settled'), 2300);
+                setTimeout(() => document.body.classList.add('shifting'), 2300);
+                setTimeout(() => document.body.classList.add('settled'), 2620);
             } else {
                 requestAnimationFrame(() => {
                     setTimeout(() => {
                         document.body.classList.add('boot');
                         setTimeout(() => { igniteAt = performance.now(); document.body.classList.add('orb-on'); requestAnimationFrame(drawOrb); }, 1050);
-                        setTimeout(() => document.body.classList.add('settled'), 2100);
+                        setTimeout(() => document.body.classList.add('shifting'), 2100);
+                        setTimeout(() => document.body.classList.add('settled'), 2420);
                     }, 20);
                 });
             }
