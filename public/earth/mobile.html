@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Earth Summon</title>
     <style>
+        :root {
+            --page-height: 100vh;
+            --safe-top: env(safe-area-inset-top, 0px);
+            --safe-right: env(safe-area-inset-right, 0px);
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
+            --safe-left: env(safe-area-inset-left, 0px);
+        }
         * { box-sizing: border-box; }
+        html, body { width: 100%; min-height: var(--page-height); }
         body {
             margin: 0;
             overflow: hidden;
-            min-height: 100vh;
+            min-height: var(--page-height);
             display: flex;
             background:
                 radial-gradient(circle at 28% 42%, rgba(194, 161, 74, 0.20), transparent 22%),
@@ -20,7 +28,7 @@
         #left-col {
             position: relative;
             width: 100%;
-            height: 100vh;
+            min-height: var(--page-height);
             flex-shrink: 0;
             overflow: hidden;
             transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
@@ -49,6 +57,16 @@
         }
         body.boot #character { bottom: 0; }
         body.settled #character { left: 52%; transform: translateX(-50%); }
+        @media (min-width: 901px) {
+            body.desktop-enter #character {
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%, 115%);
+            }
+            body.desktop-enter.desktop-rise #character {
+                transform: translate(-50%, 0);
+            }
+        }
         #magic-container {
             position: absolute;
             left: 50%;
@@ -61,7 +79,7 @@
             z-index: 2;
             pointer-events: none;
             overflow: visible;
-            transition: opacity 0.9s ease, transform 1.1s ease, left 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: opacity 0.9s ease, transform 1.15s cubic-bezier(0.22, 1, 0.36, 1), left 1.2s cubic-bezier(0.22, 1, 0.36, 1), bottom 1.2s cubic-bezier(0.22, 1, 0.36, 1), width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
             filter: drop-shadow(0 0 18px rgba(210, 182, 102, 0.30)) drop-shadow(0 0 42px rgba(121, 92, 38, 0.22));
         }
         body.orb-on #magic-container { opacity: 1; transform: translateX(-50%) scale(1); }
@@ -77,8 +95,8 @@
         #right-col {
             width: 58%;
             min-width: 0;
-            height: 100vh;
-            padding: 48px 40px 36px 28px;
+            min-height: var(--page-height);
+            padding: calc(var(--safe-top) + 48px) calc(var(--safe-right) + 40px) calc(var(--safe-bottom) + 36px) calc(var(--safe-left) + 28px);
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -98,6 +116,7 @@
         .ev-title { font-size: clamp(22px, 3.5vw, 38px); font-weight: 800; line-height: 1.1; margin-bottom: 14px; color: #f6ead1; text-align: center; }
         .ev-div { width: 36px; height: 1px; background: linear-gradient(90deg, transparent, #d9ba72, transparent); margin: 0 auto 24px; }
         .ev-copy { max-width: 560px; color: rgba(241, 230, 210, 0.78); line-height: 1.65; margin: 0 auto 26px; text-align: center; }
+        .content-shell { margin: auto 0; width: 100%; }
         
         .clubs-grid {
             display: grid;
@@ -201,11 +220,45 @@
             body { flex-direction: column; overflow-y: auto; }
             #left-col, body.settled #left-col, #right-col { width: 100%; }
             #left-col { min-height: 62vh; }
-            #right-col { min-height: 38vh; padding: 24px 20px 28px; transform: translateY(28px); border-left: 0; border-top: 1px solid rgba(194, 161, 74, 0.18); }
+            #right-col { min-height: 38vh; padding: calc(var(--safe-top) + 24px) calc(var(--safe-right) + 20px) calc(var(--safe-bottom) + 28px) calc(var(--safe-left) + 20px); transform: translateY(28px); border-left: 0; border-top: 1px solid rgba(194, 161, 74, 0.18); }
             body.settled #right-col { transform: translateY(0); }
             body.settled #character { left: 50%; }
             body.settled #magic-container { left: 52%; }
             .clubs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 900px) and (orientation: portrait) {
+            body { display: block; overflow-y: auto; overflow-x: hidden; }
+            #left-col, body.settled #left-col { position: fixed; inset: 0; width: 100%; min-height: var(--page-height); pointer-events: none; z-index: 3; }
+            #scene-container { position: fixed; inset: 0; align-items: flex-end; }
+            #character { height: min(66vh, 560px); opacity: 1; filter: none; }
+            body.boot #character { left: 50%; bottom: 0; transform: translateX(-50%) scale(1.1); }
+            body.settled #character { left: 26%; bottom: calc(var(--safe-bottom) - 10px); transform: translateX(-50%) scale(0.78); }
+            #magic-container { width: min(19vw, 82px); bottom: 27%; opacity: 1; filter: drop-shadow(0 0 12px rgba(210, 182, 102, 0.32)) drop-shadow(0 0 26px rgba(121, 92, 38, 0.22)); }
+            body.orb-on:not(.settled) #magic-container { left: 53%; bottom: 19.5%; }
+            body.settled #magic-container { left: 33%; bottom: calc(var(--safe-bottom) + 186px); transform: translateX(-50%) scale(0.74); }
+            #right-col { position: relative; z-index: 2; min-height: auto; padding: calc(var(--safe-top) + 12px) calc(var(--safe-right) + 16px) calc(var(--safe-bottom) + 28px) calc(var(--safe-left) + 16px); transform: none; border: 0; overflow: visible; background: transparent; }
+            body.settled #right-col { transform: none; }
+            .content-shell { margin-top: 0; padding: 14px 0 calc(48vh + var(--safe-bottom)); }
+            .ev-marker { letter-spacing: 4px; margin-bottom: 8px; }
+            .ev-title { margin-bottom: 12px; }
+            .ev-div { margin-bottom: 18px; }
+            .ev-copy { font-size: 15px; line-height: 1.58; margin-bottom: 20px; }
+            .club-card { border-radius: 18px; padding: 20px 14px; }
+            .club-logo { width: 62px; height: 62px; margin-bottom: 14px; }
+        }
+        @media (max-width: 560px) and (orientation: portrait) {
+            #character { height: min(62vh, 470px); }
+            body.settled #character { left: 24%; transform: translateX(-50%) scale(0.72); }
+            #magic-container { width: min(17vw, 64px); }
+            body.orb-on:not(.settled) #magic-container { left: 53%; bottom: 18.5%; }
+            body.settled #magic-container { left: 31%; bottom: calc(var(--safe-bottom) + 146px); transform: translateX(-50%) scale(0.68); }
+            #right-col { padding: calc(var(--safe-top) + 10px) calc(var(--safe-right) + 14px) calc(var(--safe-bottom) + 20px) calc(var(--safe-left) + 14px); }
+            .content-shell { padding: 10px 0 calc(46vh + var(--safe-bottom)); }
+            .ev-copy { font-size: 14px; margin-bottom: 18px; }
+            .clubs-grid { gap: 10px; }
+            .club-card { padding: 18px 12px; }
+            .club-logo { width: 56px; height: 56px; }
+            .club-name { font-size: 14px; }
         }
         @media (max-width: 420px) { .clubs-grid { grid-template-columns: 1fr; } }
     </style>
@@ -218,7 +271,7 @@
         </div>
     </div>
     <div id="right-col">
-        <div style="margin: auto 0; width: 100%;">
+        <div class="content-shell">
             <div class="ev-marker">South - Prithvi District</div>
             <h1 class="ev-title">Club Events</h1>
             <div class="ev-div"></div>
@@ -284,10 +337,10 @@
                     <div class="club-info"><div class="club-type">Cultural</div><div class="club-name">ODanza</div></div>
                     <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Classical Night</div><div class="ev-item">Mudras Expo</div></div>
                 </div>
-                <!-- 11. English Caf� -->
+                <!-- 11. English Café -->
                 <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/SEC.png" alt="English Caf�"></div>
-                    <div class="club-info"><div class="club-type">Literary</div><div class="club-name">English Caf�</div></div>
+                    <div class="club-logo"><img src="/Club Logo/SEC.png" alt="English Café"></div>
+                    <div class="club-info"><div class="club-type">Literary</div><div class="club-name">English Café</div></div>
                     <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Word-Smith</div><div class="ev-item">Debate Duel</div></div>
                 </div>
                 <!-- 12. SEC -->
@@ -376,10 +429,19 @@
     </div>
 
     <script>
+        const root = document.documentElement;
+        function syncViewportHeight() {
+            const height = window.visualViewport?.height || window.innerHeight;
+            root.style.setProperty('--page-height', `${height}px`);
+        }
+        syncViewportHeight();
+        window.addEventListener('resize', syncViewportHeight);
+        window.visualViewport?.addEventListener('resize', syncViewportHeight);
+
         const character = document.getElementById('character');
         const canvas = document.getElementById('orb-canvas');
         const ctx = canvas.getContext('2d');
-        let cx = 0, cy = 0, radius = 0, startTime = performance.now(), igniteAt = 0, loopStarted = false;
+        let cx = 0, cy = 0, radius = 0, startTime = performance.now(), igniteAt = 0, loopStarted = false, sequenceStarted = false;
         const isLowPower = navigator.hardwareConcurrency <= 4 || /Android|iPhone|iPad/i.test(navigator.userAgent);
         const ringCount = isLowPower ? 3 : 4, shardCount = isLowPower ? 8 : 12, moteCount = isLowPower ? 26 : 40;
 
@@ -407,31 +469,34 @@
 
         function drawEarthGlow(energy) {
             const outer = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 2.55);
-            outer.addColorStop(0, `rgba(242, 224, 177, ${0.10 * energy})`);
-            outer.addColorStop(0.24, `rgba(195, 161, 94, ${0.14 * energy})`);
-            outer.addColorStop(0.55, `rgba(120, 88, 36, ${0.12 * energy})`);
+            outer.addColorStop(0, `rgba(218, 255, 214, ${0.12 * energy})`);
+            outer.addColorStop(0.24, `rgba(115, 227, 146, ${0.16 * energy})`);
+            outer.addColorStop(0.55, `rgba(28, 148, 86, ${0.12 * energy})`);
             outer.addColorStop(1, 'rgba(0, 0, 0, 0)');
             ctx.fillStyle = outer; ctx.fillRect(0, 0, canvas.width, canvas.height);
         }
 
         function drawCore(energy, t) {
-            const coreR = radius * (0.79 + Math.sin(t * 1.8) * 0.03);
+            const coreR = radius * (0.79 + Math.sin(t * 2.8) * 0.03);
             const aura = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 1.6);
-            aura.addColorStop(0, `rgba(250, 241, 214, ${0.9 * energy})`);
-            aura.addColorStop(0.5, `rgba(143, 109, 56, ${0.42 * energy})`);
+            aura.addColorStop(0, `rgba(232, 255, 226, ${0.92 * energy})`);
+            aura.addColorStop(0.26, `rgba(128, 245, 172, ${0.68 * energy})`);
+            aura.addColorStop(0.56, `rgba(44, 176, 108, ${0.34 * energy})`);
             aura.addColorStop(1, 'rgba(0, 0, 0, 0)');
             ctx.fillStyle = aura; ctx.beginPath(); ctx.arc(cx, cy, radius * 1.6, 0, Math.PI * 2); ctx.fill();
             const core = ctx.createRadialGradient(cx - radius * 0.08, cy - radius * 0.12, radius * 0.05, cx, cy, coreR);
-            core.addColorStop(0, `rgba(255, 248, 232, ${0.96 * energy})`);
+            core.addColorStop(0, `rgba(248, 255, 245, ${0.98 * energy})`);
+            core.addColorStop(0.32, `rgba(190, 255, 203, ${0.84 * energy})`);
+            core.addColorStop(0.72, `rgba(58, 196, 120, ${0.42 * energy})`);
             core.addColorStop(1, 'rgba(0, 0, 0, 0)');
             ctx.fillStyle = core; ctx.beginPath(); ctx.arc(cx, cy, coreR, 0, Math.PI * 2); ctx.fill();
         }
 
         function drawStoneRings(energy, t) {
             for (let i = 0; i < ringCount; i++) {
-                const phase = t * (0.8 + i * 0.12) + i * 1.4;
-                const r = radius * (0.94 + i * 0.16 + Math.sin(phase) * 0.02);
-                ctx.strokeStyle = `rgba(216, 188, 122, ${(0.14 - i * 0.02) * energy})`;
+                const phase = t * (1.55 + i * 0.18) + i * 1.4;
+                const r = radius * (0.94 + i * 0.16 + Math.sin(phase) * 0.03);
+                ctx.strokeStyle = `rgba(148, 240, 175, ${(0.14 - i * 0.02) * energy})`;
                 ctx.lineWidth = Math.max(1, radius * (0.022 - i * 0.003));
                 ctx.beginPath(); ctx.ellipse(cx, cy, r, r * 0.86, phase * 0.08, 0, Math.PI * 2); ctx.stroke();
             }
@@ -439,9 +504,9 @@
 
         function drawShards(energy, t) {
             for (let i = 0; i < shardCount; i++) {
-                const baseAngle = (i / shardCount) * Math.PI * 2 + t * (0.16 + (i % 3) * 0.05);
+                const baseAngle = (i / shardCount) * Math.PI * 2 + t * (0.42 + (i % 3) * 0.08);
                 const inner = polarPoint(baseAngle, radius * 0.4), outer = polarPoint(baseAngle + 0.08, radius * 1.02);
-                ctx.strokeStyle = `rgba(198, 163, 94, ${0.46 * energy})`; ctx.lineWidth = radius * 0.024;
+                ctx.strokeStyle = `rgba(110, 224, 144, ${0.46 * energy})`; ctx.lineWidth = radius * 0.024;
                 ctx.beginPath(); ctx.moveTo(inner.x, inner.y); ctx.lineTo(outer.x, outer.y); ctx.stroke();
             }
         }
@@ -450,7 +515,7 @@
             for (const mote of motes) {
                 const ang = mote.angle + t * mote.orbit, dist = radius * (1.02 + mote.distance);
                 const x = cx + Math.cos(ang) * dist, y = cy + Math.sin(ang) * dist * 0.84;
-                ctx.fillStyle = `rgba(248, 235, 199, ${mote.alpha * energy})`;
+                ctx.fillStyle = `rgba(214, 255, 221, ${mote.alpha * energy})`;
                 ctx.beginPath(); ctx.arc(x, y, mote.size, 0, Math.PI * 2); ctx.fill();
             }
         }
@@ -466,48 +531,48 @@
 
         const eventData = {
             'Ninja Hire': { date: 'April 18, 2026', loc: 'Placement Cell', prize: 'Internships', link: '#', contact: 'Updated soon' },
-            'Code-A-Thon': { date: 'April 19, 2026', loc: 'Auditorium 2', prize: '? 15,000', link: '#', contact: 'Updated soon' },
-            'Code Vyuh 4.0': { date: 'April 18, 2026', loc: 'Lab 302, Block C', prize: '? 50,000', link: '#', contact: 'Updated soon' },
-            'Algorithmic Odyssey': { date: 'April 19, 2026', loc: 'Online', prize: '? 20,000', link: '#', contact: 'Updated soon' },
-            'Street Battle': { date: 'April 18, 2026', loc: 'Courtyard', prize: '? 10,000', link: '#', contact: 'Updated soon' },
+            'Code-A-Thon': { date: 'April 19, 2026', loc: 'Auditorium 2', prize: '₹ 15,000', link: '#', contact: 'Updated soon' },
+            'Code Vyuh 4.0': { date: 'April 18, 2026', loc: 'Lab 302, Block C', prize: '₹ 50,000', link: '#', contact: 'Updated soon' },
+            'Algorithmic Odyssey': { date: 'April 19, 2026', loc: 'Online', prize: '₹ 20,000', link: '#', contact: 'Updated soon' },
+            'Street Battle': { date: 'April 18, 2026', loc: 'Courtyard', prize: '₹ 10,000', link: '#', contact: 'Updated soon' },
             'Hip-Hop Workshop': { date: 'April 20, 2026', loc: 'Dance Hall', prize: 'N/A', link: '#', contact: 'Updated soon' },
             'DevFest 2026': { date: 'April 18-20, 2026', loc: 'Convention Center', prize: 'Swags', link: '#', contact: 'Updated soon' },
             'Cloud Study Jam': { date: 'April 19, 2026', loc: 'Virtual', prize: 'Certs', link: '#', contact: 'Updated soon' },
-            'DSA Rumble': { date: 'April 18, 2026', loc: 'Lab 101', prize: '? 10,000', link: '#', contact: 'Updated soon' },
+            'DSA Rumble': { date: 'April 18, 2026', loc: 'Lab 101', prize: '₹ 10,000', link: '#', contact: 'Updated soon' },
             'Job-A-Thon': { date: 'April 20, 2026', loc: 'Online', prize: 'Referral', link: '#', contact: 'Updated soon' },
-            'Yantra Yudh': { date: 'April 18, 2026', loc: 'Arena A', prize: '? 75,000', link: '#', contact: 'Updated soon' },
-            'Bot-Nexus': { date: 'April 19, 2026', loc: 'Workshop', prize: '? 15,000', link: '#', contact: 'Updated soon' },
-            'Drone Sprint': { date: 'April 18, 2026', loc: 'Field', prize: '? 25,000', link: '#', contact: 'Updated soon' },
+            'Yantra Yudh': { date: 'April 18, 2026', loc: 'Arena A', prize: '₹ 75,000', link: '#', contact: 'Updated soon' },
+            'Bot-Nexus': { date: 'April 19, 2026', loc: 'Workshop', prize: '₹ 15,000', link: '#', contact: 'Updated soon' },
+            'Drone Sprint': { date: 'April 18, 2026', loc: 'Field', prize: '₹ 25,000', link: '#', contact: 'Updated soon' },
             'Robo Expo': { date: 'April 20, 2026', loc: 'Exhibition', prize: 'Certs', link: '#', contact: 'Updated soon' },
             'Awareness Play': { date: 'April 18, 2026', loc: 'Square', prize: 'N/A', link: '#', contact: 'Updated soon' },
-            'Street Drama': { date: 'April 19, 2026', loc: 'Amphitheater', prize: '? 5,000', link: '#', contact: 'Updated soon' },
+            'Street Drama': { date: 'April 19, 2026', loc: 'Amphitheater', prize: '₹ 5,000', link: '#', contact: 'Updated soon' },
             'Blood Drive': { date: 'April 18, 2026', loc: 'Medical Center', prize: 'Certs', link: '#', contact: 'Updated soon' },
             'Swachh Campus': { date: 'April 19, 2026', loc: 'Campus', prize: 'Tokens', link: '#', contact: 'Updated soon' },
-            'Classical Night': { date: 'April 19, 2026', loc: 'Auditorium', prize: '? 20,000', link: '#', contact: 'Updated soon' },
+            'Classical Night': { date: 'April 19, 2026', loc: 'Auditorium', prize: '₹ 20,000', link: '#', contact: 'Updated soon' },
             'Mudras Expo': { date: 'April 20, 2026', loc: 'Hall', prize: 'N/A', link: '#', contact: 'Updated soon' },
-            'Word-Smith': { date: 'April 18, 2026', loc: 'Seminar', prize: '? 10,000', link: '#', contact: 'Updated soon' },
+            'Word-Smith': { date: 'April 18, 2026', loc: 'Seminar', prize: '₹ 10,000', link: '#', contact: 'Updated soon' },
             'Debate Duel': { date: 'April 20, 2026', loc: 'English Dept', prize: 'Books', link: '#', contact: 'Updated soon' },
-            'Eloquence': { date: 'April 18, 2026', loc: 'Room 101', prize: '? 5,000', link: '#', contact: 'Updated soon' },
-            'Scribe': { date: 'April 19, 2026', loc: 'Room 102', prize: '? 3,000', link: '#', contact: 'Updated soon' },
-            'Aerial Vision': { date: 'April 18, 2026', loc: 'Tech Ground', prize: '? 15,000', link: '#', contact: 'Updated soon' },
+            'Eloquence': { date: 'April 18, 2026', loc: 'Room 101', prize: '₹ 5,000', link: '#', contact: 'Updated soon' },
+            'Scribe': { date: 'April 19, 2026', loc: 'Room 102', prize: '₹ 3,000', link: '#', contact: 'Updated soon' },
+            'Aerial Vision': { date: 'April 18, 2026', loc: 'Tech Ground', prize: '₹ 15,000', link: '#', contact: 'Updated soon' },
             'Sky High Bash': { date: 'April 19, 2026', loc: 'Rooftop', prize: 'Gears', link: '#', contact: 'Updated soon' },
-            'Ink & Irony': { date: 'April 18, 2026', loc: 'Room 304', prize: '? 5,000', link: '#', contact: 'Updated soon' },
-            'Poetry Slam': { date: 'April 20, 2026', loc: 'Garden', prize: '? 3,000', link: '#', contact: 'Updated soon' },
-            'News-Hunt': { date: 'April 18, 2026', loc: 'Media Lab', prize: '? 5,000', link: '#', contact: 'Updated soon' },
+            'Ink & Irony': { date: 'April 18, 2026', loc: 'Room 304', prize: '₹ 5,000', link: '#', contact: 'Updated soon' },
+            'Poetry Slam': { date: 'April 20, 2026', loc: 'Garden', prize: '₹ 3,000', link: '#', contact: 'Updated soon' },
+            'News-Hunt': { date: 'April 18, 2026', loc: 'Media Lab', prize: '₹ 5,000', link: '#', contact: 'Updated soon' },
             'Media Summit': { date: 'April 20, 2026', loc: 'Conference', prize: 'Certs', link: '#', contact: 'Updated soon' },
             'On-Air Live': { date: 'April 18, 2026', loc: 'Radio Cabin', prize: 'T-Shirts', link: '#', contact: 'Updated soon' },
             'Voice Box': { date: 'April 19, 2026', loc: 'Studio A', prize: 'Goodies', link: '#', contact: 'Updated soon' },
             'University Expo': { date: '18-20 April', loc: 'Grand Mall', prize: 'Scholarships', link: '#', contact: 'Updated soon' },
             'Alumni Meet': { date: 'April 19, 2026', loc: 'Banquet Hall', prize: 'Networking', link: '#', contact: 'Updated soon' },
-            'Design-A-Thon': { date: 'April 18, 2026', loc: 'Creative Hub', prize: '? 20,000', link: '#', contact: 'Updated soon' },
+            'Design-A-Thon': { date: 'April 18, 2026', loc: 'Creative Hub', prize: '₹ 20,000', link: '#', contact: 'Updated soon' },
             'Branding 101': { date: 'April 20, 2026', loc: 'Room 202', prize: 'N/A', link: '#', contact: 'Updated soon' },
-            'Vocal Symphony': { date: 'April 19, 2026', loc: 'Auditorium', prize: '? 15,000', link: '#', contact: 'Updated soon' },
-            'Fusion Fest': { date: 'April 20, 2026', loc: 'Music Room', prize: '? 10,000', link: '#', contact: 'Updated soon' },
-            'Dramatics Night': { date: 'April 18, 2026', loc: 'Main Stage', prize: '? 25,000', link: '#', contact: 'Updated soon' },
+            'Vocal Symphony': { date: 'April 19, 2026', loc: 'Auditorium', prize: '₹ 15,000', link: '#', contact: 'Updated soon' },
+            'Fusion Fest': { date: 'April 20, 2026', loc: 'Music Room', prize: '₹ 10,000', link: '#', contact: 'Updated soon' },
+            'Dramatics Night': { date: 'April 18, 2026', loc: 'Main Stage', prize: '₹ 25,000', link: '#', contact: 'Updated soon' },
             'Stage Craft': { date: 'April 20, 2026', loc: 'Backstage', prize: 'Certs', link: '#', contact: 'Updated soon' },
             'Runway Walk': { date: 'April 19, 2026', loc: 'Fashion Ramp', prize: 'Titles', link: '#', contact: 'Updated soon' },
             'Design Gala': { date: 'April 20, 2026', loc: 'Ballroom', prize: 'Awards', link: '#', contact: 'Updated soon' },
-            'Video Expo': { date: 'April 18, 2026', loc: 'Hall', prize: '? 10,000', link: '#', contact: 'Updated soon' },
+            'Video Expo': { date: 'April 18, 2026', loc: 'Hall', prize: '₹ 10,000', link: '#', contact: 'Updated soon' },
             'Editing Battle': { date: 'April 19, 2026', loc: 'Systems Lab', prize: 'Licenses', link: '#', contact: 'Updated soon' }
         };
 
@@ -527,9 +592,29 @@
         document.querySelectorAll('.ev-item').forEach(btn => { btn.onclick = (e) => { e.stopPropagation(); openEventDetail(btn.textContent.trim()); }; });
 
         function startSequence() {
-            document.body.classList.add('boot');
-            setTimeout(() => { igniteAt = performance.now(); document.body.classList.add('orb-on'); requestAnimationFrame(drawOrb); }, 1050);
-            setTimeout(() => document.body.classList.add('settled'), 2100);
+            if (sequenceStarted) return;
+            sequenceStarted = true;
+            document.body.classList.remove('boot', 'orb-on', 'settled', 'desktop-enter', 'desktop-rise');
+            const isDesktop = window.innerWidth > 900;
+            void character.offsetHeight;
+            if (isDesktop) {
+                document.body.classList.add('desktop-enter');
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        document.body.classList.add('desktop-rise');
+                    });
+                });
+                setTimeout(() => { igniteAt = performance.now(); document.body.classList.add('orb-on'); requestAnimationFrame(drawOrb); }, 1050);
+                setTimeout(() => document.body.classList.add('settled'), 2300);
+            } else {
+                requestAnimationFrame(() => {
+                    setTimeout(() => {
+                        document.body.classList.add('boot');
+                        setTimeout(() => { igniteAt = performance.now(); document.body.classList.add('orb-on'); requestAnimationFrame(drawOrb); }, 1050);
+                        setTimeout(() => document.body.classList.add('settled'), 2100);
+                    }, 20);
+                });
+            }
         }
         window.addEventListener('resize', resizeCanvas); resizeCanvas();
         if (character.complete) startSequence(); else character.addEventListener('load', startSequence, { once: true });
