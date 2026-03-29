@@ -138,11 +138,12 @@
         
         .clubs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 24px 16px;
-            max-width: 760px;
+            max-width: 100%;
             margin: 0 auto;
             justify-content: center;
+            justify-items: center;
         }
         
         .club-card {
@@ -279,7 +280,7 @@
             body.settled #right-col { transform: translateY(0); }
             body.shifting #character { transform: translate3d(calc(-50% + 2vw), 0, 0) scale(1); }
             body.shifting #magic-container { left: 52%; }
-            .clubs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 16px; }
+            .clubs-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 22px 16px; }
         }
         @media (max-width: 900px) and (orientation: portrait) {
             body { display: block; overflow-y: auto; overflow-x: hidden; }
@@ -321,5 +322,5 @@
             .club-name { font-size: 12px; max-width: 100px; }
             .club-events-pop { width: min(268px, calc(100vw - 28px)); top: 57%; max-height: min(70vh, 500px); }
         }
-        @media (max-width: 420px) { .clubs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 420px) { .clubs-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); justify-content: center; } }
     

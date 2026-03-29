@@ -192,7 +192,8 @@
             backdrop-filter: none;
         }
         .content-shell { display: flex; flex-direction: column; flex: 1; min-height: 0; }
-        .scroll-body { width: 100%; flex: 1; min-height: 0; overflow-y: auto; padding-bottom: 24px; }
+        .scroll-body { width: 100%; flex: 1; min-height: 0; overflow-y: auto; padding-bottom: 24px; scrollbar-width: none; -ms-overflow-style: none; }
+        .scroll-body::-webkit-scrollbar { display: none; }
 
         .logistics-grid {
             display: grid;
@@ -252,6 +253,98 @@
             font-size: 13px;
             color: rgba(222, 243, 255, 0.6);
             line-height: 1.5;
+        }
+
+        /* MOBILE MERCH CAROUSEL */
+        .merch-grid {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            gap: 16px;
+            width: 100vw;
+            margin-left: -18px; /* Offset parent padding */
+            padding: 10px 18px 24px;
+            scrollbar-width: none; /* Hide for Firefox */
+            -ms-overflow-style: none; /* Hide for IE/Edge */
+        }
+
+        .merch-grid::-webkit-scrollbar {
+            display: none; /* Hide for Chrome/Safari */
+        }
+
+        .merch-card {
+            flex: 0 0 85%;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
+            background: linear-gradient(180deg, rgba(125, 208, 255, 0.12), rgba(11, 33, 47, 0.94));
+            border: 1px solid rgba(125, 208, 255, 0.2);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .merch-card:active {
+            border-color: rgba(125, 208, 255, 0.45);
+            box-shadow: 0 0 24px rgba(125, 208, 255, 0.12);
+        }
+
+        .merch-img-box {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 14px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.2);
+            margin-bottom: 16px;
+        }
+
+        .merch-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .merch-tag {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #7dd0ff;
+            margin-bottom: 6px;
+            opacity: 0.8;
+        }
+
+        .merch-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: #f3fcff;
+            margin: 0 0 8px 0;
+            line-height: 1.2;
+        }
+
+        .merch-price {
+            font-size: 20px;
+            font-weight: 800;
+            color: #7dd0ff;
+            margin-bottom: 16px;
+        }
+
+        .merch-btn {
+            width: 100%;
+            padding: 12px;
+            background: #7dd0ff;
+            border: none;
+            border-radius: 12px;
+            color: #0d1a25;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(125, 208, 255, 0.2);
         }
 
         .f-row {

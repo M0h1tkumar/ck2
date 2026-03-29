@@ -138,12 +138,23 @@ let sequenceStarted = false;
         function openEventDetail(eventKey) {
             const data = eventData.get(eventKey); if (!data) return;
             document.getElementById('m-title').textContent = data.name;
-            document.getElementById('m-date').textContent = data.date;
+            document.getElementById('m-date').textContent = `${data.date} | ${data.time}`;
             document.getElementById('m-loc').textContent = data.location;
             document.getElementById('m-prize').textContent = data.prize;
             document.getElementById('m-contact').textContent = data.contact;
             document.getElementById('m-desc').textContent = data.description;
-            document.getElementById('m-link').href = data.link;
+            const regBtn = document.getElementById('m-link');
+            if (!data.link || data.link.includes('Chakravyuh2K26Registration')) {
+                regBtn.textContent = 'Registration Updating Shortly';
+                regBtn.href = 'javascript:void(0)';
+                regBtn.style.opacity = '0.6';
+                regBtn.style.pointerEvents = 'none';
+            } else {
+                regBtn.textContent = 'Register Now';
+                regBtn.href = data.link;
+                regBtn.style.opacity = '1';
+                regBtn.style.pointerEvents = 'auto';
+            }
             modal.classList.add('open');
         }
         closeModal.onclick = () => modal.classList.remove('open');

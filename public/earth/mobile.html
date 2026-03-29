@@ -9,17 +9,17 @@
 <body>
     <div id="left-col">
         <div id="scene-container">
-            <img id="character" src="/fire/character.webp" alt="Earth Character">
+            <img id="character" src="/earth/character.webp" alt="Earth Character">
             <div id="magic-container"><canvas id="orb-canvas"></canvas></div>
         </div>
     </div>
     <div id="right-col">
         <div class="content-shell">
             <div class="sticky-head">
-            <div class="ev-marker">Agni District</div>
+            <div class="ev-marker">Prithvi District</div>
             <h1 class="ev-title">CLUB EVENTS</h1>
             <div class="ev-div"></div>
-            <p class="ev-copy">The Agni district gathers the clubs that give the fest its energy and momentum. Each circle anchors a different discipline, from code and robotics to culture, design, media, and community work.</p>
+            <p class="ev-copy">The Prithvi district gathers the clubs that give the fest its energy and momentum. Each circle anchors a different discipline, from code and robotics to culture, design, media, and community work.</p>
             </div>
             <div class="scroll-body">
             <div class="clubs-grid" id="clubs-grid"></div>
@@ -194,12 +194,24 @@
         function openEventDetail(eventKey) {
             const data = eventData.get(eventKey); if (!data) return;
             document.getElementById('m-title').textContent = data.name;
-            document.getElementById('m-date').textContent = data.date;
+            document.getElementById('m-date').textContent = `${data.date} | ${data.time}`;
             document.getElementById('m-loc').textContent = data.location;
             document.getElementById('m-prize').textContent = data.prize;
             document.getElementById('m-contact').textContent = data.contact;
             document.getElementById('m-desc').textContent = data.description;
-            document.getElementById('m-link').href = data.link;
+            
+            const regBtn = document.getElementById('m-link');
+            if (!data.link || data.link.includes('Chakravyuh2K26Registration')) {
+                regBtn.textContent = 'Registration Updating Shortly';
+                regBtn.href = 'javascript:void(0)';
+                regBtn.style.opacity = '0.6';
+                regBtn.style.pointerEvents = 'none';
+            } else {
+                regBtn.textContent = 'Register Now';
+                regBtn.href = data.link;
+                regBtn.style.opacity = '1';
+                regBtn.style.pointerEvents = 'auto';
+            }
             modal.classList.add('open');
         }
         closeModal.onclick = () => modal.classList.remove('open');

@@ -31,7 +31,7 @@ const normTex=mkTex((d,sz)=>{for(let i=0;i<d.length;i+=4){const px=(i/4)%sz,py=(
 
 // DISTRICT COLORS
 const BASE=new THREE.Color(0xC2A14A);
-const TINT={north:new THREE.Color(0xA8C070),east:new THREE.Color(0xD08030),south:new THREE.Color(0x987040),west:new THREE.Color(0x5898A0),vayu:new THREE.Color(0x8B5CF6)};
+const TINT={north:new THREE.Color(0xFFFFFF),east:new THREE.Color(0x4DFF88),south:new THREE.Color(0xB987FF),west:new THREE.Color(0x4DA6FF),vayu:new THREE.Color(0xFF4D4D)};
 
 function whichDist(a){let n=((a%(Math.PI*2))+Math.PI*2)%(Math.PI*2);if(n>Math.PI)n-=Math.PI*2;if(n>=-Math.PI/4&&n<Math.PI/4)return'east';if(n>=Math.PI/4&&n<Math.PI*3/4)return'south';if(n>=-Math.PI*3/4&&n<-Math.PI/4)return'north';return'west'}
 function distMat(angle,shift){const t=TINT[whichDist(angle)];const c=BASE.clone().lerp(t,.3);if(shift)c.offsetHSL(0,0,shift);return new THREE.MeshStandardMaterial({color:c,map:diffTex,normalMap:normTex,roughness:.75,metalness:.15,normalScale:new THREE.Vector2(.8,.8),side:THREE.DoubleSide})}
@@ -167,7 +167,7 @@ document.querySelectorAll('.d-btn').forEach(btn=>{
     flyMulti([
       {pos:pullPos,tgt:pullTgt,dur:.8},
       {pos:dc.pos,tgt:dc.tgt,dur:1.2},
-    ],()=>{state=ST.PNL;const p=document.getElementById('panel-'+sec);if(p){p.classList.add('show');if(sec==='events')ensureFrameSource('fire-frame','fire');if(sec==='register')ensureFrameSource('water-frame','water');if(sec==='clubs')ensureFrameSource('earth-frame','earth');}});
+    ],()=>{state=ST.PNL;const p=document.getElementById('panel-'+sec);if(p){p.classList.add('show');if(sec==='events')ensureFrameSource('fire-frame','fire');if(sec==='register')ensureFrameSource('water-frame','water');if(sec==='clubs')ensureFrameSource('earth-frame','earth');if(sec==='starnight')ensureFrameSource('air-frame','air');if(sec==='about')ensureFrameSource('sky-frame','sky');}});
   });
 });
 

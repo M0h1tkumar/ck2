@@ -58,10 +58,10 @@ html.embedded .d-n{top:24%}
 
 /* THEMED DISTRICT COLORS */
 .d-n{--d-col:#fff;--d-glow:rgba(255,255,255,.35);--d-glow-b:rgba(255,255,255,.15)}
-.d-e{--d-col:#ff4d4d;--d-glow:rgba(255,77,77,.45);--d-glow-b:rgba(255,77,77,.2)}
-.d-s{--d-col:#4dff88;--d-glow:rgba(77,255,136,.45);--d-glow-b:rgba(77,255,136,.2)}
+.d-e{--d-col:#4dff88;--d-glow:rgba(77,255,136,.45);--d-glow-b:rgba(77,255,136,.2)}
+.d-s{--d-col:#b987ff;--d-glow:rgba(185,135,255,.48);--d-glow-b:rgba(185,135,255,.22)}
 .d-w{--d-col:#4da6ff;--d-glow:rgba(77,166,255,.45);--d-glow-b:rgba(77,166,255,.2)}
-.d-v{--d-col:#b987ff;--d-glow:rgba(185,135,255,.48);--d-glow-b:rgba(185,135,255,.22)}
+.d-v{--d-col:#ff4d4d;--d-glow:rgba(255,77,77,.45);--d-glow-b:rgba(255,77,77,.2)}
 
 /* ARROWS DEFAULT STATE */
 .d-icon{width:clamp(40px, 6vw, 64px);height:clamp(40px, 6vw, 64px);border-radius:50%;border:1.5px solid var(--d-col);background:rgba(8,6,4,.75);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;transition:all .35s;animation:sequential-glow 6s ease-in-out infinite}

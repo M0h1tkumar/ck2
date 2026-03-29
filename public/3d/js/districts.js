@@ -4,6 +4,8 @@ const DISTRICT_ASSETS = {
   fire: ['/fire/character.webp'],
   water: ['/water/character.webp'],
   earth: ['/earth/character.webp', '/earth/clubs.json'],
+  air: ['/AIR/character.webp'],
+  sky: ['/SKY/skycharacter.webp'],
 };
 
 function createDistrictManager({ forcedDistrictView }) {
@@ -15,14 +17,15 @@ function createDistrictManager({ forcedDistrictView }) {
       : forcedDistrictView === 'desktop'
         ? false
         : window.innerWidth <= 900;
-    return `/${name}/${mobileView ? 'mobile.html' : 'index.html'}?v=${DISTRICT_PAGE_VERSION}`;
+    const isMobileOnly = ['fire', 'water', 'earth'].includes(name);
+    return `/${name}/${(mobileView && isMobileOnly) ? 'mobile.html' : 'index.html'}?v=${DISTRICT_PAGE_VERSION}`;
   }
 
   function preloadDistrictAssets() {
     if (districtAssetsPrefetched) return;
     districtAssetsPrefetched = true;
 
-    ['fire', 'water', 'earth'].forEach((name) => {
+    ['fire', 'water', 'earth', 'air', 'sky'].forEach((name) => {
       fetch(districtPageUrl(name), { priority: 'low' }).catch(() => {});
       DISTRICT_ASSETS[name].forEach((asset) => {
         if (asset.endsWith('.webp') || asset.endsWith('.png') || asset.endsWith('.jpg') || asset.endsWith('.jpeg') || asset.endsWith('.gif')) {
@@ -56,6 +59,12 @@ function createDistrictManager({ forcedDistrictView }) {
 
     const earthFrame = document.getElementById('earth-frame');
     if (earthFrame) earthFrame.src = '';
+
+    const airFrame = document.getElementById('air-frame');
+    if (airFrame) airFrame.src = '';
+
+    const skyFrame = document.getElementById('sky-frame');
+    if (skyFrame) skyFrame.src = '';
   }
 
   return {
