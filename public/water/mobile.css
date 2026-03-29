@@ -1,0 +1,377 @@
+        :root {
+            --page-height: 100vh;
+            --safe-top: env(safe-area-inset-top, 0px);
+            --safe-right: env(safe-area-inset-right, 0px);
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
+            --safe-left: env(safe-area-inset-left, 0px);
+        }
+        * { box-sizing: border-box; }
+        html, body { width: 100%; min-height: var(--page-height); }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            min-height: var(--page-height);
+            display: flex;
+            background:
+                radial-gradient(circle at 20% 18%, rgba(127, 219, 255, 0.06), transparent 0 26%),
+                radial-gradient(circle at 82% 14%, rgba(86, 175, 255, 0.08), transparent 0 24%),
+                repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.016) 0 2px, rgba(0, 0, 0, 0) 2px 22px),
+                repeating-linear-gradient(0deg, rgba(123, 206, 255, 0.022) 0 1px, rgba(0, 0, 0, 0) 1px 18px),
+                radial-gradient(circle at 72% 76%, rgba(82, 166, 224, 0.04), transparent 18%),
+                linear-gradient(180deg, #213948 0%, #213948 70%, #182733 90%, #101a22 100%);
+            color: #edf9ff;
+        }
+
+        #left-col {
+            position: relative;
+            width: 100%;
+            min-height: var(--page-height);
+            flex-shrink: 0;
+            transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            overflow: hidden;
+            contain: layout paint;
+            will-change: width;
+        }
+
+        body.shifting #left-col {
+            width: 38%;
+        }
+
+        #scene-container {
+            position: absolute;
+            inset: 0;
+        }
+
+        #character {
+            position: absolute;
+            bottom: -100%;
+            left: 50%;
+            height: 88vh;
+            width: auto;
+            transform: translate3d(-50%, 0, 0);
+            z-index: 1;
+            user-select: none;
+            -webkit-user-drag: none;
+            backface-visibility: hidden;
+            will-change: left, bottom, transform;
+            transition:
+                bottom 1.25s cubic-bezier(0.25, 1, 0.5, 1),
+                transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        body.boot #character {
+            bottom: -18px;
+        }
+
+        body.shifting #character { left: 50%; transform: translate3d(calc(-50% + 2vw), 0, 0) scale(0.98); }
+        @media (min-width: 901px) {
+            body.desktop-enter #character {
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%, 115%);
+            }
+            body.desktop-enter.desktop-rise #character {
+                transform: translate(-50%, 0);
+            }
+        }
+
+        #magic-container {
+            position: absolute;
+            left: 50%;
+            bottom: 23.5%;
+            width: min(22vw, 170px);
+            aspect-ratio: 1 / 1;
+            transform: translate3d(-50%, 0, 0) scale(0.82);
+            transform-origin: center;
+            opacity: 0;
+            z-index: 2;
+            pointer-events: none;
+            overflow: visible;
+            transition:
+                opacity 0.9s ease,
+                left 1.15s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 1.15s cubic-bezier(0.22, 1, 0.36, 1),
+                bottom 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+                width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: left, bottom, transform, opacity;
+            backface-visibility: hidden;
+            filter:
+                drop-shadow(0 0 18px rgba(86, 217, 255, 0.30))
+                drop-shadow(0 0 42px rgba(18, 132, 255, 0.20));
+        }
+
+        body.orb-on #magic-container { opacity: 1; transform: translate3d(-50%, 0, 0) scale(1); }
+
+        body.orb-on:not(.settled) #magic-container {
+            left: 51.8%;
+            bottom: 23.9%;
+        }
+
+        body.shifting #magic-container { left: 50%; transform: translate3d(calc(-50% + 8vw), 0, 0) scale(1); }
+
+        #orb-canvas {
+            position: absolute;
+            inset: -32%;
+            width: 164%;
+            height: 164%;
+            display: block;
+        }
+
+        #right-col {
+            width: 60%;
+            min-width: 0;
+            min-height: var(--page-height);
+            padding: calc(var(--safe-top) + 56px) calc(var(--safe-right) + 44px) calc(var(--safe-bottom) + 40px) calc(var(--safe-left) + 24px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transform: translateX(48px);
+            transition: opacity 0.8s ease, transform 0.9s ease;
+            border-left: 1px solid rgba(125, 208, 255, 0.12);
+            background:
+                radial-gradient(circle at top center, rgba(125, 208, 255, 0.08), transparent 0 38%),
+                repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.012) 0 2px, rgba(0, 0, 0, 0) 2px 20px),
+                linear-gradient(180deg, rgba(18, 50, 68, 0.24), rgba(8, 22, 36, 0.12));
+            contain: layout paint;
+            will-change: transform, opacity;
+        }
+
+        body.settled #right-col {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        #right-col::-webkit-scrollbar { width: 4px; }
+        #right-col::-webkit-scrollbar-thumb { background: rgba(125, 208, 255, 0.25); border-radius: 4px; }
+
+        .ev-marker {
+            font-size: clamp(7px, 0.95vw, 9px);
+            letter-spacing: 4px;
+            color: rgba(125, 208, 255, 0.58);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .ev-title {
+            font-size: clamp(20px, 3.2vw, 34px);
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 10px;
+            color: #d7f4ff;
+            text-align: center;
+        }
+
+        .ev-div {
+            width: 32px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #7dd0ff, transparent);
+            margin: 0 auto 16px;
+        }
+
+        .ev-copy {
+            max-width: 600px;
+            color: rgba(222, 243, 255, 0.78);
+            line-height: 1.5;
+            margin: 0 auto 18px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .content-shell {
+            margin: auto 0;
+            width: 100%;
+        }
+        .sticky-head {
+            position: relative;
+            z-index: 6;
+            padding: 2px 0 10px;
+            margin-bottom: 2px;
+            background: transparent;
+            backdrop-filter: none;
+        }
+        .content-shell { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+        .scroll-body { width: 100%; flex: 1; min-height: 0; overflow-y: auto; padding-bottom: 24px; }
+
+        .logistics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .logistics-card {
+            background: linear-gradient(180deg, rgba(125, 208, 255, 0.10), rgba(11, 33, 47, 0.88));
+            border: 1px solid rgba(125, 208, 255, 0.18);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+        }
+
+        .logistics-card:hover {
+            background: linear-gradient(180deg, rgba(125, 208, 255, 0.14), rgba(15, 43, 61, 0.92));
+            border-color: rgba(125, 208, 255, 0.32);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .log-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+            opacity: 0.6;
+            color: #7dd0ff;
+        }
+
+        .log-label {
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(125, 208, 255, 0.5);
+            margin-bottom: 8px;
+        }
+
+        .log-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #d7f4ff;
+            margin-bottom: 4px;
+        }
+
+        .log-content {
+            font-size: 13px;
+            color: rgba(222, 243, 255, 0.6);
+            line-height: 1.5;
+        }
+
+        .f-row {
+            margin-bottom: 14px;
+            max-width: 420px;
+        }
+
+        .f-row label {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(125, 208, 255, 0.64);
+            margin-bottom: 6px;
+        }
+
+        .f-row input,
+        .f-row select {
+            width: 100%;
+            padding: 12px 14px;
+            background: rgba(125, 208, 255, 0.05);
+            border: 1px solid rgba(125, 208, 255, 0.20);
+            border-radius: 10px;
+            color: #e8f8ff;
+            outline: none;
+        }
+
+        .f-row input::placeholder {
+            color: rgba(232, 248, 255, 0.38);
+        }
+
+        .f-row select option {
+            background: #072033;
+        }
+
+        .f-btn {
+            margin-top: 10px;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 999px;
+            background: linear-gradient(180deg, #53d4ff 0%, #178fe7 100%);
+            color: #edf9ff;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 10px 28px rgba(23, 143, 231, 0.26);
+        }
+
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+                overflow-y: auto;
+            }
+
+            #left-col,
+            body.shifting #left-col,
+            #right-col {
+                width: 100%;
+            }
+
+            #left-col {
+                min-height: 62vh;
+            }
+
+            #right-col {
+                min-height: 38vh;
+                padding: calc(var(--safe-top) + 24px) calc(var(--safe-right) + 20px) calc(var(--safe-bottom) + 28px) calc(var(--safe-left) + 20px);
+                transform: translateY(28px);
+                border-left: 0;
+                border-top: 1px solid rgba(125, 208, 255, 0.12);
+            }
+
+            body.settled #right-col {
+                transform: translateY(0);
+            }
+
+            body.shifting #character {
+                left: 50%;
+            }
+
+            body.shifting #magic-container {
+                left: 52%;
+            }
+        }
+        @media (max-width: 900px) and (orientation: portrait) {
+            body { display: block; overflow-y: auto; overflow-x: hidden; }
+            #left-col, body.shifting #left-col { position: fixed; inset: 0; width: 100%; min-height: var(--page-height); pointer-events: none; z-index: 3; }
+            #scene-container { position: fixed; inset: 0; }
+            #character { height: min(64vh, 540px); opacity: 1; filter: none; }
+            body.boot #character { left: 50%; bottom: calc(var(--safe-bottom) + 20px); transform: translateX(-50%) scale(1.12); }
+            body.shifting #character { left: 50%; bottom: calc(var(--safe-bottom) - 72px); transform: translate3d(calc(-50% - 24vw), 0, 0) scale(0.76); }
+            #magic-container { width: min(18vw, 78px); bottom: 24%; opacity: 1; filter: drop-shadow(0 0 12px rgba(86, 217, 255, 0.3)) drop-shadow(0 0 28px rgba(18, 132, 255, 0.2)); }
+            body.orb-on:not(.settled) #magic-container { left: 53%; bottom: 20%; }
+            body.shifting #magic-container { left: 50%; bottom: calc(var(--safe-bottom) + 104px); transform: translate3d(calc(-50% - 17vw), 0, 0) scale(0.72); }
+            #right-col { position: relative; z-index: 2; min-height: var(--page-height); height: var(--page-height); padding: calc(var(--safe-top) + 28px) calc(var(--safe-right) + 18px) calc(var(--safe-bottom) + 24px) calc(var(--safe-left) + 18px); transform: none; overflow: hidden; border: 0; background: radial-gradient(circle at top center, rgba(125, 208, 255, 0.08), transparent 0 34%), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.012) 0 2px, rgba(0, 0, 0, 0) 2px 20px), linear-gradient(180deg, #213948 0, #213948 248px, transparent 248px, transparent 100%); }
+            body.settled #right-col { transform: none; }
+            .content-shell { margin-top: 0; padding: 16px 0 0; height: 100%; }
+            .sticky-head { padding: 0 0 12px; background: transparent; }
+            .scroll-body { padding-bottom: calc(48vh + var(--safe-bottom)); }
+            .ev-marker { letter-spacing: 3px; margin-bottom: 6px; color: #d7f4ff; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.42); }
+            .ev-title { margin-bottom: 8px; }
+            .ev-div { margin-bottom: 12px; }
+            .ev-copy { font-size: 14px; line-height: 1.45; margin-bottom: 14px; }
+            .logistics-grid { grid-template-columns: 1fr; gap: 14px; width: calc(100% - 34px); margin-left: auto; margin-right: 0; }
+            .logistics-card { min-height: 0; padding: 24px 20px; }
+        }
+        @media (max-width: 560px) and (orientation: portrait) {
+            #character { height: min(60vh, 450px); }
+            body.shifting #character { left: 50%; transform: translate3d(calc(-50% - 26vw), 0, 0) scale(0.7); }
+            #magic-container { width: min(16vw, 58px); }
+            body.orb-on:not(.settled) #magic-container { left: 52.5%; bottom: 19%; }
+            body.shifting #magic-container { left: 50%; bottom: calc(var(--safe-bottom) + 78px); transform: translate3d(calc(-50% - 19vw), 0, 0) scale(0.66); }
+            #right-col { padding: calc(var(--safe-top) + 24px) calc(var(--safe-right) + 14px) calc(var(--safe-bottom) + 20px) calc(var(--safe-left) + 14px); }
+            .content-shell { padding: 14px 0 0; }
+            .sticky-head { padding-bottom: 10px; }
+            .scroll-body { padding-bottom: calc(46vh + var(--safe-bottom)); }
+            .ev-marker { color: #d7f4ff; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.42); }
+            .ev-copy { font-size: 13px; margin-bottom: 12px; }
+            .logistics-grid { width: calc(100% - 26px); }
+            .logistics-card { padding: 20px 16px; border-radius: 18px; }
+            .log-title { font-size: 18px; }
+            .log-content { font-size: 12px; }
+        }
+    

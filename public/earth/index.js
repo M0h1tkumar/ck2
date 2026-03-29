@@ -30,9 +30,9 @@ let sequenceStarted = false;
 
         function drawEarthGlow(energy) {
             const outer = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 2.55);
-            outer.addColorStop(0, `rgba(242, 224, 177, ${0.10 * energy})`);
-            outer.addColorStop(0.24, `rgba(195, 161, 94, ${0.14 * energy})`);
-            outer.addColorStop(0.55, `rgba(120, 88, 36, ${0.12 * energy})`);
+            outer.addColorStop(0, `rgba(255, 205, 117, ${0.16 * energy})`);
+            outer.addColorStop(0.24, `rgba(255, 118, 46, ${0.15 * energy})`);
+            outer.addColorStop(0.55, `rgba(255, 49, 20, ${0.10 * energy})`);
             outer.addColorStop(1, 'rgba(0, 0, 0, 0)');
             ctx.fillStyle = outer; ctx.fillRect(0, 0, canvas.width, canvas.height);
         }
@@ -40,12 +40,15 @@ let sequenceStarted = false;
         function drawCore(energy, t) {
             const coreR = radius * (0.79 + Math.sin(t * 1.8) * 0.03);
             const aura = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 1.6);
-            aura.addColorStop(0, `rgba(250, 241, 214, ${0.9 * energy})`);
-            aura.addColorStop(0.5, `rgba(143, 109, 56, ${0.42 * energy})`);
+            aura.addColorStop(0, `rgba(255, 250, 221, ${0.96 * energy})`);
+            aura.addColorStop(0.26, `rgba(255, 203, 118, ${0.68 * energy})`);
+            aura.addColorStop(0.56, `rgba(255, 111, 38, ${0.34 * energy})`);
             aura.addColorStop(1, 'rgba(0, 0, 0, 0)');
             ctx.fillStyle = aura; ctx.beginPath(); ctx.arc(cx, cy, radius * 1.6, 0, Math.PI * 2); ctx.fill();
             const core = ctx.createRadialGradient(cx - radius * 0.08, cy - radius * 0.12, radius * 0.05, cx, cy, coreR);
-            core.addColorStop(0, `rgba(255, 248, 232, ${0.96 * energy})`);
+            core.addColorStop(0, `rgba(255, 239, 173, ${0.98 * energy})`);
+            core.addColorStop(0.32, `rgba(255, 188, 132, ${0.84 * energy})`);
+            core.addColorStop(0.72, `rgba(255, 72, 20, ${0.42 * energy})`);
             core.addColorStop(1, 'rgba(0, 0, 0, 0)');
             ctx.fillStyle = core; ctx.beginPath(); ctx.arc(cx, cy, coreR, 0, Math.PI * 2); ctx.fill();
         }
@@ -54,7 +57,7 @@ let sequenceStarted = false;
             for (let i = 0; i < ringCount; i++) {
                 const phase = t * (0.8 + i * 0.12) + i * 1.4;
                 const r = radius * (0.94 + i * 0.16 + Math.sin(phase) * 0.02);
-                ctx.strokeStyle = `rgba(216, 188, 122, ${(0.14 - i * 0.02) * energy})`;
+                ctx.strokeStyle = `rgba(255, 220, 150, ${(0.14 - i * 0.02) * energy})`;
                 ctx.lineWidth = Math.max(1, radius * (0.022 - i * 0.003));
                 ctx.beginPath(); ctx.ellipse(cx, cy, r, r * 0.86, phase * 0.08, 0, Math.PI * 2); ctx.stroke();
             }
@@ -64,7 +67,7 @@ let sequenceStarted = false;
             for (let i = 0; i < shardCount; i++) {
                 const baseAngle = (i / shardCount) * Math.PI * 2 + t * (0.16 + (i % 3) * 0.05);
                 const inner = polarPoint(baseAngle, radius * 0.4), outer = polarPoint(baseAngle + 0.08, radius * 1.02);
-                ctx.strokeStyle = `rgba(198, 163, 94, ${0.46 * energy})`; ctx.lineWidth = radius * 0.024;
+                ctx.strokeStyle = `rgba(255, 137, 48, ${0.46 * energy})`; ctx.lineWidth = radius * 0.024;
                 ctx.beginPath(); ctx.moveTo(inner.x, inner.y); ctx.lineTo(outer.x, outer.y); ctx.stroke();
             }
         }
@@ -73,7 +76,7 @@ let sequenceStarted = false;
             for (const mote of motes) {
                 const ang = mote.angle + t * mote.orbit, dist = radius * (1.02 + mote.distance);
                 const x = cx + Math.cos(ang) * dist, y = cy + Math.sin(ang) * dist * 0.84;
-                ctx.fillStyle = `rgba(248, 235, 199, ${mote.alpha * energy})`;
+                ctx.fillStyle = `rgba(255, 188, 132, ${mote.alpha * energy})`;
                 ctx.beginPath(); ctx.arc(x, y, mote.size, 0, Math.PI * 2); ctx.fill();
             }
         }
@@ -215,9 +218,9 @@ let sequenceStarted = false;
             sequenceStarted = true;
             document.body.classList.remove('boot', 'orb-on', 'shifting', 'settled');
             document.body.classList.add('boot');
-            setTimeout(() => { igniteAt = performance.now(); document.body.classList.add('orb-on'); requestAnimationFrame(drawOrb); }, 1050);
-            setTimeout(() => document.body.classList.add('shifting'), 2100);
-            setTimeout(() => document.body.classList.add('settled'), 2420);
+            setTimeout(() => { igniteAt = performance.now(); document.body.classList.add('orb-on'); requestAnimationFrame(drawOrb); }, 900);
+            setTimeout(() => document.body.classList.add('shifting'), 2250);
+            setTimeout(() => document.body.classList.add('settled'), 2650);
         }
         window.addEventListener('resize', resizeCanvas); resizeCanvas();
         loadClubData().catch((error) => {

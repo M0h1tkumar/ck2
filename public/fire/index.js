@@ -61,9 +61,9 @@ const canvas = document.getElementById('orb-canvas');
 
         function drawHeatGlow(energy) {
             const outer = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 2.55);
-            outer.addColorStop(0, `rgba(255, 205, 117, ${0.16 * energy})`);
-            outer.addColorStop(0.26, `rgba(255, 118, 46, ${0.15 * energy})`);
-            outer.addColorStop(0.55, `rgba(255, 49, 20, ${0.10 * energy})`);
+            outer.addColorStop(0, `rgba(242, 224, 177, ${0.10 * energy})`);
+            outer.addColorStop(0.26, `rgba(195, 161, 94, ${0.14 * energy})`);
+            outer.addColorStop(0.55, `rgba(120, 88, 36, ${0.12 * energy})`);
             outer.addColorStop(1, 'rgba(0, 0, 0, 0)');
             ctx.fillStyle = outer;
             ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
@@ -73,10 +73,10 @@ const canvas = document.getElementById('orb-canvas');
             const coreR = radius * (0.78 + Math.sin(t * 3.2) * 0.03);
 
             const aura = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 1.62);
-            aura.addColorStop(0, `rgba(255, 250, 221, ${0.96 * energy})`);
-            aura.addColorStop(0.18, `rgba(255, 203, 118, ${0.90 * energy})`);
-            aura.addColorStop(0.44, `rgba(255, 111, 38, ${0.52 * energy})`);
-            aura.addColorStop(0.72, `rgba(233, 44, 14, ${0.18 * energy})`);
+            aura.addColorStop(0, `rgba(250, 241, 214, ${0.9 * energy})`);
+            aura.addColorStop(0.18, `rgba(143, 109, 56, ${0.42 * energy})`);
+            aura.addColorStop(0.44, `rgba(120, 88, 36, ${0.24 * energy})`);
+            aura.addColorStop(0.72, `rgba(72, 52, 24, ${0.12 * energy})`);
             aura.addColorStop(1, 'rgba(0, 0, 0, 0)');
             ctx.fillStyle = aura;
             ctx.beginPath();
@@ -91,17 +91,17 @@ const canvas = document.getElementById('orb-canvas');
                 cy,
                 coreR
             );
-            core.addColorStop(0, `rgba(255, 255, 243, ${energy})`);
-            core.addColorStop(0.16, `rgba(255, 239, 173, ${0.98 * energy})`);
-            core.addColorStop(0.40, `rgba(255, 169, 62, ${0.90 * energy})`);
-            core.addColorStop(0.70, `rgba(255, 72, 20, ${0.48 * energy})`);
+            core.addColorStop(0, `rgba(255, 248, 232, ${0.96 * energy})`);
+            core.addColorStop(0.16, `rgba(228, 214, 182, ${0.9 * energy})`);
+            core.addColorStop(0.40, `rgba(183, 163, 114, ${0.72 * energy})`);
+            core.addColorStop(0.70, `rgba(104, 136, 94, ${0.34 * energy})`);
             core.addColorStop(1, 'rgba(0, 0, 0, 0)');
             ctx.fillStyle = core;
             ctx.beginPath();
             ctx.arc(cx, cy, coreR, 0, Math.PI * 2);
             ctx.fill();
 
-            ctx.strokeStyle = `rgba(255, 220, 150, ${0.20 * energy})`;
+            ctx.strokeStyle = `rgba(216, 188, 122, ${0.20 * energy})`;
             ctx.lineWidth = radius * 0.07;
             ctx.beginPath();
             ctx.arc(cx, cy, radius * 0.84, 0, Math.PI * 2);
@@ -122,10 +122,10 @@ const canvas = document.getElementById('orb-canvas');
                 const alpha = Math.sin(life * Math.PI) * fume.alpha * energy;
 
                 const puff = ctx.createRadialGradient(x, y, 0, x, y, puffR * 2.9);
-                puff.addColorStop(0, `rgba(255, ${150 + Math.round(fume.heat * 60)}, 88, ${alpha})`);
-                puff.addColorStop(0.28, `rgba(175, 70, 36, ${alpha * 0.58})`);
-                puff.addColorStop(0.62, `rgba(72, 28, 22, ${alpha * 0.34})`);
-                puff.addColorStop(0.86, `rgba(28, 12, 12, ${alpha * 0.18})`);
+                puff.addColorStop(0, `rgba(${202 + Math.round(fume.heat * 22)}, ${226 - Math.round(fume.heat * 18)}, 162, ${alpha})`);
+                puff.addColorStop(0.28, `rgba(136, 170, 102, ${alpha * 0.58})`);
+                puff.addColorStop(0.62, `rgba(62, 86, 48, ${alpha * 0.34})`);
+                puff.addColorStop(0.86, `rgba(20, 32, 18, ${alpha * 0.18})`);
                 puff.addColorStop(1, 'rgba(0, 0, 0, 0)');
                 ctx.fillStyle = puff;
                 ctx.beginPath();
@@ -158,9 +158,9 @@ const canvas = document.getElementById('orb-canvas');
                 const p3 = polarPoint(baseAngle + 0.56, radius * (0.70 + (i % 5) * 0.06), 0.96);
 
                 const gradient = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
-                gradient.addColorStop(0, `rgba(255, 233, 170, ${0.16 * energy})`);
-                gradient.addColorStop(0.4, `rgba(255, 137, 48, ${0.58 * energy})`);
-                gradient.addColorStop(1, `rgba(239, 44, 14, ${0.08 * energy})`);
+                gradient.addColorStop(0, `rgba(246, 239, 196, ${0.16 * energy})`);
+                gradient.addColorStop(0.4, `rgba(150, 196, 118, ${0.58 * energy})`);
+                gradient.addColorStop(1, `rgba(82, 126, 66, ${0.08 * energy})`);
 
                 ctx.strokeStyle = gradient;
                 ctx.lineWidth = radius * (0.022 + (i % 3) * 0.008);
@@ -169,7 +169,7 @@ const canvas = document.getElementById('orb-canvas');
                 ctx.quadraticCurveTo(p2.x, p2.y, p3.x, p3.y);
                 ctx.stroke();
 
-                ctx.strokeStyle = `rgba(255, 248, 223, ${0.10 * energy})`;
+                ctx.strokeStyle = `rgba(243, 247, 226, ${0.10 * energy})`;
                 ctx.lineWidth = Math.max(1, radius * 0.007);
                 ctx.beginPath();
                 ctx.moveTo(p1.x, p1.y);
@@ -198,9 +198,9 @@ const canvas = document.getElementById('orb-canvas');
                 const r = ember.size * (0.74 + 0.34 * Math.sin(t * ember.speed * 4.5));
 
                 const glow = ctx.createRadialGradient(x, y, 0, x, y, r * 3.4);
-                glow.addColorStop(0, `rgba(255, 245, 208, ${alpha})`);
-                glow.addColorStop(0.40, `rgba(255, 164, 72, ${alpha * 0.7})`);
-                glow.addColorStop(0.72, `rgba(255, 76, 22, ${alpha * 0.32})`);
+                glow.addColorStop(0, `rgba(248, 246, 220, ${alpha})`);
+                glow.addColorStop(0.40, `rgba(176, 214, 132, ${alpha * 0.7})`);
+                glow.addColorStop(0.72, `rgba(92, 144, 74, ${alpha * 0.32})`);
                 glow.addColorStop(1, 'rgba(0, 0, 0, 0)');
                 ctx.fillStyle = glow;
                 ctx.beginPath();

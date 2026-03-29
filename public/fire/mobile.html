@@ -4,314 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fire Summon</title>
-    <style>
-        :root {
-            --page-height: 100vh;
-            --safe-top: env(safe-area-inset-top, 0px);
-            --safe-right: env(safe-area-inset-right, 0px);
-            --safe-bottom: env(safe-area-inset-bottom, 0px);
-            --safe-left: env(safe-area-inset-left, 0px);
-        }
-        * { box-sizing: border-box; }
-        html, body { width: 100%; min-height: var(--page-height); }
-
-        body {
-            margin: 0;
-            overflow: hidden;
-            min-height: var(--page-height);
-            display: flex;
-            background:
-                radial-gradient(circle at 72% 76%, rgba(228, 116, 72, 0.04), transparent 18%),
-                linear-gradient(180deg, #3d1e19 0%, #3d1e19 70%, #2d1411 90%, #1d0d0b 100%);
-            color: #fff6ef;
-        }
-
-        #left-col {
-            position: relative;
-            width: 100%;
-            min-height: var(--page-height);
-            flex-shrink: 0;
-            overflow: hidden;
-            transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-            contain: layout paint;
-            will-change: width;
-        }
-
-        body.shifting #left-col {
-            width: 42%;
-        }
-
-        #scene-container {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-        }
-
-        #character {
-            position: absolute;
-            bottom: -100%;
-            left: 50%;
-            height: 88vh;
-            width: auto;
-            transform: translate3d(-50%, 0, 0);
-            transition:
-                bottom 1.5s cubic-bezier(0.25, 1, 0.5, 1),
-                transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-            z-index: 1;
-            user-select: none;
-            -webkit-user-drag: none;
-            backface-visibility: hidden;
-            will-change: left, bottom, transform;
-        }
-
-        body.boot #character { bottom: -18px; }
-
-        body.shifting #character { left: 50%; transform: translate3d(calc(-50% + 2vw), 0, 0); }
-        @media (min-width: 901px) {
-            body.desktop-enter #character {
-                bottom: 0;
-                left: 50%;
-                transform: translate(-50%, 115%);
-            }
-            body.desktop-enter.desktop-rise #character {
-                transform: translate(-50%, 0);
-            }
-        }
-
-        #magic-container {
-            position: absolute;
-            left: 50%;
-            bottom: 26%;
-            width: min(24vw, 180px);
-            aspect-ratio: 1 / 1;
-            transform: translate3d(-50%, 0, 0) scale(0.82);
-            transform-origin: center;
-            opacity: 0;
-            z-index: 2;
-            pointer-events: none;
-            overflow: visible;
-            transition:
-                opacity 0.9s ease,
-                left 1.15s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 1.15s cubic-bezier(0.22, 1, 0.36, 1),
-                bottom 1.2s cubic-bezier(0.22, 1, 0.36, 1),
-                width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-            will-change: left, bottom, transform, opacity;
-            backface-visibility: hidden;
-            filter:
-                drop-shadow(0 0 18px rgba(255, 146, 63, 0.32))
-                drop-shadow(0 0 42px rgba(255, 71, 22, 0.22));
-        }
-
-        body.orb-on #magic-container { opacity: 1; transform: translate3d(-50%, 0, 0) scale(1); }
-
-        body.orb-on:not(.settled) #magic-container {
-            left: 52.6%;
-            bottom: 26.4%;
-        }
-
-        body.shifting #magic-container { left: 50%; transform: translate3d(calc(-50% + 8.1vw), 0, 0) scale(1); }
-
-        #orb-canvas {
-            position: absolute;
-            inset: -32%;
-            width: 164%;
-            height: 164%;
-            display: block;
-        }
-
-        #right-col {
-            width: 58%;
-            min-width: 0;
-            min-height: var(--page-height);
-            padding: calc(var(--safe-top) + 48px) calc(var(--safe-right) + 40px) calc(var(--safe-bottom) + 36px) calc(var(--safe-left) + 28px);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            opacity: 0;
-            transform: translateX(48px);
-            transition: opacity 0.85s ease, transform 0.95s ease;
-            border-left: 1px solid rgba(194, 120, 78, 0.18);
-            overflow-y: auto;
-            contain: layout paint;
-            will-change: transform, opacity;
-        }
-
-        body.settled #right-col {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        #right-col::-webkit-scrollbar { width: 4px; }
-        #right-col::-webkit-scrollbar-thumb { background: rgba(255, 156, 96, 0.25); border-radius: 4px; }
-
-        .ev-marker {
-            font-size: clamp(7px, 0.95vw, 9px);
-            letter-spacing: 4px;
-            color: rgba(255, 176, 126, 0.78);
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            text-align: center;
-        }
-
-        .ev-title {
-            font-size: clamp(20px, 3.2vw, 34px);
-            font-weight: 800;
-            line-height: 1.05;
-            margin-bottom: 10px;
-            color: #fff0dc;
-            text-align: center;
-            text-shadow: 0 6px 22px rgba(0, 0, 0, 0.24);
-        }
-
-        .ev-div {
-            width: 32px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #ff9c60, transparent);
-            margin: 0 auto 16px;
-        }
-        .ev-copy {
-            max-width: 560px;
-            color: rgba(255, 216, 188, 0.78);
-            line-height: 1.5;
-            margin: 0 auto 18px;
-            text-align: center;
-            font-size: 14px;
-        }
-        .content-shell {
-            width: 100%;
-            margin: auto 0;
-        }
-        .sticky-head {
-            position: relative;
-            z-index: 6;
-            padding: 2px 0 10px;
-            margin-bottom: 2px;
-            background: transparent;
-            backdrop-filter: none;
-        }
-        .content-shell { display: flex; flex-direction: column; flex: 1; min-height: 0; }
-        .scroll-body { width: 100%; flex: 1; min-height: 0; overflow-y: auto; padding-bottom: 24px; scrollbar-width: none; -ms-overflow-style: none; }
-        .scroll-body::-webkit-scrollbar { display: none; }
-
-        .tl-item {
-            display: flex;
-            gap: 18px;
-            align-items: flex-start;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(194, 161, 74, 0.08);
-        }
-
-        .tl-item:last-child { border-bottom: none; }
-
-        .tl-time {
-            min-width: 56px;
-            font-size: clamp(9px, 1vw, 11px);
-            letter-spacing: 1px;
-            color: rgba(255, 193, 128, 0.74);
-            text-transform: uppercase;
-            line-height: 1.4;
-            padding-top: 2px;
-        }
-
-        .tl-name {
-            font-size: clamp(12px, 1.4vw, 15px);
-            font-weight: 700;
-            color: #ffd7a8;
-            margin-bottom: 3px;
-        }
-
-        .tl-desc {
-            font-size: clamp(11px, 1.1vw, 13px);
-            color: rgba(255, 231, 210, 0.72);
-            line-height: 1.5;
-        }
-
-        @media (max-width: 900px) {
-            body {
-                flex-direction: column;
-                overflow-y: auto;
-            }
-
-            #left-col,
-            body.shifting #left-col,
-            #right-col {
-                width: 100%;
-            }
-
-            #left-col {
-                min-height: 62vh;
-            }
-
-            #right-col {
-                min-height: 38vh;
-                padding: calc(var(--safe-top) + 24px) calc(var(--safe-right) + 20px) calc(var(--safe-bottom) + 28px) calc(var(--safe-left) + 20px);
-                transform: translateY(28px);
-                border-left: 0;
-                border-top: 1px solid rgba(255, 156, 96, 0.12);
-            }
-
-            body.settled #right-col {
-                transform: translateY(0);
-            }
-
-            body.shifting #character { left: 50%; }
-            body.shifting #magic-container {
-                left: 53.8%;
-                bottom: 26.8%;
-            }
-        }
-        @media (max-width: 900px) and (orientation: portrait) {
-            body { display: block; overflow-y: auto; overflow-x: hidden; }
-            #left-col, body.shifting #left-col { position: fixed; inset: 0; width: 100%; min-height: var(--page-height); pointer-events: none; z-index: 3; }
-            #scene-container { position: fixed; inset: 0; align-items: flex-end; }
-            #character { height: min(64vh, 540px); opacity: 1; filter: none; }
-            body.boot #character { left: 50%; bottom: calc(var(--safe-bottom) + 20px); transform: translateX(-50%) scale(1.12); }
-            body.shifting #character { left: 50%; bottom: calc(var(--safe-bottom) - 72px); transform: translate3d(calc(-50% - 24vw), 0, 0) scale(0.76); }
-            #magic-container { width: min(18vw, 76px); bottom: 26%; opacity: 1; filter: drop-shadow(0 0 12px rgba(255, 146, 63, 0.32)) drop-shadow(0 0 28px rgba(255, 71, 22, 0.22)); }
-            body.orb-on:not(.settled) #magic-container { left: 53.5%; bottom: 21.5%; }
-            body.shifting #magic-container { left: 50%; bottom: calc(var(--safe-bottom) + 96px); transform: translate3d(calc(-50% - 20vw), 0, 0) scale(0.72); }
-            #right-col { position: relative; z-index: 2; min-height: var(--page-height); height: var(--page-height); padding: calc(var(--safe-top) + 28px) calc(var(--safe-right) + 18px) calc(var(--safe-bottom) + 24px) calc(var(--safe-left) + 18px); transform: none; border: 0; overflow: hidden; background: linear-gradient(180deg, #3d1e19 0, #3d1e19 248px, transparent 248px, transparent 100%); }
-            body.settled #right-col { transform: none; }
-            .content-shell { margin-top: 0; padding: 16px 0 0; height: 100%; }
-            .sticky-head { padding: 0 0 12px; background: transparent; }
-            .scroll-body { padding-bottom: calc(48vh + var(--safe-bottom)); }
-            .ev-marker { letter-spacing: 3px; margin-bottom: 6px; color: #ffd8b7; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45); }
-            .ev-title { margin-bottom: 8px; }
-            .ev-div { margin-bottom: 12px; }
-            .content-shell > .tl-item:first-of-type { padding-top: 6px; }
-            .tl-item { gap: 8px; padding: 11px 0; }
-            .tl-name { font-size: 15px; }
-            .tl-desc { font-size: 12px; line-height: 1.55; color: rgba(255, 231, 210, 0.82); }
-        }
-        @media (max-width: 560px) and (orientation: portrait) {
-            #character { height: min(60vh, 450px); }
-            body.shifting #character { left: 50%; transform: translate3d(calc(-50% - 26vw), 0, 0) scale(0.7); }
-            #magic-container { width: min(16vw, 56px); }
-            body.orb-on:not(.settled) #magic-container { left: 53%; bottom: 20.5%; }
-            body.shifting #magic-container { left: 50%; bottom: calc(var(--safe-bottom) + 66px); transform: translate3d(calc(-50% - 22vw), 0, 0) scale(0.66); }
-            #right-col { padding: calc(var(--safe-top) + 24px) calc(var(--safe-right) + 14px) calc(var(--safe-bottom) + 20px) calc(var(--safe-left) + 14px); }
-            .content-shell { padding: 14px 0 0; }
-            .sticky-head { padding-bottom: 10px; }
-            .scroll-body { padding-bottom: calc(46vh + var(--safe-bottom)); }
-            .ev-marker { margin-bottom: 6px; color: #ffd8b7; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45); }
-            .ev-title { margin-bottom: 8px; }
-            .ev-div { margin-bottom: 10px; }
-            .ev-copy { font-size: 13px; margin-bottom: 12px; }
-            .tl-item { padding: 9px 0; }
-            .tl-name { font-size: 14px; }
-            .tl-desc { font-size: 11.5px; color: rgba(255, 236, 220, 0.86); }
-        }
-    </style>
+    <link rel="stylesheet" href="/fire/mobile.css">
 </head>
 <body>
     <div id="left-col">
         <div id="scene-container">
-            <img id="character" src="/fire/character.webp" alt="Character">
+            <img id="character" src="/earth/character.webp" alt="Character">
             <div id="magic-container">
                 <canvas id="orb-canvas"></canvas>
             </div>
@@ -321,10 +19,10 @@
     <div id="right-col">
         <div class="content-shell">
         <div class="sticky-head">
-        <div class="ev-marker">East - Agni District</div>
+        <div class="ev-marker">Prithvi District</div>
         <h1 class="ev-title">AGENDA</h1>
         <div class="ev-div"></div>
-        <div class="ev-copy">Track the three-day pulse of Agni District, from competitive builds and live showcases to the final ascent beneath the evening lights.</div>
+        <div class="ev-copy">Track the three-day pulse of Prithvi District, from competitive builds and live showcases to the final ascent beneath the evening lights.</div>
         </div>
         <div class="scroll-body">
         <div class="tl-item"><div class="tl-time">Day 1<br>9 AM</div><div><div class="tl-name">Opening - The Conch Sounds</div><div class="tl-desc">Grand inauguration and the ceremonial opening of the festival grounds.</div></div></div>
@@ -429,9 +127,9 @@
 
         function drawHeatGlow(energy) {
             const outer = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 2.55);
-            outer.addColorStop(0, `rgba(255, 205, 117, ${0.16 * energy})`);
-            outer.addColorStop(0.26, `rgba(255, 118, 46, ${0.15 * energy})`);
-            outer.addColorStop(0.55, `rgba(255, 49, 20, ${0.10 * energy})`);
+            outer.addColorStop(0, `rgba(242, 224, 177, ${0.10 * energy})`);
+            outer.addColorStop(0.26, `rgba(195, 161, 94, ${0.14 * energy})`);
+            outer.addColorStop(0.55, `rgba(120, 88, 36, ${0.12 * energy})`);
             outer.addColorStop(1, 'rgba(0, 0, 0, 0)');
             ctx.fillStyle = outer;
             ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
@@ -441,10 +139,10 @@
             const coreR = radius * (0.78 + Math.sin(t * 3.2) * 0.03);
 
             const aura = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 1.62);
-            aura.addColorStop(0, `rgba(255, 250, 221, ${0.96 * energy})`);
-            aura.addColorStop(0.18, `rgba(255, 203, 118, ${0.90 * energy})`);
-            aura.addColorStop(0.44, `rgba(255, 111, 38, ${0.52 * energy})`);
-            aura.addColorStop(0.72, `rgba(233, 44, 14, ${0.18 * energy})`);
+            aura.addColorStop(0, `rgba(250, 241, 214, ${0.9 * energy})`);
+            aura.addColorStop(0.18, `rgba(143, 109, 56, ${0.42 * energy})`);
+            aura.addColorStop(0.44, `rgba(120, 88, 36, ${0.24 * energy})`);
+            aura.addColorStop(0.72, `rgba(72, 52, 24, ${0.12 * energy})`);
             aura.addColorStop(1, 'rgba(0, 0, 0, 0)');
             ctx.fillStyle = aura;
             ctx.beginPath();
@@ -459,17 +157,17 @@
                 cy,
                 coreR
             );
-            core.addColorStop(0, `rgba(255, 255, 243, ${energy})`);
-            core.addColorStop(0.16, `rgba(255, 239, 173, ${0.98 * energy})`);
-            core.addColorStop(0.40, `rgba(255, 169, 62, ${0.90 * energy})`);
-            core.addColorStop(0.70, `rgba(255, 72, 20, ${0.48 * energy})`);
+            core.addColorStop(0, `rgba(255, 248, 232, ${0.96 * energy})`);
+            core.addColorStop(0.16, `rgba(228, 214, 182, ${0.9 * energy})`);
+            core.addColorStop(0.40, `rgba(183, 163, 114, ${0.72 * energy})`);
+            core.addColorStop(0.70, `rgba(104, 136, 94, ${0.34 * energy})`);
             core.addColorStop(1, 'rgba(0, 0, 0, 0)');
             ctx.fillStyle = core;
             ctx.beginPath();
             ctx.arc(cx, cy, coreR, 0, Math.PI * 2);
             ctx.fill();
 
-            ctx.strokeStyle = `rgba(255, 220, 150, ${0.20 * energy})`;
+            ctx.strokeStyle = `rgba(216, 188, 122, ${0.20 * energy})`;
             ctx.lineWidth = radius * 0.07;
             ctx.beginPath();
             ctx.arc(cx, cy, radius * 0.84, 0, Math.PI * 2);
@@ -490,10 +188,10 @@
                 const alpha = Math.sin(life * Math.PI) * fume.alpha * energy;
 
                 const puff = ctx.createRadialGradient(x, y, 0, x, y, puffR * 2.9);
-                puff.addColorStop(0, `rgba(255, ${150 + Math.round(fume.heat * 60)}, 88, ${alpha})`);
-                puff.addColorStop(0.28, `rgba(175, 70, 36, ${alpha * 0.58})`);
-                puff.addColorStop(0.62, `rgba(72, 28, 22, ${alpha * 0.34})`);
-                puff.addColorStop(0.86, `rgba(28, 12, 12, ${alpha * 0.18})`);
+                puff.addColorStop(0, `rgba(${202 + Math.round(fume.heat * 22)}, ${226 - Math.round(fume.heat * 18)}, 162, ${alpha})`);
+                puff.addColorStop(0.28, `rgba(136, 170, 102, ${alpha * 0.58})`);
+                puff.addColorStop(0.62, `rgba(62, 86, 48, ${alpha * 0.34})`);
+                puff.addColorStop(0.86, `rgba(20, 32, 18, ${alpha * 0.18})`);
                 puff.addColorStop(1, 'rgba(0, 0, 0, 0)');
                 ctx.fillStyle = puff;
                 ctx.beginPath();
@@ -526,9 +224,9 @@
                 const p3 = polarPoint(baseAngle + 0.56, radius * (0.70 + (i % 5) * 0.06), 0.96);
 
                 const gradient = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
-                gradient.addColorStop(0, `rgba(255, 233, 170, ${0.16 * energy})`);
-                gradient.addColorStop(0.4, `rgba(255, 137, 48, ${0.58 * energy})`);
-                gradient.addColorStop(1, `rgba(239, 44, 14, ${0.08 * energy})`);
+                gradient.addColorStop(0, `rgba(246, 239, 196, ${0.16 * energy})`);
+                gradient.addColorStop(0.4, `rgba(150, 196, 118, ${0.58 * energy})`);
+                gradient.addColorStop(1, `rgba(82, 126, 66, ${0.08 * energy})`);
 
                 ctx.strokeStyle = gradient;
                 ctx.lineWidth = radius * (0.022 + (i % 3) * 0.008);
@@ -537,7 +235,7 @@
                 ctx.quadraticCurveTo(p2.x, p2.y, p3.x, p3.y);
                 ctx.stroke();
 
-                ctx.strokeStyle = `rgba(255, 248, 223, ${0.10 * energy})`;
+                ctx.strokeStyle = `rgba(243, 247, 226, ${0.10 * energy})`;
                 ctx.lineWidth = Math.max(1, radius * 0.007);
                 ctx.beginPath();
                 ctx.moveTo(p1.x, p1.y);
@@ -566,9 +264,9 @@
                 const r = ember.size * (0.74 + 0.34 * Math.sin(t * ember.speed * 4.5));
 
                 const glow = ctx.createRadialGradient(x, y, 0, x, y, r * 3.4);
-                glow.addColorStop(0, `rgba(255, 245, 208, ${alpha})`);
-                glow.addColorStop(0.40, `rgba(255, 164, 72, ${alpha * 0.7})`);
-                glow.addColorStop(0.72, `rgba(255, 76, 22, ${alpha * 0.32})`);
+                glow.addColorStop(0, `rgba(248, 246, 220, ${alpha})`);
+                glow.addColorStop(0.40, `rgba(176, 214, 132, ${alpha * 0.7})`);
+                glow.addColorStop(0.72, `rgba(92, 144, 74, ${alpha * 0.32})`);
                 glow.addColorStop(1, 'rgba(0, 0, 0, 0)');
                 ctx.fillStyle = glow;
                 ctx.beginPath();
