@@ -1,10 +1,1 @@
-export { AboutSection } from "./AboutSection";
-export { EventDashboard } from "./EventDashboard";
-export { Footer } from "./Footer";
-export { GallerySection } from "./GallerySection";
-export { HeroSection } from "./HeroSection";
-export { InnovationCorner } from "./InnovationCorner";
-export { MobileNav } from "./MobileNav";
-export { TechOperations } from "./TechOperations";
 export { ThreeDShowcase } from "./ThreeDShowcase";
-export { TopBar } from "./TopBar";

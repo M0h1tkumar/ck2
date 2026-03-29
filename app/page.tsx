@@ -1,15 +1,4 @@
-import {
-  AboutSection,
-  EventDashboard,
-  Footer,
-  GallerySection,
-  HeroSection,
-  InnovationCorner,
-  MobileNav,
-  ThreeDShowcase,
-  TechOperations,
-  TopBar,
-} from "@/components/home";
+import { ThreeDShowcase } from "@/components/home";
 
 export default function Home() {
   return (
