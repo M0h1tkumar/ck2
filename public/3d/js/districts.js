@@ -21,7 +21,8 @@ function createDistrictManager({ forcedDistrictView }) {
         ? false
         : window.innerWidth <= 900;
     const isMobileOnly = ['fire', 'water', 'earth'].includes(name);
-    return `/${name}/${(mobileView && isMobileOnly) ? 'mobile.html' : 'index.html'}?v=${DISTRICT_PAGE_VERSION}`;
+    const folderName = name === 'air' ? 'AIR' : name === 'sky' ? 'SKY' : name;
+    return `/${folderName}/${(mobileView && isMobileOnly) ? 'mobile.html' : 'index.html'}?v=${DISTRICT_PAGE_VERSION}`;
   }
 
   function preloadDistrictAssets() {
