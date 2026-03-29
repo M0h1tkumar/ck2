@@ -161,42 +161,42 @@ html.embedded .d-n{top:24%}
 @media(max-width:768px) and (orientation:portrait){
   #center-btn{top:45%}
   html.embedded #center-btn{top:48%}
-  .d-btn{min-width:78px;max-width:104px}
+  .d-btn{min-width:84px;max-width:108px;align-items:center}
   .d-btn::before{opacity:1;background:radial-gradient(circle at center,rgba(0,0,0,.28),rgba(0,0,0,0) 74%)}
-  .d-n{top:calc(var(--safe-top) + 8%);left:50%;transform:translateX(-50%)}
-  .d-s{bottom:calc(var(--safe-bottom) + 6%);left:50%;transform:translateX(-50%)}
-  .d-e{right:max(2px,calc(var(--safe-right) + 2px));top:52%;transform:translateY(-50%)}
-  .d-w{left:max(2px,calc(var(--safe-left) + 2px));top:52%;transform:translateY(-50%)}
-  .d-e .d-lbl,.d-w .d-lbl{max-width:92px;white-space:normal;line-height:1.1}
-  .d-e .d-tag,.d-w .d-tag{margin-top:2px}
-  #choice-prompt{top:calc(50% + 88px);width:min(86vw,360px)}
+  .d-n{top:calc(var(--safe-top) + 15%);left:50%;transform:translateX(-50%)}
+  .d-s{bottom:calc(var(--safe-bottom) + 21%);left:50%;transform:translateX(-50%)}
+  .d-e{right:max(22px,calc(var(--safe-right) + 22px));top:50.5%;transform:translateY(-50%)}
+  .d-w{left:max(22px,calc(var(--safe-left) + 22px));top:50.5%;transform:translateY(-50%)}
+  .d-e .d-lbl,.d-w .d-lbl{max-width:88px;white-space:normal;line-height:1.15;text-align:center}
+  .d-e .d-tag,.d-w .d-tag{margin-top:3px}
+  #choice-prompt{top:calc(50% + 78px);width:min(86vw,360px)}
   #choice-prompt::before{height:116px;filter:blur(18px)}
   #choice-prompt .title{font-size:clamp(14px,5vw,22px);letter-spacing:2px}
   #choice-prompt .sub{font-size:clamp(8px,2.4vw,10px);letter-spacing:2px;margin-top:4px}
-  html.embedded .d-n{top:17%}
+  html.embedded .d-n{top:20%}
 }
 @media(max-width:560px) and (orientation:portrait){
-  .d-btn{padding:6px;min-width:72px}
+  .d-btn{padding:6px;min-width:78px}
   .d-icon{width:50px;height:50px}
   .d-icon svg{width:16px;height:16px}
   .d-lbl{font-size:10px;letter-spacing:2px}
   .d-tag{font-size:7px;letter-spacing:1.8px}
-  .d-n{top:calc(var(--safe-top) + 7%)}
-  .d-s{bottom:calc(var(--safe-bottom) + 5%)}
-  .d-e,.d-w{top:54%}
-  .d-e .d-lbl,.d-w .d-lbl{max-width:82px}
-  #choice-prompt{top:calc(50% + 82px);width:min(84vw,320px)}
+  .d-n{top:calc(var(--safe-top) + 14%)}
+  .d-s{bottom:calc(var(--safe-bottom) + 18.5%)}
+  .d-e,.d-w{top:50.5%}
+  .d-e .d-lbl,.d-w .d-lbl{max-width:78px}
+  #choice-prompt{top:calc(50% + 72px);width:min(84vw,320px)}
 }
 @media(max-width:430px) and (orientation:portrait){
   #center-btn{top:44%}
   html.embedded #center-btn{top:47%}
-  .d-n{top:calc(var(--safe-top) + 6%)}
-  .d-s{bottom:calc(var(--safe-bottom) + 4%)}
-  .d-e,.d-w{top:56%}
-  .d-e{right:max(0px,var(--safe-right))}
-  .d-w{left:max(0px,var(--safe-left))}
-  .d-e .d-lbl,.d-w .d-lbl{max-width:74px}
-  #choice-prompt{top:calc(50% + 78px)}
+  .d-n{top:calc(var(--safe-top) + 13%)}
+  .d-s{bottom:calc(var(--safe-bottom) + 17.5%)}
+  .d-e,.d-w{top:51.5%}
+  .d-e{right:max(16px,calc(var(--safe-right) + 16px))}
+  .d-w{left:max(16px,calc(var(--safe-left) + 16px))}
+  .d-e .d-lbl,.d-w .d-lbl{max-width:70px}
+  #choice-prompt{top:calc(50% + 68px)}
   #choice-prompt .title{font-size:clamp(13px,4.8vw,18px)}
   #choice-prompt .sub{font-size:clamp(7px,2.2vw,9px)}
   #back-btn{top:calc(var(--safe-top) + 12px);right:max(10px,calc(var(--safe-right) + 10px));padding:7px 12px;gap:5px;min-height:34px}
@@ -253,13 +253,13 @@ html.embedded #choice-prompt{top:50%}
 </div>
 
 <div id="choice-prompt">
-  <div class="title">Choose Your Path</div>
-  <div class="sub">Select a direction to continue</div>
+  <div class="title">Choose your<br>Tatva</div>
+  <div class="sub">Select a direction <br>to continue</div>
 </div>
 
 <div id="back-btn"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Return</div>
 
-<div class="cpanel" id="panel-about"><div class="cp-close" data-close><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><div class="cp-in"><div class="cp-marker">North - Vayu District</div><h1>STAR NIGHT</h1><div class="cp-div"></div><p>Welcome to <span class="hl">Anant Tattva</span> - where infinite elements converge. From the Sanskrit <em>Anant</em> (infinite) and <em>Tattva</em> (element, truth).</p><p>Like the ancient Chakravyuh - a formation no warrior could escape - our fest is a living labyrinth. Four districts woven into the rings, each governed by a primal element.</p>
+<div class="cpanel" id="panel-about"><div class="cp-in"><div class="cp-marker">North - Vayu District</div><h1>STAR NIGHT</h1><div class="cp-div"></div><p>Welcome to <span class="hl">Anant Tattva</span> - where infinite elements converge. From the Sanskrit <em>Anant</em> (infinite) and <em>Tattva</em> (element, truth).</p><p>Like the ancient Chakravyuh - a formation no warrior could escape - our fest is a living labyrinth. Four districts woven into the rings, each governed by a primal element.</p>
 <!-- Artist Teaser -->
 <div style="border: 1px solid rgba(255, 156, 96, 0.4); background: rgba(255, 156, 96, 0.08); border-radius: 20px; padding: 24px; margin: 24px 0; display: flex; align-items: center; gap: 24px;">
     <div style="width: 80px; height: 80px; background: radial-gradient(circle, rgba(255, 156, 96, 0.3) 0%, transparent 70%); border: 1px dashed rgba(255, 156, 96, 0.5); border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative;">
@@ -272,9 +272,9 @@ html.embedded #choice-prompt{top:50%}
 </div>
 <p style="text-align: center; margin-top: 16px;"><span class="hl">April 18-20, 2026</span> · SOA Campus, Bhubaneswar</p></div></div>
 
-<div class="cpanel" id="panel-events" style="padding:0;overflow:hidden"><div class="cp-close" data-close style="z-index:200"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><iframe id="fire-frame" src="" style="width:100%;height:100%;border:none;display:block" allow="fullscreen" title="Agenda - Agni district"></iframe></div>
+<div class="cpanel" id="panel-events" style="padding:0;overflow:hidden"><iframe id="fire-frame" src="" style="width:100%;height:100%;border:none;display:block" allow="fullscreen" title="Agenda - Agni district"></iframe></div>
 
-<div class="cpanel" id="panel-register" style="padding:0;overflow:hidden"><div class="cp-close" data-close style="z-index:200"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><iframe id="water-frame" src="" style="width:100%;height:100%;border:none;display:block" allow="fullscreen" title="Store - Jal district"></iframe></div>
+<div class="cpanel" id="panel-register" style="padding:0;overflow:hidden"><iframe id="water-frame" src="" style="width:100%;height:100%;border:none;display:block" allow="fullscreen" title="Store - Jal district"></iframe></div>
 
 <div class="cpanel" id="panel-clubs" style="padding:0;overflow:hidden"><iframe id="earth-frame" src="" style="width:100%;height:100%;border:none;display:block" allow="fullscreen" title="Club events - Prithvi district"></iframe></div>
 
@@ -413,13 +413,7 @@ function closeToOverview(){
   const waterFrame=document.getElementById('water-frame');if(waterFrame)waterFrame.src='';
   const earthFrame=document.getElementById('earth-frame');if(earthFrame)earthFrame.src='';
   $dirNav.classList.remove('show');$back.classList.remove('show');$choicePrompt.classList.remove('show');$enter.classList.remove('show');$enter.classList.add('hide');state=ST.ZM;
-  flyCamera(OV_POS,OV_TGT,2,()=>{
-    controls.enabled=false;
-    camera.position.set(...INTRO_CAM_FROM);
-    controls.target.set(...INTRO_TGT);
-    formation.scale.setScalar(0.15);
-    startIntro();
-  });
+  flyCamera(OV_POS,OV_TGT,2,()=>{state=ST.OV;controls.enabled=true;$enter.classList.remove('hide');$enter.classList.add('show');sizeButton()});
 }
 
 // DYNAMIC BUTTON SIZING
@@ -472,13 +466,7 @@ document.querySelectorAll('.d-btn').forEach(btn=>{
 $back.addEventListener('click',()=>{
   if(state===ST.CTR){
     $dirNav.classList.remove('show');$back.classList.remove('show');$choicePrompt.classList.remove('show');$enter.classList.remove('show');$enter.classList.add('hide');state=ST.ZM;
-    flyCamera(OV_POS,OV_TGT,1.6,()=>{
-      controls.enabled=false;
-      camera.position.set(...INTRO_CAM_FROM);
-      controls.target.set(...INTRO_TGT);
-      formation.scale.setScalar(0.15);
-      startIntro();
-    });
+    flyCamera(OV_POS,OV_TGT,1.6,()=>{state=ST.OV;controls.enabled=true;$enter.classList.remove('hide');$enter.classList.add('show');sizeButton()});
     return;
   }
   if(state!==ST.PNL)return;

@@ -87,7 +87,7 @@
             transition: opacity 0.85s ease, transform 0.95s ease;
             border-left: 1px solid rgba(123, 205, 143, 0.24);
             background: linear-gradient(180deg, rgba(26, 48, 32, 0.34), rgba(12, 22, 15, 0.16));
-            overflow-y: auto;
+            overflow: hidden;
         }
         body.settled #right-col { opacity: 1; transform: translateX(0); }
         #right-col::-webkit-scrollbar { width: 6px; }
@@ -99,6 +99,9 @@
         .ev-title { font-size: clamp(22px, 3.5vw, 38px); font-weight: 800; line-height: 1.1; margin-bottom: 10px; color: #f4fff5; text-shadow: 0 6px 20px rgba(0, 0, 0, 0.22); text-align: center; }
         .ev-div { width: 36px; height: 1px; background: linear-gradient(90deg, transparent, #80d89b, transparent); margin: 0 auto 18px; }
         .ev-copy { max-width: 560px; color: rgba(239, 250, 241, 0.9); line-height: 1.62; margin: 0 auto 22px; text-align: center; }
+        .sticky-head { position: relative; z-index: 6; padding: 4px 0 18px; margin-bottom: 6px; background: linear-gradient(180deg, rgba(35, 30, 18, 0.96) 0%, rgba(35, 30, 18, 0.88) 76%, rgba(35, 30, 18, 0) 100%); backdrop-filter: blur(10px); }
+        .content-shell { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+        .scroll-body { width: 100%; flex: 1; min-height: 0; overflow-y: auto; padding-bottom: 24px; }
         
         .clubs-grid {
             display: grid;
@@ -118,9 +121,19 @@
             gap: 10px;
             padding: 0;
             overflow: visible;
-            transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.35s ease, filter 0.35s ease;
         }
         .club-card:hover { transform: translateY(-4px); }
+        .clubs-grid.focus-mode .club-card:not(.active) {
+            filter: blur(8px) saturate(0.7);
+            opacity: 0.2;
+            transform: scale(0.94);
+            pointer-events: none;
+        }
+        .club-card.active {
+            z-index: 30;
+            transform: translateY(-22px) scale(1.06);
+        }
         .club-logo {
             width: 96px;
             height: 96px;
@@ -137,45 +150,111 @@
         }
         .club-card:hover .club-logo,
         .club-card.active .club-logo {
-            transform: scale(1.06);
-            border-color: rgba(146, 228, 166, 0.44);
-            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.42), 0 0 18px rgba(123, 205, 143, 0.16);
+            transform: scale(1.1);
+            border-color: rgba(168, 244, 186, 0.62);
+            box-shadow: 0 22px 40px rgba(0, 0, 0, 0.5), 0 0 26px rgba(123, 205, 143, 0.24);
         }
         .club-logo img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5)); }
         .club-info { display: flex; flex-direction: column; align-items: center; gap: 4px; }
         .club-type { display: none; }
         .club-name { color: #f4fff5; font-size: 14px; font-weight: 700; line-height: 1.35; max-width: 140px; }
         .club-events-pop {
-            position: absolute;
-            top: 14px;
+            position: fixed;
+            top: 50%;
             left: 50%;
-            width: 180px;
-            padding: 16px 14px;
-            background: rgba(10, 18, 12, 0.96);
+            width: min(320px, calc(100vw - 48px));
+            max-height: min(78vh, 560px);
+            padding: 18px 18px 16px;
+            background: linear-gradient(180deg, rgba(11, 22, 14, 0.98), rgba(8, 18, 11, 0.96));
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
+            justify-content: flex-start;
+            align-items: stretch;
+            gap: 12px;
+            overflow-y: auto;
             opacity: 0;
-            transform: translate(-50%, 8px);
-            transition: opacity 0.35s ease, transform 0.35s ease;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(123, 205, 143, 0.2);
-            border-radius: 18px;
-            box-shadow: 0 20px 36px rgba(0, 0, 0, 0.44);
+            transform: translate(-50%, calc(-50% + 14px)) scale(0.96);
+            transition: opacity 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(123, 205, 143, 0.24);
+            border-radius: 22px;
+            box-shadow: 0 28px 56px rgba(0, 0, 0, 0.56);
             pointer-events: none;
-            z-index: 5;
+            z-index: 32;
         }
-        .club-card:hover .club-events-pop,
-        .club-card.active .club-events-pop { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
-        .pop-title { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #8edaa4; margin-bottom: 4px; }
+        .club-events-pop.open {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            pointer-events: auto;
+            border-color: rgba(150, 232, 170, 0.34);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 28px rgba(123, 205, 143, 0.12);
+        }
+        .club-events-pop::-webkit-scrollbar { width: 4px; }
+        .club-events-pop::-webkit-scrollbar-thumb { background: rgba(123, 205, 143, 0.26); border-radius: 999px; }
+        .club-pop-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 28px;
+            height: 28px;
+            border-radius: 999px;
+            border: 1px solid rgba(123, 205, 143, 0.2);
+            background: rgba(255, 255, 255, 0.02);
+            color: #c8f3d3;
+            font: inherit;
+            font-size: 16px;
+            line-height: 1;
+            cursor: pointer;
+        }
+        .club-pop-top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding-top: 6px;
+        }
+        .club-pop-logo {
+            width: 72px;
+            height: 72px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background: radial-gradient(circle at 35% 30%, rgba(161, 240, 178, 0.18), rgba(18, 31, 22, 0.9));
+            border: 1px solid rgba(123, 205, 143, 0.28);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.38);
+        }
+        .club-pop-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .pop-title { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #8edaa4; margin-bottom: 2px; text-align: center; }
+        .club-pop-name { color: #f4fff5; font-size: 18px; font-weight: 700; line-height: 1.2; text-align: center; }
+        .club-pop-list { display: flex; flex-direction: column; gap: 10px; }
         .ev-item {
-            font-size: 13px; font-weight: 600; color: #f4fff6; background: rgba(123, 205, 143, 0.14);
-            padding: 8px 14px; border-radius: 8px; border: 1px solid rgba(123, 205, 143, 0.2);
-            width: 100%; transition: all 0.3s ease;
+            font-size: 13px; font-weight: 700; color: #f4fff6; background: rgba(123, 205, 143, 0.12);
+            padding: 10px 12px; border-radius: 12px; border: 1px solid rgba(123, 205, 143, 0.2);
+            width: 100%; transition: all 0.3s ease; text-align: center; cursor: pointer;
         }
-        .ev-item:hover { background: rgba(123, 205, 143, 0.24); transform: scale(1.05); }
+        .ev-item:hover { background: rgba(123, 205, 143, 0.2); transform: translateY(-1px); }
+        body.club-focus #left-col,
+        body.club-focus .sticky-head {
+            filter: blur(10px) saturate(0.76);
+            opacity: 0.5;
+            transition: filter 0.35s ease, opacity 0.35s ease;
+        }
+        body.club-focus { overflow: hidden; }
+        .club-focus-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(4, 10, 6, 0.16);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            z-index: 18;
+        }
+        body.club-focus .club-focus-overlay {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
         #ev-modal {
             position: fixed; inset: 0; z-index: 1000; background: rgba(10, 7, 3, 0.85);
@@ -210,6 +289,7 @@
             #left-col { min-height: 62vh; }
             #right-col { min-height: 38vh; padding: 24px 20px 28px; transform: translateY(28px); border-left: 0; border-top: 1px solid rgba(194, 161, 74, 0.18); }
             body.settled #right-col { transform: translateY(0); }
+            .sticky-head { padding: 2px 0 16px; }
             body.settled #character { left: 50%; }
             body.settled #magic-container { left: 52%; }
             .clubs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 18px; }
@@ -218,7 +298,7 @@
             .clubs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 14px; }
             .club-logo { width: 82px; height: 82px; padding: 12px; }
             .club-name { font-size: 13px; max-width: 120px; }
-            .club-events-pop { width: 164px; }
+            .club-events-pop { width: min(284px, calc(100vw - 36px)); }
         }
     </style>
 </head>
@@ -231,13 +311,19 @@
     </div>
     <div id="right-col">
         <div style="margin: auto 0; width: 100%;">
+            <div class="sticky-head">
             <div class="ev-marker">South - Prithvi District</div>
             <h1 class="ev-title">CLUB EVENTS</h1>
             <div class="ev-div"></div>
             <p class="ev-copy">The Prithvi district gathers the clubs that give the fest its weight and character. Each circle anchors a different discipline, from code and robotics to culture, design, media, and community work.</p>
+            </div>
+            <div class="scroll-body">
             <div class="clubs-grid" id="clubs-grid"></div>
+            </div>
         </div>
     </div>
+    <div class="club-focus-overlay" id="club-focus-overlay"></div>
+    <div id="club-popup-root"></div>
 
     <div id="ev-modal">
         <div class="modal-content">
@@ -345,7 +431,10 @@
         }
 
         const clubsGrid = document.getElementById('clubs-grid');
+        const clubFocusOverlay = document.getElementById('club-focus-overlay');
+        const clubPopupRoot = document.getElementById('club-popup-root');
         const eventData = new Map();
+        let activePopup = null;
 
         function renderClub(club) {
             const card = document.createElement('div');
@@ -354,8 +443,15 @@
                 <div class="club-logo"><img src="${club.logo}" alt="${club.name}"></div>
                 <div class="club-info"><div class="club-name">${club.name}</div></div>
                 <div class="club-events-pop">
-                    <div class="pop-title">Events</div>
-                    ${club.events.map(event => `<div class="ev-item" data-event-name="${event.name}">${event.name}</div>`).join('')}
+                    <button class="club-pop-close" type="button" aria-label="Close">×</button>
+                    <div class="club-pop-top">
+                        <div class="club-pop-logo"><img src="${club.logo}" alt="${club.name}"></div>
+                        <div class="pop-title">${club.type}</div>
+                        <div class="club-pop-name">${club.name}</div>
+                    </div>
+                    <div class="club-pop-list">
+                    ${club.events.map(event => `<button class="ev-item" type="button" data-event-name="${event.name}">${event.name}</button>`).join('')}
+                    </div>
                 </div>
             `;
             return card;
@@ -389,24 +485,62 @@
         window.onclick = (e) => { if (e.target === modal) modal.classList.remove('open'); };
 
         function bindClubInteractions() {
-            document.querySelectorAll('.ev-item').forEach(btn => {
-                btn.onclick = (e) => {
-                    e.stopPropagation();
-                    openEventDetail(btn.dataset.eventName || btn.textContent.trim());
-                };
-            });
+            const clearActiveCards = () => {
+                document.querySelectorAll('.club-card.active').forEach(active => active.classList.remove('active'));
+                if (activePopup) {
+                    activePopup.remove();
+                    activePopup = null;
+                }
+                clubsGrid.classList.remove('focus-mode');
+                document.body.classList.remove('club-focus');
+            };
             document.querySelectorAll('.club-logo').forEach(logo => {
                 logo.onclick = (e) => {
                     e.stopPropagation();
                     const card = logo.closest('.club-card');
+                    const popup = card.querySelector('.club-events-pop');
                     const shouldOpen = !card.classList.contains('active');
-                    document.querySelectorAll('.club-card.active').forEach(active => active.classList.remove('active'));
-                    if (shouldOpen) card.classList.add('active');
+                    clearActiveCards();
+                    if (shouldOpen) {
+                        card.classList.add('active');
+                        if (popup) {
+                            activePopup = popup.cloneNode(true);
+                            clubPopupRoot.appendChild(activePopup);
+                            requestAnimationFrame(() => activePopup?.classList.add('open'));
+                        }
+                        clubsGrid.classList.add('focus-mode');
+                        document.body.classList.add('club-focus');
+                    }
                 };
+            });
+            clubsGrid.addEventListener('click', (e) => e.stopPropagation());
+            clubFocusOverlay.addEventListener('click', clearActiveCards);
+            clubPopupRoot.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const closeBtn = e.target.closest('.club-pop-close');
+                if (closeBtn) {
+                    clearActiveCards();
+                    return;
+                }
+                const eventBtn = e.target.closest('.ev-item');
+                if (eventBtn) {
+                    openEventDetail(eventBtn.dataset.eventName || eventBtn.textContent.trim());
+                }
+            });
+            modal.addEventListener('click', (e) => e.stopPropagation());
+            closeModal.addEventListener('click', clearActiveCards);
+            modal.addEventListener('transitionend', () => {
+                if (!modal.classList.contains('open')) clearActiveCards();
             });
         }
         document.addEventListener('click', () => {
             document.querySelectorAll('.club-card.active').forEach(active => active.classList.remove('active'));
+            if (activePopup) {
+                activePopup.remove();
+                activePopup = null;
+            }
+            clubsGrid.classList.remove('focus-mode');
+            document.body.classList.remove('club-focus');
         });
 
         function startSequence() {

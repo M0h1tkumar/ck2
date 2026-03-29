@@ -118,7 +118,7 @@
             transition: opacity 0.8s ease, transform 0.9s ease;
             border-left: 1px solid rgba(125, 208, 255, 0.18);
             background: linear-gradient(180deg, rgba(18, 50, 68, 0.30), rgba(8, 22, 36, 0.14));
-            overflow-y: auto;
+            overflow: hidden;
         }
 
         body.settled #right-col {
@@ -130,39 +130,43 @@
         #right-col::-webkit-scrollbar-thumb { background: rgba(125, 208, 255, 0.25); border-radius: 4px; }
 
         .ev-marker {
-            font-size: clamp(8px, 1vw, 10px);
-            letter-spacing: 5px;
+            font-size: clamp(7px, 0.95vw, 9px);
+            letter-spacing: 4px;
             color: #d9f4ff;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.32);
             text-transform: uppercase;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-align: center;
         }
 
         .ev-title {
-            font-size: clamp(22px, 3.5vw, 38px);
+            font-size: clamp(20px, 3.2vw, 34px);
             font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 10px;
+            line-height: 1.05;
+            margin-bottom: 8px;
             color: #f3fcff;
             text-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
             text-align: center;
         }
 
         .ev-div {
-            width: 40px;
+            width: 32px;
             height: 1px;
             background: linear-gradient(90deg, transparent, #7dd0ff, transparent);
-            margin: 0 auto 18px;
+            margin: 0 auto 12px;
         }
 
         .ev-copy {
             max-width: 600px;
             color: rgba(243, 251, 255, 0.92);
-            line-height: 1.62;
-            margin: 0 auto 24px;
+            line-height: 1.5;
+            margin: 0 auto 14px;
             text-align: center;
+            font-size: 14px;
         }
+        .sticky-head { position: relative; z-index: 6; padding: 2px 0 10px; margin-bottom: 2px; background: linear-gradient(180deg, rgba(6, 27, 41, 0.96) 0%, rgba(6, 27, 41, 0.88) 72%, rgba(6, 27, 41, 0) 100%); backdrop-filter: blur(10px); }
+        .content-shell { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+        .scroll-body { width: 100%; flex: 1; min-height: 0; overflow-y: auto; padding-bottom: 24px; }
 
         .logistics-grid {
             display: grid;
@@ -295,6 +299,7 @@
                 border-left: 0;
                 border-top: 1px solid rgba(125, 208, 255, 0.12);
             }
+            .sticky-head { padding: 2px 0 16px; }
 
             body.settled #right-col {
                 transform: translateY(0);
@@ -322,11 +327,13 @@
 
     <div id="right-col">
         <div style="margin: auto 0; width: 100%;">
+            <div class="sticky-head">
             <div class="ev-marker">West - Jal District</div>
             <h1 class="ev-title">STORE</h1>
             <div class="ev-div"></div>
             <p class="ev-copy">Step into the Jal district to explore official merchandise and key venue logistics. This space is designed to keep practical fest information calm, clear, and easy to access beside the summoning sequence.</p>
-            
+            </div>
+            <div class="scroll-body">
             <div class="logistics-grid">
                 <div class="logistics-card">
                     <div class="log-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg></div>
@@ -340,6 +347,7 @@
                     <div class="log-title">EVENT VENUE</div>
                     <div class="log-content">Venue maps, access points, and on-ground guidance will be published here for attendees and participants.</div>
                 </div>
+            </div>
             </div>
         </div>
     </div>

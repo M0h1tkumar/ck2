@@ -121,7 +121,7 @@
             transition: opacity 0.85s ease, transform 0.95s ease;
             border-left: 1px solid rgba(255, 156, 96, 0.26);
             background: linear-gradient(180deg, rgba(38, 17, 12, 0.24), rgba(22, 10, 7, 0.10));
-            overflow-y: auto;
+            overflow: hidden;
         }
 
         body.settled #right-col {
@@ -133,39 +133,50 @@
         #right-col::-webkit-scrollbar-thumb { background: rgba(255, 156, 96, 0.25); border-radius: 4px; }
 
         .ev-marker {
-            font-size: clamp(8px, 1vw, 10px);
-            letter-spacing: 5px;
+            font-size: clamp(7px, 0.95vw, 9px);
+            letter-spacing: 4px;
             color: #ffd8b7;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
             text-transform: uppercase;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-align: center;
         }
 
         .ev-title {
-            font-size: clamp(22px, 3.5vw, 38px);
+            font-size: clamp(20px, 3.2vw, 34px);
             font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 10px;
+            line-height: 1.05;
+            margin-bottom: 8px;
             color: #fff1df;
             text-shadow: 0 6px 20px rgba(0, 0, 0, 0.24);
             text-align: center;
         }
 
         .ev-div {
-            width: 36px;
+            width: 32px;
             height: 1px;
             background: linear-gradient(90deg, transparent, #ff9c60, transparent);
-            margin: 0 auto 18px;
+            margin: 0 auto 12px;
         }
 
         .ev-copy {
             max-width: 560px;
             color: rgba(255, 216, 188, 0.82);
-            line-height: 1.62;
-            margin: 0 auto 22px;
+            line-height: 1.5;
+            margin: 0 auto 14px;
             text-align: center;
+            font-size: 14px;
         }
+        .sticky-head {
+            position: relative;
+            z-index: 6;
+            padding: 2px 0 10px;
+            margin-bottom: 2px;
+            background: linear-gradient(180deg, rgba(58, 36, 30, 0.96) 0%, rgba(58, 36, 30, 0.88) 72%, rgba(58, 36, 30, 0) 100%);
+            backdrop-filter: blur(10px);
+        }
+        .content-shell { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+        .scroll-body { width: 100%; flex: 1; min-height: 0; overflow-y: auto; padding-bottom: 24px; }
 
         .tl-item {
             display: flex;
@@ -223,6 +234,7 @@
                 border-left: 0;
                 border-top: 1px solid rgba(255, 156, 96, 0.12);
             }
+            .sticky-head { padding: 0 0 10px; }
 
             body.settled #right-col {
                 transform: translateY(0);
@@ -247,10 +259,13 @@
     </div>
 
     <div id="right-col">
+        <div class="sticky-head">
         <div class="ev-marker">East - Agni District</div>
         <h1 class="ev-title">AGENDA</h1>
         <div class="ev-div"></div>
         <div class="ev-copy">Track the three-day pulse of Agni District, from competitive builds and live showcases to the final ascent beneath the evening lights.</div>
+        </div>
+        <div class="scroll-body">
         <div class="tl-item"><div class="tl-time">Day 1<br>9 AM</div><div><div class="tl-name">Opening - The Conch Sounds</div><div class="tl-desc">Grand inauguration and the ceremonial opening of the festival grounds.</div></div></div>
         <div class="tl-item"><div class="tl-time">Day 1<br>11 AM</div><div><div class="tl-name">Code Vyuh - Hackathon</div><div class="tl-desc">A 24-hour build sprint focused on rapid prototyping, teamwork, and technical grit.</div></div></div>
         <div class="tl-item"><div class="tl-time">Day 1<br>3 PM</div><div><div class="tl-name">Yantra Yudh - Robotics</div><div class="tl-desc">Bot battles and live machine challenges inside the custom arena.</div></div></div>
@@ -275,6 +290,7 @@
             </div>
         </div>
         <div class="tl-item"><div class="tl-time">Day 3<br>8 PM</div><div><div class="tl-name">Chakra Bhang - Closing Ceremony</div><div class="tl-desc">The formation breaks with awards, celebrations, and the final send-off.</div></div></div>
+        </div>
     </div>
 
     <script>
