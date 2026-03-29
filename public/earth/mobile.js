@@ -1,8 +1,9 @@
+window.installMobileViewportHeight?.();
+
 const character = document.getElementById('character');
 const canvas = document.getElementById('orb-canvas');
 const ctx = canvas.getContext('2d');
-let cx = 0, cy = 0, radius = 0, startTime = performance.now(), igniteAt = 0;
-let sequenceStarted = false;
+let cx = 0, cy = 0, radius = 0, startTime = performance.now(), igniteAt = 0, sequenceStarted = false;
 const isLowPower = navigator.hardwareConcurrency <= 4 || /Android|iPhone|iPad/i.test(navigator.userAgent);
 const ringCount = isLowPower ? 3 : 4, shardCount = isLowPower ? 8 : 12, moteCount = isLowPower ? 26 : 40;
 
@@ -43,7 +44,7 @@ function drawEarthGlow(energy) {
 }
 
 function drawCore(energy, t) {
-  const coreR = radius * (0.79 + Math.sin(t * 1.8) * 0.03);
+  const coreR = radius * (0.79 + Math.sin(t * 2.8) * 0.03);
   const aura = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 1.6);
   aura.addColorStop(0, `rgba(255, 250, 221, ${0.96 * energy})`);
   aura.addColorStop(0.26, `rgba(255, 203, 118, ${0.68 * energy})`);
@@ -66,8 +67,8 @@ function drawCore(energy, t) {
 
 function drawStoneRings(energy, t) {
   for (let i = 0; i < ringCount; i++) {
-    const phase = t * (0.8 + i * 0.12) + i * 1.4;
-    const r = radius * (0.94 + i * 0.16 + Math.sin(phase) * 0.02);
+    const phase = t * (1.55 + i * 0.18) + i * 1.4;
+    const r = radius * (0.94 + i * 0.16 + Math.sin(phase) * 0.03);
     ctx.strokeStyle = `rgba(255, 220, 150, ${(0.14 - i * 0.02) * energy})`;
     ctx.lineWidth = Math.max(1, radius * (0.022 - i * 0.003));
     ctx.beginPath();
@@ -78,7 +79,7 @@ function drawStoneRings(energy, t) {
 
 function drawShards(energy, t) {
   for (let i = 0; i < shardCount; i++) {
-    const baseAngle = (i / shardCount) * Math.PI * 2 + t * (0.16 + (i % 3) * 0.05);
+    const baseAngle = (i / shardCount) * Math.PI * 2 + t * (0.42 + (i % 3) * 0.08);
     const inner = polarPoint(baseAngle, radius * 0.4);
     const outer = polarPoint(baseAngle + 0.08, radius * 1.02);
     ctx.strokeStyle = `rgba(255, 137, 48, ${0.46 * energy})`;
@@ -129,7 +130,7 @@ function renderClub(club) {
   const card = document.createElement('div');
   card.className = 'club-card';
   card.innerHTML = `
-    <button class="club-logo" type="button" aria-label="Open ${club.name} events"><img src="${club.logo}" alt="${club.name}" loading="lazy" decoding="async"></button>
+    <div class="club-logo"><img src="${club.logo}" alt="${club.name}" loading="lazy" decoding="async"></div>
     <div class="club-info"><div class="club-name">${club.name}</div></div>
     <div class="club-events-pop">
       <button class="club-pop-close" type="button" aria-label="Close">&times;</button>
@@ -260,15 +261,39 @@ document.addEventListener('click', () => {
 function startSequence() {
   if (sequenceStarted) return;
   sequenceStarted = true;
-  document.body.classList.remove('boot', 'orb-on', 'shifting', 'settled');
-  document.body.classList.add('boot');
-  setTimeout(() => {
-    igniteAt = performance.now();
-    document.body.classList.add('orb-on');
-    requestAnimationFrame(drawOrb);
-  }, 900);
-  setTimeout(() => document.body.classList.add('shifting'), 2250);
-  setTimeout(() => document.body.classList.add('settled'), 2650);
+  document.body.classList.remove('boot', 'orb-on', 'shifting', 'settled', 'desktop-enter', 'desktop-rise');
+  const isDesktop = window.innerWidth > 900;
+  void character.offsetHeight;
+
+  if (isDesktop) {
+    document.body.classList.add('desktop-enter');
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.body.classList.add('desktop-rise');
+      });
+    });
+    setTimeout(() => {
+      igniteAt = performance.now();
+      document.body.classList.add('orb-on');
+      requestAnimationFrame(drawOrb);
+    }, 900);
+    setTimeout(() => document.body.classList.add('shifting'), 2250);
+    setTimeout(() => document.body.classList.add('settled'), 2650);
+    return;
+  }
+
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      document.body.classList.add('boot');
+      setTimeout(() => {
+        igniteAt = performance.now();
+        document.body.classList.add('orb-on');
+        requestAnimationFrame(drawOrb);
+      }, 900);
+      setTimeout(() => document.body.classList.add('shifting'), 2250);
+      setTimeout(() => document.body.classList.add('settled'), 2650);
+    }, 20);
+  });
 }
 
 window.addEventListener('resize', resizeCanvas);

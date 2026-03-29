@@ -87,5 +87,7 @@ Avoid:
 ## Maintenance Notes
 
 - Keep naming consistent across docs and the 3D scene.
+- Preserve the shipped district character pairings and animation language exactly as they appear today, even if the underlying file/folder naming is cleaned up later.
+- If folder structure is reorganized for clarity, keep it a zero-behavior refactor: no character swaps, no animation retiming, no scene logic changes.
 - If React sections are reintroduced later, they should inherit this system instead of replacing it with a generic marketing layout.
 - Fix copy and visual consistency in `public/3d/index.html` before expanding the feature set.

@@ -269,7 +269,7 @@ function initTabs() {
     const buckets = document.querySelectorAll('.day-bucket');
 
     tabs.forEach(tab => {
-        tab.addEventListener('click', (e) => {
+        tab.addEventListener('click', () => {
             const targetDay = tab.getAttribute('data-day');
             console.log('Switching to day:', targetDay);
 

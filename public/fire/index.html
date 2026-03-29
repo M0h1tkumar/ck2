@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fire Summon</title>
     <link rel="stylesheet" href="/fire/index.css">
 </head>
-
 <body>
     <div id="left-col">
         <div id="scene-container">
-            <img id="character" src="/fire/character.webp" alt="Character">
+            <!-- Intentional shipped pairing: keep this character/animation presentation unchanged. -->
+            <img id="character" src="/earth/character.webp" alt="Character">
             <div id="magic-container">
                 <canvas id="orb-canvas"></canvas>
             </div>
@@ -20,296 +19,40 @@
 
     <div id="right-col">
         <div class="sticky-head">
-            <div class="ev-marker">Agni District</div>
-            <h1 class="ev-title">AGENDA</h1>
-            <div class="ev-div"></div>
-            <div class="ev-copy">Track the three-day pulse of Agni District, from competitive builds and live showcases
-                to the final ascent.</div>
+        <!-- Intentional shipped district labeling; do not "correct" this without product approval. -->
+        <div class="ev-marker">Prithvi District</div>
+        <h1 class="ev-title">AGENDA</h1>
+        <div class="ev-div"></div>
+        <div class="ev-copy">Track the three-day pulse of Prithvi District, from competitive builds and live showcases to the final ascent beneath the evening lights.</div>
         </div>
-
-        <div class="day-tabs">
-            <button class="tab-btn active" data-day="day-1">Day 1<span>April 3</span></button>
-            <button class="tab-btn" data-day="day-2">Day 2<span>April 4</span></button>
-            <button class="tab-btn" data-day="day-3">Day 3<span>April 5</span></button>
-        </div>
-
         <div class="scroll-body">
-            <!-- Day 1 Block -->
-            <div class="day-bucket active" id="day-1">
-                <div class="time-header">8:00 AM Onwards</div>
-                <div class="event-card" data-url="https://forms.gle/Chakravyuh2K26Registration">
-                    <div class="ev-info">
-                        <span class="club-name">Innovation & Entrepreneurship Cell (IEC)</span>
-                        <h4 class="event-title">The ScratchLabs</h4>
+        <div class="tl-item"><div class="tl-time">Day 1<br>9 AM</div><div><div class="tl-name">Opening - The Conch Sounds</div><div class="tl-desc">Grand inauguration and the ceremonial opening of the festival grounds.</div></div></div>
+        <div class="tl-item"><div class="tl-time">Day 1<br>11 AM</div><div><div class="tl-name">Code Vyuh - Hackathon</div><div class="tl-desc">A 24-hour build sprint focused on rapid prototyping, teamwork, and technical grit.</div></div></div>
+        <div class="tl-item"><div class="tl-time">Day 1<br>3 PM</div><div><div class="tl-name">Yantra Yudh - Robotics</div><div class="tl-desc">Bot battles and live machine challenges inside the custom arena.</div></div></div>
+        <div class="tl-item"><div class="tl-time">Day 2<br>10 AM</div><div><div class="tl-name">Rang Mandal - Cultural Showcase</div><div class="tl-desc">Dance, music, and theatre performances from across the fest community.</div></div></div>
+        <div class="tl-item"><div class="tl-time">Day 2<br>4 PM</div><div><div class="tl-name">Roop Chakra - Design Sprint</div><div class="tl-desc">A fast-paced UI and visual design challenge under pressure.</div></div></div>
+        <div class="tl-item"><div class="tl-time">Day 3<br>11 AM</div><div><div class="tl-name">Digital Kurukshetra - Esports</div><div class="tl-desc">Competitive gaming brackets featuring Valorant, BGMI, and Chess.</div></div></div>
+        <div class="tl-item" style="border-left: 2px solid #ff9c60; padding: 14px 12px; background: rgba(255, 156, 96, 0.12); border-radius: 0 18px 18px 0; margin: 10px 0;">
+            <div class="tl-time">Day 3<br>5 PM</div>
+            <div style="flex: 1;">
+                <div class="tl-name" style="color: #ffb27a; font-weight: 800; letter-spacing: 2px; font-size: 18px; margin-bottom: 6px;">STAR NIGHT - THE ASCENSION</div>
+                <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 10px;">
+                    <div style="width: 84px; height: 84px; background: radial-gradient(circle, rgba(255, 156, 96, 0.18) 0%, transparent 72%); border: 1px dashed rgba(255, 156, 96, 0.35); border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,156,96,0.3)" stroke-width="1.5" style="width: 40px;"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(255,156,96,0.1), transparent);"></div>
                     </div>
-                    <div class="ev-venue">E-114</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/Chakravyuh2K26Registration">
-                    <div class="ev-info">
-                        <span class="club-name">GeeksForGeeks</span>
-                        <h4 class="event-title">Zer0ne</h4>
+                    <div>
+                        <div style="font-size: 14px; color: #ffd4b1; font-weight: 700; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px;">Artist Reveal</div>
+                        <div style="font-size: 12px; color: rgba(255,222,198,0.82); font-weight: 600;">REVEALING SOON</div>
                     </div>
-                    <div class="ev-venue">lab</div>
                 </div>
-                <div class="event-card" data-url="https://docs.google.com/forms/d/e/1FAIpQLSfOFwnyNAPFsOsS8x2bOhFEUASmFRAojNvToBvCuXe49prEwA/viewform?usp=dialog">
-                    <div class="ev-info">
-                        <span class="club-name">ODanza</span>
-                        <h4 class="event-title">Natya Katha</h4>
-                    </div>
-                    <div class="ev-venue">Auditorium A</div>
-                </div>
-                <div class="event-card" data-url="https://chakravyuh.iterroboticsclub.com/">
-                    <div class="ev-info">
-                        <span class="club-name">ITER Robotics Club</span>
-                        <h4 class="event-title">Robo Race</h4>
-                    </div>
-                    <div class="ev-venue">E-Block Gallery</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/PkSf2z53TY9ugiY66">
-                    <div class="ev-info">
-                        <span class="club-name">SOA Flying Community</span>
-                        <h4 class="event-title">Aero Innovation</h4>
-                    </div>
-                    <div class="ev-venue">E-Block Lawn</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/Chakravyuh2K26Registration">
-                    <div class="ev-info">
-                        <span class="club-name">SOA English Cafe</span>
-                        <h4 class="event-title">Medha Manthan</h4>
-                    </div>
-                    <div class="ev-venue">E-529 & E-522</div>
-                </div>
-                <div class="event-card" data-url="https://docs.google.com/forms/d/e/1FAIpQLScn5T6V4c6dPucJfCwuedQurWL143vNkmzUmJM7gTPLGWGCoQ/viewform">
-                    <div class="ev-info">
-                        <span class="club-name">SOA Radio Club</span>
-                        <h4 class="event-title">Dart-E-Dil Returns</h4>
-                    </div>
-                    <div class="ev-venue">E-414</div>
-                </div>
-                <div class="event-card" data-url="https://docs.google.com/forms/d/e/1FAIpQLSdPBqsqKXqZdXHTgefzyT__ba28bxx9CkIMp9c2FGSH_s4VZg/viewform?usp=dialog">
-                    <div class="ev-info">
-                        <span class="club-name">Srishti</span>
-                        <h4 class="event-title">Earthen Expressions</h4>
-                    </div>
-                    <div class="ev-venue">Auditorium C</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/VJPNyLQPQJwmt9BQ7">
-                    <div class="ev-info">
-                        <span class="club-name">Toneelstuk</span>
-                        <h4 class="event-title">Takhleeqi</h4>
-                    </div>
-                    <div class="ev-venue">Auditorium D</div>
-                </div>
-                <div class="event-card" data-url="https://docs.google.com/forms/d/e/1FAIpQLSfbdXVawV2BWs3Y-H9s32ZljmcYE_8wgcm9kpcaoku6T80Aaw/viewform?usp=publish-editor">
-                    <div class="ev-info">
-                        <span class="club-name">SOA PHOTOGRAPHY CLUB</span>
-                        <h4 class="event-title">Captured narratives</h4>
-                    </div>
-                    <div class="ev-venue">E-214</div>
-                </div>
-
-                <div class="time-header mt-4">11:30 AM Onwards</div>
-                <div class="event-card" data-url="https://forms.gle/Chakravyuh2K26Registration">
-                    <div class="ev-info">
-                        <span class="club-name">Coding Ninja</span>
-                        <h4 class="event-title">Hypocrispy 2.0 (Collab with slc)</h4>
-                    </div>
-                    <div class="ev-venue">E-114</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/Chakravyuh2K26Registration">
-                    <div class="ev-info">
-                        <span class="club-name">SOA Literary Club</span>
-                        <h4 class="event-title">Hypocrisy ki bhi seema hoti hai 2.0</h4>
-                    </div>
-                    <div class="ev-venue">E-114</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/NRxgUmQPDqmMRgx88">
-                    <div class="ev-info">
-                        <span class="club-name">Vogue (SOA Fashion Club)</span>
-                        <h4 class="event-title">Mr. and Miss ITER</h4>
-                    </div>
-                    <div class="ev-venue">Auditorium A</div>
-                </div>
+                <div class="tl-desc" style="color: rgba(255,222,198,0.84); font-weight: 500;">EVENT DETAILS: REVEALING SOON</div>
             </div>
-
-            <!-- Day 2 Block -->
-            <div class="day-bucket" id="day-2">
-                <div class="time-header">8:00 AM Onwards</div>
-                <div class="event-card" data-url="https://forms.gle/Chakravyuh2K26Registration">
-                    <div class="ev-info">
-                        <span class="club-name">Innovation & Entrepreneurship Cell (IEC)</span>
-                        <h4 class="event-title">The ScratchLabs</h4>
-                    </div>
-                    <div class="ev-venue">E-114</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/Chakravyuh2K26Registration">
-                    <div class="ev-info">
-                        <span class="club-name">Coding Ninja</span>
-                        <h4 class="event-title">Techwiz 3.0</h4>
-                    </div>
-                    <div class="ev-venue">Auditorium A</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/Chakravyuh2K26Registration">
-                    <div class="ev-info">
-                        <span class="club-name">VirtualShowreel (VS)</span>
-                        <h4 class="event-title">CineFolie</h4>
-                    </div>
-                    <div class="ev-venue">E-013</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/TReLtKGQvyi9Aa8W6">
-                    <div class="ev-info">
-                        <span class="club-name">GDGoc</span>
-                        <h4 class="event-title">AI Treasure Hunt</h4>
-                    </div>
-                    <div class="ev-venue">Auditorium D</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/vsjwj4S3ViPuq9A56">
-                    <div class="ev-info">
-                        <span class="club-name">SOA English Cafe</span>
-                        <h4 class="event-title">Anant Chakra (Collab with Codex)</h4>
-                    </div>
-                    <div class="ev-venue">E-314 & LAB</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/vsjwj4S3ViPuq9A56">
-                    <div class="ev-info">
-                        <span class="club-name">Codex</span>
-                        <h4 class="event-title">Anant Chakra (Collab with SEC)</h4>
-                    </div>
-                    <div class="ev-venue">E-314 & LAB</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/aQTy71dWyf5YQpiT6">
-                    <div class="ev-info">
-                        <span class="club-name">Codex</span>
-                        <h4 class="event-title">Coders in Borderland</h4>
-                    </div>
-                    <div class="ev-venue">LABS</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/rrDM48KRQys2SePXA">
-                    <div class="ev-info">
-                        <span class="club-name">Toneelstuk</span>
-                        <h4 class="event-title">Adakari</h4>
-                    </div>
-                    <div class="ev-venue">E-214</div>
-                </div>
-                <div class="event-card" data-url="https://docs.google.com/forms/d/e/1FAIpQLSfWhsoYQcRrIcg_xeUA5KC0I1XE3VCXaVm8kiXXzYMa-HOjkA/viewform?usp=sharing&ouid=100040705308569428897">
-                    <div class="ev-info">
-                        <span class="club-name">Vogue (SOA Fashion Club)</span>
-                        <h4 class="event-title">Fashion Face-Off</h4>
-                    </div>
-                    <div class="ev-venue">E-414</div>
-                </div>
-
-                <div class="time-header mt-4">11:30 PM Onwards</div>
-                <div class="event-card" data-url="https://forms.gle/VCn9V7NGJcRcg3so8">
-                    <div class="ev-info">
-                        <span class="club-name">Danza</span>
-                        <h4 class="event-title">Beat Drop Arena</h4>
-                    </div>
-                    <div class="ev-venue">Auditorium A</div>
-                </div>
-            </div>
-
-            <!-- Day 3 Block -->
-            <div class="day-bucket" id="day-3">
-                <div class="time-header">8:00 AM Onwards</div>
-                <div class="event-card" data-url="https://forms.gle/Chakravyuh2K26Registration">
-                    <div class="ev-info">
-                        <span class="club-name">GeeksForGeeks</span>
-                        <h4 class="event-title">Rachitva</h4>
-                    </div>
-                    <div class="ev-venue">Seminar hall</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/Chakravyuh2K26Registration">
-                    <div class="ev-info">
-                        <span class="club-name">SOA Music Club (SMC)</span>
-                        <h4 class="event-title">Naghma</h4>
-                    </div>
-                    <div class="ev-venue">Auditorium A</div>
-                </div>
-                <div class="event-card" data-url="https://chakravyuh.iterroboticsclub.com/">
-                    <div class="ev-info">
-                        <span class="club-name">ITER Robotics Club</span>
-                        <h4 class="event-title">Bot Fc</h4>
-                    </div>
-                    <div class="ev-venue">E-Block Gallery</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/JiduigP5AFudrZwn7">
-                    <div class="ev-info">
-                        <span class="club-name">SOA Flying Community</span>
-                        <h4 class="event-title">HoverMania</h4>
-                    </div>
-                    <div class="ev-venue">E-Block Lawn</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/Chakravyuh2K26Registration">
-                    <div class="ev-info">
-                        <span class="club-name">Innovation & Entrepreneurship Cell (IEC)</span>
-                        <h4 class="event-title">The Ai Tribunal</h4>
-                    </div>
-                    <div class="ev-venue">E-013</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/Chakravyuh2K26Registration">
-                    <div class="ev-info">
-                        <span class="club-name">VirtualShowreel (VS)</span>
-                        <h4 class="event-title">Color-E-Pic</h4>
-                    </div>
-                    <div class="ev-venue">E-311</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/gPztEAjhfp2V8yoR8">
-                    <div class="ev-info">
-                        <span class="club-name">Danza</span>
-                        <h4 class="event-title">Apex Arena</h4>
-                    </div>
-                    <div class="ev-venue">Auditorium C</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/deq1LqKsmK9zbe4U8">
-                    <div class="ev-info">
-                        <span class="club-name">GDGoc</span>
-                        <h4 class="event-title">Maya Vyuh : The Prompt War</h4>
-                    </div>
-                    <div class="ev-venue">lab</div>
-                </div>
-                <div class="event-card" data-url="https://docs.google.com/forms/d/e/1FAIpQLSd5BplXXXwLiNqQK7Ant1Duppef713OE2uVr6KDbEcK-zlg-A/viewform">
-                    <div class="ev-info">
-                        <span class="club-name">SOA Radio Club</span>
-                        <h4 class="event-title">Asli Dhurandhar Kaun?</h4>
-                    </div>
-                    <div class="ev-venue">E-529</div>
-                </div>
-                <div class="event-card" data-url="https://docs.google.com/forms/d/e/1FAIpQLSfnny-IdlDMOgInN_nIE99xd_4l2CSa60RHqLwa6E6yj1xZHw/viewform?usp=dialog">
-                    <div class="ev-info">
-                        <span class="club-name">Srishti</span>
-                        <h4 class="event-title">Nishaan-e-Hunr</h4>
-                    </div>
-                    <div class="ev-venue">Auditorium D</div>
-                </div>
-                <div class="event-card" data-url="https://forms.gle/7BUqqgMvDSJkdMAY7">
-                    <div class="ev-info">
-                        <span class="club-name">SOA Literary Club</span>
-                        <h4 class="event-title">ReCast</h4>
-                    </div>
-                    <div class="ev-venue">E-114</div>
-                </div>
-                <div class="event-card" data-url="https://docs.google.com/forms/d/e/1FAIpQLSd7zifmcPRybjhrE5WIdtNDYyrMhdlHyjLlXGF5kmtlIoWXAw/viewform?usp=publish-editor">
-                    <div class="ev-info">
-                        <span class="club-name">SOA PHOTOGRAPHY CLUB</span>
-                        <h4 class="event-title">Motion mania</h4>
-                    </div>
-                    <div class="ev-venue">E-522</div>
-                </div>
-
-                <div class="time-header mt-4">11:00 AM Onwards</div>
-                <div class="event-card" data-url="https://forms.gle/Chakravyuh2K26Registration">
-                    <div class="ev-info">
-                        <span class="club-name">SOA Music Club (SMC)</span>
-                        <h4 class="event-title">Beatsync</h4>
-                    </div>
-                    <div class="ev-venue">Auditorium A</div>
-                </div>
-            </div>
+        </div>
+        <div class="tl-item"><div class="tl-time">Day 3<br>8 PM</div><div><div class="tl-name">Chakra Bhang - Closing Ceremony</div><div class="tl-desc">The formation breaks with awards, celebrations, and the final send-off.</div></div></div>
         </div>
     </div>
 
     <script src="/fire/index.js"></script>
 </body>
-
 </html>

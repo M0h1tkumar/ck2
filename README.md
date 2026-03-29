@@ -36,6 +36,8 @@ npm run build
 
 - The source of truth for the shipped experience is `public/*`, not React page sections.
 - The source of truth for club/event image assets is `public/Club Logo/*`.
+- The current district-to-character pairing is intentional, even where folder names and displayed district copy do not line up in an obvious one-to-one way. Preserve the shipped visuals and animation behavior when cleaning structure.
+- In particular, treat the current `earth/*` and `fire/*` character usage as part of the approved experience unless the product direction explicitly changes.
 - The homepage is intentionally static from Next's perspective and currently prerenders successfully.
 - Large media files in `public/earth`, `public/fire`, and `public/water` are the main candidates for future performance work.
 - Use `QA_CHECKLIST.md` before shipping scene changes because most `public/*` runtime behavior is outside Next.js lint/type coverage.

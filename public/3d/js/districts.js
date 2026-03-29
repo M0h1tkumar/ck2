@@ -1,5 +1,8 @@
 const DISTRICT_PAGE_VERSION = '20260329-fire-mobile-bottom-left-1';
 
+// The district page routing below reflects the currently approved shipped experience.
+// If files are reorganized later, preserve the visible output exactly unless product
+// direction changes explicitly.
 const DISTRICT_ASSETS = {
   fire: ['/fire/character.webp'],
   water: ['/water/character.webp'],
