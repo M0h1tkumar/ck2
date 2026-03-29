@@ -4,23 +4,21 @@
   "description": "The Prithvi district gathers the clubs that give the fest its weight and character. Each circle anchors a different discipline, from code and robotics to culture, design, media, and community work.",
   "clubs": [
     {
-      "id": "coding-ninjas",
-      "name": "Coding Ninjas",
-      "type": "Tech",
-      "logo": "/Club Logo/CODING NINJAS.png",
+      "id": "radio",
+      "name": "Soa-Radio",
+      "type": "Fun",
+      "logo": "/Club Logo/SOA Radio.jpeg",
       "events": [
         {
-          "id": "coding-ninjas-ninja-hire",
-          "name": "Ninja ohoo",
+          "name": "DART-E-DIL",
           "description": "A hiring-style coding sprint focused on problem solving, interviews, and quick-fire technical rounds.",
           "date": "April 18, 2026",
           "location": "Placement Cell",
-          "prize": "Internships",
-          "contact": "Updated soon",
-          "link": "#"
+          "prize": "INR 20000",
+          "contact": "SAI KRISHNA: 7008278787",
+          "link": "https://docs.google.com/forms/d/e/1FAIpQLScn5T6V4c6dPucJfCwuedQurWL143vNkmzUmJM7gTPLGWGCoQ/viewform"
         },
         {
-          "id": "coding-ninjas-code-a-thon",
           "name": "Code-A-Thon",
           "description": "A build-heavy coding marathon where teams race through challenge sets under a tight clock.",
           "date": "April 19, 2026",
@@ -31,7 +29,6 @@
         }
       ]
     },
-    
     {
       "id": "codex",
       "name": "Codex",
@@ -39,7 +36,6 @@
       "logo": "/Club Logo/Codex.png",
       "events": [
         {
-          "id": "codex-code-vyuh-4",
           "name": "Code Vyuh 4.0",
           "description": "A flagship coding contest built around layered logic challenges and elimination rounds.",
           "date": "April 18, 2026",
@@ -49,7 +45,6 @@
           "link": "#"
         },
         {
-          "id": "codex-algorithmic-odyssey",
           "name": "Algorithmic Odyssey",
           "description": "A problem-solving track centered on algorithms, optimization, and coding accuracy.",
           "date": "April 19, 2026",
@@ -67,7 +62,6 @@
       "logo": "/Club Logo/Danza.png",
       "events": [
         {
-          "id": "danza-street-battle",
           "name": "Street Battle",
           "description": "A crew-versus-crew street dance clash built on impact, rhythm, and stage command.",
           "date": "April 18, 2026",
@@ -77,7 +71,6 @@
           "link": "#"
         },
         {
-          "id": "danza-hip-hop-workshop",
           "name": "Hip-Hop Workshop",
           "description": "A guided session on movement basics, groove work, and performance technique.",
           "date": "April 20, 2026",
@@ -95,7 +88,6 @@
       "logo": "/Club Logo/GDG.jpeg",
       "events": [
         {
-          "id": "gdg-devfest-2026",
           "name": "DevFest 2026",
           "description": "A developer gathering packed with talks, demos, and hands-on tech showcases.",
           "date": "April 18-20, 2026",
@@ -105,7 +97,6 @@
           "link": "#"
         },
         {
-          "id": "gdg-cloud-study-jam",
           "name": "Cloud Study Jam",
           "description": "A guided cloud learning sprint with practical labs and certification-oriented tasks.",
           "date": "April 19, 2026",
@@ -123,7 +114,6 @@
       "logo": "/Club Logo/GFG.jpeg",
       "events": [
         {
-          "id": "gfg-dsa-rumble",
           "name": "DSA Rumble",
           "description": "A fast-paced data structures and algorithms showdown with ranked challenge ladders.",
           "date": "April 18, 2026",
@@ -133,7 +123,6 @@
           "link": "#"
         },
         {
-          "id": "gfg-job-a-thon",
           "name": "Job-A-Thon",
           "description": "A career-focused challenge track blending aptitude, coding, and hiring simulations.",
           "date": "April 20, 2026",
@@ -151,7 +140,6 @@
       "logo": "/Club Logo/IRC Logo Square.png",
       "events": [
         {
-          "id": "irc-square-yantra-yudh",
           "name": "Yantra Yudh",
           "description": "A robotics arena challenge where machines face off in tactical combat sequences.",
           "date": "April 18, 2026",
@@ -161,7 +149,6 @@
           "link": "#"
         },
         {
-          "id": "irc-square-bot-nexus",
           "name": "Bot-Nexus",
           "description": "A design-and-build robotics event centered on control systems and engineering precision.",
           "date": "April 19, 2026",
@@ -179,7 +166,6 @@
       "logo": "/Club Logo/IRC.png",
       "events": [
         {
-          "id": "irc-landscape-drone-sprint",
           "name": "Drone Sprint",
           "description": "A high-speed aerial challenge testing control, navigation, and time-trial execution.",
           "date": "April 18, 2026",
@@ -189,7 +175,6 @@
           "link": "#"
         },
         {
-          "id": "irc-landscape-robo-expo",
           "name": "Robo Expo",
           "description": "A robotics exhibition where builds, prototypes, and concepts are showcased live.",
           "date": "April 20, 2026",
@@ -207,7 +192,6 @@
       "logo": "/Club Logo/JAAGO.gif",
       "events": [
         {
-          "id": "jaago-awareness-play",
           "name": "Awareness Play",
           "description": "A socially driven stage act that turns civic issues into performance storytelling.",
           "date": "April 18, 2026",
@@ -217,7 +201,6 @@
           "link": "#"
         },
         {
-          "id": "jaago-street-drama",
           "name": "Street Drama",
           "description": "A public-impact performance built for open spaces, crowd energy, and direct messaging.",
           "date": "April 19, 2026",
@@ -235,7 +218,6 @@
       "logo": "/Club Logo/NSS.png",
       "events": [
         {
-          "id": "nss-blood-drive",
           "name": "Blood Drive",
           "description": "A campus-wide donation initiative built around participation, awareness, and impact.",
           "date": "April 18, 2026",
@@ -245,7 +227,6 @@
           "link": "#"
         },
         {
-          "id": "nss-swachh-campus",
           "name": "Swachh Campus",
           "description": "A volunteer-led action drive focused on cleanliness, service, and public engagement.",
           "date": "April 19, 2026",
@@ -263,7 +244,6 @@
       "logo": "/Club Logo/ODanza.png",
       "events": [
         {
-          "id": "odanza-classical-night",
           "name": "Classical Night",
           "description": "A curated classical dance showcase centered on form, expression, and stage depth.",
           "date": "April 19, 2026",
@@ -273,7 +253,6 @@
           "link": "#"
         },
         {
-          "id": "odanza-mudras-expo",
           "name": "Mudras Expo",
           "description": "An interpretive performance and presentation space exploring gesture-based storytelling.",
           "date": "April 20, 2026",
@@ -291,7 +270,6 @@
       "logo": "/Club Logo/SEC.png",
       "events": [
         {
-          "id": "english-cafe-word-smith",
           "name": "Word-Smith",
           "description": "A writing contest built around sharp language, creativity, and timed expression.",
           "date": "April 18, 2026",
@@ -301,7 +279,6 @@
           "link": "#"
         },
         {
-          "id": "english-cafe-debate-duel",
           "name": "Debate Duel",
           "description": "A head-to-head speaking battle focused on reasoning, rhetoric, and rebuttal.",
           "date": "April 20, 2026",
@@ -319,7 +296,6 @@
       "logo": "/Club Logo/SEC.png",
       "events": [
         {
-          "id": "sec-eloquence",
           "name": "Eloquence",
           "description": "A public speaking challenge built on clarity, confidence, and persuasive delivery.",
           "date": "April 18, 2026",
@@ -329,7 +305,6 @@
           "link": "#"
         },
         {
-          "id": "sec-scribe",
           "name": "Scribe",
           "description": "A short-format writing contest that rewards precision, speed, and originality.",
           "date": "April 19, 2026",
@@ -347,7 +322,6 @@
       "logo": "/Club Logo/SFC.png",
       "events": [
         {
-          "id": "sfc-aerial-vision",
           "name": "Aerial Vision",
           "description": "A drone imaging and navigation challenge built for control and creative execution.",
           "date": "April 18, 2026",
@@ -357,7 +331,6 @@
           "link": "#"
         },
         {
-          "id": "sfc-sky-high-bash",
           "name": "Sky High Bash",
           "description": "A high-energy aerial event focused on maneuvering, showmanship, and precision flight.",
           "date": "April 19, 2026",
@@ -375,7 +348,6 @@
       "logo": "/Club Logo/SLC.png",
       "events": [
         {
-          "id": "slc-ink-and-irony",
           "name": "Ink & Irony",
           "description": "A literary challenge that blends satire, storytelling, and sharp written voice.",
           "date": "April 18, 2026",
@@ -385,7 +357,6 @@
           "link": "#"
         },
         {
-          "id": "slc-poetry-slam",
           "name": "Poetry Slam",
           "description": "A spoken-word stage where rhythm, vulnerability, and crowd connection matter most.",
           "date": "April 20, 2026",
@@ -403,7 +374,6 @@
       "logo": "/Club Logo/SMC.jpg",
       "events": [
         {
-          "id": "smc-news-hunt",
           "name": "News-Hunt",
           "description": "A reporting challenge built around observation, deadlines, and newsroom instincts.",
           "date": "April 18, 2026",
@@ -413,7 +383,6 @@
           "link": "#"
         },
         {
-          "id": "smc-media-summit",
           "name": "Media Summit",
           "description": "A discussion and showcase space around journalism, storytelling, and production craft.",
           "date": "April 20, 2026",
@@ -431,17 +400,15 @@
       "logo": "/Club Logo/SOA Radio.jpeg",
       "events": [
         {
-          "id": "soa-radio-on-air-live",
-          "name": "On-Air Live",
+          "name": "DART-E-DIL",
           "description": "A live hosting challenge built around voice, timing, and audience energy.",
           "date": "April 18, 2026",
           "location": "Radio Cabin",
           "prize": "T-Shirts",
           "contact": "Updated soon",
-          "link": "#"
+          "link": "https://docs.google.com/forms/d/e/1FAIpQLScn5T6V4c6dPucJfCwuedQurWL143vNkmzUmJM7gTPLGWGCoQ/viewform"
         },
         {
-          "id": "soa-radio-voice-box",
           "name": "Voice Box",
           "description": "A performance-based vocal event centered on modulation, presence, and clarity.",
           "date": "April 19, 2026",
@@ -459,7 +426,6 @@
       "logo": "/Club Logo/SOA-PNG.png",
       "events": [
         {
-          "id": "soa-university-expo",
           "name": "University Expo",
           "description": "A broad campus showcase connecting academic spaces, communities, and opportunities.",
           "date": "April 18-20, 2026",
@@ -469,7 +435,6 @@
           "link": "#"
         },
         {
-          "id": "soa-alumni-meet",
           "name": "Alumni Meet",
           "description": "A gathering for returning alumni, networking, and shared campus memories.",
           "date": "April 19, 2026",
@@ -487,7 +452,6 @@
       "logo": "/Club Logo/SPC.png",
       "events": [
         {
-          "id": "spc-design-a-thon",
           "name": "Design-A-Thon",
           "description": "A rapid design challenge focused on ideation, interface craft, and presentation.",
           "date": "April 18, 2026",
@@ -497,7 +461,6 @@
           "link": "#"
         },
         {
-          "id": "spc-branding-101",
           "name": "Branding 101",
           "description": "A workshop-style event introducing identity systems, visual voice, and brand thinking.",
           "date": "April 20, 2026",
@@ -515,7 +478,6 @@
       "logo": "/Club Logo/Sristhi.png",
       "events": [
         {
-          "id": "sristhi-vocal-symphony",
           "name": "Vocal Symphony",
           "description": "A performance event built around harmony, stage blend, and musical expression.",
           "date": "April 19, 2026",
@@ -525,7 +487,6 @@
           "link": "#"
         },
         {
-          "id": "sristhi-fusion-fest",
           "name": "Fusion Fest",
           "description": "A multi-genre music showcase where styles and sounds collide on one stage.",
           "date": "April 20, 2026",
@@ -543,7 +504,6 @@
       "logo": "/Club Logo/Toneelstuk.png",
       "events": [
         {
-          "id": "toneelstuk-dramatics-night",
           "name": "Dramatics Night",
           "description": "A stage-heavy theatre event built around presence, pacing, and live performance energy.",
           "date": "April 18, 2026",
@@ -553,7 +513,6 @@
           "link": "#"
         },
         {
-          "id": "toneelstuk-stage-craft",
           "name": "Stage Craft",
           "description": "A behind-the-scenes challenge focused on set, movement, and theatrical execution.",
           "date": "April 20, 2026",
@@ -571,7 +530,6 @@
       "logo": "/Club Logo/vogue.png",
       "events": [
         {
-          "id": "vogue-runway-walk",
           "name": "Runway Walk",
           "description": "A fashion ramp event where styling, posture, and stage confidence take the lead.",
           "date": "April 19, 2026",
@@ -581,7 +539,6 @@
           "link": "#"
         },
         {
-          "id": "vogue-design-gala",
           "name": "Design Gala",
           "description": "A fashion and styling showcase centered on concept, presentation, and finish.",
           "date": "April 20, 2026",
@@ -599,7 +556,6 @@
       "logo": "/Club Logo/VS Logo dark bg.png",
       "events": [
         {
-          "id": "showreel-video-expo",
           "name": "Video Expo",
           "description": "A screening and showcase space for short-form visuals, edits, and visual storytelling.",
           "date": "April 18, 2026",
@@ -609,7 +565,6 @@
           "link": "#"
         },
         {
-          "id": "showreel-editing-battle",
           "name": "Editing Battle",
           "description": "A rapid turnaround editing challenge built on pacing, polish, and creative decisions.",
           "date": "April 19, 2026",

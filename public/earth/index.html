@@ -269,6 +269,12 @@
             opacity: 1;
             pointer-events: auto;
         }
+        #club-popup-root {
+            position: fixed;
+            inset: 0;
+            z-index: 40;
+            pointer-events: none;
+        }
 
         #ev-modal {
             position: fixed; inset: 0; z-index: 1000; background: rgba(10, 7, 3, 0.85);
@@ -294,6 +300,12 @@
             display: block; width: 100%; padding: 16px; background: linear-gradient(180deg, #e2c56a 0%, #c2a14a 100%);
             color: #1c140b; text-align: center; text-decoration: none; font-weight: 800; border-radius: 12px;
             font-size: 14px; text-transform: uppercase; letter-spacing: 1px; transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .ev-item,
+        .club-pop-close,
+        .reg-btn {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }
         .reg-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(194, 161, 74, 0.3); }
 

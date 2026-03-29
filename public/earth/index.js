@@ -92,6 +92,11 @@ let sequenceStarted = false;
         const clubPopupRoot = document.getElementById('club-popup-root');
         const eventData = new Map();
         let activePopup = null;
+        let clearActiveCards = () => {};
+
+        function getEventKey(club, event) {
+            return event.id || `${club.id || club.name}::${event.name}`;
+        }
 
         function renderClub(club) {
             const card = document.createElement('div');
@@ -103,11 +108,11 @@ let sequenceStarted = false;
                     <button class="club-pop-close" type="button" aria-label="Close">×</button>
                     <div class="club-pop-top">
                         <div class="club-pop-logo"><img src="${club.logo}" alt="${club.name}"></div>
-                        <div class="pop-title">${club.type}</div>
+                    <div class="pop-title">${club.type}</div>
                         <div class="club-pop-name">${club.name}</div>
                     </div>
                     <div class="club-pop-list">
-                    ${club.events.map(event => `<button class="ev-item" type="button" data-event-id="${event.id}">${event.name}</button>`).join('')}
+                    ${club.events.map(event => `<button class="ev-item" type="button" data-event-key="${getEventKey(club, event)}">${event.name}</button>`).join('')}
                     </div>
                 </div>
             `;
@@ -120,15 +125,15 @@ let sequenceStarted = false;
             const data = await response.json();
             clubsGrid.innerHTML = '';
             data.clubs.forEach(club => {
-                club.events.forEach(event => eventData.set(event.id, event));
+                club.events.forEach(event => eventData.set(getEventKey(club, event), event));
                 clubsGrid.appendChild(renderClub(club));
             });
             bindClubInteractions();
         }
 
         const modal = document.getElementById('ev-modal'), closeModal = document.getElementById('modal-close');
-        function openEventDetail(eventId) {
-            const data = eventData.get(eventId); if (!data) return;
+        function openEventDetail(eventKey) {
+            const data = eventData.get(eventKey); if (!data) return;
             document.getElementById('m-title').textContent = data.name;
             document.getElementById('m-date').textContent = data.date;
             document.getElementById('m-loc').textContent = data.location;
@@ -143,8 +148,22 @@ let sequenceStarted = false;
         const modalContent = modal.querySelector('.modal-content');
         modalContent?.addEventListener('click', (e) => e.stopPropagation());
 
+        function attachPopupInteractions(popup) {
+            popup.addEventListener('click', (e) => e.stopPropagation());
+            popup.querySelector('.club-pop-close')?.addEventListener('click', (e) => {
+                e.stopPropagation();
+                clearActiveCards();
+            });
+            popup.querySelectorAll('.ev-item').forEach((button) => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openEventDetail(button.dataset.eventKey);
+                });
+            });
+        }
+
         function bindClubInteractions() {
-            const clearActiveCards = () => {
+            clearActiveCards = () => {
                 document.querySelectorAll('.club-card.active').forEach(active => active.classList.remove('active'));
                 if (activePopup) {
                     activePopup.remove();
@@ -165,6 +184,7 @@ let sequenceStarted = false;
                         if (popup) {
                             activePopup = popup.cloneNode(true);
                             clubPopupRoot.appendChild(activePopup);
+                            attachPopupInteractions(activePopup);
                             requestAnimationFrame(() => activePopup?.classList.add('open'));
                         }
                         clubsGrid.classList.add('focus-mode');
@@ -174,18 +194,7 @@ let sequenceStarted = false;
             });
             clubsGrid.addEventListener('click', (e) => e.stopPropagation());
             clubFocusOverlay.addEventListener('click', clearActiveCards);
-            clubPopupRoot.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const closeBtn = e.target.closest('.club-pop-close');
-                if (closeBtn) {
-                    clearActiveCards();
-                    return;
-                }
-                const eventBtn = e.target.closest('.ev-item');
-                if (eventBtn) {
-                    openEventDetail(eventBtn.dataset.eventId);
-                }
-            });
+            clubPopupRoot.addEventListener('click', (e) => e.stopPropagation());
             closeModal.addEventListener('click', clearActiveCards);
             modal.addEventListener('transitionend', () => {
                 if (!modal.classList.contains('open')) clearActiveCards();

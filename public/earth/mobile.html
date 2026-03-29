@@ -229,6 +229,7 @@
         body.club-focus { overflow: hidden; }
         .club-focus-overlay { position: fixed; inset: 0; background: rgba(4, 10, 6, 0.16); opacity: 0; pointer-events: none; transition: opacity 0.35s ease; z-index: 18; }
         body.club-focus .club-focus-overlay { opacity: 1; pointer-events: auto; }
+        #club-popup-root { position: fixed; inset: 0; z-index: 40; pointer-events: none; }
 
         #ev-modal {
             position: fixed; inset: 0; z-index: 1000; background: rgba(10, 7, 3, 0.85);
@@ -254,6 +255,12 @@
             display: block; width: 100%; padding: 16px; background: linear-gradient(180deg, #e2c56a 0%, #c2a14a 100%);
             color: #1c140b; text-align: center; text-decoration: none; font-weight: 800; border-radius: 12px;
             font-size: 14px; text-transform: uppercase; letter-spacing: 1px; transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .ev-item,
+        .club-pop-close,
+        .reg-btn {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }
         .reg-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(194, 161, 74, 0.3); }
 
@@ -455,6 +462,11 @@
         const clubPopupRoot = document.getElementById('club-popup-root');
         const eventData = new Map();
         let activePopup = null;
+        let clearActiveCards = () => {};
+
+        function getEventKey(club, event) {
+            return event.id || `${club.id || club.name}::${event.name}`;
+        }
 
         function renderClub(club) {
             const card = document.createElement('div');
@@ -466,11 +478,11 @@
                     <button class="club-pop-close" type="button" aria-label="Close">×</button>
                     <div class="club-pop-top">
                         <div class="club-pop-logo"><img src="${club.logo}" alt="${club.name}"></div>
-                        <div class="pop-title">${club.type}</div>
+                    <div class="pop-title">${club.type}</div>
                         <div class="club-pop-name">${club.name}</div>
                     </div>
                     <div class="club-pop-list">
-                    ${club.events.map(event => `<button class="ev-item" type="button" data-event-name="${event.name}">${event.name}</button>`).join('')}
+                    ${club.events.map(event => `<button class="ev-item" type="button" data-event-key="${getEventKey(club, event)}">${event.name}</button>`).join('')}
                     </div>
                 </div>
             `;
@@ -483,16 +495,16 @@
             const data = await response.json();
             clubsGrid.innerHTML = '';
             data.clubs.forEach(club => {
-                club.events.forEach(event => eventData.set(event.name, event));
+                club.events.forEach(event => eventData.set(getEventKey(club, event), event));
                 clubsGrid.appendChild(renderClub(club));
             });
             bindClubInteractions();
         }
 
         const modal = document.getElementById('ev-modal'), closeModal = document.getElementById('modal-close');
-        function openEventDetail(name) {
-            const data = eventData.get(name); if (!data) return;
-            document.getElementById('m-title').textContent = name;
+        function openEventDetail(eventKey) {
+            const data = eventData.get(eventKey); if (!data) return;
+            document.getElementById('m-title').textContent = data.name;
             document.getElementById('m-date').textContent = data.date;
             document.getElementById('m-loc').textContent = data.location;
             document.getElementById('m-prize').textContent = data.prize;
@@ -504,8 +516,22 @@
         closeModal.onclick = () => modal.classList.remove('open');
         window.onclick = (e) => { if (e.target === modal) modal.classList.remove('open'); };
 
+        function attachPopupInteractions(popup) {
+            popup.addEventListener('click', (e) => e.stopPropagation());
+            popup.querySelector('.club-pop-close')?.addEventListener('click', (e) => {
+                e.stopPropagation();
+                clearActiveCards();
+            });
+            popup.querySelectorAll('.ev-item').forEach((button) => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openEventDetail(button.dataset.eventKey);
+                });
+            });
+        }
+
         function bindClubInteractions() {
-            const clearActiveCards = () => {
+            clearActiveCards = () => {
                 document.querySelectorAll('.club-card.active').forEach(active => active.classList.remove('active'));
                 if (activePopup) {
                     activePopup.remove();
@@ -526,6 +552,7 @@
                         if (popup) {
                             activePopup = popup.cloneNode(true);
                             clubPopupRoot.appendChild(activePopup);
+                            attachPopupInteractions(activePopup);
                             requestAnimationFrame(() => activePopup?.classList.add('open'));
                         }
                         clubsGrid.classList.add('focus-mode');
@@ -535,18 +562,7 @@
             });
             clubsGrid.addEventListener('click', (e) => e.stopPropagation());
             clubFocusOverlay.addEventListener('click', clearActiveCards);
-            clubPopupRoot.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const closeBtn = e.target.closest('.club-pop-close');
-                if (closeBtn) {
-                    clearActiveCards();
-                    return;
-                }
-                const eventBtn = e.target.closest('.ev-item');
-                if (eventBtn) {
-                    openEventDetail(eventBtn.dataset.eventName || eventBtn.textContent.trim());
-                }
-            });
+            clubPopupRoot.addEventListener('click', (e) => e.stopPropagation());
             modal.addEventListener('click', (e) => e.stopPropagation());
             closeModal.addEventListener('click', clearActiveCards);
             modal.addEventListener('transitionend', () => {
