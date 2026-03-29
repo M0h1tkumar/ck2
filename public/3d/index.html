@@ -259,7 +259,7 @@ html.embedded #choice-prompt{top:50%}
 
 <div id="back-btn"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Return</div>
 
-<div class="cpanel" id="panel-about"><div class="cp-close" data-close><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><div class="cp-in"><div class="cp-marker">North - Vayu District</div><h1>Anant Tattva<br>Fest 2026</h1><div class="cp-div"></div><p>Welcome to <span class="hl">Anant Tattva</span> - where infinite elements converge. From the Sanskrit <em>Anant</em> (infinite) and <em>Tattva</em> (element, truth).</p><p>Like the ancient Chakravyuh - a formation no warrior could escape - our fest is a living labyrinth. Four districts woven into the rings, each governed by a primal element.</p>
+<div class="cpanel" id="panel-about"><div class="cp-close" data-close><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><div class="cp-in"><div class="cp-marker">North - Vayu District</div><h1>STAR NIGHT</h1><div class="cp-div"></div><p>Welcome to <span class="hl">Anant Tattva</span> - where infinite elements converge. From the Sanskrit <em>Anant</em> (infinite) and <em>Tattva</em> (element, truth).</p><p>Like the ancient Chakravyuh - a formation no warrior could escape - our fest is a living labyrinth. Four districts woven into the rings, each governed by a primal element.</p>
 <!-- Artist Teaser -->
 <div style="border: 1px solid rgba(255, 156, 96, 0.4); background: rgba(255, 156, 96, 0.08); border-radius: 20px; padding: 24px; margin: 24px 0; display: flex; align-items: center; gap: 24px;">
     <div style="width: 80px; height: 80px; background: radial-gradient(circle, rgba(255, 156, 96, 0.3) 0%, transparent 70%); border: 1px dashed rgba(255, 156, 96, 0.5); border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative;">
@@ -276,7 +276,7 @@ html.embedded #choice-prompt{top:50%}
 
 <div class="cpanel" id="panel-register" style="padding:0;overflow:hidden"><div class="cp-close" data-close style="z-index:200"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><iframe id="water-frame" src="" style="width:100%;height:100%;border:none;display:block" allow="fullscreen" title="Store - Jal district"></iframe></div>
 
-<div class="cpanel" id="panel-clubs" style="padding:0;overflow:hidden"><div class="cp-close" data-close style="z-index:200"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><iframe id="earth-frame" src="" style="width:100%;height:100%;border:none;display:block" allow="fullscreen" title="Club events - Prithvi district"></iframe></div>
+<div class="cpanel" id="panel-clubs" style="padding:0;overflow:hidden"><iframe id="earth-frame" src="" style="width:100%;height:100%;border:none;display:block" allow="fullscreen" title="Club events - Prithvi district"></iframe></div>
 
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"}}</script>
 <script type="module">
@@ -316,6 +316,7 @@ renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.
 document.body.appendChild(renderer.domElement);
 const controls=new OrbitControls(camera,renderer.domElement);
 controls.enableDamping=true;controls.dampingFactor=.06;controls.maxPolarAngle=Math.PI*.48;controls.minDistance=5;controls.maxDistance=40;
+controls.enableZoom=false;
 controls.enabled=false;
 
 // TEXTURES
@@ -406,6 +407,21 @@ function districtPageUrl(name){
   return `/${name}/${mobileView?'mobile.html':'index.html'}`;
 }
 
+function closeToOverview(){
+  document.querySelectorAll('.cpanel.show').forEach(p=>p.classList.remove('show'));
+  const fireFrame=document.getElementById('fire-frame');if(fireFrame)fireFrame.src='';
+  const waterFrame=document.getElementById('water-frame');if(waterFrame)waterFrame.src='';
+  const earthFrame=document.getElementById('earth-frame');if(earthFrame)earthFrame.src='';
+  $dirNav.classList.remove('show');$back.classList.remove('show');$choicePrompt.classList.remove('show');$enter.classList.remove('show');$enter.classList.add('hide');state=ST.ZM;
+  flyCamera(OV_POS,OV_TGT,2,()=>{
+    controls.enabled=false;
+    camera.position.set(...INTRO_CAM_FROM);
+    controls.target.set(...INTRO_TGT);
+    formation.scale.setScalar(0.15);
+    startIntro();
+  });
+}
+
 // DYNAMIC BUTTON SIZING
 const $centerBtn=document.getElementById('center-btn');
 const $enterBtn=document.getElementById('enter-btn');
@@ -454,6 +470,17 @@ document.querySelectorAll('.d-btn').forEach(btn=>{
 });
 
 $back.addEventListener('click',()=>{
+  if(state===ST.CTR){
+    $dirNav.classList.remove('show');$back.classList.remove('show');$choicePrompt.classList.remove('show');$enter.classList.remove('show');$enter.classList.add('hide');state=ST.ZM;
+    flyCamera(OV_POS,OV_TGT,1.6,()=>{
+      controls.enabled=false;
+      camera.position.set(...INTRO_CAM_FROM);
+      controls.target.set(...INTRO_TGT);
+      formation.scale.setScalar(0.15);
+      startIntro();
+    });
+    return;
+  }
   if(state!==ST.PNL)return;
   const panel=document.querySelector('.cpanel.show');
   if(panel){
@@ -463,17 +490,12 @@ $back.addEventListener('click',()=>{
     if(panel.id==='panel-clubs'){const fr=document.getElementById('earth-frame');if(fr)fr.src='';}
   }
   state=ST.FLY;
-  flyCamera(CTR_POS,CTR_TGT,1.4,()=>{state=ST.CTR;$dirNav.classList.add('show');$choicePrompt.classList.add('show')});
+  flyCamera(CTR_POS,CTR_TGT,1.4,()=>{state=ST.CTR;$dirNav.classList.add('show');$back.classList.add('show');$choicePrompt.classList.add('show')});
 });
 
 document.querySelectorAll('.cp-close').forEach(btn=>{
   btn.addEventListener('click',()=>{
-    document.querySelectorAll('.cpanel.show').forEach(p=>p.classList.remove('show'));
-    const fireFrame=document.getElementById('fire-frame');if(fireFrame)fireFrame.src='';
-    const waterFrame=document.getElementById('water-frame');if(waterFrame)waterFrame.src='';
-    const earthFrame=document.getElementById('earth-frame');if(earthFrame)earthFrame.src='';
-    $dirNav.classList.remove('show');$back.classList.remove('show');$choicePrompt.classList.remove('show');state=ST.ZM;
-    flyCamera(OV_POS,OV_TGT,2,()=>{state=ST.OV;controls.enabled=true;$enter.classList.remove('hide');$enter.classList.add('show')});
+    closeToOverview();
   });
 });
 
@@ -488,6 +510,8 @@ function startIntro(){
   state=ST.INTRO;
   introStartTime=performance.now();
   controls.target.set(0,.5,0);
+  $enter.classList.remove('show');
+  $enter.classList.remove('hide');
 }
 
 function updateIntro(){
@@ -507,6 +531,7 @@ function updateIntro(){
     state=ST.OV;
     controls.enabled=true;
     formation.scale.setScalar(1);
+    $enter.classList.remove('hide');
     $enter.classList.add('show');
     sizeButton();
   }

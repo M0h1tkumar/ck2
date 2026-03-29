@@ -13,9 +13,9 @@
             min-height: 100vh;
             display: flex;
             background:
-                radial-gradient(circle at 28% 42%, rgba(255, 129, 54, 0.18), transparent 22%),
-                radial-gradient(circle at 72% 52%, rgba(255, 74, 22, 0.12), transparent 28%),
-                linear-gradient(180deg, #190603 0%, #210907 42%, #090202 100%);
+                radial-gradient(circle at 28% 34%, rgba(255, 176, 128, 0.05), transparent 16%),
+                radial-gradient(circle at 72% 60%, rgba(228, 116, 72, 0.03), transparent 18%),
+                linear-gradient(180deg, #34211c 0%, #3a241e 12%, #412720 50%, #331f1a 88%, #2a1b17 100%);
             color: #fff6ef;
         }
 
@@ -112,14 +112,15 @@
             width: 58%;
             min-width: 0;
             height: 100vh;
-            padding: 48px 40px 36px 28px;
+            padding: 34px 34px 96px 24px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             opacity: 0;
             transform: translateX(48px);
             transition: opacity 0.85s ease, transform 0.95s ease;
-            border-left: 1px solid rgba(194, 120, 78, 0.18);
+            border-left: 1px solid rgba(255, 156, 96, 0.26);
+            background: linear-gradient(180deg, rgba(38, 17, 12, 0.24), rgba(22, 10, 7, 0.10));
             overflow-y: auto;
         }
 
@@ -134,9 +135,10 @@
         .ev-marker {
             font-size: clamp(8px, 1vw, 10px);
             letter-spacing: 5px;
-            color: rgba(255, 156, 96, 0.58);
+            color: #ffd8b7;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-align: center;
         }
 
@@ -144,8 +146,9 @@
             font-size: clamp(22px, 3.5vw, 38px);
             font-weight: 800;
             line-height: 1.1;
-            margin-bottom: 14px;
-            color: #ffe4c9;
+            margin-bottom: 10px;
+            color: #fff1df;
+            text-shadow: 0 6px 20px rgba(0, 0, 0, 0.24);
             text-align: center;
         }
 
@@ -153,15 +156,23 @@
             width: 36px;
             height: 1px;
             background: linear-gradient(90deg, transparent, #ff9c60, transparent);
-            margin: 0 auto 24px;
+            margin: 0 auto 18px;
+        }
+
+        .ev-copy {
+            max-width: 560px;
+            color: rgba(255, 216, 188, 0.82);
+            line-height: 1.62;
+            margin: 0 auto 22px;
+            text-align: center;
         }
 
         .tl-item {
             display: flex;
             gap: 18px;
             align-items: flex-start;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(194, 161, 74, 0.08);
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 156, 96, 0.14);
         }
 
         .tl-item:last-child { border-bottom: none; }
@@ -170,7 +181,7 @@
             min-width: 56px;
             font-size: clamp(9px, 1vw, 11px);
             letter-spacing: 1px;
-            color: rgba(194, 161, 74, 0.55);
+            color: rgba(255, 196, 140, 0.84);
             text-transform: uppercase;
             line-height: 1.4;
             padding-top: 2px;
@@ -179,13 +190,13 @@
         .tl-name {
             font-size: clamp(12px, 1.4vw, 15px);
             font-weight: 700;
-            color: #e8d090;
+            color: #ffd9b0;
             margin-bottom: 3px;
         }
 
         .tl-desc {
             font-size: clamp(11px, 1.1vw, 13px);
-            color: rgba(220, 200, 160, 0.6);
+            color: rgba(255, 233, 214, 0.82);
             line-height: 1.5;
         }
 
@@ -237,29 +248,30 @@
 
     <div id="right-col">
         <div class="ev-marker">East - Agni District</div>
-        <h1 class="ev-title">Agenda</h1>
+        <h1 class="ev-title">AGENDA</h1>
         <div class="ev-div"></div>
+        <div class="ev-copy">Track the three-day pulse of Agni District, from competitive builds and live showcases to the final ascent beneath the evening lights.</div>
         <div class="tl-item"><div class="tl-time">Day 1<br>9 AM</div><div><div class="tl-name">Opening - The Conch Sounds</div><div class="tl-desc">Grand inauguration and the ceremonial opening of the festival grounds.</div></div></div>
         <div class="tl-item"><div class="tl-time">Day 1<br>11 AM</div><div><div class="tl-name">Code Vyuh - Hackathon</div><div class="tl-desc">A 24-hour build sprint focused on rapid prototyping, teamwork, and technical grit.</div></div></div>
         <div class="tl-item"><div class="tl-time">Day 1<br>3 PM</div><div><div class="tl-name">Yantra Yudh - Robotics</div><div class="tl-desc">Bot battles and live machine challenges inside the custom arena.</div></div></div>
         <div class="tl-item"><div class="tl-time">Day 2<br>10 AM</div><div><div class="tl-name">Rang Mandal - Cultural Showcase</div><div class="tl-desc">Dance, music, and theatre performances from across the fest community.</div></div></div>
         <div class="tl-item"><div class="tl-time">Day 2<br>4 PM</div><div><div class="tl-name">Roop Chakra - Design Sprint</div><div class="tl-desc">A fast-paced UI and visual design challenge under pressure.</div></div></div>
         <div class="tl-item"><div class="tl-time">Day 3<br>11 AM</div><div><div class="tl-name">Digital Kurukshetra - Esports</div><div class="tl-desc">Competitive gaming brackets featuring Valorant, BGMI, and Chess.</div></div></div>
-        <div class="tl-item" style="border-left: 2px solid #ff9c60; padding: 20px 12px; background: rgba(255, 156, 96, 0.08); border-radius: 0 20px 20px 0; margin: 12px 0;">
+        <div class="tl-item" style="border-left: 2px solid #ff9c60; padding: 14px 12px; background: rgba(255, 156, 96, 0.12); border-radius: 0 18px 18px 0; margin: 10px 0;">
             <div class="tl-time">Day 3<br>5 PM</div>
             <div style="flex: 1;">
-                <div class="tl-name" style="color: #ff9c60; font-weight: 800; letter-spacing: 2px; font-size: 18px; margin-bottom: 8px;">STAR NIGHT - THE ASCENSION</div>
-                <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 12px;">
-                    <div style="width: 100px; height: 100px; background: radial-gradient(circle, rgba(255, 156, 96, 0.2) 0%, transparent 70%); border: 1px dashed rgba(255, 156, 96, 0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
+                <div class="tl-name" style="color: #ffb27a; font-weight: 800; letter-spacing: 2px; font-size: 18px; margin-bottom: 6px;">STAR NIGHT - THE ASCENSION</div>
+                <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 10px;">
+                    <div style="width: 84px; height: 84px; background: radial-gradient(circle, rgba(255, 156, 96, 0.18) 0%, transparent 72%); border: 1px dashed rgba(255, 156, 96, 0.35); border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
                         <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,156,96,0.3)" stroke-width="1.5" style="width: 40px;"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                         <div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(255,156,96,0.1), transparent);"></div>
                     </div>
                     <div>
-                        <div style="font-size: 14px; color: #ffbb80; font-weight: 700; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px;">Artist Reveal</div>
-                        <div style="font-size: 12px; color: rgba(255,187,128,0.6); font-weight: 600;">REVEALING SOON</div>
+                        <div style="font-size: 14px; color: #ffd4b1; font-weight: 700; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px;">Artist Reveal</div>
+                        <div style="font-size: 12px; color: rgba(255,222,198,0.82); font-weight: 600;">REVEALING SOON</div>
                     </div>
                 </div>
-                <div class="tl-desc" style="color: rgba(255,187,128,0.6); font-weight: 500;">EVENT DETAILS: REVEALING SOON</div>
+                <div class="tl-desc" style="color: rgba(255,222,198,0.84); font-weight: 500;">EVENT DETAILS: REVEALING SOON</div>
             </div>
         </div>
         <div class="tl-item"><div class="tl-time">Day 3<br>8 PM</div><div><div class="tl-name">Chakra Bhang - Closing Ceremony</div><div class="tl-desc">The formation breaks with awards, celebrations, and the final send-off.</div></div></div>
@@ -526,3 +538,7 @@
     </script>
 </body>
 </html>
+
+
+
+

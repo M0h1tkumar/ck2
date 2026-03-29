@@ -20,10 +20,10 @@
             min-height: var(--page-height);
             display: flex;
             background:
-                radial-gradient(circle at 28% 42%, rgba(194, 161, 74, 0.20), transparent 22%),
-                radial-gradient(circle at 72% 52%, rgba(111, 86, 40, 0.14), transparent 28%),
-                linear-gradient(180deg, #0f0b06 0%, #1c140b 42%, #090603 100%);
-            color: #f5ecdc;
+                radial-gradient(circle at 28% 34%, rgba(146, 228, 166, 0.06), transparent 16%),
+                radial-gradient(circle at 72% 60%, rgba(84, 160, 112, 0.04), transparent 18%),
+                linear-gradient(180deg, #1c241d 0%, #222c23 12%, #29362b 50%, #1d271e 88%, #161d17 100%);
+            color: #eef5eb;
         }
         #left-col {
             position: relative;
@@ -120,74 +120,76 @@
         
         .clubs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 12px;
-            max-width: 720px;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 24px 16px;
+            max-width: 760px;
             margin: 0 auto;
             justify-content: center;
         }
         
         .club-card {
             position: relative;
-            padding: 24px 20px;
-            border: 1px solid rgba(194, 161, 74, 0.16);
-            border-radius: 20px;
-            background: linear-gradient(180deg, rgba(194, 161, 74, 0.08), rgba(24, 18, 10, 0.85));
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            overflow: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            cursor: pointer;
+            gap: 10px;
+            padding: 0;
+            overflow: visible;
+            transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
         }
-        .club-card:hover {
-            border-color: rgba(194, 161, 74, 0.4);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(194, 161, 74, 0.1);
-        }
+        .club-card:hover { transform: translateY(-4px); }
         .club-logo {
-            width: 72px;
-            height: 72px;
-            margin-bottom: 16px;
+            width: 92px;
+            height: 92px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 14px;
-            padding: 10px;
-            transition: transform 0.5s ease;
+            background: radial-gradient(circle at 35% 30%, rgba(161, 240, 178, 0.16), rgba(18, 31, 22, 0.88));
+            border: 1px solid rgba(123, 205, 143, 0.24);
+            border-radius: 999px;
+            padding: 14px;
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.34);
+            cursor: pointer;
+            transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
         }
-        .club-card:hover .club-logo { transform: scale(1.1) rotate(4deg); }
+        .club-card:hover .club-logo,
+        .club-card.active .club-logo { transform: scale(1.06); border-color: rgba(146, 228, 166, 0.44); box-shadow: 0 16px 34px rgba(0, 0, 0, 0.42), 0 0 18px rgba(123, 205, 143, 0.16); }
         .club-logo img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5)); }
-        .club-info { transition: opacity 0.3s ease, transform 0.4s ease; }
-        .club-card:hover .club-info { opacity: 0; transform: translateY(-10px); }
-        .club-type { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(224, 198, 128, 0.5); margin-bottom: 6px; }
-        .club-name { color: #f5ead7; font-size: 15px; font-weight: 700; line-height: 1.3; }
+        .club-info { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+        .club-type { display: none; }
+        .club-name { color: #f4fff5; font-size: 14px; font-weight: 700; line-height: 1.35; max-width: 138px; }
         .club-events-pop {
             position: absolute;
-            inset: 0;
-            padding: 24px 16px;
-            background: rgba(18, 13, 7, 0.96);
+            top: 10px;
+            left: 50%;
+            width: 176px;
+            padding: 15px 14px;
+            background: rgba(10, 18, 12, 0.96);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             opacity: 0;
-            transform: translateY(100%);
-            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            transform: translate(-50%, 8px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
             backdrop-filter: blur(8px);
+            border: 1px solid rgba(123, 205, 143, 0.2);
+            border-radius: 18px;
+            box-shadow: 0 20px 36px rgba(0, 0, 0, 0.44);
+            pointer-events: none;
+            z-index: 5;
         }
-        .club-card:hover .club-events-pop { opacity: 1; transform: translateY(0); }
-        .pop-title { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #e2c56a; margin-bottom: 4px; }
+        .club-card:hover .club-events-pop,
+        .club-card.active .club-events-pop { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+        .pop-title { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #8edaa4; margin-bottom: 4px; }
         .ev-item {
-            font-size: 13px; font-weight: 600; color: #fff; background: rgba(194, 161, 74, 0.12);
-            padding: 8px 14px; border-radius: 8px; border: 1px solid rgba(194, 161, 74, 0.2);
+            font-size: 13px; font-weight: 600; color: #f4fff6; background: rgba(123, 205, 143, 0.14);
+            padding: 8px 14px; border-radius: 8px; border: 1px solid rgba(123, 205, 143, 0.22);
             width: 100%; transition: all 0.3s ease;
         }
-        .ev-item:hover { background: rgba(194, 161, 74, 0.25); transform: scale(1.05); }
+        .ev-item:hover { background: rgba(123, 205, 143, 0.24); transform: scale(1.05); }
 
         #ev-modal {
             position: fixed; inset: 0; z-index: 1000; background: rgba(10, 7, 3, 0.85);
@@ -224,7 +226,7 @@
             body.settled #right-col { transform: translateY(0); }
             body.settled #character { left: 50%; }
             body.settled #magic-container { left: 52%; }
-            .clubs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .clubs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 16px; }
         }
         @media (max-width: 900px) and (orientation: portrait) {
             body { display: block; overflow-y: auto; overflow-x: hidden; }
@@ -236,15 +238,16 @@
             #magic-container { width: min(19vw, 82px); bottom: 27%; opacity: 1; filter: drop-shadow(0 0 12px rgba(210, 182, 102, 0.32)) drop-shadow(0 0 26px rgba(121, 92, 38, 0.22)); }
             body.orb-on:not(.settled) #magic-container { left: 53%; bottom: 19.5%; }
             body.settled #magic-container { left: 33%; bottom: calc(var(--safe-bottom) + 186px); transform: translateX(-50%) scale(0.74); }
-            #right-col { position: relative; z-index: 2; min-height: auto; padding: calc(var(--safe-top) + 12px) calc(var(--safe-right) + 16px) calc(var(--safe-bottom) + 28px) calc(var(--safe-left) + 16px); transform: none; border: 0; overflow: visible; background: transparent; }
+            #right-col { position: relative; z-index: 2; min-height: auto; padding: calc(var(--safe-top) + 28px) calc(var(--safe-right) + 16px) calc(var(--safe-bottom) + 28px) calc(var(--safe-left) + 16px); transform: none; border: 0; overflow: visible; background: transparent; }
             body.settled #right-col { transform: none; }
-            .content-shell { margin-top: 0; padding: 14px 0 calc(48vh + var(--safe-bottom)); }
-            .ev-marker { letter-spacing: 4px; margin-bottom: 8px; }
+            .content-shell { margin-top: 0; padding: 24px 0 calc(48vh + var(--safe-bottom)); }
+            .ev-marker { letter-spacing: 4px; margin-bottom: 8px; color: #efdca8; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.42); }
             .ev-title { margin-bottom: 12px; }
             .ev-div { margin-bottom: 18px; }
             .ev-copy { font-size: 15px; line-height: 1.58; margin-bottom: 20px; }
-            .club-card { border-radius: 18px; padding: 20px 14px; }
-            .club-logo { width: 62px; height: 62px; margin-bottom: 14px; }
+            .club-logo { width: 78px; height: 78px; padding: 12px; }
+            .club-name { font-size: 13px; max-width: 110px; }
+            .club-events-pop { width: 160px; top: 8px; }
         }
         @media (max-width: 560px) and (orientation: portrait) {
             #character { height: min(62vh, 470px); }
@@ -252,15 +255,16 @@
             #magic-container { width: min(17vw, 64px); }
             body.orb-on:not(.settled) #magic-container { left: 53%; bottom: 18.5%; }
             body.settled #magic-container { left: 31%; bottom: calc(var(--safe-bottom) + 146px); transform: translateX(-50%) scale(0.68); }
-            #right-col { padding: calc(var(--safe-top) + 10px) calc(var(--safe-right) + 14px) calc(var(--safe-bottom) + 20px) calc(var(--safe-left) + 14px); }
-            .content-shell { padding: 10px 0 calc(46vh + var(--safe-bottom)); }
+            #right-col { padding: calc(var(--safe-top) + 24px) calc(var(--safe-right) + 14px) calc(var(--safe-bottom) + 20px) calc(var(--safe-left) + 14px); }
+            .content-shell { padding: 20px 0 calc(46vh + var(--safe-bottom)); }
+            .ev-marker { color: #efdca8; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.42); }
             .ev-copy { font-size: 14px; margin-bottom: 18px; }
-            .clubs-grid { gap: 10px; }
-            .club-card { padding: 18px 12px; }
-            .club-logo { width: 56px; height: 56px; }
-            .club-name { font-size: 14px; }
+            .clubs-grid { gap: 18px 12px; }
+            .club-logo { width: 70px; height: 70px; padding: 11px; }
+            .club-name { font-size: 12px; max-width: 100px; }
+            .club-events-pop { width: 148px; }
         }
-        @media (max-width: 420px) { .clubs-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 420px) { .clubs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     </style>
 </head>
 <body>
@@ -273,143 +277,10 @@
     <div id="right-col">
         <div class="content-shell">
             <div class="ev-marker">South - Prithvi District</div>
-            <h1 class="ev-title">Club Events</h1>
+            <h1 class="ev-title">CLUB EVENTS</h1>
             <div class="ev-div"></div>
             <p class="ev-copy">The Prithvi district gathers the clubs that give the fest its weight and character. Each circle anchors a different discipline, from code and robotics to culture, design, media, and community work.</p>
-            <div class="clubs-grid">
-                <!-- 1. Coding Ninjas -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/CODING NINJAS.png" alt="Coding Ninjas"></div>
-                    <div class="club-info"><div class="club-type">Tech</div><div class="club-name">Coding Ninjas</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Ninja Hire</div><div class="ev-item">Code-A-Thon</div></div>
-                </div>
-                <!-- 2. Codex -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/Codex.png" alt="Codex"></div>
-                    <div class="club-info"><div class="club-type">Tech</div><div class="club-name">Codex</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Code Vyuh 4.0</div><div class="ev-item">Algorithmic Odyssey</div></div>
-                </div>
-                <!-- 3. Danza -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/Danza.png" alt="Danza"></div>
-                    <div class="club-info"><div class="club-type">Cultural</div><div class="club-name">Danza</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Street Battle</div><div class="ev-item">Hip-Hop Workshop</div></div>
-                </div>
-                <!-- 4. GDG -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/GDG.jpeg" alt="GDG"></div>
-                    <div class="club-info"><div class="club-type">Tech</div><div class="club-name">Google Developer Group</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">DevFest 2026</div><div class="ev-item">Cloud Study Jam</div></div>
-                </div>
-                <!-- 5. GFG -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/GFG.jpeg" alt="GFG"></div>
-                    <div class="club-info"><div class="club-type">Tech</div><div class="club-name">GeeksforGeeks</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">DSA Rumble</div><div class="ev-item">Job-A-Thon</div></div>
-                </div>
-                <!-- 6. IRC (Square) -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/IRC Logo Square.png" alt="IRC Square"></div>
-                    <div class="club-info"><div class="club-type">Tech</div><div class="club-name">IRC (Square)</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Yantra Yudh</div><div class="ev-item">Bot-Nexus</div></div>
-                </div>
-                <!-- 7. IRC (Landscape) -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/IRC.png" alt="IRC"></div>
-                    <div class="club-info"><div class="club-type">Tech</div><div class="club-name">IRC (Landscape)</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Drone Sprint</div><div class="ev-item">Robo Expo</div></div>
-                </div>
-                <!-- 8. JAAGO -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/JAAGO.gif" alt="JAAGO"></div>
-                    <div class="club-info"><div class="club-type">Social</div><div class="club-name">JAAGO</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Awareness Play</div><div class="ev-item">Street Drama</div></div>
-                </div>
-                <!-- 9. NSS -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/NSS.png" alt="NSS"></div>
-                    <div class="club-info"><div class="club-type">Social</div><div class="club-name">NSS</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Blood Drive</div><div class="ev-item">Swachh Campus</div></div>
-                </div>
-                <!-- 10. ODanza -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/ODanza.png" alt="ODanza"></div>
-                    <div class="club-info"><div class="club-type">Cultural</div><div class="club-name">ODanza</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Classical Night</div><div class="ev-item">Mudras Expo</div></div>
-                </div>
-                <!-- 11. English Café -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/SEC.png" alt="English Café"></div>
-                    <div class="club-info"><div class="club-type">Literary</div><div class="club-name">English Café</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Word-Smith</div><div class="ev-item">Debate Duel</div></div>
-                </div>
-                <!-- 12. SEC -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/SEC.png" alt="SEC"></div>
-                    <div class="club-info"><div class="club-type">Literary</div><div class="club-name">SEC</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Eloquence</div><div class="ev-item">Scribe</div></div>
-                </div>
-                <!-- 13. SFC -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/SFC.png" alt="SFC"></div>
-                    <div class="club-info"><div class="club-type">Tech</div><div class="club-name">SFC (Drones)</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Aerial Vision</div><div class="ev-item">Sky High Bash</div></div>
-                </div>
-                <!-- 14. SLC -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/SLC.png" alt="SLC"></div>
-                    <div class="club-info"><div class="club-type">Literary</div><div class="club-name">SOA Literary Club</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Ink & Irony</div><div class="ev-item">Poetry Slam</div></div>
-                </div>
-                <!-- 15. SMC -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/SMC.jpg" alt="SMC"></div>
-                    <div class="club-info"><div class="club-type">Media</div><div class="club-name">SMC</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">News-Hunt</div><div class="ev-item">Media Summit</div></div>
-                </div>
-                <!-- 16. SOA Radio -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/SOA Radio.jpeg" alt="SOA Radio"></div>
-                    <div class="club-info"><div class="club-type">Media</div><div class="club-name">SOA Radio</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">On-Air Live</div><div class="ev-item">Voice Box</div></div>
-                </div>
-                <!-- 17. SOA-PNG -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/SOA-PNG.png" alt="SOA"></div>
-                    <div class="club-info"><div class="club-type">General</div><div class="club-name">Siksha 'O' Anusandhan</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">University Expo</div><div class="ev-item">Alumni Meet</div></div>
-                </div>
-                <!-- 18. SPC -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/SPC.png" alt="SPC"></div>
-                    <div class="club-info"><div class="club-type">Design</div><div class="club-name">SPC</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Design-A-Thon</div><div class="ev-item">Branding 101</div></div>
-                </div>
-                <!-- 19. Sristhi -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/Sristhi.png" alt="Sristhi"></div>
-                    <div class="club-info"><div class="club-type">Cultural</div><div class="club-name">Sristhi</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Vocal Symphony</div><div class="ev-item">Fusion Fest</div></div>
-                </div>
-                <!-- 20. Toneelstuk -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/Toneelstuk.png" alt="Toneelstuk"></div>
-                    <div class="club-info"><div class="club-type">Drama</div><div class="club-name">Toneelstuk</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Dramatics Night</div><div class="ev-item">Stage Craft</div></div>
-                </div>
-                <!-- 21. Vogue -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/vogue.png" alt="Vogue"></div>
-                    <div class="club-info"><div class="club-type">Fashion</div><div class="club-name">Vogue</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Runway Walk</div><div class="ev-item">Design Gala</div></div>
-                </div>
-                <!-- 22. VS Logo -->
-                <div class="club-card">
-                    <div class="club-logo"><img src="/Club Logo/VS Logo dark bg.png" alt="VS Logo"></div>
-                    <div class="club-info"><div class="club-type">Media</div><div class="club-name">Showreel (VS Logo)</div></div>
-                    <div class="club-events-pop"><div class="pop-title">Events</div><div class="ev-item">Video Expo</div><div class="ev-item">Editing Battle</div></div>
-                </div>
-            </div>
+            <div class="clubs-grid" id="clubs-grid"></div>
         </div>
     </div>
 
@@ -424,6 +295,7 @@
                 <div class="modal-field"><label>Prize Pool</label><div id="m-prize">-</div></div>
                 <div class="modal-field"><label>Contact</label><div id="m-contact">-</div></div>
             </div>
+            <div class="modal-field" style="margin-bottom: 24px;"><label>Description</label><div id="m-desc">-</div></div>
             <a href="#" class="reg-btn" id="m-link" target="_blank">Register Now</a>
         </div>
     </div>
@@ -529,67 +401,70 @@
             requestAnimationFrame(drawOrb);
         }
 
-        const eventData = {
-            'Ninja Hire': { date: 'April 18, 2026', loc: 'Placement Cell', prize: 'Internships', link: '#', contact: 'Updated soon' },
-            'Code-A-Thon': { date: 'April 19, 2026', loc: 'Auditorium 2', prize: '₹ 15,000', link: '#', contact: 'Updated soon' },
-            'Code Vyuh 4.0': { date: 'April 18, 2026', loc: 'Lab 302, Block C', prize: '₹ 50,000', link: '#', contact: 'Updated soon' },
-            'Algorithmic Odyssey': { date: 'April 19, 2026', loc: 'Online', prize: '₹ 20,000', link: '#', contact: 'Updated soon' },
-            'Street Battle': { date: 'April 18, 2026', loc: 'Courtyard', prize: '₹ 10,000', link: '#', contact: 'Updated soon' },
-            'Hip-Hop Workshop': { date: 'April 20, 2026', loc: 'Dance Hall', prize: 'N/A', link: '#', contact: 'Updated soon' },
-            'DevFest 2026': { date: 'April 18-20, 2026', loc: 'Convention Center', prize: 'Swags', link: '#', contact: 'Updated soon' },
-            'Cloud Study Jam': { date: 'April 19, 2026', loc: 'Virtual', prize: 'Certs', link: '#', contact: 'Updated soon' },
-            'DSA Rumble': { date: 'April 18, 2026', loc: 'Lab 101', prize: '₹ 10,000', link: '#', contact: 'Updated soon' },
-            'Job-A-Thon': { date: 'April 20, 2026', loc: 'Online', prize: 'Referral', link: '#', contact: 'Updated soon' },
-            'Yantra Yudh': { date: 'April 18, 2026', loc: 'Arena A', prize: '₹ 75,000', link: '#', contact: 'Updated soon' },
-            'Bot-Nexus': { date: 'April 19, 2026', loc: 'Workshop', prize: '₹ 15,000', link: '#', contact: 'Updated soon' },
-            'Drone Sprint': { date: 'April 18, 2026', loc: 'Field', prize: '₹ 25,000', link: '#', contact: 'Updated soon' },
-            'Robo Expo': { date: 'April 20, 2026', loc: 'Exhibition', prize: 'Certs', link: '#', contact: 'Updated soon' },
-            'Awareness Play': { date: 'April 18, 2026', loc: 'Square', prize: 'N/A', link: '#', contact: 'Updated soon' },
-            'Street Drama': { date: 'April 19, 2026', loc: 'Amphitheater', prize: '₹ 5,000', link: '#', contact: 'Updated soon' },
-            'Blood Drive': { date: 'April 18, 2026', loc: 'Medical Center', prize: 'Certs', link: '#', contact: 'Updated soon' },
-            'Swachh Campus': { date: 'April 19, 2026', loc: 'Campus', prize: 'Tokens', link: '#', contact: 'Updated soon' },
-            'Classical Night': { date: 'April 19, 2026', loc: 'Auditorium', prize: '₹ 20,000', link: '#', contact: 'Updated soon' },
-            'Mudras Expo': { date: 'April 20, 2026', loc: 'Hall', prize: 'N/A', link: '#', contact: 'Updated soon' },
-            'Word-Smith': { date: 'April 18, 2026', loc: 'Seminar', prize: '₹ 10,000', link: '#', contact: 'Updated soon' },
-            'Debate Duel': { date: 'April 20, 2026', loc: 'English Dept', prize: 'Books', link: '#', contact: 'Updated soon' },
-            'Eloquence': { date: 'April 18, 2026', loc: 'Room 101', prize: '₹ 5,000', link: '#', contact: 'Updated soon' },
-            'Scribe': { date: 'April 19, 2026', loc: 'Room 102', prize: '₹ 3,000', link: '#', contact: 'Updated soon' },
-            'Aerial Vision': { date: 'April 18, 2026', loc: 'Tech Ground', prize: '₹ 15,000', link: '#', contact: 'Updated soon' },
-            'Sky High Bash': { date: 'April 19, 2026', loc: 'Rooftop', prize: 'Gears', link: '#', contact: 'Updated soon' },
-            'Ink & Irony': { date: 'April 18, 2026', loc: 'Room 304', prize: '₹ 5,000', link: '#', contact: 'Updated soon' },
-            'Poetry Slam': { date: 'April 20, 2026', loc: 'Garden', prize: '₹ 3,000', link: '#', contact: 'Updated soon' },
-            'News-Hunt': { date: 'April 18, 2026', loc: 'Media Lab', prize: '₹ 5,000', link: '#', contact: 'Updated soon' },
-            'Media Summit': { date: 'April 20, 2026', loc: 'Conference', prize: 'Certs', link: '#', contact: 'Updated soon' },
-            'On-Air Live': { date: 'April 18, 2026', loc: 'Radio Cabin', prize: 'T-Shirts', link: '#', contact: 'Updated soon' },
-            'Voice Box': { date: 'April 19, 2026', loc: 'Studio A', prize: 'Goodies', link: '#', contact: 'Updated soon' },
-            'University Expo': { date: '18-20 April', loc: 'Grand Mall', prize: 'Scholarships', link: '#', contact: 'Updated soon' },
-            'Alumni Meet': { date: 'April 19, 2026', loc: 'Banquet Hall', prize: 'Networking', link: '#', contact: 'Updated soon' },
-            'Design-A-Thon': { date: 'April 18, 2026', loc: 'Creative Hub', prize: '₹ 20,000', link: '#', contact: 'Updated soon' },
-            'Branding 101': { date: 'April 20, 2026', loc: 'Room 202', prize: 'N/A', link: '#', contact: 'Updated soon' },
-            'Vocal Symphony': { date: 'April 19, 2026', loc: 'Auditorium', prize: '₹ 15,000', link: '#', contact: 'Updated soon' },
-            'Fusion Fest': { date: 'April 20, 2026', loc: 'Music Room', prize: '₹ 10,000', link: '#', contact: 'Updated soon' },
-            'Dramatics Night': { date: 'April 18, 2026', loc: 'Main Stage', prize: '₹ 25,000', link: '#', contact: 'Updated soon' },
-            'Stage Craft': { date: 'April 20, 2026', loc: 'Backstage', prize: 'Certs', link: '#', contact: 'Updated soon' },
-            'Runway Walk': { date: 'April 19, 2026', loc: 'Fashion Ramp', prize: 'Titles', link: '#', contact: 'Updated soon' },
-            'Design Gala': { date: 'April 20, 2026', loc: 'Ballroom', prize: 'Awards', link: '#', contact: 'Updated soon' },
-            'Video Expo': { date: 'April 18, 2026', loc: 'Hall', prize: '₹ 10,000', link: '#', contact: 'Updated soon' },
-            'Editing Battle': { date: 'April 19, 2026', loc: 'Systems Lab', prize: 'Licenses', link: '#', contact: 'Updated soon' }
-        };
+        const clubsGrid = document.getElementById('clubs-grid');
+        const eventData = new Map();
+
+        function renderClub(club) {
+            const card = document.createElement('div');
+            card.className = 'club-card';
+            card.innerHTML = `
+                <div class="club-logo"><img src="${club.logo}" alt="${club.name}"></div>
+                <div class="club-info"><div class="club-name">${club.name}</div></div>
+                <div class="club-events-pop">
+                    <div class="pop-title">Events</div>
+                    ${club.events.map(event => `<div class="ev-item" data-event-name="${event.name}">${event.name}</div>`).join('')}
+                </div>
+            `;
+            return card;
+        }
+
+        async function loadClubData() {
+            const response = await fetch('/earth/clubs.json');
+            if (!response.ok) throw new Error('Failed to load club data');
+            const data = await response.json();
+            clubsGrid.innerHTML = '';
+            data.clubs.forEach(club => {
+                club.events.forEach(event => eventData.set(event.name, event));
+                clubsGrid.appendChild(renderClub(club));
+            });
+            bindClubInteractions();
+        }
 
         const modal = document.getElementById('ev-modal'), closeModal = document.getElementById('modal-close');
         function openEventDetail(name) {
-            const data = eventData[name]; if (!data) return;
+            const data = eventData.get(name); if (!data) return;
             document.getElementById('m-title').textContent = name;
             document.getElementById('m-date').textContent = data.date;
-            document.getElementById('m-loc').textContent = data.loc;
+            document.getElementById('m-loc').textContent = data.location;
             document.getElementById('m-prize').textContent = data.prize;
             document.getElementById('m-contact').textContent = data.contact;
+            document.getElementById('m-desc').textContent = data.description;
             document.getElementById('m-link').href = data.link;
             modal.classList.add('open');
         }
         closeModal.onclick = () => modal.classList.remove('open');
         window.onclick = (e) => { if (e.target === modal) modal.classList.remove('open'); };
-        document.querySelectorAll('.ev-item').forEach(btn => { btn.onclick = (e) => { e.stopPropagation(); openEventDetail(btn.textContent.trim()); }; });
+
+        function bindClubInteractions() {
+            document.querySelectorAll('.ev-item').forEach(btn => {
+                btn.onclick = (e) => {
+                    e.stopPropagation();
+                    openEventDetail(btn.dataset.eventName || btn.textContent.trim());
+                };
+            });
+            document.querySelectorAll('.club-logo').forEach(logo => {
+                logo.onclick = (e) => {
+                    e.stopPropagation();
+                    const card = logo.closest('.club-card');
+                    const shouldOpen = !card.classList.contains('active');
+                    document.querySelectorAll('.club-card.active').forEach(active => active.classList.remove('active'));
+                    if (shouldOpen) card.classList.add('active');
+                };
+            });
+        }
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.club-card.active').forEach(active => active.classList.remove('active'));
+        });
 
         function startSequence() {
             if (sequenceStarted) return;
@@ -617,7 +492,12 @@
             }
         }
         window.addEventListener('resize', resizeCanvas); resizeCanvas();
+        loadClubData().catch((error) => {
+            console.error(error);
+            clubsGrid.innerHTML = '<p style="text-align:center;color:rgba(239,250,241,0.72);">Club data failed to load.</p>';
+        });
         if (character.complete) startSequence(); else character.addEventListener('load', startSequence, { once: true });
     </script>
 </body>
 </html>
+

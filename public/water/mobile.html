@@ -21,9 +21,9 @@
             min-height: var(--page-height);
             display: flex;
             background:
-                radial-gradient(circle at 28% 42%, rgba(74, 182, 255, 0.20), transparent 22%),
-                radial-gradient(circle at 72% 52%, rgba(0, 154, 255, 0.12), transparent 28%),
-                linear-gradient(180deg, #03101d 0%, #041827 42%, #02070f 100%);
+                radial-gradient(circle at 28% 34%, rgba(154, 226, 255, 0.06), transparent 16%),
+                radial-gradient(circle at 72% 60%, rgba(82, 166, 224, 0.04), transparent 18%),
+                linear-gradient(180deg, #172430 0%, #1b2b38 12%, #213948 50%, #182733 88%, #101a22 100%);
             color: #edf9ff;
         }
 
@@ -194,8 +194,8 @@
         }
 
         .logistics-card {
-            background: rgba(125, 208, 255, 0.04);
-            border: 1px solid rgba(125, 208, 255, 0.15);
+            background: linear-gradient(180deg, rgba(125, 208, 255, 0.10), rgba(11, 33, 47, 0.88));
+            border: 1px solid rgba(125, 208, 255, 0.18);
             border-radius: 20px;
             padding: 32px;
             text-align: center;
@@ -209,8 +209,8 @@
         }
 
         .logistics-card:hover {
-            background: rgba(125, 208, 255, 0.08);
-            border-color: rgba(125, 208, 255, 0.3);
+            background: linear-gradient(180deg, rgba(125, 208, 255, 0.14), rgba(15, 43, 61, 0.92));
+            border-color: rgba(125, 208, 255, 0.32);
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         }
@@ -335,10 +335,10 @@
             #magic-container { width: min(18vw, 78px); bottom: 24%; opacity: 1; filter: drop-shadow(0 0 12px rgba(86, 217, 255, 0.3)) drop-shadow(0 0 28px rgba(18, 132, 255, 0.2)); }
             body.orb-on:not(.settled) #magic-container { left: 53%; bottom: 18%; }
             body.settled #magic-container { left: 33%; bottom: calc(var(--safe-bottom) + 184px); transform: translateX(-50%) scale(0.72); }
-            #right-col { position: relative; z-index: 2; min-height: auto; padding: calc(var(--safe-top) + 12px) calc(var(--safe-right) + 18px) calc(var(--safe-bottom) + 24px) calc(var(--safe-left) + 18px); transform: none; overflow: visible; border: 0; background: transparent; }
+            #right-col { position: relative; z-index: 2; min-height: auto; padding: calc(var(--safe-top) + 28px) calc(var(--safe-right) + 18px) calc(var(--safe-bottom) + 24px) calc(var(--safe-left) + 18px); transform: none; overflow: visible; border: 0; background: transparent; }
             body.settled #right-col { transform: none; }
-            .content-shell { margin-top: 0; padding: 14px 0 calc(48vh + var(--safe-bottom)); }
-            .ev-marker { letter-spacing: 4px; margin-bottom: 8px; }
+            .content-shell { margin-top: 0; padding: 24px 0 calc(48vh + var(--safe-bottom)); }
+            .ev-marker { letter-spacing: 4px; margin-bottom: 8px; color: #d7f4ff; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.42); }
             .ev-title { margin-bottom: 12px; }
             .ev-div { margin-bottom: 18px; }
             .ev-copy { font-size: 15px; line-height: 1.58; margin-bottom: 22px; }
@@ -351,8 +351,9 @@
             #magic-container { width: min(16vw, 58px); }
             body.orb-on:not(.settled) #magic-container { left: 52.5%; bottom: 17%; }
             body.settled #magic-container { left: 31%; bottom: calc(var(--safe-bottom) + 148px); transform: translateX(-50%) scale(0.66); }
-            #right-col { padding: calc(var(--safe-top) + 10px) calc(var(--safe-right) + 14px) calc(var(--safe-bottom) + 20px) calc(var(--safe-left) + 14px); }
-            .content-shell { padding: 10px 0 calc(46vh + var(--safe-bottom)); }
+            #right-col { padding: calc(var(--safe-top) + 24px) calc(var(--safe-right) + 14px) calc(var(--safe-bottom) + 20px) calc(var(--safe-left) + 14px); }
+            .content-shell { padding: 20px 0 calc(46vh + var(--safe-bottom)); }
+            .ev-marker { color: #d7f4ff; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.42); }
             .ev-copy { font-size: 14px; margin-bottom: 18px; }
             .logistics-card { padding: 20px 16px; border-radius: 18px; }
             .log-title { font-size: 18px; }
@@ -373,7 +374,7 @@
     <div id="right-col">
         <div class="content-shell">
             <div class="ev-marker">West - Jal District</div>
-            <h1 class="ev-title">Store</h1>
+            <h1 class="ev-title">STORE</h1>
             <div class="ev-div"></div>
             <p class="ev-copy">Step into the Jal district to explore official merchandise and key venue logistics. This space is designed to keep practical fest information calm, clear, and easy to access beside the summoning sequence.</p>
             
@@ -617,3 +618,4 @@
     </script>
 </body>
 </html>
+

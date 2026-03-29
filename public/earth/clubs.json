@@ -1,0 +1,579 @@
+{
+  "district": "earth",
+  "title": "Club Events",
+  "description": "The Prithvi district gathers the clubs that give the fest its weight and character. Each circle anchors a different discipline, from code and robotics to culture, design, media, and community work.",
+  "clubs": [
+    {
+      "id": "coding-ninjas",
+      "name": "Coding Ninjas",
+      "type": "Tech",
+      "logo": "/Club Logo/CODING NINJAS.png",
+      "events": [
+        {
+          "name": "Ninja Hire",
+          "description": "A hiring-style coding sprint focused on problem solving, interviews, and quick-fire technical rounds.",
+          "date": "April 18, 2026",
+          "location": "Placement Cell",
+          "prize": "Internships",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Code-A-Thon",
+          "description": "A build-heavy coding marathon where teams race through challenge sets under a tight clock.",
+          "date": "April 19, 2026",
+          "location": "Auditorium 2",
+          "prize": "INR 15000",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "codex",
+      "name": "Codex",
+      "type": "Tech",
+      "logo": "/Club Logo/Codex.png",
+      "events": [
+        {
+          "name": "Code Vyuh 4.0",
+          "description": "A flagship coding contest built around layered logic challenges and elimination rounds.",
+          "date": "April 18, 2026",
+          "location": "Lab 302, Block C",
+          "prize": "INR 50000",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Algorithmic Odyssey",
+          "description": "A problem-solving track centered on algorithms, optimization, and coding accuracy.",
+          "date": "April 19, 2026",
+          "location": "Online",
+          "prize": "INR 20000",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "danza",
+      "name": "Danza",
+      "type": "Cultural",
+      "logo": "/Club Logo/Danza.png",
+      "events": [
+        {
+          "name": "Street Battle",
+          "description": "A crew-versus-crew street dance clash built on impact, rhythm, and stage command.",
+          "date": "April 18, 2026",
+          "location": "Courtyard",
+          "prize": "INR 10000",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Hip-Hop Workshop",
+          "description": "A guided session on movement basics, groove work, and performance technique.",
+          "date": "April 20, 2026",
+          "location": "Dance Hall",
+          "prize": "N/A",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "gdg",
+      "name": "Google Developer Group",
+      "type": "Tech",
+      "logo": "/Club Logo/GDG.jpeg",
+      "events": [
+        {
+          "name": "DevFest 2026",
+          "description": "A developer gathering packed with talks, demos, and hands-on tech showcases.",
+          "date": "April 18-20, 2026",
+          "location": "Convention Center",
+          "prize": "Swags",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Cloud Study Jam",
+          "description": "A guided cloud learning sprint with practical labs and certification-oriented tasks.",
+          "date": "April 19, 2026",
+          "location": "Virtual",
+          "prize": "Certs",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "gfg",
+      "name": "GeeksforGeeks",
+      "type": "Tech",
+      "logo": "/Club Logo/GFG.jpeg",
+      "events": [
+        {
+          "name": "DSA Rumble",
+          "description": "A fast-paced data structures and algorithms showdown with ranked challenge ladders.",
+          "date": "April 18, 2026",
+          "location": "Lab 101",
+          "prize": "INR 10000",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Job-A-Thon",
+          "description": "A career-focused challenge track blending aptitude, coding, and hiring simulations.",
+          "date": "April 20, 2026",
+          "location": "Online",
+          "prize": "Referral",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "irc-square",
+      "name": "IRC (Square)",
+      "type": "Tech",
+      "logo": "/Club Logo/IRC Logo Square.png",
+      "events": [
+        {
+          "name": "Yantra Yudh",
+          "description": "A robotics arena challenge where machines face off in tactical combat sequences.",
+          "date": "April 18, 2026",
+          "location": "Arena A",
+          "prize": "INR 75000",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Bot-Nexus",
+          "description": "A design-and-build robotics event centered on control systems and engineering precision.",
+          "date": "April 19, 2026",
+          "location": "Workshop",
+          "prize": "INR 15000",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "irc-landscape",
+      "name": "IRC (Landscape)",
+      "type": "Tech",
+      "logo": "/Club Logo/IRC.png",
+      "events": [
+        {
+          "name": "Drone Sprint",
+          "description": "A high-speed aerial challenge testing control, navigation, and time-trial execution.",
+          "date": "April 18, 2026",
+          "location": "Field",
+          "prize": "INR 25000",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Robo Expo",
+          "description": "A robotics exhibition where builds, prototypes, and concepts are showcased live.",
+          "date": "April 20, 2026",
+          "location": "Exhibition",
+          "prize": "Certs",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "jaago",
+      "name": "JAAGO",
+      "type": "Social",
+      "logo": "/Club Logo/JAAGO.gif",
+      "events": [
+        {
+          "name": "Awareness Play",
+          "description": "A socially driven stage act that turns civic issues into performance storytelling.",
+          "date": "April 18, 2026",
+          "location": "Square",
+          "prize": "N/A",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Street Drama",
+          "description": "A public-impact performance built for open spaces, crowd energy, and direct messaging.",
+          "date": "April 19, 2026",
+          "location": "Amphitheater",
+          "prize": "INR 5000",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "nss",
+      "name": "NSS",
+      "type": "Social",
+      "logo": "/Club Logo/NSS.png",
+      "events": [
+        {
+          "name": "Blood Drive",
+          "description": "A campus-wide donation initiative built around participation, awareness, and impact.",
+          "date": "April 18, 2026",
+          "location": "Medical Center",
+          "prize": "Certs",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Swachh Campus",
+          "description": "A volunteer-led action drive focused on cleanliness, service, and public engagement.",
+          "date": "April 19, 2026",
+          "location": "Campus",
+          "prize": "Tokens",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "odanza",
+      "name": "ODanza",
+      "type": "Cultural",
+      "logo": "/Club Logo/ODanza.png",
+      "events": [
+        {
+          "name": "Classical Night",
+          "description": "A curated classical dance showcase centered on form, expression, and stage depth.",
+          "date": "April 19, 2026",
+          "location": "Auditorium",
+          "prize": "INR 20000",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Mudras Expo",
+          "description": "An interpretive performance and presentation space exploring gesture-based storytelling.",
+          "date": "April 20, 2026",
+          "location": "Hall",
+          "prize": "N/A",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "english-cafe",
+      "name": "English Cafe",
+      "type": "Literary",
+      "logo": "/Club Logo/SEC.png",
+      "events": [
+        {
+          "name": "Word-Smith",
+          "description": "A writing contest built around sharp language, creativity, and timed expression.",
+          "date": "April 18, 2026",
+          "location": "Seminar",
+          "prize": "INR 10000",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Debate Duel",
+          "description": "A head-to-head speaking battle focused on reasoning, rhetoric, and rebuttal.",
+          "date": "April 20, 2026",
+          "location": "English Dept",
+          "prize": "Books",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "sec",
+      "name": "SEC",
+      "type": "Literary",
+      "logo": "/Club Logo/SEC.png",
+      "events": [
+        {
+          "name": "Eloquence",
+          "description": "A public speaking challenge built on clarity, confidence, and persuasive delivery.",
+          "date": "April 18, 2026",
+          "location": "Room 101",
+          "prize": "INR 5000",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Scribe",
+          "description": "A short-format writing contest that rewards precision, speed, and originality.",
+          "date": "April 19, 2026",
+          "location": "Room 102",
+          "prize": "INR 3000",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "sfc",
+      "name": "SFC (Drones)",
+      "type": "Tech",
+      "logo": "/Club Logo/SFC.png",
+      "events": [
+        {
+          "name": "Aerial Vision",
+          "description": "A drone imaging and navigation challenge built for control and creative execution.",
+          "date": "April 18, 2026",
+          "location": "Tech Ground",
+          "prize": "INR 15000",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Sky High Bash",
+          "description": "A high-energy aerial event focused on maneuvering, showmanship, and precision flight.",
+          "date": "April 19, 2026",
+          "location": "Rooftop",
+          "prize": "Gears",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "slc",
+      "name": "SOA Literary Club",
+      "type": "Literary",
+      "logo": "/Club Logo/SLC.png",
+      "events": [
+        {
+          "name": "Ink & Irony",
+          "description": "A literary challenge that blends satire, storytelling, and sharp written voice.",
+          "date": "April 18, 2026",
+          "location": "Room 304",
+          "prize": "INR 5000",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Poetry Slam",
+          "description": "A spoken-word stage where rhythm, vulnerability, and crowd connection matter most.",
+          "date": "April 20, 2026",
+          "location": "Garden",
+          "prize": "INR 3000",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "smc",
+      "name": "SMC",
+      "type": "Media",
+      "logo": "/Club Logo/SMC.jpg",
+      "events": [
+        {
+          "name": "News-Hunt",
+          "description": "A reporting challenge built around observation, deadlines, and newsroom instincts.",
+          "date": "April 18, 2026",
+          "location": "Media Lab",
+          "prize": "INR 5000",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Media Summit",
+          "description": "A discussion and showcase space around journalism, storytelling, and production craft.",
+          "date": "April 20, 2026",
+          "location": "Conference",
+          "prize": "Certs",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "soa-radio",
+      "name": "SOA Radio",
+      "type": "Media",
+      "logo": "/Club Logo/SOA Radio.jpeg",
+      "events": [
+        {
+          "name": "On-Air Live",
+          "description": "A live hosting challenge built around voice, timing, and audience energy.",
+          "date": "April 18, 2026",
+          "location": "Radio Cabin",
+          "prize": "T-Shirts",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Voice Box",
+          "description": "A performance-based vocal event centered on modulation, presence, and clarity.",
+          "date": "April 19, 2026",
+          "location": "Studio A",
+          "prize": "Goodies",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "soa",
+      "name": "Siksha O Anusandhan",
+      "type": "General",
+      "logo": "/Club Logo/SOA-PNG.png",
+      "events": [
+        {
+          "name": "University Expo",
+          "description": "A broad campus showcase connecting academic spaces, communities, and opportunities.",
+          "date": "April 18-20, 2026",
+          "location": "Grand Mall",
+          "prize": "Scholarships",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Alumni Meet",
+          "description": "A gathering for returning alumni, networking, and shared campus memories.",
+          "date": "April 19, 2026",
+          "location": "Banquet Hall",
+          "prize": "Networking",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "spc",
+      "name": "SPC",
+      "type": "Design",
+      "logo": "/Club Logo/SPC.png",
+      "events": [
+        {
+          "name": "Design-A-Thon",
+          "description": "A rapid design challenge focused on ideation, interface craft, and presentation.",
+          "date": "April 18, 2026",
+          "location": "Creative Hub",
+          "prize": "INR 20000",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Branding 101",
+          "description": "A workshop-style event introducing identity systems, visual voice, and brand thinking.",
+          "date": "April 20, 2026",
+          "location": "Room 202",
+          "prize": "N/A",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "sristhi",
+      "name": "Sristhi",
+      "type": "Cultural",
+      "logo": "/Club Logo/Sristhi.png",
+      "events": [
+        {
+          "name": "Vocal Symphony",
+          "description": "A performance event built around harmony, stage blend, and musical expression.",
+          "date": "April 19, 2026",
+          "location": "Auditorium",
+          "prize": "INR 15000",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Fusion Fest",
+          "description": "A multi-genre music showcase where styles and sounds collide on one stage.",
+          "date": "April 20, 2026",
+          "location": "Music Room",
+          "prize": "INR 10000",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "toneelstuk",
+      "name": "Toneelstuk",
+      "type": "Drama",
+      "logo": "/Club Logo/Toneelstuk.png",
+      "events": [
+        {
+          "name": "Dramatics Night",
+          "description": "A stage-heavy theatre event built around presence, pacing, and live performance energy.",
+          "date": "April 18, 2026",
+          "location": "Main Stage",
+          "prize": "INR 25000",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Stage Craft",
+          "description": "A behind-the-scenes challenge focused on set, movement, and theatrical execution.",
+          "date": "April 20, 2026",
+          "location": "Backstage",
+          "prize": "Certs",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "vogue",
+      "name": "Vogue",
+      "type": "Fashion",
+      "logo": "/Club Logo/vogue.png",
+      "events": [
+        {
+          "name": "Runway Walk",
+          "description": "A fashion ramp event where styling, posture, and stage confidence take the lead.",
+          "date": "April 19, 2026",
+          "location": "Fashion Ramp",
+          "prize": "Titles",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Design Gala",
+          "description": "A fashion and styling showcase centered on concept, presentation, and finish.",
+          "date": "April 20, 2026",
+          "location": "Ballroom",
+          "prize": "Awards",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "showreel",
+      "name": "Showreel (VS Logo)",
+      "type": "Media",
+      "logo": "/Club Logo/VS Logo dark bg.png",
+      "events": [
+        {
+          "name": "Video Expo",
+          "description": "A screening and showcase space for short-form visuals, edits, and visual storytelling.",
+          "date": "April 18, 2026",
+          "location": "Hall",
+          "prize": "INR 10000",
+          "contact": "Updated soon",
+          "link": "#"
+        },
+        {
+          "name": "Editing Battle",
+          "description": "A rapid turnaround editing challenge built on pacing, polish, and creative decisions.",
+          "date": "April 19, 2026",
+          "location": "Systems Lab",
+          "prize": "Licenses",
+          "contact": "Updated soon",
+          "link": "#"
+        }
+      ]
+    }
+  ]
+}
