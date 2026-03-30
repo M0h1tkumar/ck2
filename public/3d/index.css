@@ -27,7 +27,7 @@ canvas{display:block;position:fixed;inset:0;z-index:1}
 @media(max-width:768px){#hdr img{width:120px}}
 @media(max-width:400px){#hdr img{width:100px}}
 html.embedded #hdr{display:none}
-html.embedded #back-btn{top:calc(var(--safe-top) + 84px)}
+html.embedded #back-btn{top:calc(var(--safe-top) + 160px)}
 html.embedded #center-btn{top:54%}
 html.embedded #loader{background:radial-gradient(circle at center,rgba(30,19,15,.96) 0%,rgba(8,6,4,.985) 58%,rgba(8,6,4,1) 100%)}
 html.embedded .d-n{top:24%}
@@ -153,7 +153,10 @@ html.embedded .d-n{top:24%}
   .d-icon svg{width:18px;height:18px}
   .d-lbl{font-size:11px;letter-spacing:2.4px}
   .d-tag{font-size:8px;letter-spacing:2px}
-  #back-btn{right:max(12px,calc(var(--safe-right) + 12px));padding:8px 14px;min-height:38px;font-size:7px;letter-spacing:1.7px}
+  #back-btn{right:max(12px,calc(var(--safe-right) + 12px));padding:0;width:38px;height:38px;min-height:38px;justify-content:center}
+  #back-btn span{display:none}
+  #back-btn svg{width:14px;height:14px}
+  html.embedded #back-btn{top:calc(var(--safe-top) + 110px)}
   .cpanel{padding:calc(var(--safe-top) + 58px) calc(var(--safe-right) + 12px) calc(var(--safe-bottom) + 32px) calc(var(--safe-left) + 12px)}
   .cp-in{border-radius:24px;padding:20px 18px 22px}
   .cp-marker{letter-spacing:4px}
@@ -196,7 +199,8 @@ html.embedded .d-n{top:24%}
   #choice-prompt{top:calc(50% + 68px)}
   #choice-prompt .title{font-size:clamp(13px,4.8vw,18px)}
   #choice-prompt .sub{font-size:clamp(7px,2.2vw,9px)}
-  #back-btn{top:calc(var(--safe-top) + 12px);right:max(10px,calc(var(--safe-right) + 10px));padding:7px 12px;gap:5px;min-height:34px}
+  #back-btn{top:calc(var(--safe-top) + 12px);right:max(10px,calc(var(--safe-right) + 10px));padding:0;width:34px;height:34px;min-height:34px}
+  html.embedded #back-btn{top:calc(var(--safe-top) + 80px)}
   .cpanel{padding:calc(var(--safe-top) + 54px) calc(var(--safe-right) + 10px) calc(var(--safe-bottom) + 22px) calc(var(--safe-left) + 10px)}
   .cp-in{border-radius:22px;padding:18px 16px 20px}
   .cp-marker{font-size:8px;letter-spacing:3px;margin-bottom:8px}
