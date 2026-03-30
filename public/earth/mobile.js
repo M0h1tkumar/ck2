@@ -293,16 +293,6 @@ function bindClubInteractions() {
   });
 }
 
-document.addEventListener('click', () => {
-  document.querySelectorAll('.club-card.active').forEach((active) => active.classList.remove('active'));
-  if (activePopup) {
-    activePopup.remove();
-    activePopup = null;
-  }
-  clubsGrid.classList.remove('focus-mode');
-  document.body.classList.remove('club-focus');
-});
-
 function startSequence() {
   if (sequenceStarted) return;
   sequenceStarted = true;
