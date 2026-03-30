@@ -292,3 +292,5 @@ if (character.complete) {
 } else {
   character.addEventListener('load', startSequence, { once: true });
 }
+
+window.loadFireAgenda?.(document.getElementById('agenda-root'));
