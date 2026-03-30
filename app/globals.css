@@ -121,3 +121,291 @@ body {
 .animate-rotate-slow {
   animation: rotate-slow 20s linear infinite;
 }
+
+/* ── Logo Overlays ── */
+.logo-overlay {
+  position: absolute;
+  z-index: 40;
+  pointer-events: auto;
+  padding: 16px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logo-overlay:hover {
+  transform: scale(1.08);
+}
+
+.logo-top-left {
+  top: 16px;
+  left: 16px;
+}
+
+.logo-top-right {
+  top: 12px;
+  right: 16px;
+}
+
+.logo-img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(233, 195, 73, 0.35));
+  transition: filter 0.3s ease;
+}
+
+/* Genesis logo — larger on desktop */
+.logo-img-lg {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 14px rgba(233, 195, 73, 0.4));
+  transition: filter 0.3s ease;
+}
+
+.logo-overlay:hover .logo-img,
+.logo-overlay:hover .logo-img-lg {
+  filter: drop-shadow(0 0 20px rgba(233, 195, 73, 0.6));
+}
+
+/* ── Credit Bar (Bottom-Right) ── */
+.credit-bar {
+  position: absolute;
+  z-index: 40;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(28, 16, 16, 0.75) 0%,
+    rgba(63, 49, 49, 0.55) 100%
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(233, 195, 73, 0.15);
+  border-radius: 6px;
+  pointer-events: auto;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.credit-bar:hover {
+  border-color: rgba(233, 195, 73, 0.35);
+  box-shadow: 0 0 20px rgba(233, 195, 73, 0.1);
+}
+
+.credit-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(244, 221, 221, 0.8);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.credit-highlight {
+  color: #e9c349;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.credit-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(233, 195, 73, 0.3));
+}
+
+/* ─────────────────────────────────────
+   RESPONSIVE — Tablets & small laptops
+   ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .logo-overlay {
+    padding: 10px;
+  }
+
+  .logo-top-left {
+    top: 10px;
+    left: 10px;
+  }
+
+  .logo-top-right {
+    top: 8px;
+    right: 10px;
+  }
+
+  .logo-img {
+    width: 54px;
+    height: 54px;
+  }
+
+  .logo-img-lg {
+    width: 80px;
+    height: 80px;
+  }
+
+  .credit-bar {
+    bottom: 14px;
+    right: 14px;
+    gap: 6px;
+    padding: 6px 14px;
+    opacity: 0.55;
+  }
+
+  .credit-text {
+    font-size: 11px;
+  }
+
+  .credit-logo {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* ─────────────────────────────────────
+   RESPONSIVE — Standard phones (≤480px)
+   ───────────────────────────────────── */
+@media (max-width: 480px) {
+  .logo-overlay {
+    padding: 8px;
+  }
+
+  .logo-top-left {
+    top: 8px;
+    left: 8px;
+  }
+
+  .logo-top-right {
+    top: 6px;
+    right: 8px;
+  }
+
+  .logo-img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .logo-img-lg {
+    width: 68px;
+    height: 68px;
+  }
+
+  .credit-bar {
+    bottom: 10px;
+    right: 10px;
+    left: auto;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: 5px;
+    opacity: 0.5;
+  }
+
+  .credit-text {
+    font-size: 10px;
+    letter-spacing: 0.02em;
+  }
+
+  .credit-highlight {
+    letter-spacing: 0.05em;
+  }
+
+  .credit-logo {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ─────────────────────────────────────
+   RESPONSIVE — Small phones (≤375px)
+   (iPhone SE, Galaxy S series, etc.)
+   ───────────────────────────────────── */
+@media (max-width: 375px) {
+  .logo-overlay {
+    padding: 6px;
+  }
+
+  .logo-top-left {
+    top: 6px;
+    left: 6px;
+  }
+
+  .logo-top-right {
+    top: 4px;
+    right: 6px;
+  }
+
+  .logo-img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .logo-img-lg {
+    width: 62px;
+    height: 62px;
+  }
+
+  .credit-bar {
+    bottom: 8px;
+    right: 8px;
+    gap: 4px;
+    padding: 4px 10px;
+    opacity: 0.45;
+  }
+
+  .credit-text {
+    font-size: 9px;
+  }
+
+  .credit-logo {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* ─────────────────────────────────────
+   RESPONSIVE — Very small phones (≤320px)
+   (iPhone 5/SE 1st gen, Galaxy Fold, etc.)
+   ───────────────────────────────────── */
+@media (max-width: 320px) {
+  .logo-overlay {
+    padding: 4px;
+  }
+
+  .logo-top-left {
+    top: 4px;
+    left: 4px;
+  }
+
+  .logo-top-right {
+    top: 2px;
+    right: 4px;
+  }
+
+  .logo-img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .logo-img-lg {
+    width: 54px;
+    height: 54px;
+  }
+
+  .credit-bar {
+    bottom: 6px;
+    right: 6px;
+    gap: 3px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    opacity: 0.4;
+  }
+
+  .credit-text {
+    font-size: 8px;
+  }
+
+  .credit-logo {
+    width: 14px;
+    height: 14px;
+  }
+}

@@ -126,7 +126,15 @@ function getEventKey(club, event) {
 }
 
 function sortClubsAlphabetically(clubs) {
-  return [...clubs].sort((left, right) => left.name.localeCompare(right.name, undefined, { sensitivity: 'base' }));
+  const sortedClubs = [...clubs].sort((left, right) => left.name.localeCompare(right.name, undefined, { sensitivity: 'base' }));
+  const gdgocIndex = sortedClubs.findIndex((club) => club.id === 'gdgoc');
+  const vogueIndex = sortedClubs.findIndex((club) => club.id === 'vogue');
+
+  if (gdgocIndex !== -1 && vogueIndex !== -1) {
+    [sortedClubs[gdgocIndex], sortedClubs[vogueIndex]] = [sortedClubs[vogueIndex], sortedClubs[gdgocIndex]];
+  }
+
+  return sortedClubs;
 }
 
 function normalizeClubs(data) {

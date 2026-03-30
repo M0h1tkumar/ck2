@@ -5,12 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Anant Tattva - Chakravyuh &amp; Genesis 2K26</title>
 <link rel="stylesheet" href="/3d/index.css">
-<link rel="preload" as="video" href="/entry/ENTRY.webm" media="(min-aspect-ratio: 1/1)">
-<link rel="preload" as="video" href="/entry/ENTRY-mobile.webm" media="(max-aspect-ratio: 1/1)">
 </head>
 <body>
 
 <div id="loader">
+  <div id="audio-prompt" aria-live="polite" aria-hidden="true">
+    <div class="audio-prompt__title">Enable entrance music?</div>
+    <div class="audio-prompt__copy">Your browser blocked autoplay with sound. You can allow it for this entry sequence or continue silently.</div>
+    <div class="audio-prompt__actions">
+      <button id="audio-prompt-enable" type="button">Play music</button>
+      <button id="audio-prompt-skip" type="button">Continue silent</button>
+    </div>
+  </div>
+  <button
+    id="music-toggle"
+    type="button"
+    aria-label="Play entrance music"
+    aria-pressed="false"
+    title="Toggle entrance music"
+  >
+    <span class="music-toggle__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M5 15.5V8.5H9L14 4V20L9 15.5H5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M18 9C19.333 10.167 20 11.5 20 13C20 14.5 19.333 15.833 18 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </span>
+  </button>
   <video
     id="loader-video"
     autoplay
@@ -21,6 +41,9 @@
     data-desktop-src="/entry/ENTRY.webm"
     data-mobile-src="/entry/ENTRY-mobile.webm"
   ></video>
+  <audio id="loader-audio" preload="auto" loop>
+    <source src="/music/aari.mpeg" type="audio/mpeg">
+  </audio>
 </div>
 <script>
   (function () {
@@ -54,7 +77,7 @@
   <div class="sub">Select a direction <br>to continue</div>
 </div>
 
-<div id="back-btn"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Return</div>
+<div id="back-btn"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg><span>Return</span></div>
 
 <div class="cpanel" id="panel-starnight" style="padding:0;overflow:hidden"><iframe id="air-frame" src="" style="width:100%;height:100%;border:none;display:block" allow="fullscreen" title="Star Night - Vayu district"></iframe></div>
 
