@@ -120,9 +120,43 @@ const clubPopupRoot = document.getElementById('club-popup-root');
 const eventData = new Map();
 let activePopup = null;
 let clearActiveCards = () => {};
+const categoryOrder = ['Technical', 'Non-Technical'];
 
 function getEventKey(club, event) {
   return event.id || `${club.id || club.name}::${event.name}`;
+}
+
+function sortClubsAlphabetically(clubs) {
+  return [...clubs].sort((left, right) => left.name.localeCompare(right.name, undefined, { sensitivity: 'base' }));
+}
+
+function normalizeSections(data) {
+  if (Array.isArray(data.sections)) {
+    return data.sections
+      .map((section) => ({
+        id: section.id || section.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+        title: section.title,
+        clubs: sortClubsAlphabetically(section.clubs || [])
+      }))
+      .filter((section) => section.title && section.clubs.length);
+  }
+
+  if (!Array.isArray(data.clubs)) return [];
+
+  const grouped = new Map(categoryOrder.map((title) => [title, []]));
+  data.clubs.forEach((club) => {
+    const category = club.category || (club.type === 'Tech' || club.type === 'Innovation' ? 'Technical' : 'Non-Technical');
+    if (!grouped.has(category)) grouped.set(category, []);
+    grouped.get(category).push({ ...club, category });
+  });
+
+  return categoryOrder
+    .map((title) => ({
+      id: title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+      title,
+      clubs: sortClubsAlphabetically(grouped.get(title) || [])
+    }))
+    .filter((section) => section.clubs.length);
 }
 
 function renderClub(club) {
@@ -146,14 +180,37 @@ function renderClub(club) {
   return card;
 }
 
+function renderSection(section) {
+  const sectionEl = document.createElement('section');
+  sectionEl.className = 'club-section';
+  sectionEl.innerHTML = `
+    <div class="club-section-head">
+      <div class="club-section-kicker">Category</div>
+      <div class="club-section-title-row">
+        <h2 class="club-section-title">${section.title}</h2>
+        <div class="club-section-count">${section.clubs.length} clubs</div>
+      </div>
+    </div>
+    <div class="club-section-grid"></div>
+  `;
+
+  const grid = sectionEl.querySelector('.club-section-grid');
+  section.clubs.forEach((club) => grid.appendChild(renderClub(club)));
+  return sectionEl;
+}
+
 async function loadClubData() {
   const response = await fetch('/earth/clubs.json');
   if (!response.ok) throw new Error('Failed to load club data');
   const data = await response.json();
+  const sections = normalizeSections(data);
   clubsGrid.innerHTML = '';
-  data.clubs.forEach((club) => {
-    club.events.forEach((event) => eventData.set(getEventKey(club, event), event));
-    clubsGrid.appendChild(renderClub(club));
+  eventData.clear();
+  sections.forEach((section) => {
+    section.clubs.forEach((club) => {
+      club.events.forEach((event) => eventData.set(getEventKey(club, event), event));
+    });
+    clubsGrid.appendChild(renderSection(section));
   });
   bindClubInteractions();
 }

@@ -260,3 +260,78 @@ if (character.complete) {
 } else {
     character.addEventListener('load', startSequence, { once: true });
 }
+
+function initCarousels() {
+    const carousels = document.querySelectorAll('[data-carousel]');
+
+    carousels.forEach((carousel) => {
+        const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+        const dots = Array.from(carousel.querySelectorAll('[data-carousel-dot]'));
+        const prevButton = carousel.querySelector('[data-carousel-prev]');
+        const nextButton = carousel.querySelector('[data-carousel-next]');
+        const counter = carousel.querySelector('[data-carousel-counter]');
+
+        if (!slides.length) return;
+
+        let currentIndex = 0;
+        let autoplayId = null;
+
+        function render(nextIndex) {
+            currentIndex = (nextIndex + slides.length) % slides.length;
+
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('is-active', index === currentIndex);
+            });
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('is-active', index === currentIndex);
+                dot.setAttribute('aria-pressed', index === currentIndex ? 'true' : 'false');
+            });
+
+            if (counter) {
+                counter.textContent = `${currentIndex + 1} / ${slides.length}`;
+            }
+        }
+
+        function stopAutoplay() {
+            if (autoplayId) {
+                window.clearInterval(autoplayId);
+                autoplayId = null;
+            }
+        }
+
+        function startAutoplay() {
+            stopAutoplay();
+            autoplayId = window.setInterval(() => {
+                render(currentIndex + 1);
+            }, 3600);
+        }
+
+        prevButton?.addEventListener('click', () => {
+            render(currentIndex - 1);
+            startAutoplay();
+        });
+
+        nextButton?.addEventListener('click', () => {
+            render(currentIndex + 1);
+            startAutoplay();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                render(index);
+                startAutoplay();
+            });
+        });
+
+        carousel.addEventListener('mouseenter', stopAutoplay);
+        carousel.addEventListener('mouseleave', startAutoplay);
+        carousel.addEventListener('focusin', stopAutoplay);
+        carousel.addEventListener('focusout', startAutoplay);
+
+        render(0);
+        startAutoplay();
+    });
+}
+
+initCarousels();
