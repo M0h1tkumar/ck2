@@ -10,8 +10,8 @@
 
 <div id="loader">
   <div id="audio-prompt" aria-live="polite" aria-hidden="true">
-    <div class="audio-prompt__title">Enable entrance music?</div>
-    <div class="audio-prompt__copy">Your browser blocked autoplay with sound. You can allow it for this entry sequence or continue silently.</div>
+    <div class="audio-prompt__title">Choose your entrance audio</div>
+    <div class="audio-prompt__copy">Select one option to begin the website. The entry sequence will wait here until you choose.</div>
     <div class="audio-prompt__actions">
       <button id="audio-prompt-enable" type="button">Play music</button>
       <button id="audio-prompt-skip" type="button">Continue silent</button>
@@ -23,6 +23,7 @@
     aria-label="Play entrance music"
     aria-pressed="false"
     title="Toggle entrance music"
+    hidden
   >
     <span class="music-toggle__icon" aria-hidden="true">
       <svg viewBox="0 0 24 24" fill="none">
@@ -33,7 +34,6 @@
   </button>
   <video
     id="loader-video"
-    autoplay
     muted
     playsinline
     preload="metadata"

@@ -405,6 +405,10 @@ body.settled #right-col {
     backdrop-filter: blur(8px);
 }
 
+.carousel-counter {
+    margin-left: auto;
+}
+
 .carousel-dots {
     position: absolute;
     left: 50%;

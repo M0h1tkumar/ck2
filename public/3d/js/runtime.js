@@ -296,17 +296,20 @@ const audioPromptSkip=document.getElementById('audio-prompt-skip');
 const musicToggle=document.getElementById('music-toggle');
 const bar=document.getElementById('ld-fill');
 let loaderFinished=false;
+let loaderChoiceMade=false;
+let loaderPlaybackStarted=false;
+let loaderStartTimeoutId=0;
 let audioEnabled=false;
-let audioPermissionDismissed=false;
 
 function setAudioPromptVisible(visible){
-  if(!audioPrompt||audioPermissionDismissed)return;
+  if(!audioPrompt)return;
   audioPrompt.classList.toggle('is-visible',visible);
   audioPrompt.setAttribute('aria-hidden',String(!visible));
 }
 
 function syncMusicToggle(){
   if(!musicToggle)return;
+  musicToggle.hidden=!loaderPlaybackStarted||loaderFinished;
   musicToggle.classList.toggle('is-on',audioEnabled);
   musicToggle.classList.toggle('is-off',!audioEnabled);
   musicToggle.setAttribute('aria-pressed',String(audioEnabled));
@@ -318,33 +321,68 @@ async function setLoaderAudioEnabled(nextEnabled){
   if(!loaderAudio){
     audioEnabled=false;
     syncMusicToggle();
-    return;
+    return false;
   }
   audioEnabled=nextEnabled;
   if(audioEnabled){
     try{
       await loaderAudio.play();
-      setAudioPromptVisible(false);
     }catch{
       audioEnabled=false;
-      setAudioPromptVisible(true);
+      loaderAudio.pause();
+      loaderAudio.currentTime=0;
     }
   }else{
     loaderAudio.pause();
     loaderAudio.currentTime=0;
   }
   syncMusicToggle();
+  return audioEnabled===nextEnabled;
+}
+
+function startLoaderPlayback(){
+  if(loaderPlaybackStarted)return;
+  loaderPlaybackStarted=true;
+  syncMusicToggle();
+
+  if(!loaderVideo||loaderVideo.error){
+    finishLoader();
+    return;
+  }
+
+  const playPromise=loaderVideo.play();
+  if(playPromise&&typeof playPromise.catch==='function'){
+    playPromise.catch(()=>finishLoader());
+  }
+
+  loaderStartTimeoutId=window.setTimeout(()=>{
+    if(!loaderFinished&&loaderVideo.readyState<2&&loaderVideo.currentTime===0)finishLoader();
+  },5000);
+}
+
+async function beginLoaderSequence(enableAudio){
+  if(loaderChoiceMade)return;
+  loaderChoiceMade=true;
+  if(audioPromptEnable)audioPromptEnable.disabled=true;
+  if(audioPromptSkip)audioPromptSkip.disabled=true;
+  setAudioPromptVisible(false);
+  if(loaderAudio)loaderAudio.currentTime=0;
+  await setLoaderAudioEnabled(enableAudio);
+  startLoaderPlayback();
 }
 
 function finishLoader(){
-  if(loaderFinished||!loader)return;
+  if(loaderFinished||!loader||!loaderChoiceMade)return;
   loaderFinished=true;
+  if(loaderStartTimeoutId){
+    window.clearTimeout(loaderStartTimeoutId);
+    loaderStartTimeoutId=0;
+  }
   if(loaderAudio){
     loaderAudio.pause();
     loaderAudio.currentTime=0;
   }
   audioEnabled=false;
-  audioPermissionDismissed=true;
   setAudioPromptVisible(false);
   syncMusicToggle();
   if(bar)bar.style.width='100%';
@@ -373,26 +411,15 @@ if(loaderVideo){
   loaderVideo.addEventListener('loadedmetadata',syncLoaderProgress);
   loaderVideo.addEventListener('timeupdate',syncLoaderProgress);
   loaderVideo.addEventListener('ended',finishLoader,{once:true});
-  loaderVideo.addEventListener('error',finishLoader,{once:true});
-
-  const playPromise=loaderVideo.play();
-  if(playPromise&&typeof playPromise.catch==='function'){
-    playPromise.catch(()=>finishLoader());
-  }
-
-  setTimeout(()=>{
-    if(!loaderFinished&&loaderVideo.readyState<2)finishLoader();
-  },5000);
-}else{
-  finishLoader();
+  loaderVideo.addEventListener('error',()=>{
+    if(loaderChoiceMade)finishLoader();
+  },{once:true});
 }
 
 if(musicToggle){
   syncMusicToggle();
   musicToggle.addEventListener('click',()=>{
-    if(loaderFinished)return;
-    audioPermissionDismissed=true;
-    setAudioPromptVisible(false);
+    if(loaderFinished||!loaderPlaybackStarted)return;
     if(loaderAudio&&!audioEnabled)loaderAudio.currentTime=0;
     setLoaderAudioEnabled(!audioEnabled);
   });
@@ -400,40 +427,22 @@ if(musicToggle){
 
 if(audioPromptEnable){
   audioPromptEnable.addEventListener('click',()=>{
-    audioPermissionDismissed=true;
-    setAudioPromptVisible(false);
-    if(loaderAudio)loaderAudio.currentTime=0;
-    setLoaderAudioEnabled(true);
+    beginLoaderSequence(true);
   });
 }
 
 if(audioPromptSkip){
   audioPromptSkip.addEventListener('click',()=>{
-    audioPermissionDismissed=true;
-    setAudioPromptVisible(false);
-    setLoaderAudioEnabled(false);
+    beginLoaderSequence(false);
   });
 }
 
 if(loaderAudio){
   loaderAudio.volume=1;
-  loaderAudio.autoplay=true;
-  const autoplayAttempt=loaderAudio.play();
-  if(autoplayAttempt&&typeof autoplayAttempt.catch==='function'){
-    autoplayAttempt.then(()=>{
-      audioEnabled=true;
-      syncMusicToggle();
-      setAudioPromptVisible(false);
-    }).catch(()=>{
-      audioEnabled=false;
-      syncMusicToggle();
-      setAudioPromptVisible(true);
-    });
-  }else{
-    audioEnabled=!loaderAudio.paused;
-    syncMusicToggle();
-  }
 }
+
+setAudioPromptVisible(true);
+syncMusicToggle();
 
 function handleViewportResize(){
   syncViewport();

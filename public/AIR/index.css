@@ -380,6 +380,10 @@ body.settled #right-col { opacity: 1; transform: translateX(0); }
     text-transform: uppercase;
 }
 
+.carousel-counter {
+    margin-left: auto;
+}
+
 .carousel-nav {
     position: absolute;
     top: 50%;
