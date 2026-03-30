@@ -25,6 +25,23 @@
             <p class="ev-copy">Experience the official <span class="hl">Chakravyuh 2K26 Tattva Tee</span>. Explore every detail below and find where to secure your piece on campus.</p>
             </div>
             <div class="scroll-body">
+            <section class="shirt-preview-panel" data-shirt-viewer data-model-url="/Shirt/shirt.glb">
+                <div class="shirt-preview-copy">
+                    <div class="shirt-preview-kicker">Interactive Preview</div>
+                    <h2 class="shirt-preview-title">3D Tattva Tee</h2>
+                    <p class="shirt-preview-text">Load the exported shirt model for a touch-friendly preview. Drag left or right once it is ready.</p>
+                </div>
+                <div class="shirt-preview-stage">
+                    <div class="shirt-stage-backdrop">
+                        <img src="/water/merch/FRONT%20VIEW.png" alt="Tattva Tee fallback preview">
+                    </div>
+                    <div class="shirt-stage-canvas" data-shirt-canvas></div>
+                    <div class="shirt-stage-overlay" data-shirt-overlay></div>
+                    <div class="shirt-stage-status" data-shirt-status aria-live="polite">3D preview ready to load</div>
+                    <div class="shirt-stage-hint" data-shirt-hint hidden>Drag left or right</div>
+                </div>
+            </section>
+
             <div class="merch-grid">
                 <div class="merch-card">
                     <div class="merch-img-box"><img src="/water/merch/FRONT%20VIEW.png" alt="Official Tee - Front"></div>
@@ -50,22 +67,6 @@
                         <button class="merch-btn">Available at Venue</button>
                     </div>
                 </div>
-                <div class="merch-card">
-                    <div class="merch-img-box"><img src="/water/merch/BackDesign.png" alt="Official Tee - Print Detail"></div>
-                    <div class="merch-info">
-                        <div class="merch-tag">View 04</div>
-                        <h3 class="merch-name">Back Motif Focus</h3>
-                        <button class="merch-btn">Available at Venue</button>
-                    </div>
-                </div>
-                <div class="merch-card">
-                    <div class="merch-img-box"><img src="/water/merch/SideDesign.png" alt="Official Tee - Accent Print"></div>
-                    <div class="merch-info">
-                        <div class="merch-tag">View 05</div>
-                        <h3 class="merch-name">Side Accent Detail</h3>
-                        <button class="merch-btn">Available at Venue</button>
-                    </div>
-                </div>
             </div>
 
             <div class="logistics-grid" style="margin-top: 24px;">
@@ -82,5 +83,7 @@
 
     <script src="/shared/mobile-viewport.js"></script>
     <script src="/water/mobile.js"></script>
+    <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"}}</script>
+    <script type="module" src="/water/shirt-viewer.js"></script>
 </body>
 </html>

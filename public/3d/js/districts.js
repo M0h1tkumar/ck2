@@ -1,4 +1,4 @@
-const DISTRICT_PAGE_VERSION = '20260329-fire-mobile-bottom-left-1';
+const DISTRICT_PAGE_VERSION = '20260330-air-sky-mobile-split-1';
 
 // The district page routing below reflects the currently approved shipped experience.
 // If files are reorganized later, preserve the visible output exactly unless product
@@ -20,7 +20,7 @@ function createDistrictManager({ forcedDistrictView }) {
       : forcedDistrictView === 'desktop'
         ? false
         : window.innerWidth <= 900;
-    const isMobileOnly = ['fire', 'water', 'earth'].includes(name);
+    const isMobileOnly = ['fire', 'water', 'earth', 'air', 'sky'].includes(name);
     const folderName = name === 'air' ? 'AIR' : name === 'sky' ? 'SKY' : name;
     return `/${folderName}/${(mobileView && isMobileOnly) ? 'mobile.html' : 'index.html'}?v=${DISTRICT_PAGE_VERSION}`;
   }
