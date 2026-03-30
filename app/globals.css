@@ -171,7 +171,7 @@ body {
 .credit-bar {
   position: absolute;
   z-index: 40;
-  bottom: 20px;
+  bottom: 10px;
   right: 20px;
   display: flex;
   align-items: center;
