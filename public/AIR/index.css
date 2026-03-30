@@ -650,7 +650,7 @@ body.settled #right-col { opacity: 1; transform: translateX(0); }
     .sticky-head {
         position: sticky;
         top: calc(var(--safe-top) + 4px);
-        padding: 8px clamp(98px, 30vw, 122px) 16px 8px;
+        padding: 8px 8px 16px 8px;
         background: transparent;
         backdrop-filter: none;
         opacity: 0;
@@ -694,7 +694,7 @@ body.settled #right-col { opacity: 1; transform: translateX(0); }
 
 @media (max-width: 520px) and (orientation: portrait) {
     #right-col { padding: calc(var(--safe-top) + 52px) 12px calc(var(--safe-bottom) + 18px); }
-    .sticky-head { padding: 6px clamp(92px, 31vw, 114px) 14px 6px; }
+    .sticky-head { padding: 6px 6px 14px 6px; }
     .scroll-body { padding-top: 16px; }
     #magic-container {
         width: min(56vw, 224px);

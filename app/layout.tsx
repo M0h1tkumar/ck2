@@ -8,8 +8,9 @@ const notoSerif = Noto_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "SOA & CHAKRAVYUH | Imperial Nexus",
-  description: "CHAKRAVYUH 2K26 - Imperial nexus of SOA. A bastion of intellectual and physical excellence.",
+  title: "CHAKRAVYUH & GENESIS 2K26",
+  description: "CHAKRAVYUH & GENESIS 2K26 - ITER, SOA Deemed to be University's Annual Fest",
+  icons: "/favicon.ico",
 };
 
 export default function RootLayout({

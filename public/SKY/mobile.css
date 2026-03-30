@@ -429,7 +429,7 @@ body.settled #right-col {
     #right-col::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(circle at top center, rgba(199, 152, 255, 0.08), transparent 0 34%), radial-gradient(circle at 22% 78%, rgba(149, 96, 233, 0.05), transparent 0 28%), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.01) 0 2px, rgba(0, 0, 0, 0) 2px 18px), repeating-linear-gradient(45deg, rgba(174, 126, 255, 0.018) 0 1px, rgba(0, 0, 0, 0) 1px 14px), linear-gradient(180deg, rgba(36, 20, 53, 0.72), rgba(23, 13, 35, 0.82)); backdrop-filter: blur(10px); }
     body.settled #right-col { transform: none; opacity: 1; }
     .content-shell { margin: 0; width: 100%; padding: 0; height: 100%; position: relative; z-index: 3; }
-    .sticky-head { position: sticky; top: calc(var(--safe-top) + 4px); padding: 8px clamp(98px, 30vw, 122px) 16px 8px; background: transparent; backdrop-filter: none; opacity: 0; transform: translateY(16px); transition: opacity 0.45s ease, transform 0.55s ease; }
+    .sticky-head { position: sticky; top: calc(var(--safe-top) + 4px); padding: 8px 8px 16px 8px; background: transparent; backdrop-filter: none; opacity: 0; transform: translateY(16px); transition: opacity 0.45s ease, transform 0.55s ease; }
     body.settled .sticky-head { opacity: 1; transform: translateY(0); }
     .scroll-body { padding-top: 18px; padding-bottom: calc(28vh + var(--safe-bottom)); opacity: 0; transition: opacity 0.45s ease 0.08s; scrollbar-width: none; -ms-overflow-style: none; }
     .scroll-body::-webkit-scrollbar { display: none; }
@@ -450,7 +450,7 @@ body.settled #right-col {
     body.settled #magic-container { left: 50%; bottom: calc(var(--safe-bottom) + 18px); transform: translate3d(-50%, -24px, 0) scale(1); }
     #right-col { padding: calc(var(--safe-top) + 52px) calc(var(--safe-right) + 12px) calc(var(--safe-bottom) + 20px) calc(var(--safe-left) + 12px); }
     .content-shell { margin: 0; width: 100%; padding: 0; }
-    .sticky-head { padding: 6px clamp(92px, 31vw, 114px) 14px 6px; }
+    .sticky-head { padding: 6px 6px 14px 6px; }
     .scroll-body { padding-top: 16px; padding-bottom: calc(28vh + var(--safe-bottom)); }
     .ev-marker { color: #efd7ff; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.42); }
     .ev-copy { font-size: 12px; margin-bottom: 12px; }
