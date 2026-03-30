@@ -128,17 +128,33 @@ function getEventKey(club, event) {
 
 function sortClubsAlphabetically(clubs) {
   const sortedClubs = [...clubs].sort((left, right) => left.name.localeCompare(right.name, undefined, { sensitivity: 'base' }));
-  const gdgocIndex = sortedClubs.findIndex((club) => club.id === 'gdgoc');
-  const vogueIndex = sortedClubs.findIndex((club) => club.id === 'vogue');
-
-  if (gdgocIndex !== -1 && vogueIndex !== -1) {
-    [sortedClubs[gdgocIndex], sortedClubs[vogueIndex]] = [sortedClubs[vogueIndex], sortedClubs[gdgocIndex]];
-  }
-
+  
+  // Position 4 (Index 3): SOA Literary Club
   const slcIndex = sortedClubs.findIndex((club) => club.id === 'slc');
   if (slcIndex !== -1) {
     const [slc] = sortedClubs.splice(slcIndex, 1);
     sortedClubs.splice(3, 0, slc);
+  }
+
+  // Position 5 (Index 4): Vogue
+  const vogueIndex = sortedClubs.findIndex((club) => club.id === 'vogue');
+  if (vogueIndex !== -1) {
+    const [vogue] = sortedClubs.splice(vogueIndex, 1);
+    sortedClubs.splice(4, 0, vogue);
+  }
+
+  // Position 6 (Index 5): GDGOC (Start of 2nd Row)
+  const gdgocIndex = sortedClubs.findIndex((club) => club.id === 'gdgoc');
+  if (gdgocIndex !== -1) {
+    const [gdgoc] = sortedClubs.splice(gdgocIndex, 1);
+    sortedClubs.splice(5, 0, gdgoc);
+  }
+
+  // Position 11 (Index 10): Jaago (Start of 3rd Row)
+  const jaagoIndex = sortedClubs.findIndex((club) => club.id === 'jaago');
+  if (jaagoIndex !== -1) {
+    const [jaago] = sortedClubs.splice(jaagoIndex, 1);
+    sortedClubs.splice(10, 0, jaago);
   }
 
   return sortedClubs;
