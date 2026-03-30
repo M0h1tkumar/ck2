@@ -135,6 +135,12 @@ function sortClubsAlphabetically(clubs) {
     [sortedClubs[gdgocIndex], sortedClubs[vogueIndex]] = [sortedClubs[vogueIndex], sortedClubs[gdgocIndex]];
   }
 
+  const slcIndex = sortedClubs.findIndex((club) => club.id === 'slc');
+  if (slcIndex !== -1) {
+    const [slc] = sortedClubs.splice(slcIndex, 1);
+    sortedClubs.splice(3, 0, slc);
+  }
+
   return sortedClubs;
 }
 

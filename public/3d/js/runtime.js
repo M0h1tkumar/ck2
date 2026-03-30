@@ -31,9 +31,9 @@ const normTex=mkTex((d,sz)=>{for(let i=0;i<d.length;i+=4){const px=(i/4)%sz,py=(
 
 // DISTRICT COLORS
 const BASE=new THREE.Color(0xC2A14A);
-const TINT={north:new THREE.Color(0xFFFFFF),east:new THREE.Color(0x4DFF88),south:new THREE.Color(0xB987FF),west:new THREE.Color(0x4DA6FF),vayu:new THREE.Color(0xFF4D4D)};
+const TINT={north:new THREE.Color(0xFFFFFF),east:new THREE.Color(0xFF4D4D),south:new THREE.Color(0xB987FF),west:new THREE.Color(0x4DA6FF),vayu:new THREE.Color(0x4DFF88)};
 
-function whichDist(a){let n=((a%(Math.PI*2))+Math.PI*2)%(Math.PI*2);if(n>Math.PI)n-=Math.PI*2;if(n>=-Math.PI/4&&n<Math.PI/4)return'east';if(n>=Math.PI/4&&n<Math.PI*3/4)return'south';if(n>=-Math.PI*3/4&&n<-Math.PI/4)return'north';return'west'}
+function whichDist(a){let n=((a%(Math.PI*2))+Math.PI*2)%(Math.PI*2);if(n>Math.PI)n-=Math.PI*2;if(n>=-0.7*Math.PI&&n<-0.3*Math.PI)return'north';if(n>=-0.3*Math.PI&&n<0.1*Math.PI)return'east';if(n>=0.1*Math.PI&&n<0.5*Math.PI)return'south';if(n>=0.5*Math.PI&&n<0.9*Math.PI)return'west';return'vayu'}
 function distMat(angle,shift){const t=TINT[whichDist(angle)];const c=BASE.clone().lerp(t,.3);if(shift)c.offsetHSL(0,0,shift);return new THREE.MeshStandardMaterial({color:c,map:diffTex,normalMap:normTex,roughness:.75,metalness:.15,normalScale:new THREE.Vector2(.8,.8),side:THREE.DoubleSide})}
 
 // FORMATION
@@ -44,8 +44,8 @@ const LC=7,SP=1.8,rings=[];
 
 function buildRing(radius,tubeR,idx){
   const grp=new THREE.Group();
-  const arcs=[{start:-Math.PI/4,name:'east'},{start:Math.PI/4,name:'south'},{start:Math.PI*3/4,name:'west'},{start:-Math.PI*3/4,name:'north'}];
-  const span=Math.PI/2,gap=.08;
+  const arcs=[{start:-0.7*Math.PI,name:'north'},{start:-0.3*Math.PI,name:'east'},{start:0.1*Math.PI,name:'south'},{start:0.5*Math.PI,name:'west'},{start:0.9*Math.PI,name:'vayu'}];
+  const span=Math.PI*0.4,gap=.08;
   arcs.forEach(arc=>{const pts=[],segs=Math.floor(Q.seg/4);for(let i=0;i<=segs;i++){const t=i/segs;const a=arc.start+(gap+t*(1-2*gap))*span;const s=Math.sin(a*1.2+idx)*.15;pts.push(new THREE.Vector3(Math.cos(a)*(radius+s),idx*.22+Math.sin(a*2+idx)*.08,Math.sin(a)*(radius+s)))}if(pts.length<4)return;const geo=new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts,false),Math.floor(Q.tSeg/4),tubeR,8,false);const m=new THREE.Mesh(geo,distMat(arc.start+span/2,(idx/LC)*.06-.03));m.castShadow=m.receiveShadow=true;grp.add(m)});
   return grp;
 }
@@ -55,7 +55,7 @@ for(let i=0;i<LC;i++){const r=(i+1)*SP,g=new THREE.Group();g.add(buildRing(r,.12
 
 // District markers
 const markers=new THREE.Group();
-[{name:'north',angle:-Math.PI/2,tint:TINT.north},{name:'east',angle:0,tint:TINT.east},{name:'south',angle:Math.PI/2,tint:TINT.south},{name:'west',angle:Math.PI,tint:TINT.west},{name:'vayu',angle:-Math.PI*0.75,tint:TINT.vayu}].forEach(d=>{
+[{name:'north',angle:-Math.PI/2,tint:TINT.north},{name:'east',angle:-Math.PI/2+Math.PI*0.4,tint:TINT.east},{name:'south',angle:-Math.PI/2+Math.PI*0.8,tint:TINT.south},{name:'west',angle:-Math.PI/2+Math.PI*1.2,tint:TINT.west},{name:'vayu',angle:-Math.PI/2+Math.PI*1.6,tint:TINT.vayu}].forEach(d=>{
   const outerR=LC*SP;
   [-1,1].forEach(side=>{const spread=d.name==='vayu'?.11:.14;const a=d.angle+side*spread;const pH=d.name==='vayu'?1.5:1.8;const m=new THREE.Mesh(new THREE.CylinderGeometry(.09,.13,pH,8),new THREE.MeshStandardMaterial({color:BASE.clone().lerp(d.tint,.5),roughness:.55,metalness:.3,map:diffTex,normalMap:normTex}));m.position.set(Math.cos(a)*outerR,(LC-1)*.22+pH*.5,Math.sin(a)*outerR);m.castShadow=true;markers.add(m);const cap=new THREE.Mesh(new THREE.SphereGeometry(.1,8,8),new THREE.MeshStandardMaterial({color:d.tint,emissive:d.tint,emissiveIntensity:.4,roughness:.3}));cap.position.set(Math.cos(a)*outerR,(LC-1)*.22+pH+.05,Math.sin(a)*outerR);markers.add(cap)});
   const midR=Math.floor(LC*.55)*SP;const orb=new THREE.Mesh(new THREE.SphereGeometry(.2,12,12),new THREE.MeshStandardMaterial({color:d.tint,emissive:d.tint,emissiveIntensity:.5,roughness:.3,metalness:.4}));orb.position.set(Math.cos(d.angle)*midR,Math.floor(LC*.55)*.22+.5,Math.sin(d.angle)*midR);orb.name='orb_'+d.name;markers.add(orb);const pl=new THREE.PointLight(d.tint.getHex(),.4,6);pl.position.copy(orb.position);markers.add(pl);
@@ -98,14 +98,24 @@ function updateCam(){if(!camAnim)return;const t=Math.min(1,(performance.now()-ca
 const OV_POS=[14,11,16],OV_TGT=[0,.5,0];
 const CTR_POS=[0,3.2,.01],CTR_TGT=[0,.5,0];
 const dR=LC*SP*.6,dCamR=LC*SP+2.5,dH=3;
-const DIAG=.78;
-const DIR_VEC={north:[0,0,-1],east:[1,0,0],south:[0,0,1],west:[-1,0,0],vayu:[-DIAG,0,-DIAG]};
+const A_N = -Math.PI / 2;
+const A_E = A_N + Math.PI * 0.4;
+const A_S = A_N + Math.PI * 0.8;
+const A_W = A_N + Math.PI * 1.2;
+const A_V = A_N + Math.PI * 1.6;
+const DIR_VEC={
+  north:[Math.cos(A_N),0,Math.sin(A_N)],
+  east:[Math.cos(A_E),0,Math.sin(A_E)],
+  south:[Math.cos(A_S),0,Math.sin(A_S)],
+  west:[Math.cos(A_W),0,Math.sin(A_W)],
+  vayu:[Math.cos(A_V),0,Math.sin(A_V)]
+};
 const DCAM={
-  north:{pos:[0,dH,-dCamR],tgt:[0,1,-dR]},
-  east:{pos:[dCamR,dH,0],tgt:[dR,1,0]},
-  south:{pos:[0,dH,dCamR],tgt:[0,1,dR]},
-  west:{pos:[-dCamR,dH,0],tgt:[-dR,1,0]},
-  vayu:{pos:[-dCamR*DIAG,dH,-dCamR*DIAG],tgt:[-dR*DIAG,1,-dR*DIAG]},
+  north:{pos:[dCamR*Math.cos(A_N),dH,dCamR*Math.sin(A_N)],tgt:[dR*Math.cos(A_N),1,dR*Math.sin(A_N)]},
+  east:{pos:[dCamR*Math.cos(A_E),dH,dCamR*Math.sin(A_E)],tgt:[dR*Math.cos(A_E),1,dR*Math.sin(A_E)]},
+  south:{pos:[dCamR*Math.cos(A_S),dH,dCamR*Math.sin(A_S)],tgt:[dR*Math.cos(A_S),1,dR*Math.sin(A_S)]},
+  west:{pos:[dCamR*Math.cos(A_W),dH,dCamR*Math.sin(A_W)],tgt:[dR*Math.cos(A_W),1,dR*Math.sin(A_W)]},
+  vayu:{pos:[dCamR*Math.cos(A_V),dH,dCamR*Math.sin(A_V)],tgt:[dR*Math.cos(A_V),1,dR*Math.sin(A_V)]},
 };
 const districtManager=createDistrictManager({forcedDistrictView});
 const {ensureFrameSource,preloadDistrictAssets,clearDistrictFrames}=districtManager;

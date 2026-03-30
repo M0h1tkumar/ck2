@@ -504,6 +504,23 @@
           "contact": "Manish Prakash (9515862133), Khushee (9508944701)"
         }
       ]
+    },
+    {
+      "id": "jaago",
+      "name": "Jaago",
+      "type": "Social",
+      "logo": "/Club Logo/JAAGO.gif",
+      "events": [
+        {
+          "name": "Event details will be updated soon",
+          "description": "Stay tuned! We are currently finalizing the exciting events Jaago will be hosting for Chakravyuh & Genesis 2K26.",
+          "date": "TBA",
+          "time": "TBA",
+          "location": "TBA",
+          "prize": "TBA",
+          "contact": "TBA"
+        }
+      ]
     }
   ]
 }

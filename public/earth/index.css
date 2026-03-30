@@ -122,7 +122,7 @@
         .ev-title { font-size: clamp(22px, 3.5vw, 38px); font-weight: 800; line-height: 1.1; margin-bottom: 10px; color: #fff1df; text-shadow: 0 6px 20px rgba(0, 0, 0, 0.22); text-align: center; }
         .ev-div { width: 36px; height: 1px; background: linear-gradient(90deg, transparent, #ff9c60, transparent); margin: 0 auto 18px; }
         .ev-copy { max-width: 560px; color: rgba(255, 216, 188, 0.9); line-height: 1.62; margin: 0 auto 22px; text-align: center; }
-        .sticky-head { position: relative; z-index: 6; padding: 4px 0 18px; margin-bottom: 6px; background: transparent; backdrop-filter: none; }
+        .sticky-head { position: relative; z-index: 6; padding: 4px 0 10px; margin-bottom: 0; background: transparent; backdrop-filter: none; }
         .content-shell { display: flex; flex-direction: column; flex: 1; min-height: 0; overflow: hidden; }
         .scroll-body { width: 100%; flex: 1; min-height: 0; overflow-y: auto; padding-bottom: 24px; scrollbar-width: none; -ms-overflow-style: none; }
         .scroll-body::-webkit-scrollbar { display: none; }
@@ -133,6 +133,7 @@
             gap: 28px 20px;
             max-width: 100%;
             margin: 0 auto 28px;
+            padding-top: 42px;
             justify-content: center;
         }
         
@@ -146,8 +147,9 @@
             padding: 0;
             overflow: visible;
             transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.35s ease, filter 0.35s ease;
+            z-index: 1;
         }
-        .club-card:hover { transform: translateY(-4px); }
+        .club-card:hover { transform: translateY(-4px); z-index: 5; }
         .clubs-catalog.focus-mode .club-card:not(.active) {
             filter: blur(8px) saturate(0.7);
             opacity: 0.2;
@@ -155,8 +157,8 @@
             pointer-events: none;
         }
         .club-card.active {
-            z-index: 30;
-            transform: translateY(-22px) scale(1.06);
+            z-index: 50;
+            transform: translateY(-28px) scale(1.08);
         }
         .club-logo {
             width: 96px;
@@ -269,6 +271,11 @@
             filter: blur(10px) saturate(0.76);
             opacity: 0.5;
             transition: filter 0.35s ease, opacity 0.35s ease;
+        }
+        body.club-focus .scroll-body {
+            z-index: 10;
+            position: relative;
+            overflow-y: hidden;
         }
         body.club-focus { overflow: hidden; }
         .club-focus-overlay {
