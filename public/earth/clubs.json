@@ -117,7 +117,7 @@
     },
     {
       "id": "coding-ninja",
-      "name": "Coding Ninja",
+      "name": "Coding Ninjas",
       "type": "Tech",
       "logo": "/Club Logo/CODING NINJAS.png",
       "events": [
@@ -242,12 +242,22 @@
           "location": "LABS",
           "prize": "6000",
           "contact": "Ayush K Tripathi (8932899372), Pritish Biswas (9801334862)"
+        },
+        {
+          "name": "Anant Chakra (Collab with SEC)",
+          "description": "Agentic AI Systems & Policy Design Challenge.",
+          "link": "https://forms.gle/vsjwj4S3ViPuq9A56",
+          "date": "04/04/2026",
+          "time": "8:00 AM Onwards",
+          "location": "E-314 & LAB",
+          "prize": "6000",
+          "contact": "Devanshu Singh (9427550414), Ansh Gupta (6207304254)"
         }
       ]
     },
     {
       "id": "odanza_club",
-      "name": "ODanza",
+      "name": "Odanza",
       "type": "Cultural",
       "logo": "/Club Logo/ODANZA copy.png",
       "events": [
@@ -273,9 +283,9 @@
           "name": "Dart-E-Dil Returns",
           "description": "A team dart game where participants hit the dart and complete tasks.",
           "link": "https://docs.google.com/forms/d/e/1FAIpQLScn5T6V4c6dPucJfCwuedQurWL143vNkmzUmJM7gTPLGWGCoQ/viewform",
-          "date": "03/04/2026",
+          "date": "04/04/2026",
           "time": "8:00 AM Onwards",
-          "location": "E-414",
+          "location": "E-Block Lawn",
           "prize": "6000",
           "contact": "Barsha Rani Sahoo (7846976597), Arkadeep Karmakar (8967367392)"
         },
@@ -508,17 +518,18 @@
     {
       "id": "jaago",
       "name": "Jaago",
-      "type": "Social",
+      "type": "Social Service",
       "logo": "/Club Logo/JAAGO.gif",
       "events": [
         {
-          "name": "Event details will be updated soon",
-          "description": "Stay tuned! We are currently finalizing the exciting events Jaago will be hosting for Chakravyuh & Genesis 2K26.",
-          "date": "TBA",
-          "time": "TBA",
-          "location": "TBA",
-          "prize": "TBA",
-          "contact": "TBA"
+          "name": "Jaago Talent Hunt",
+          "description": "19th anniversary celebration featuring Debate, Song, Painting, and Quiz for underprivileged children.",
+          "link": "https://docs.google.com/forms/d/e/1FAIpQLSfOq93BH_fcWnO75E1qHFPjAArt1kAqJuoj8kXnhEsF_UTpTA/viewform?usp=dialog",
+          "date": "03/04/2026",
+          "time": "8:00 AM Onwards",
+          "location": "ITER Campus",
+          "prize": "Social Impact Awards",
+          "contact": "Kiran Panigrahi (8917616478)"
         }
       ]
     }
