@@ -8,11 +8,11 @@
             min-height: 100vh;
             display: flex;
             background:
-                radial-gradient(circle at 18% 16%, rgba(255, 156, 96, 0.08), transparent 0 24%),
-                radial-gradient(circle at 82% 12%, rgba(255, 71, 22, 0.06), transparent 0 22%),
+                radial-gradient(circle at 18% 16%, rgba(154, 214, 135, 0.10), transparent 0 24%),
+                radial-gradient(circle at 82% 12%, rgba(102, 168, 104, 0.08), transparent 0 22%),
                 repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.012) 0 2px, rgba(0, 0, 0, 0) 2px 18px),
-                repeating-linear-gradient(45deg, rgba(255, 156, 96, 0.015) 0 1px, rgba(0, 0, 0, 0) 1px 14px),
-                linear-gradient(180deg, #1a0f0a 0%, #24140d 72%, #2b1a12 100%);
+                repeating-linear-gradient(45deg, rgba(154, 214, 135, 0.018) 0 1px, rgba(0, 0, 0, 0) 1px 14px),
+                linear-gradient(180deg, #121912 0%, #182219 72%, #1d291d 100%);
             color: #fff6ef;
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
@@ -125,9 +125,9 @@
             opacity: 0;
             transform: translateX(48px);
             transition: opacity 0.85s ease, transform 0.95s ease;
-            border-left: 1px solid rgba(255, 156, 96, 0.15);
+            border-left: 1px solid rgba(139, 207, 141, 0.16);
             background:
-                radial-gradient(circle at top center, rgba(255, 156, 96, 0.06), transparent 0 34%),
+                radial-gradient(circle at top center, rgba(154, 214, 135, 0.06), transparent 0 34%),
                 repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.01) 0 2px, rgba(0, 0, 0, 0) 2px 18px);
             overflow: hidden;
             contain: layout paint;
@@ -414,7 +414,7 @@
                 padding: 24px 20px 48px;
                 transform: translateY(28px);
                 border-left: 0;
-                border-top: 1px solid rgba(255, 156, 96, 0.15);
+                border-top: 1px solid rgba(139, 207, 141, 0.16);
             }
 
             .day-tabs {

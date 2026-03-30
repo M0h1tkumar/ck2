@@ -202,16 +202,38 @@ function startRenderLoop() {
 function startSequence() {
     if (sequenceStarted) return;
     sequenceStarted = true;
-    document.body.classList.remove('boot', 'orb-on', 'shifting', 'settled');
-    requestAnimationFrame(() => {
-        document.body.classList.add('boot');
+    document.body.classList.remove('boot', 'orb-on', 'shifting', 'settled', 'desktop-enter', 'desktop-rise');
+    const isDesktop = window.innerWidth > 900;
+    void character.offsetHeight;
+
+    if (isDesktop) {
+        document.body.classList.add('desktop-enter');
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                document.body.classList.add('desktop-rise');
+            });
+        });
         setTimeout(() => {
             igniteAt = performance.now();
             document.body.classList.add('orb-on');
             startRenderLoop();
         }, 1100);
-        setTimeout(() => document.body.classList.add('shifting'), 2100);
-        setTimeout(() => document.body.classList.add('settled'), 2420);
+        setTimeout(() => document.body.classList.add('shifting'), 2300);
+        setTimeout(() => document.body.classList.add('settled'), 2620);
+        return;
+    }
+
+    requestAnimationFrame(() => {
+        setTimeout(() => {
+            document.body.classList.add('boot');
+            setTimeout(() => {
+                igniteAt = performance.now();
+                document.body.classList.add('orb-on');
+                startRenderLoop();
+            }, 1100);
+            setTimeout(() => document.body.classList.add('shifting'), 2100);
+            setTimeout(() => document.body.classList.add('settled'), 2420);
+        }, 20);
     });
 }
 
