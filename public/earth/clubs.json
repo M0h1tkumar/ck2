@@ -63,7 +63,7 @@
       "id": "danza",
       "name": "Danza",
       "type": "Cultural",
-      "logo": "/Club Logo/DANZA copy.png",
+      "logo": "/Club Logo/DANZA.png",
       "events": [
         {
           "name": "Beat Drop Arena",
@@ -147,7 +147,7 @@
       "id": "gfg",
       "name": "GeeksForGeeks",
       "type": "Tech",
-      "logo": "/Club Logo/GFG.jpeg",
+      "logo": "/Club Logo/GFG.png",
       "events": [
         {
           "name": "Zer0ne",
