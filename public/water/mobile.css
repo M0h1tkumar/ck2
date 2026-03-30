@@ -4,6 +4,18 @@
             --safe-right: env(safe-area-inset-right, 0px);
             --safe-bottom: env(safe-area-inset-bottom, 0px);
             --safe-left: env(safe-area-inset-left, 0px);
+            --mobile-scene-height: 50vh;
+            --mobile-scene-min-height: 350px;
+            --mobile-overlay-top: 48vh;
+            --mobile-overlay-bottom: 40px;
+            --mobile-character-height: 55vh;
+            --mobile-character-bottom: 42vh;
+            --mobile-character-shifted-bottom: 40vh;
+            --mobile-character-shifted-scale: 0.85;
+            --mobile-orb-size: min(28vw, 100px);
+            --mobile-orb-bottom: 45vh;
+            --mobile-orb-shifted-bottom: 43vh;
+            --mobile-orb-shifted-scale: 0.8;
         }
         * { box-sizing: border-box; }
         html, body { width: 100%; min-height: var(--page-height); }
@@ -405,7 +417,7 @@
             }
 
             #left-col {
-                min-height: 62vh;
+                min-height: var(--mobile-scene-min-height);
             }
 
             #right-col {
@@ -430,19 +442,25 @@
         }
         @media (max-width: 900px) and (orientation: portrait) {
             body { display: block; overflow-y: auto; overflow-x: hidden; }
-            #left-col, body.shifting #left-col { position: fixed; inset: 0; width: 100%; min-height: var(--page-height); pointer-events: none; z-index: 3; }
+            #left-col, body.shifting #left-col { position: fixed; inset: 0; width: 100%; min-height: var(--page-height); pointer-events: none; z-index: 4; }
             #scene-container { position: fixed; inset: 0; }
-            #character { height: min(64vh, 540px); opacity: 1; filter: none; }
-            body.boot #character { left: 50%; bottom: calc(var(--safe-bottom) + 20px); transform: translateX(-50%) scale(1.12); }
-            body.shifting #character { left: 50%; bottom: calc(var(--safe-bottom) - 72px); transform: translate3d(calc(-50% - 24vw), 0, 0) scale(0.76); }
-            #magic-container { width: min(18vw, 78px); bottom: 24%; opacity: 1; filter: drop-shadow(0 0 12px rgba(86, 217, 255, 0.3)) drop-shadow(0 0 28px rgba(18, 132, 255, 0.2)); }
-            body.orb-on:not(.settled) #magic-container { left: 53%; bottom: 20%; }
-            body.shifting #magic-container { left: 50%; bottom: calc(var(--safe-bottom) + 104px); transform: translate3d(calc(-50% - 17vw), 0, 0) scale(0.72); }
-            #right-col { position: relative; z-index: 2; min-height: var(--page-height); height: var(--page-height); padding: calc(var(--safe-top) + 28px) calc(var(--safe-right) + 18px) calc(var(--safe-bottom) + 24px) calc(var(--safe-left) + 18px); transform: none; overflow: hidden; border: 0; background: radial-gradient(circle at top center, rgba(125, 208, 255, 0.08), transparent 0 34%), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.012) 0 2px, rgba(0, 0, 0, 0) 2px 20px), linear-gradient(180deg, #213948 0, #213948 248px, transparent 248px, transparent 100%); }
+            #character { left: 50%; height: var(--mobile-character-height); bottom: -14vh; opacity: 0; filter: blur(8px); transform: translate3d(-50%, 10vh, 0) scale(0.9); transition: bottom 1.05s cubic-bezier(0.22, 1, 0.36, 1), transform 1.05s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.05s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease; }
+            body.boot #character { left: 50%; bottom: calc(var(--safe-bottom) - 2px); opacity: 1; filter: blur(0); transform: translate3d(-50%, 0, 0) scale(1); }
+            body.shifting #character,
+            body.settled #character { left: 50%; bottom: 7vh; opacity: 0; filter: blur(0); transform: translate3d(-50%, 0, 0) scale(1.65); }
+            #magic-container { width: var(--mobile-orb-size); left: 54%; bottom: calc(var(--safe-bottom) + 14px); opacity: 0; transform: translate3d(-50%, 6vh, 0) scale(0.55); transition: transform 1.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease; filter: drop-shadow(0 0 12px rgba(86, 217, 255, 0.18)) drop-shadow(0 0 24px rgba(18, 132, 255, 0.12)); will-change: transform, opacity; backface-visibility: hidden; }
+            body.orb-on #magic-container,
+            body.orb-on:not(.settled) #magic-container { left: 54%; opacity: 1; transform: translate3d(-50%, 6vh, 0) scale(1); filter: drop-shadow(0 0 18px rgba(86, 217, 255, 0.3)) drop-shadow(0 0 42px rgba(18, 132, 255, 0.2)); }
+            body.shifting #magic-container,
+            body.settled #magic-container { left: 50%; opacity: 1; transform: translate3d(-50%, 0, 0) scale(1); filter: drop-shadow(0 0 18px rgba(86, 217, 255, 0.3)) drop-shadow(0 0 42px rgba(18, 132, 255, 0.2)); }
+            #right-col { position: relative; z-index: 2; min-height: var(--page-height); height: var(--page-height); padding: calc(var(--safe-top) + 22px) calc(var(--safe-right) + 16px) calc(var(--safe-bottom) + 18px) calc(var(--safe-left) + 16px); transform: none; overflow: hidden; border: 0; background: radial-gradient(circle at top center, rgba(125, 208, 255, 0.08), transparent 0 34%), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.012) 0 2px, rgba(0, 0, 0, 0) 2px 20px), linear-gradient(180deg, rgba(33, 57, 72, 0.96), rgba(16, 26, 34, 0.94)); }
             body.settled #right-col { transform: none; }
-            .content-shell { margin-top: 0; padding: 16px 0 0; height: 100%; }
-            .sticky-head { padding: 0 0 12px; background: transparent; }
-            .scroll-body { padding-bottom: calc(48vh + var(--safe-bottom)); }
+            .content-shell { margin-top: 0; padding: 0; height: 100%; position: relative; z-index: 3; }
+            .sticky-head { position: sticky; top: calc(var(--safe-top) + 4px); padding: 0 0 12px; background: linear-gradient(180deg, rgba(16,26,34,0.88), rgba(16,26,34,0.56) 72%, rgba(16,26,34,0)); backdrop-filter: blur(10px); opacity: 0; transform: translateY(16px); transition: opacity 0.45s ease, transform 0.55s ease; }
+            body.settled .sticky-head { opacity: 1; transform: translateY(0); }
+            .scroll-body { padding-top: 12px; padding-bottom: calc(28vh + var(--safe-bottom)); opacity: 0; transition: opacity 0.45s ease 0.08s; scrollbar-width: none; -ms-overflow-style: none; }
+            .scroll-body::-webkit-scrollbar { display: none; }
+            body.settled .scroll-body { opacity: 1; }
             .ev-marker { letter-spacing: 3px; margin-bottom: 6px; color: #d7f4ff; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.42); }
             .ev-title { margin-bottom: 8px; }
             .ev-div { margin-bottom: 12px; }
@@ -451,15 +469,17 @@
             .logistics-card { min-height: 0; padding: 24px 20px; }
         }
         @media (max-width: 560px) and (orientation: portrait) {
-            #character { height: min(60vh, 450px); }
-            body.shifting #character { left: 50%; transform: translate3d(calc(-50% - 26vw), 0, 0) scale(0.7); }
-            #magic-container { width: min(16vw, 58px); }
-            body.orb-on:not(.settled) #magic-container { left: 52.5%; bottom: 19%; }
-            body.shifting #magic-container { left: 50%; bottom: calc(var(--safe-bottom) + 78px); transform: translate3d(calc(-50% - 19vw), 0, 0) scale(0.66); }
+            #character { height: var(--mobile-character-height); }
+            body.shifting #character,
+            body.settled #character { left: 50%; bottom: 7vh; transform: translate3d(-50%, 0, 0) scale(1.65); }
+            #magic-container { width: var(--mobile-orb-size); }
+            body.orb-on:not(.settled) #magic-container { left: 50%; }
+            body.shifting #magic-container,
+            body.settled #magic-container { left: 50%; transform: translate3d(-50%, 0, 0) scale(1); }
             #right-col { padding: calc(var(--safe-top) + 24px) calc(var(--safe-right) + 14px) calc(var(--safe-bottom) + 20px) calc(var(--safe-left) + 14px); }
-            .content-shell { padding: 14px 0 0; }
+            .content-shell { padding: 0; }
             .sticky-head { padding-bottom: 10px; }
-            .scroll-body { padding-bottom: calc(46vh + var(--safe-bottom)); }
+            .scroll-body { padding-bottom: calc(28vh + var(--safe-bottom)); }
             .ev-marker { color: #d7f4ff; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.42); }
             .ev-copy { font-size: 13px; margin-bottom: 12px; }
             .logistics-grid { width: calc(100% - 26px); }

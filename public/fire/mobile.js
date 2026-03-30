@@ -253,7 +253,7 @@ function startSequence() {
       igniteAt = performance.now();
       document.body.classList.add('orb-on');
       startRenderLoop();
-    }, 1050);
+    }, 1100);
     setTimeout(() => {
       document.body.classList.add('shifting');
     }, 2300);
@@ -271,7 +271,7 @@ function startSequence() {
         igniteAt = performance.now();
         document.body.classList.add('orb-on');
         startRenderLoop();
-      }, 1050);
+      }, 1100);
 
       setTimeout(() => {
         document.body.classList.add('shifting');

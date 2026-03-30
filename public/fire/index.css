@@ -435,6 +435,23 @@
                 font-size: 14px;
             }
 
+            #magic-container {
+                bottom: 16%;
+                width: min(28vw, 150px);
+            }
+
+            body.orb-on:not(.settled) #magic-container {
+                left: 50%;
+                bottom: 12%;
+            }
+
+            body.shifting #magic-container,
+            body.settled #magic-container {
+                left: 50%;
+                bottom: 34% !important;
+                transform: translate3d(-50%, -108px, 0) scale(1);
+            }
+
             body.settled #right-col {
                 transform: translateY(0);
             }

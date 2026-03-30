@@ -276,9 +276,9 @@ function startSequence() {
       igniteAt = performance.now();
       document.body.classList.add('orb-on');
       requestAnimationFrame(drawOrb);
-    }, 900);
-    setTimeout(() => document.body.classList.add('shifting'), 2250);
-    setTimeout(() => document.body.classList.add('settled'), 2650);
+    }, 1100);
+    setTimeout(() => document.body.classList.add('shifting'), 2300);
+    setTimeout(() => document.body.classList.add('settled'), 2620);
     return;
   }
 
@@ -289,9 +289,9 @@ function startSequence() {
         igniteAt = performance.now();
         document.body.classList.add('orb-on');
         requestAnimationFrame(drawOrb);
-      }, 900);
-      setTimeout(() => document.body.classList.add('shifting'), 2250);
-      setTimeout(() => document.body.classList.add('settled'), 2650);
+      }, 1100);
+      setTimeout(() => document.body.classList.add('shifting'), 2100);
+      setTimeout(() => document.body.classList.add('settled'), 2420);
     }, 20);
   });
 }
