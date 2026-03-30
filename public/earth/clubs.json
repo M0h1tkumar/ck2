@@ -2,566 +2,554 @@
   "district": "earth",
   "title": "Chakravyuh 2K26 Schedule",
   "description": "Comprehensive schedule for all club events across the Agni, Prithvi, Vayu, and Jala districts. Follow the pulse of the fest from technical builds to cultural showcases.",
-  "sections": [
+  "clubs": [
     {
-      "id": "technical",
-      "title": "Technical",
-      "clubs": [
+      "id": "codex",
+      "name": "Codex",
+      "category": "Technical",
+      "type": "Tech",
+      "logo": "/Club Logo/Codex.png",
+      "events": [
         {
-          "id": "codex",
-          "name": "Codex",
-          "category": "Technical",
-          "type": "Tech",
-          "logo": "/Club Logo/Codex.png",
-          "events": [
-            {
-              "name": "Anant Chakra (Collab with SEC)",
-              "description": "Agentic AI Systems & Policy Design Challenge building intelligent solutions and policy frameworks.",
-              "date": "April 4, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "E-314 & LAB",
-              "link": "https://forms.gle/vsjwj4S3ViPuq9A56",
-              "prize": "6000",
-              "contact": "Ayush K Tripathi (8932899372)"
-            },
-            {
-              "name": "Coders in Borderland",
-              "description": "3-level, story-based, technical event testing coding, logic, and strategy challenges in a simulated digital world.",
-              "date": "April 4, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "LABS",
-              "link": "https://forms.gle/aQTy71dWyf5YQpiT6",
-              "prize": "6000",
-              "contact": "Ayush K Tripathi (8932899372), Pritish Biswas (9801334862)"
-            }
-          ]
+          "name": "Anant Chakra (Collab with SEC)",
+          "description": "Agentic AI Systems & Policy Design Challenge building intelligent solutions and policy frameworks.",
+          "date": "April 4, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "E-314 & LAB",
+          "link": "https://forms.gle/vsjwj4S3ViPuq9A56",
+          "prize": "6000",
+          "contact": "Ayush K Tripathi (8932899372)"
         },
         {
-          "id": "coding-ninja",
-          "name": "Coding Ninja",
-          "category": "Technical",
-          "type": "Tech",
-          "logo": "/Club Logo/CODING NINJAS.png",
-          "events": [
-            {
-              "name": "Hypocrispy 2.0 (Collab with SLC)",
-              "description": "A Turn-Coat Debate where teams of two defend and oppose a motion. A biting satirical and literary debate.",
-              "date": "April 3, 2026",
-              "time": "11:30 AM Onwards",
-              "location": "E-114",
-              "link": "https://forms.gle/Chakravyuh2K26Registration",
-              "prize": "6000",
-              "contact": "Not provided"
-            },
-            {
-              "name": "Techwiz 3.0",
-              "description": "Technical quiz and problem-solving event. Open to all (team-based). Final round involves advanced questions.",
-              "date": "April 4, 2026",
-              "time": "8:00 AM - 11:00 AM",
-              "location": "Auditorium A",
-              "link": "https://forms.gle/Chakravyuh2K26Registration",
-              "prize": "6000",
-              "contact": "P Sai Krishna (7205433228)"
-            }
-          ]
-        },
-        {
-          "id": "gfg",
-          "name": "GeeksforGeeks (GFG)",
-          "category": "Technical",
-          "type": "Tech",
-          "logo": "/Club Logo/GFG.jpeg",
-          "events": [
-            {
-              "name": "Zer0ne",
-              "description": "Impromptu, creativity-driven event focused on product thinking, design, and communication skills ending in a pitching round.",
-              "date": "April 3, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "lab",
-              "link": "https://forms.gle/Chakravyuh2K26Registration",
-              "prize": "6000",
-              "contact": "Subasis Mishra (9078912431), Mukesh kumar Padhi (8260646315)"
-            },
-            {
-              "name": "Rachitva",
-              "description": "Impromptu, creativity-driven design and communication challenge ending in a professional pitching session.",
-              "date": "April 5, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "Seminar hall",
-              "link": "https://forms.gle/Chakravyuh2K26Registration",
-              "prize": "6000",
-              "contact": "Subasis Mishra (9078912431), Mukesh kumar Padhi (8260646315)"
-            }
-          ]
-        },
-        {
-          "id": "gdg",
-          "name": "Google Developer Group (GDG)",
-          "category": "Technical",
-          "type": "Tech",
-          "logo": "/Club Logo/GDG.png",
-          "events": [
-            {
-              "name": "AI Treasure Hunt",
-              "description": "Location-based challenge to solve riddles and complete a tech-based task. Team Size: 3 Members.",
-              "date": "April 5, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "Auditorium D",
-              "link": "https://forms.gle/TReLtKGQvyi9Aa8W6",
-              "prize": "6000",
-              "contact": "Harsh Kumar (6204706919), Jagnya Prasad Jena (8917577279)"
-            },
-            {
-              "name": "Maya Vyuh : The Prompt War",
-              "description": "AI + Communication Challenge recreating images using prompts. Team Size: 2 Members.",
-              "date": "April 5, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "lab",
-              "link": "https://forms.gle/deq1LqKsmK9zbe4U8",
-              "prize": "6000",
-              "contact": "Harsh Kumar (6204706919), Jagnya Prasad Jena (8917577279)"
-            }
-          ]
-        },
-        {
-          "id": "ieee",
-          "name": "IEEE",
-          "category": "Technical",
-          "type": "Tech",
-          "logo": "/Club Logo/IEEE.png",
-          "events": [
-            {
-              "name": "Schedule Updating Shortly",
-              "description": "IEEE event lineup and registration details will be added here as soon as they are finalized.",
-              "date": "To be announced",
-              "time": "To be announced",
-              "location": "To be announced",
-              "link": "",
-              "prize": "To be announced",
-              "contact": "Not provided"
-            }
-          ]
-        },
-        {
-          "id": "iec",
-          "name": "Innovation & Entrepreneurship Cell (IEC)",
-          "category": "Technical",
-          "type": "Innovation",
-          "logo": "/Club Logo/INNOVATION &ENTERPRENURSHIP CELL.png",
-          "events": [
-            {
-              "name": "The ScratchLabs",
-              "description": "A 2-day startup simulation where teams of two tackle curated problem statements and use design thinking to create innovative solutions.",
-              "date": "April 3, 2026 & April 4, 2026",
-              "time": "8:00 AM - 11:00 AM",
-              "location": "E-114",
-              "link": "https://forms.gle/Chakravyuh2K26Registration",
-              "prize": "6000",
-              "contact": "Kiran Panigrahi (8917616478), Pratikshya Dash (8260703387), Arnab Sahoo (9439140077)"
-            },
-            {
-              "name": "The Ai Tribunal",
-              "description": "A courtroom-style simulation where participants debate the ethics, impact, and reality of AI through structured arguments.",
-              "date": "April 5, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "E-013",
-              "link": "https://forms.gle/Chakravyuh2K26Registration",
-              "prize": "6000",
-              "contact": "Kiran Panigrahi (8917616478), Pratikshya Dash (8260703387), Abhinav (9142345529)"
-            }
-          ]
-        },
-        {
-          "id": "irc",
-          "name": "ITER Robotics Club (IRC)",
-          "category": "Technical",
-          "type": "Tech",
-          "logo": "/Club Logo/IRC Logo Square.png",
-          "events": [
-            {
-              "name": "Robo Race",
-              "description": "Build and race a robot through an obstacle-filled track. Speed and agility tests for robotic platforms.",
-              "date": "April 3, 2026",
-              "time": "8:00 AM - 11:00 AM",
-              "location": "E-Block Gallery",
-              "link": "https://chakravyuh.iterroboticsclub.com/",
-              "prize": "6000",
-              "contact": "Priyanshu Kumar Jena (7682943276), Sairush Sahoo (6371193620)"
-            },
-            {
-              "name": "Bot Fc",
-              "description": "Compete in robotic football where bots battle to score goals. Robotic soccer and tactical team challenges.",
-              "date": "April 5, 2026",
-              "time": "8:00 AM - 11:00 AM",
-              "location": "E-Block Gallery",
-              "link": "https://chakravyuh.iterroboticsclub.com/",
-              "prize": "6000",
-              "contact": "Priyanshu Kumar Jena (7682943276), Sairush Sahoo (6371193620)"
-            }
-          ]
-        },
-        {
-          "id": "sfc",
-          "name": "SOA Flying Community",
-          "category": "Technical",
-          "type": "Tech",
-          "logo": "/Club Logo/SOA FLYING CLUB.png",
-          "events": [
-            {
-              "name": "Aero Innovation",
-              "description": "Pilot a hovercraft across mixed terrain navigating obstacles. High-altitude engineering and aerodynamic showcases.",
-              "date": "April 3, 2026",
-              "time": "8:00 AM - 11:00 AM",
-              "location": "E-Block Lawn",
-              "link": "https://forms.gle/PkSf2z53TY9ugiY66",
-              "prize": "6000",
-              "contact": "Priyanshu Kumar Jena (7682943276), Aman Kashyap (7209287279)"
-            },
-            {
-              "name": "HoverMania",
-              "description": "Guide a drone through challenges and drop an egg safely from a height. Precision drone control and maneuvering challenges.",
-              "date": "April 5, 2026",
-              "time": "8:00 AM - 11:00 AM",
-              "location": "E-Block Lawn",
-              "link": "https://forms.gle/JiduigP5AFudrZwn7",
-              "prize": "6000",
-              "contact": "Priyanshu Kumar Jena (7682943276), Aman Kashyap (7209287279)"
-            }
-          ]
+          "name": "Coders in Borderland",
+          "description": "3-level, story-based, technical event testing coding, logic, and strategy challenges in a simulated digital world.",
+          "date": "April 4, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "LABS",
+          "link": "https://forms.gle/aQTy71dWyf5YQpiT6",
+          "prize": "6000",
+          "contact": "Ayush K Tripathi (8932899372), Pritish Biswas (9801334862)"
         }
       ]
     },
     {
-      "id": "non-technical",
-      "title": "Non-Technical",
-      "clubs": [
+      "id": "coding-ninja",
+      "name": "Coding Ninja",
+      "category": "Technical",
+      "type": "Tech",
+      "logo": "/Club Logo/CODING NINJAS.png",
+      "events": [
         {
-          "id": "danza",
-          "name": "Danza",
-          "category": "Non-Technical",
-          "type": "Cultural",
-          "logo": "/Club Logo/DANZA copy.png",
-          "events": [
-            {
-              "name": "Beat Drop Arena",
-              "description": "Solo-Spctra, Duo-xtra (Solo, duo western dance competions). High-energy rhythmic performance.",
-              "date": "April 4, 2026",
-              "time": "11:30 PM - 2:30 PM",
-              "location": "Auditorium A",
-              "link": "https://forms.gle/VCn9V7NGJcRcg3so8",
-              "prize": "6000",
-              "contact": "Pratikshya Dash (8260703387), Baishali Das (9777809498), Sadeepan Panda (7605992175)"
-            },
-            {
-              "name": "Apex Arena",
-              "description": "Solo Dance Battle (An electrifying solo battle). The final stage for elite solo dancers.",
-              "date": "April 5, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "Auditorium C",
-              "link": "https://forms.gle/gPztEAjhfp2V8yoR8",
-              "prize": "6000",
-              "contact": "Pratikshya Dash (8260703387), Baishali Das (9777809498), Sadeepan Panda (7605992175)"
-            }
-          ]
+          "name": "Hypocrispy 2.0 (Collab with SLC)",
+          "description": "A Turn-Coat Debate where teams of two defend and oppose a motion. A biting satirical and literary debate.",
+          "date": "April 3, 2026",
+          "time": "11:30 AM Onwards",
+          "location": "E-114",
+          "link": "https://forms.gle/Chakravyuh2K26Registration",
+          "prize": "6000",
+          "contact": "Not provided"
         },
         {
-          "id": "jaago",
-          "name": "JAAGO",
-          "category": "Non-Technical",
-          "type": "Community",
-          "logo": "/Club Logo/JAAGO.gif",
-          "events": [
-            {
-              "name": "Schedule Updating Shortly",
-              "description": "JAAGO event lineup and registration details will be added here as soon as they are finalized.",
-              "date": "To be announced",
-              "time": "To be announced",
-              "location": "To be announced",
-              "link": "",
-              "prize": "To be announced",
-              "contact": "Not provided"
-            }
-          ]
+          "name": "Techwiz 3.0",
+          "description": "Technical quiz and problem-solving event. Open to all (team-based). Final round involves advanced questions.",
+          "date": "April 4, 2026",
+          "time": "8:00 AM - 11:00 AM",
+          "location": "Auditorium A",
+          "link": "https://forms.gle/Chakravyuh2K26Registration",
+          "prize": "6000",
+          "contact": "P Sai Krishna (7205433228)"
+        }
+      ]
+    },
+    {
+      "id": "danza",
+      "name": "Danza",
+      "category": "Non-Technical",
+      "type": "Cultural",
+      "logo": "/Club Logo/DANZA copy.png",
+      "events": [
+        {
+          "name": "Beat Drop Arena",
+          "description": "Solo-Spctra, Duo-xtra (Solo, duo western dance competions). High-energy rhythmic performance.",
+          "date": "April 4, 2026",
+          "time": "11:30 PM - 2:30 PM",
+          "location": "Auditorium A",
+          "link": "https://forms.gle/VCn9V7NGJcRcg3so8",
+          "prize": "6000",
+          "contact": "Pratikshya Dash (8260703387), Baishali Das (9777809498), Sadeepan Panda (7605992175)"
         },
         {
-          "id": "odanza",
-          "name": "ODanza",
-          "category": "Non-Technical",
-          "type": "Cultural",
-          "logo": "/Club Logo/ODANZA copy.png",
-          "events": [
-            {
-              "name": "Natya Katha",
-              "description": "Solo Dance Competition based on storytelling using a mystery prop picked on the spot.",
-              "date": "April 3, 2026",
-              "time": "8:00 AM - 11:00 AM",
-              "location": "Auditorium A",
-              "link": "https://docs.google.com/forms/d/e/1FAIpQLSfOFwnyNAPFsOsS8x2bOhFEUASmFRAojNvToBvCuXe49prEwA/viewform?usp=dialog",
-              "prize": "6000",
-              "contact": "Abhinna Patnaik (9439450723), Shayan Shekhar Paul (9431211044)"
-            }
-          ]
+          "name": "Apex Arena",
+          "description": "Solo Dance Battle (An electrifying solo battle). The final stage for elite solo dancers.",
+          "date": "April 5, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "Auditorium C",
+          "link": "https://forms.gle/gPztEAjhfp2V8yoR8",
+          "prize": "6000",
+          "contact": "Pratikshya Dash (8260703387), Baishali Das (9777809498), Sadeepan Panda (7605992175)"
+        }
+      ]
+    },
+    {
+      "id": "gfg",
+      "name": "GeeksforGeeks (GFG)",
+      "category": "Technical",
+      "type": "Tech",
+      "logo": "/Club Logo/GFG.jpeg",
+      "events": [
+        {
+          "name": "Zer0ne",
+          "description": "Impromptu, creativity-driven event focused on product thinking, design, and communication skills ending in a pitching round.",
+          "date": "April 3, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "lab",
+          "link": "https://forms.gle/Chakravyuh2K26Registration",
+          "prize": "6000",
+          "contact": "Subasis Mishra (9078912431), Mukesh kumar Padhi (8260646315)"
         },
         {
-          "id": "sec",
-          "name": "SOA English Cafe (SEC)",
-          "category": "Non-Technical",
-          "type": "Literary",
-          "logo": "/Club Logo/SOAENGLISH CAFE.png",
-          "events": [
-            {
-              "name": "Medha Manthan",
-              "description": "Individual-level quiz testing presence of mind on current affairs, GK, arts, literature, and communication.",
-              "date": "April 3, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "E-529 & E-522",
-              "link": "https://forms.gle/Chakravyuh2K26Registration",
-              "prize": "6000",
-              "contact": "Devanshu Singh (9427550414), Ansh Gupta (6207304254), Yuvraj Singh (8271869805)"
-            },
-            {
-              "name": "Anant Chakra (Collab with Codex)",
-              "description": "Agentic AI Systems & Policy Design Challenge building intelligent solutions and policy frameworks.",
-              "date": "April 4, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "E-314 & LAB",
-              "link": "https://forms.gle/vsjwj4S3ViPuq9A56",
-              "prize": "6000",
-              "contact": "Devanshu Singh (9427550414), Ansh Gupta (6207304254), Yuvraj Singh (8271869805)"
-            }
-          ]
+          "name": "Rachitva",
+          "description": "Impromptu, creativity-driven design and communication challenge ending in a professional pitching session.",
+          "date": "April 5, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "Seminar hall",
+          "link": "https://forms.gle/Chakravyuh2K26Registration",
+          "prize": "6000",
+          "contact": "Subasis Mishra (9078912431), Mukesh kumar Padhi (8260646315)"
+        }
+      ]
+    },
+    {
+      "id": "gdg",
+      "name": "Google Developer Group (GDG)",
+      "category": "Technical",
+      "type": "Tech",
+      "logo": "/Club Logo/GDG.png",
+      "events": [
+        {
+          "name": "AI Treasure Hunt",
+          "description": "Location-based challenge to solve riddles and complete a tech-based task. Team Size: 3 Members.",
+          "date": "April 5, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "Auditorium D",
+          "link": "https://forms.gle/TReLtKGQvyi9Aa8W6",
+          "prize": "6000",
+          "contact": "Harsh Kumar (6204706919), Jagnya Prasad Jena (8917577279)"
         },
         {
-          "id": "slc",
-          "name": "SOA Literary Club (SLC)",
-          "category": "Non-Technical",
-          "type": "Literary",
-          "logo": "/Club Logo/SOA LITERARY CLUB.png",
-          "events": [
-            {
-              "name": "Hypocrisy ki bhi seema hoti hai 2.0",
-              "description": "A Turn-Coat Debate where teams of two defend and oppose a motion. Biting satirical discourse.",
-              "date": "April 3, 2026",
-              "time": "11:30 AM To 2:30 PM",
-              "location": "E-114",
-              "link": "https://forms.gle/Chakravyuh2K26Registration",
-              "prize": "6000",
-              "contact": "Monalisha (6372921332), Ashish (7205691104)"
-            },
-            {
-              "name": "ReCast",
-              "description": "Twisted Declamation inviting individuals to reimagine well-known pieces with an alternate ending or twist.",
-              "date": "April 5, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "E-114",
-              "link": "https://forms.gle/7BUqqgMvDSJkdMAY7",
-              "prize": "6000",
-              "contact": "Not provided"
-            }
-          ]
+          "name": "Maya Vyuh : The Prompt War",
+          "description": "AI + Communication Challenge recreating images using prompts. Team Size: 2 Members.",
+          "date": "April 5, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "lab",
+          "link": "https://forms.gle/deq1LqKsmK9zbe4U8",
+          "prize": "6000",
+          "contact": "Harsh Kumar (6204706919), Jagnya Prasad Jena (8917577279)"
+        }
+      ]
+    },
+    {
+      "id": "ieee",
+      "name": "IEEE",
+      "category": "Technical",
+      "type": "Tech",
+      "logo": "/Club Logo/IEEE.png",
+      "events": [
+        {
+          "name": "Schedule Updating Shortly",
+          "description": "IEEE event lineup and registration details will be added here as soon as they are finalized.",
+          "date": "To be announced",
+          "time": "To be announced",
+          "location": "To be announced",
+          "link": "",
+          "prize": "To be announced",
+          "contact": "Not provided"
+        }
+      ]
+    },
+    {
+      "id": "iec",
+      "name": "Innovation & Entrepreneurship Cell (IEC)",
+      "category": "Technical",
+      "type": "Innovation",
+      "logo": "/Club Logo/INNOVATION &ENTERPRENURSHIP CELL.png",
+      "events": [
+        {
+          "name": "The ScratchLabs",
+          "description": "A 2-day startup simulation where teams of two tackle curated problem statements and use design thinking to create innovative solutions.",
+          "date": "April 3, 2026 & April 4, 2026",
+          "time": "8:00 AM - 11:00 AM",
+          "location": "E-114",
+          "link": "https://forms.gle/Chakravyuh2K26Registration",
+          "prize": "6000",
+          "contact": "Kiran Panigrahi (8917616478), Pratikshya Dash (8260703387), Arnab Sahoo (9439140077)"
         },
         {
-          "id": "smc",
-          "name": "SOA Music Club (SMC)",
-          "category": "Non-Technical",
-          "type": "Cultural",
-          "logo": "/Club Logo/SOA MUSIC CLUB.png",
-          "events": [
-            {
-              "name": "Naghma",
-              "description": "Opportunity for singers to showcase classical/western skills and instrumentalists to showcase musical skills.",
-              "date": "April 5, 2026",
-              "time": "8:00 AM - 11:00 AM",
-              "location": "Auditorium A",
-              "link": "https://forms.gle/Chakravyuh2K26Registration",
-              "prize": "6000",
-              "contact": "Nisith Ghadai (9437704064), Ankit Kumar (8709554631)"
-            },
-            {
-              "name": "Beatsync",
-              "description": "Dynamic platform for participants to showcase hip-hop talents through rap and beatboxing.",
-              "date": "April 5, 2026",
-              "time": "11:00 AM - 2:00 PM",
-              "location": "Auditorium A",
-              "link": "https://forms.gle/Chakravyuh2K26Registration",
-              "prize": "6000",
-              "contact": "Tshewang Lama (8910282150), Sidharth Aryaman (9556125462)"
-            }
-          ]
+          "name": "The Ai Tribunal",
+          "description": "A courtroom-style simulation where participants debate the ethics, impact, and reality of AI through structured arguments.",
+          "date": "April 5, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "E-013",
+          "link": "https://forms.gle/Chakravyuh2K26Registration",
+          "prize": "6000",
+          "contact": "Kiran Panigrahi (8917616478), Pratikshya Dash (8260703387), Abhinav (9142345529)"
+        }
+      ]
+    },
+    {
+      "id": "irc",
+      "name": "ITER Robotics Club (IRC)",
+      "category": "Technical",
+      "type": "Tech",
+      "logo": "/Club Logo/IRC Logo Square.png",
+      "events": [
+        {
+          "name": "Robo Race",
+          "description": "Build and race a robot through an obstacle-filled track. Speed and agility tests for robotic platforms.",
+          "date": "April 3, 2026",
+          "time": "8:00 AM - 11:00 AM",
+          "location": "E-Block Gallery",
+          "link": "https://chakravyuh.iterroboticsclub.com/",
+          "prize": "6000",
+          "contact": "Priyanshu Kumar Jena (7682943276), Sairush Sahoo (6371193620)"
         },
         {
-          "id": "spc",
-          "name": "SOA Photography Club (SPC)",
-          "category": "Non-Technical",
-          "type": "Media",
-          "logo": "/Club Logo/SPC.png",
-          "events": [
-            {
-              "name": "Captured narratives",
-              "description": "Individual challenge to shoot and edit a series of 10 to 15 images to tell a complete story.",
-              "date": "April 3, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "E-214",
-              "link": "https://docs.google.com/forms/d/e/1FAIpQLSfbdXVawV2BWs3Y-H9s32ZljmcYE_8wgcm9kpcaoku6T80Aaw/viewform?usp=publish-editor",
-              "prize": "6000",
-              "contact": "Not provided"
-            },
-            {
-              "name": "Motion mania",
-              "description": "Tell a story using a short, 60-second vertical video based on an unknown theme. Instagram Reel style.",
-              "date": "April 5, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "E-522",
-              "link": "https://docs.google.com/forms/d/e/1FAIpQLSd7zifmcPRybjhrE5WIdtNDYyrMhdlHyjLlXGF5kmtlIoWXAw/viewform?usp=publish-editor",
-              "prize": "6000",
-              "contact": "Not provided"
-            }
-          ]
+          "name": "Bot Fc",
+          "description": "Compete in robotic football where bots battle to score goals. Robotic soccer and tactical team challenges.",
+          "date": "April 5, 2026",
+          "time": "8:00 AM - 11:00 AM",
+          "location": "E-Block Gallery",
+          "link": "https://chakravyuh.iterroboticsclub.com/",
+          "prize": "6000",
+          "contact": "Priyanshu Kumar Jena (7682943276), Sairush Sahoo (6371193620)"
+        }
+      ]
+    },
+    {
+      "id": "jaago",
+      "name": "JAAGO",
+      "category": "Non-Technical",
+      "type": "Community",
+      "logo": "/Club Logo/JAAGO.gif",
+      "events": [
+        {
+          "name": "Schedule Updating Shortly",
+          "description": "JAAGO event lineup and registration details will be added here as soon as they are finalized.",
+          "date": "To be announced",
+          "time": "To be announced",
+          "location": "To be announced",
+          "link": "",
+          "prize": "To be announced",
+          "contact": "Not provided"
+        }
+      ]
+    },
+    {
+      "id": "odanza",
+      "name": "ODanza",
+      "category": "Non-Technical",
+      "type": "Cultural",
+      "logo": "/Club Logo/ODANZA copy.png",
+      "events": [
+        {
+          "name": "Natya Katha",
+          "description": "Solo Dance Competition based on storytelling using a mystery prop picked on the spot.",
+          "date": "April 3, 2026",
+          "time": "8:00 AM - 11:00 AM",
+          "location": "Auditorium A",
+          "link": "https://docs.google.com/forms/d/e/1FAIpQLSfOFwnyNAPFsOsS8x2bOhFEUASmFRAojNvToBvCuXe49prEwA/viewform?usp=dialog",
+          "prize": "6000",
+          "contact": "Abhinna Patnaik (9439450723), Shayan Shekhar Paul (9431211044)"
+        }
+      ]
+    },
+    {
+      "id": "sec",
+      "name": "SOA English Cafe (SEC)",
+      "category": "Non-Technical",
+      "type": "Literary",
+      "logo": "/Club Logo/SOAENGLISH CAFE.png",
+      "events": [
+        {
+          "name": "Medha Manthan",
+          "description": "Individual-level quiz testing presence of mind on current affairs, GK, arts, literature, and communication.",
+          "date": "April 3, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "E-529 & E-522",
+          "link": "https://forms.gle/Chakravyuh2K26Registration",
+          "prize": "6000",
+          "contact": "Devanshu Singh (9427550414), Ansh Gupta (6207304254), Yuvraj Singh (8271869805)"
         },
         {
-          "id": "soa-radio",
-          "name": "SOA Radio",
-          "category": "Non-Technical",
-          "type": "Media",
-          "logo": "/Club Logo/SOA RADIO CLUB.png",
-          "events": [
-            {
-              "name": "Dart-E-Dil Returns",
-              "description": "A team dart game where participants hit the dart and are assigned different tasks.",
-              "date": "April 3, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "E-414",
-              "link": "https://docs.google.com/forms/d/e/1FAIpQLScn5T6V4c6dPucJfCwuedQurWL143vNkmzUmJM7gTPLGWGCoQ/viewform",
-              "prize": "6000",
-              "contact": "Barsha Rani Sahoo (7846976597), Arkadeep Karmakar (8967367392)"
-            },
-            {
-              "name": "Asli Dhurandhar Kaun?",
-              "description": "A three-round game where participants take part in interesting activities. The ultimate voice challenge.",
-              "date": "April 5, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "E-529",
-              "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5BplXXXwLiNqQK7Ant1Duppef713OE2uVr6KDbEcK-zlg-A/viewform",
-              "prize": "6000",
-              "contact": "Barsha Rani Sahoo (7846976597), Arkadeep Karmakar (8967367392)"
-            }
-          ]
+          "name": "Anant Chakra (Collab with Codex)",
+          "description": "Agentic AI Systems & Policy Design Challenge building intelligent solutions and policy frameworks.",
+          "date": "April 4, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "E-314 & LAB",
+          "link": "https://forms.gle/vsjwj4S3ViPuq9A56",
+          "prize": "6000",
+          "contact": "Devanshu Singh (9427550414), Ansh Gupta (6207304254), Yuvraj Singh (8271869805)"
+        }
+      ]
+    },
+    {
+      "id": "sfc",
+      "name": "SOA Flying Community",
+      "category": "Technical",
+      "type": "Tech",
+      "logo": "/Club Logo/SOA FLYING CLUB.png",
+      "events": [
+        {
+          "name": "Aero Innovation",
+          "description": "Pilot a hovercraft across mixed terrain navigating obstacles. High-altitude engineering and aerodynamic showcases.",
+          "date": "April 3, 2026",
+          "time": "8:00 AM - 11:00 AM",
+          "location": "E-Block Lawn",
+          "link": "https://forms.gle/PkSf2z53TY9ugiY66",
+          "prize": "6000",
+          "contact": "Priyanshu Kumar Jena (7682943276), Aman Kashyap (7209287279)"
         },
         {
-          "id": "srishti",
-          "name": "Srishti",
-          "category": "Non-Technical",
-          "type": "Cultural",
-          "logo": "/Club Logo/Sristhi.png",
-          "events": [
-            {
-              "name": "Earthen Expressions",
-              "description": "A Pot Painting Competition. Individual participation. Cultural arts showcase.",
-              "date": "April 3, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "Auditorium C",
-              "link": "https://docs.google.com/forms/d/e/1FAIpQLSdPBqsqKXqZdXHTgefzyT__ba28bxx9CkIMp9c2FGSH_s4VZg/viewform?usp=dialog",
-              "prize": "6000",
-              "contact": "Divyangi (8260594909), Pratishtha (8372985008)"
-            },
-            {
-              "name": "Nishaan-e-Hunr",
-              "description": "Body Safe Sketch, Tattoo creating competition. Individual or team participation.",
-              "date": "April 5, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "Auditorium D",
-              "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnny-IdlDMOgInN_nIE99xd_4l2CSa60RHqLwa6E6yj1xZHw/viewform?usp=dialog",
-              "prize": "6000",
-              "contact": "Divyangi (8260594909), Pratishtha (8372985008)"
-            }
-          ]
+          "name": "HoverMania",
+          "description": "Guide a drone through challenges and drop an egg safely from a height. Precision drone control and maneuvering challenges.",
+          "date": "April 5, 2026",
+          "time": "8:00 AM - 11:00 AM",
+          "location": "E-Block Lawn",
+          "link": "https://forms.gle/JiduigP5AFudrZwn7",
+          "prize": "6000",
+          "contact": "Priyanshu Kumar Jena (7682943276), Aman Kashyap (7209287279)"
+        }
+      ]
+    },
+    {
+      "id": "slc",
+      "name": "SOA Literary Club (SLC)",
+      "category": "Non-Technical",
+      "type": "Literary",
+      "logo": "/Club Logo/SOA LITERARY CLUB.png",
+      "events": [
+        {
+          "name": "Hypocrisy ki bhi seema hoti hai 2.0",
+          "description": "A Turn-Coat Debate where teams of two defend and oppose a motion. Biting satirical discourse.",
+          "date": "April 3, 2026",
+          "time": "11:30 AM To 2:30 PM",
+          "location": "E-114",
+          "link": "https://forms.gle/Chakravyuh2K26Registration",
+          "prize": "6000",
+          "contact": "Monalisha (6372921332), Ashish (7205691104)"
         },
         {
-          "id": "toneelstuk",
-          "name": "Toneelstuk (TSK)",
-          "category": "Non-Technical",
-          "type": "Drama",
-          "logo": "/Club Logo/Toneelstuk.png",
-          "events": [
-            {
-              "name": "Takhleeqi",
-              "description": "Character nahi... poora Bollywood moment bano! The art of theatrical creation.",
-              "date": "April 3, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "Auditorium D",
-              "link": "https://forms.gle/VJPNyLQPQJwmt9BQ7",
-              "prize": "6000",
-              "contact": "Ansujit Dalei (7853947209), Nikhilesh panda (9937105412)"
-            },
-            {
-              "name": "Adakari",
-              "description": "Ek Chehra, Kai Kirdaar. Win Hearts, Not Just Rewards. Masterclass in acting.",
-              "date": "April 4, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "E-214",
-              "link": "https://forms.gle/rrDM48KRQys2SePXA",
-              "prize": "6000",
-              "contact": "Ansujit Dalei (7853947209), Nikhilesh panda (9937105412)"
-            }
-          ]
+          "name": "ReCast",
+          "description": "Twisted Declamation inviting individuals to reimagine well-known pieces with an alternate ending or twist.",
+          "date": "April 5, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "E-114",
+          "link": "https://forms.gle/7BUqqgMvDSJkdMAY7",
+          "prize": "6000",
+          "contact": "Not provided"
+        }
+      ]
+    },
+    {
+      "id": "smc",
+      "name": "SOA Music Club (SMC)",
+      "category": "Non-Technical",
+      "type": "Cultural",
+      "logo": "/Club Logo/SOA MUSIC CLUB.png",
+      "events": [
+        {
+          "name": "Naghma",
+          "description": "Opportunity for singers to showcase classical/western skills and instrumentalists to showcase musical skills.",
+          "date": "April 5, 2026",
+          "time": "8:00 AM - 11:00 AM",
+          "location": "Auditorium A",
+          "link": "https://forms.gle/Chakravyuh2K26Registration",
+          "prize": "6000",
+          "contact": "Nisith Ghadai (9437704064), Ankit Kumar (8709554631)"
         },
         {
-          "id": "vs",
-          "name": "VirtualShowreel (VS)",
-          "category": "Non-Technical",
-          "type": "Media",
-          "logo": "/Club Logo/VIRTUAL SHOW REEL.png",
-          "events": [
-            {
-              "name": "CineFolie",
-              "description": "Theme provided on the spot. Video shot in campus based on theme. Max 5 participants per team.",
-              "date": "April 4, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "E-013",
-              "link": "https://forms.gle/Chakravyuh2K26Registration",
-              "prize": "6000",
-              "contact": "Akankshya Sahoo (7978562260), Abhisek Jena (7978836374)"
-            },
-            {
-              "name": "Color-E-Pic",
-              "description": "Participants capture photos based on a given color theme to make a story. Max 3 participants.",
-              "date": "April 5, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "E-311",
-              "link": "https://forms.gle/Chakravyuh2K26Registration",
-              "prize": "6000",
-              "contact": "Akankshya Sahoo (7978562260), Abhisek Jena (7978836374)"
-            }
-          ]
+          "name": "Beatsync",
+          "description": "Dynamic platform for participants to showcase hip-hop talents through rap and beatboxing.",
+          "date": "April 5, 2026",
+          "time": "11:00 AM - 2:00 PM",
+          "location": "Auditorium A",
+          "link": "https://forms.gle/Chakravyuh2K26Registration",
+          "prize": "6000",
+          "contact": "Tshewang Lama (8910282150), Sidharth Aryaman (9556125462)"
+        }
+      ]
+    },
+    {
+      "id": "spc",
+      "name": "SOA Photography Club (SPC)",
+      "category": "Non-Technical",
+      "type": "Media",
+      "logo": "/Club Logo/SPC.png",
+      "events": [
+        {
+          "name": "Captured narratives",
+          "description": "Individual challenge to shoot and edit a series of 10 to 15 images to tell a complete story.",
+          "date": "April 3, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "E-214",
+          "link": "https://docs.google.com/forms/d/e/1FAIpQLSfbdXVawV2BWs3Y-H9s32ZljmcYE_8wgcm9kpcaoku6T80Aaw/viewform?usp=publish-editor",
+          "prize": "6000",
+          "contact": "Not provided"
         },
         {
-          "id": "vogue",
-          "name": "Vogue (Fashion Club)",
-          "category": "Non-Technical",
-          "type": "Fashion",
-          "logo": "/Club Logo/VOGUE copy.png",
-          "events": [
-            {
-              "name": "Mr. and Miss ITER",
-              "description": "Personality and talent-based competition involving rounds like introduction, talent, fashion walk, and Q&A.",
-              "date": "April 3, 2026",
-              "time": "11:30 AM - 2:30 PM",
-              "location": "Auditorium A",
-              "link": "https://forms.gle/NRxgUmQPDqmMRgx88",
-              "prize": "6000",
-              "contact": "Diya (9337959478), Sriya (9437456416)"
-            },
-            {
-              "name": "Fashion Face-Off",
-              "description": "Competition for designers and makeup artists to showcase their skills by creating complete looks.",
-              "date": "April 4, 2026",
-              "time": "8:00 AM Onwards",
-              "location": "E-414",
-              "link": "https://docs.google.com/forms/d/e/1FAIpQLSfWhsoYQcRrIcg_xeUA5KC0I1XE3VCXaVm8kiXXzYMa-HOjkA/viewform?usp=sharing&ouid=100040705308569428897",
-              "prize": "6000",
-              "contact": "Diya (9337959478), Sriya (9437456416)"
-            }
-          ]
+          "name": "Motion mania",
+          "description": "Tell a story using a short, 60-second vertical video based on an unknown theme. Instagram Reel style.",
+          "date": "April 5, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "E-522",
+          "link": "https://docs.google.com/forms/d/e/1FAIpQLSd7zifmcPRybjhrE5WIdtNDYyrMhdlHyjLlXGF5kmtlIoWXAw/viewform?usp=publish-editor",
+          "prize": "6000",
+          "contact": "Not provided"
+        }
+      ]
+    },
+    {
+      "id": "soa-radio",
+      "name": "SOA Radio",
+      "category": "Non-Technical",
+      "type": "Media",
+      "logo": "/Club Logo/SOA RADIO CLUB.png",
+      "events": [
+        {
+          "name": "Dart-E-Dil Returns",
+          "description": "A team dart game where participants hit the dart and are assigned different tasks.",
+          "date": "April 3, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "E-414",
+          "link": "https://docs.google.com/forms/d/e/1FAIpQLScn5T6V4c6dPucJfCwuedQurWL143vNkmzUmJM7gTPLGWGCoQ/viewform",
+          "prize": "6000",
+          "contact": "Barsha Rani Sahoo (7846976597), Arkadeep Karmakar (8967367392)"
+        },
+        {
+          "name": "Asli Dhurandhar Kaun?",
+          "description": "A three-round game where participants take part in interesting activities. The ultimate voice challenge.",
+          "date": "April 5, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "E-529",
+          "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5BplXXXwLiNqQK7Ant1Duppef713OE2uVr6KDbEcK-zlg-A/viewform",
+          "prize": "6000",
+          "contact": "Barsha Rani Sahoo (7846976597), Arkadeep Karmakar (8967367392)"
+        }
+      ]
+    },
+    {
+      "id": "srishti",
+      "name": "Srishti",
+      "category": "Non-Technical",
+      "type": "Cultural",
+      "logo": "/Club Logo/Sristhi.png",
+      "events": [
+        {
+          "name": "Earthen Expressions",
+          "description": "A Pot Painting Competition. Individual participation. Cultural arts showcase.",
+          "date": "April 3, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "Auditorium C",
+          "link": "https://docs.google.com/forms/d/e/1FAIpQLSdPBqsqKXqZdXHTgefzyT__ba28bxx9CkIMp9c2FGSH_s4VZg/viewform?usp=dialog",
+          "prize": "6000",
+          "contact": "Divyangi (8260594909), Pratishtha (8372985008)"
+        },
+        {
+          "name": "Nishaan-e-Hunr",
+          "description": "Body Safe Sketch, Tattoo creating competition. Individual or team participation.",
+          "date": "April 5, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "Auditorium D",
+          "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnny-IdlDMOgInN_nIE99xd_4l2CSa60RHqLwa6E6yj1xZHw/viewform?usp=dialog",
+          "prize": "6000",
+          "contact": "Divyangi (8260594909), Pratishtha (8372985008)"
+        }
+      ]
+    },
+    {
+      "id": "toneelstuk",
+      "name": "Toneelstuk (TSK)",
+      "category": "Non-Technical",
+      "type": "Drama",
+      "logo": "/Club Logo/Toneelstuk.png",
+      "events": [
+        {
+          "name": "Takhleeqi",
+          "description": "Character nahi... poora Bollywood moment bano! The art of theatrical creation.",
+          "date": "April 3, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "Auditorium D",
+          "link": "https://forms.gle/VJPNyLQPQJwmt9BQ7",
+          "prize": "6000",
+          "contact": "Ansujit Dalei (7853947209), Nikhilesh panda (9937105412)"
+        },
+        {
+          "name": "Adakari",
+          "description": "Ek Chehra, Kai Kirdaar. Win Hearts, Not Just Rewards. Masterclass in acting.",
+          "date": "April 4, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "E-214",
+          "link": "https://forms.gle/rrDM48KRQys2SePXA",
+          "prize": "6000",
+          "contact": "Ansujit Dalei (7853947209), Nikhilesh panda (9937105412)"
+        }
+      ]
+    },
+    {
+      "id": "vs",
+      "name": "VirtualShowreel (VS)",
+      "category": "Non-Technical",
+      "type": "Media",
+      "logo": "/Club Logo/VIRTUAL SHOW REEL.png",
+      "events": [
+        {
+          "name": "CineFolie",
+          "description": "Theme provided on the spot. Video shot in campus based on theme. Max 5 participants per team.",
+          "date": "April 4, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "E-013",
+          "link": "https://forms.gle/Chakravyuh2K26Registration",
+          "prize": "6000",
+          "contact": "Akankshya Sahoo (7978562260), Abhisek Jena (7978836374)"
+        },
+        {
+          "name": "Color-E-Pic",
+          "description": "Participants capture photos based on a given color theme to make a story. Max 3 participants.",
+          "date": "April 5, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "E-311",
+          "link": "https://forms.gle/Chakravyuh2K26Registration",
+          "prize": "6000",
+          "contact": "Akankshya Sahoo (7978562260), Abhisek Jena (7978836374)"
+        }
+      ]
+    },
+    {
+      "id": "vogue",
+      "name": "Vogue (Fashion Club)",
+      "category": "Non-Technical",
+      "type": "Fashion",
+      "logo": "/Club Logo/VOGUE copy.png",
+      "events": [
+        {
+          "name": "Mr. and Miss ITER",
+          "description": "Personality and talent-based competition involving rounds like introduction, talent, fashion walk, and Q&A.",
+          "date": "April 3, 2026",
+          "time": "11:30 AM - 2:30 PM",
+          "location": "Auditorium A",
+          "link": "https://forms.gle/NRxgUmQPDqmMRgx88",
+          "prize": "6000",
+          "contact": "Diya (9337959478), Sriya (9437456416)"
+        },
+        {
+          "name": "Fashion Face-Off",
+          "description": "Competition for designers and makeup artists to showcase their skills by creating complete looks.",
+          "date": "April 4, 2026",
+          "time": "8:00 AM Onwards",
+          "location": "E-414",
+          "link": "https://docs.google.com/forms/d/e/1FAIpQLSfWhsoYQcRrIcg_xeUA5KC0I1XE3VCXaVm8kiXXzYMa-HOjkA/viewform?usp=sharing&ouid=100040705308569428897",
+          "prize": "6000",
+          "contact": "Diya (9337959478), Sriya (9437456416)"
         }
       ]
     }

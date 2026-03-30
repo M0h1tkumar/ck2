@@ -149,58 +149,11 @@
         .scroll-body::-webkit-scrollbar { display: none; }
         
         .clubs-catalog {
-            display: flex;
-            flex-direction: column;
-            gap: 22px;
-            max-width: 100%;
-            margin: 0 auto;
-        }
-        .club-section {
-            position: relative;
-            padding: 18px 18px 20px;
-            border: 1px solid rgba(255, 156, 96, 0.14);
-            border-radius: 22px;
-            background:
-                linear-gradient(180deg, rgba(255, 166, 101, 0.06), rgba(34, 18, 14, 0.12)),
-                rgba(20, 11, 9, 0.18);
-            box-shadow: inset 0 1px 0 rgba(255, 214, 181, 0.04);
-        }
-        .club-section-head {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            margin-bottom: 16px;
-        }
-        .club-section-kicker {
-            font-size: 8px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: rgba(255, 208, 176, 0.72);
-        }
-        .club-section-title-row {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            gap: 12px;
-        }
-        .club-section-title {
-            margin: 0;
-            font-size: 22px;
-            line-height: 1;
-            color: #fff1df;
-        }
-        .club-section-count {
-            font-size: 10px;
-            letter-spacing: 1.3px;
-            text-transform: uppercase;
-            color: rgba(255, 216, 188, 0.66);
-            white-space: nowrap;
-        }
-        .club-section-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 24px 16px;
             max-width: 100%;
+            margin: 0 auto;
             justify-content: center;
             justify-items: center;
         }
@@ -339,7 +292,7 @@
             body.settled #right-col { transform: translateY(0); }
             body.shifting #character { transform: translate3d(calc(-50% + 2vw), 0, 0) scale(1); }
             body.shifting #magic-container { left: 52%; }
-            .club-section-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 22px 16px; }
+            .clubs-catalog { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 22px 16px; }
         }
         @media (max-width: 900px) and (orientation: portrait) {
             body { display: block; overflow-y: auto; overflow-x: hidden; }
@@ -366,8 +319,6 @@
             .ev-title { font-size: clamp(16px, 9vw, 22px); line-height: 1.08; margin-bottom: 8px; }
             .ev-div { margin-bottom: 12px; }
             .ev-copy { max-width: 100%; font-size: 12.5px; line-height: 1.58; margin-bottom: 14px; padding-right: 4px; }
-            .club-section { padding: 16px 14px 18px; }
-            .club-section-title { font-size: 18px; }
             .club-logo { width: 78px; height: 78px; padding: 12px; }
             .club-name { font-size: 13px; max-width: 110px; }
             .club-events-pop { width: min(284px, calc(100vw - 32px)); top: 56%; }
@@ -386,12 +337,10 @@
             .scroll-body { padding-top: 16px; padding-bottom: calc(28vh + var(--safe-bottom)); }
             .ev-marker { color: #efdca8; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.42); }
             .ev-copy { font-size: 12px; margin-bottom: 12px; }
-            .club-section { padding: 14px 12px 16px; }
-            .club-section-title-row { align-items: flex-start; flex-direction: column; gap: 4px; }
-            .club-section-grid { gap: 18px 12px; }
+            .clubs-catalog { gap: 18px 12px; }
             .club-logo { width: 70px; height: 70px; padding: 11px; }
             .club-name { font-size: 12px; max-width: 100px; }
             .club-events-pop { width: min(268px, calc(100vw - 28px)); top: 57%; max-height: min(70vh, 500px); }
         }
-        @media (max-width: 420px) { .club-section-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); justify-content: center; } }
+        @media (max-width: 420px) { .clubs-catalog { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); justify-content: center; } }
     
