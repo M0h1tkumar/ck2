@@ -289,12 +289,64 @@ animate();
 // LOADER
 const loader=document.getElementById('loader');
 const loaderVideo=document.getElementById('loader-video');
+const loaderAudio=document.getElementById('loader-audio');
+const audioPrompt=document.getElementById('audio-prompt');
+const audioPromptEnable=document.getElementById('audio-prompt-enable');
+const audioPromptSkip=document.getElementById('audio-prompt-skip');
+const musicToggle=document.getElementById('music-toggle');
 const bar=document.getElementById('ld-fill');
 let loaderFinished=false;
+let audioEnabled=false;
+let audioPermissionDismissed=false;
+
+function setAudioPromptVisible(visible){
+  if(!audioPrompt||audioPermissionDismissed)return;
+  audioPrompt.classList.toggle('is-visible',visible);
+  audioPrompt.setAttribute('aria-hidden',String(!visible));
+}
+
+function syncMusicToggle(){
+  if(!musicToggle)return;
+  musicToggle.classList.toggle('is-on',audioEnabled);
+  musicToggle.classList.toggle('is-off',!audioEnabled);
+  musicToggle.setAttribute('aria-pressed',String(audioEnabled));
+  musicToggle.setAttribute('aria-label',audioEnabled?'Pause entrance music':'Play entrance music');
+  musicToggle.title=audioEnabled?'Pause entrance music':'Play entrance music';
+}
+
+async function setLoaderAudioEnabled(nextEnabled){
+  if(!loaderAudio){
+    audioEnabled=false;
+    syncMusicToggle();
+    return;
+  }
+  audioEnabled=nextEnabled;
+  if(audioEnabled){
+    try{
+      await loaderAudio.play();
+      setAudioPromptVisible(false);
+    }catch{
+      audioEnabled=false;
+      setAudioPromptVisible(true);
+    }
+  }else{
+    loaderAudio.pause();
+    loaderAudio.currentTime=0;
+  }
+  syncMusicToggle();
+}
 
 function finishLoader(){
   if(loaderFinished||!loader)return;
   loaderFinished=true;
+  if(loaderAudio){
+    loaderAudio.pause();
+    loaderAudio.currentTime=0;
+  }
+  audioEnabled=false;
+  audioPermissionDismissed=true;
+  setAudioPromptVisible(false);
+  syncMusicToggle();
   if(bar)bar.style.width='100%';
   startIntro();
   requestAnimationFrame(()=>loader.classList.add('done'));
@@ -333,6 +385,54 @@ if(loaderVideo){
   },5000);
 }else{
   finishLoader();
+}
+
+if(musicToggle){
+  syncMusicToggle();
+  musicToggle.addEventListener('click',()=>{
+    if(loaderFinished)return;
+    audioPermissionDismissed=true;
+    setAudioPromptVisible(false);
+    if(loaderAudio&&!audioEnabled)loaderAudio.currentTime=0;
+    setLoaderAudioEnabled(!audioEnabled);
+  });
+}
+
+if(audioPromptEnable){
+  audioPromptEnable.addEventListener('click',()=>{
+    audioPermissionDismissed=true;
+    setAudioPromptVisible(false);
+    if(loaderAudio)loaderAudio.currentTime=0;
+    setLoaderAudioEnabled(true);
+  });
+}
+
+if(audioPromptSkip){
+  audioPromptSkip.addEventListener('click',()=>{
+    audioPermissionDismissed=true;
+    setAudioPromptVisible(false);
+    setLoaderAudioEnabled(false);
+  });
+}
+
+if(loaderAudio){
+  loaderAudio.volume=1;
+  loaderAudio.autoplay=true;
+  const autoplayAttempt=loaderAudio.play();
+  if(autoplayAttempt&&typeof autoplayAttempt.catch==='function'){
+    autoplayAttempt.then(()=>{
+      audioEnabled=true;
+      syncMusicToggle();
+      setAudioPromptVisible(false);
+    }).catch(()=>{
+      audioEnabled=false;
+      syncMusicToggle();
+      setAudioPromptVisible(true);
+    });
+  }else{
+    audioEnabled=!loaderAudio.paused;
+    syncMusicToggle();
+  }
 }
 
 function handleViewportResize(){
