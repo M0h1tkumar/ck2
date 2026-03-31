@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ThreeDShowcase } from "@/components/home";
+import { HomeCreditBar, ThreeDShowcase } from "@/components/home";
 
 export default function Home() {
   return (
@@ -35,19 +35,8 @@ export default function Home() {
         </div>
 
         {/* Credit Bar — Bottom Right */}
-        <div className="credit-bar">
-          <span className="credit-text">Made by</span>
-          <Image
-            src="/Club Logo/CODING NINJAS.png"
-            alt="Coding Ninjas Logo"
-            width={28}
-            height={28}
-            className="credit-logo"
-          />
-          <span className="credit-text credit-highlight">CN10XoC</span>
-        </div>
+        <HomeCreditBar />
       </main>
     </>
   );
 }
-

@@ -142,18 +142,18 @@ function sortClubsAlphabetically(clubs) {
     sortedClubs.splice(4, 0, vogue);
   }
 
-  // Position 6 (Index 5): GDGOC (Start of 2nd Row)
-  const gdgocIndex = sortedClubs.findIndex((club) => club.id === 'gdgoc');
-  if (gdgocIndex !== -1) {
-    const [gdgoc] = sortedClubs.splice(gdgocIndex, 1);
-    sortedClubs.splice(5, 0, gdgoc);
-  }
-
   // Position 11 (Index 10): Jaago (Start of 3rd Row)
   const jaagoIndex = sortedClubs.findIndex((club) => club.id === 'jaago');
   if (jaagoIndex !== -1) {
     const [jaago] = sortedClubs.splice(jaagoIndex, 1);
     sortedClubs.splice(10, 0, jaago);
+  }
+
+  // Swap GDGoC with VirtualShowreel (VS) bubble positions
+  const gdgocIndex = sortedClubs.findIndex((club) => club.id === 'gdgoc');
+  const vsIndex = sortedClubs.findIndex((club) => club.id === 'vs');
+  if (gdgocIndex !== -1 && vsIndex !== -1) {
+    [sortedClubs[gdgocIndex], sortedClubs[vsIndex]] = [sortedClubs[vsIndex], sortedClubs[gdgocIndex]];
   }
 
   return sortedClubs;
@@ -206,15 +206,55 @@ async function loadClubData() {
 const modal = document.getElementById('ev-modal');
 const closeModal = document.getElementById('modal-close');
 
+function setModalValueLines(elementId, lines) {
+  const field = document.getElementById(elementId);
+  if (!field) return;
+  const normalizedLines = (Array.isArray(lines) ? lines : [lines])
+    .map((line) => `${line ?? ''}`.trim())
+    .filter(Boolean);
+  const values = normalizedLines.length ? normalizedLines : ['-'];
+  field.replaceChildren(...values.map((value) => {
+    const line = document.createElement('span');
+    line.textContent = value;
+    return line;
+  }));
+}
+
+function splitContactEntries(contactText) {
+  const value = `${contactText ?? ''}`.trim();
+  if (!value) return ['-'];
+  if (/^not provided$/i.test(value)) return ['Not provided'];
+
+  const entries = [];
+  let currentEntry = '';
+  let bracketDepth = 0;
+
+  for (const character of value) {
+    if (character === '(') bracketDepth += 1;
+    if (character === ')') bracketDepth = Math.max(0, bracketDepth - 1);
+
+    if (character === ',' && bracketDepth === 0) {
+      if (currentEntry.trim()) entries.push(currentEntry.trim());
+      currentEntry = '';
+      continue;
+    }
+
+    currentEntry += character;
+  }
+
+  if (currentEntry.trim()) entries.push(currentEntry.trim());
+  return entries.length ? entries : [value];
+}
+
 function openEventDetail(eventKey) {
   const data = eventData.get(eventKey);
   if (!data) return;
   document.getElementById('m-title').textContent = data.name;
-  document.getElementById('m-date').textContent = data.time ? `${data.date} | ${data.time}` : data.date;
-  document.getElementById('m-loc').textContent = data.location;
-  document.getElementById('m-prize').textContent = data.prize;
-  document.getElementById('m-contact').textContent = data.contact;
-  document.getElementById('m-desc').textContent = data.description;
+  setModalValueLines('m-date', [data.date, data.time]);
+  setModalValueLines('m-loc', data.location);
+  setModalValueLines('m-prize', data.prize);
+  setModalValueLines('m-contact', splitContactEntries(data.contact));
+  setModalValueLines('m-desc', data.description);
   const regBtn = document.getElementById('m-link');
   if (!data.link || data.link.includes('Chakravyuh2K26Registration')) {
     regBtn.textContent = 'Registration Updating Shortly';

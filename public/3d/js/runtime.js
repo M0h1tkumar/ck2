@@ -119,17 +119,252 @@ const DCAM={
 };
 const districtManager=createDistrictManager({forcedDistrictView});
 const {ensureFrameSource,preloadDistrictAssets,clearDistrictFrames}=districtManager;
+const PANEL_FRAME_MAP={
+  starnight:{frameId:'air-frame',district:'air'},
+  about:{frameId:'sky-frame',district:'sky'},
+  events:{frameId:'fire-frame',district:'fire'},
+  register:{frameId:'water-frame',district:'water'},
+  clubs:{frameId:'earth-frame',district:'earth'}
+};
+const NAV_HISTORY_KEY='__genesis3d_nav';
+const NAV_STAGE={OVERVIEW:'overview',CENTER:'center',PANEL:'panel'};
+const EMBEDDED_FRAME_SOURCE='genesis-3d';
+const EMBEDDED_HOST_SOURCE='genesis-home';
+let currentNavStage=NAV_STAGE.OVERVIEW;
+let activePanelSection=null;
+let suppressNavHistory=false;
+let pendingEmbeddedNav=null;
+let pendingEmbeddedAction=null;
+
+function postEmbeddedNav(type,stage=null,section=null){
+  if(!embedded||window.parent===window)return false;
+  window.parent.postMessage({source:EMBEDDED_FRAME_SOURCE,type,stage,section},window.location.origin);
+  return true;
+}
+
+function getNavEntry(stateObject=window.history.state){
+  if(!stateObject||typeof stateObject!=='object')return null;
+  return stateObject[NAV_HISTORY_KEY]||null;
+}
+
+function buildNavState(stage,section=null){
+  const baseState=window.history.state&&typeof window.history.state==='object'
+    ? {...window.history.state}
+    : {};
+  baseState[NAV_HISTORY_KEY]={stage,section};
+  return baseState;
+}
+
+function replaceNavState(stage,section=null){
+  window.history.replaceState(buildNavState(stage,section),'',window.location.href);
+}
+
+function pushNavState(stage,section=null){
+  const currentEntry=getNavEntry();
+  if(currentEntry?.stage===stage&&(currentEntry.section||null)===(section||null))return;
+  window.history.pushState(buildNavState(stage,section),'',window.location.href);
+}
+
+function commitNavStage(stage,section=null,{historyMode='push'}={}){
+  currentNavStage=stage;
+  activePanelSection=stage===NAV_STAGE.PANEL?section:null;
+  if(suppressNavHistory)return;
+  if(embedded){
+    postEmbeddedNav(historyMode==='replace'?'nav-replace':'nav-push',stage,section);
+    return;
+  }
+  if(historyMode==='replace'){
+    replaceNavState(stage,section);
+    return;
+  }
+  pushNavState(stage,section);
+}
+
+function getPanelButton(section){
+  return document.querySelector(`.d-btn[data-section="${section}"]`);
+}
+
+function focusDistrictButton(activeButton){
+  clearDistrictButtonState();
+  if(!activeButton)return;
+  activeButton.classList.add('is-activating');
+  document.querySelectorAll('.d-btn').forEach(other=>{if(other!==activeButton)other.classList.add('is-dimmed')});
+}
+
+function showPanel(section,{hash=''}={}){
+  const panel=document.getElementById('panel-'+section);
+  if(!panel)return;
+  panel.classList.add('show');
+  const frameConfig=PANEL_FRAME_MAP[section];
+  if(frameConfig)ensureFrameSource(frameConfig.frameId,frameConfig.district,{hash});
+}
+
+function transitionToOverview(duration=1.6,{historyMode=null,onComplete=null}={}){
+  document.querySelectorAll('.cpanel.show').forEach(panel=>panel.classList.remove('show'));
+  clearDistrictFrames();
+  clearDistrictButtonState();
+  activePanelSection=null;
+  controls.enabled=false;
+  $dirNav.classList.remove('show');
+  $back.classList.remove('show');
+  $choicePrompt.classList.remove('show');
+  $enter.classList.remove('show');
+  $enter.classList.add('hide');
+  state=ST.ZM;
+  flyCamera(OV_POS,OV_TGT,duration,()=>{
+    state=ST.OV;
+    controls.enabled=true;
+    $enter.classList.remove('hide');
+    $enter.classList.add('show');
+    sizeButton();
+    if(historyMode)commitNavStage(NAV_STAGE.OVERVIEW,null,{historyMode});
+    else{
+      currentNavStage=NAV_STAGE.OVERVIEW;
+      activePanelSection=null;
+    }
+    if(onComplete)onComplete();
+  });
+}
+
+function transitionToCenter(duration=1.4,{historyMode=null,onComplete=null}={}){
+  document.querySelectorAll('.cpanel.show').forEach(panel=>panel.classList.remove('show'));
+  clearDistrictFrames();
+  clearDistrictButtonState();
+  activePanelSection=null;
+  controls.enabled=false;
+  $dirNav.classList.remove('show');
+  $back.classList.remove('show');
+  $choicePrompt.classList.remove('show');
+  $enter.classList.remove('show');
+  $enter.classList.add('hide');
+  state=ST.FLY;
+  flyCamera(CTR_POS,CTR_TGT,duration,()=>{
+    state=ST.CTR;
+    $dirNav.classList.add('show');
+    $back.classList.add('show');
+    $choicePrompt.classList.add('show');
+    if(historyMode)commitNavStage(NAV_STAGE.CENTER,null,{historyMode});
+    else{
+      currentNavStage=NAV_STAGE.CENTER;
+      activePanelSection=null;
+    }
+    if(onComplete)onComplete();
+  });
+}
+
+function transitionToPanel(section,{historyMode=null,hash='',onComplete=null}={}){
+  const button=getPanelButton(section);
+  const dir=button?.dataset.dir;
+  const dc=dir?DCAM[dir]:null;
+  if(!button||!dc)return;
+  focusDistrictButton(button);
+  document.querySelectorAll('.cpanel.show').forEach(panel=>panel.classList.remove('show'));
+  clearDistrictFrames();
+  controls.enabled=false;
+  $enter.classList.remove('show');
+  $enter.classList.add('hide');
+  $dirNav.classList.remove('show');
+  $choicePrompt.classList.remove('show');
+  $back.classList.add('show');
+  state=ST.FLY;
+  const dv=DIR_VEC[dir];
+  const pullPos=[dv[0]*3,7,dv[2]*3];
+  const pullTgt=[dv[0]*2,.5,dv[2]*2];
+  flyMulti([
+    {pos:pullPos,tgt:pullTgt,dur:.8},
+    {pos:dc.pos,tgt:dc.tgt,dur:1.2},
+  ],()=>{
+    state=ST.PNL;
+    showPanel(section,{hash});
+    if(historyMode)commitNavStage(NAV_STAGE.PANEL,section,{historyMode});
+    else{
+      currentNavStage=NAV_STAGE.PANEL;
+      activePanelSection=section;
+    }
+    if(onComplete)onComplete();
+  });
+}
+
+function openCreditsPanel(){
+  if(!loaderFinished||state===ST.INTRO){
+    pendingEmbeddedAction='open-credits';
+    return;
+  }
+
+  if(state===ST.CTR){
+    transitionToPanel('about',{historyMode:'push',hash:'#credits-section'});
+    return;
+  }
+
+  if(state===ST.PNL&&activePanelSection==='about'){
+    showPanel('about',{hash:'#credits-section'});
+    return;
+  }
+
+  if(state===ST.PNL){
+    transitionToCenter(1.1,{
+      historyMode:'replace',
+      onComplete:()=>transitionToPanel('about',{historyMode:'push',hash:'#credits-section'})
+    });
+    return;
+  }
+
+  if(state===ST.OV){
+    controls.enabled=false;
+    state=ST.ZM;
+    $enter.classList.remove('show');
+    $enter.classList.add('hide');
+    flyCamera(CTR_POS,CTR_TGT,1.6,()=>{
+      state=ST.CTR;
+      $dirNav.classList.add('show');
+      $back.classList.add('show');
+      $choicePrompt.classList.add('show');
+      commitNavStage(NAV_STAGE.CENTER);
+      transitionToPanel('about',{historyMode:'push',hash:'#credits-section'});
+    });
+  }
+}
+
+function handleNavBackIntent(){
+  if(currentNavStage===NAV_STAGE.OVERVIEW)return false;
+  if(embedded)return postEmbeddedNav('nav-back-intent',currentNavStage,activePanelSection);
+  const navEntry=getNavEntry();
+  if(navEntry){
+    window.history.back();
+    return true;
+  }
+  if(currentNavStage===NAV_STAGE.PANEL){
+    transitionToCenter(1.4,{historyMode:'replace'});
+    return true;
+  }
+  if(currentNavStage===NAV_STAGE.CENTER){
+    transitionToOverview(1.6,{historyMode:'replace'});
+    return true;
+  }
+  return false;
+}
+
+function applyHistoryState(stateObject){
+  const navEntry=getNavEntry(stateObject);
+  if(!navEntry||navEntry.stage===NAV_STAGE.OVERVIEW){
+    transitionToOverview(1.6);
+    return;
+  }
+  if(navEntry.stage===NAV_STAGE.CENTER){
+    transitionToCenter(1.4);
+    return;
+  }
+  if(navEntry.stage===NAV_STAGE.PANEL&&navEntry.section){
+    transitionToPanel(navEntry.section);
+  }
+}
 
 function clearDistrictButtonState(){
   document.querySelectorAll('.d-btn').forEach(btn=>btn.classList.remove('is-activating','is-dimmed'));
 }
 
 function closeToOverview(){
-  document.querySelectorAll('.cpanel.show').forEach(p=>p.classList.remove('show'));
-  clearDistrictFrames();
-  clearDistrictButtonState();
-  $dirNav.classList.remove('show');$back.classList.remove('show');$choicePrompt.classList.remove('show');$enter.classList.remove('show');$enter.classList.add('hide');state=ST.ZM;
-  flyCamera(OV_POS,OV_TGT,2,()=>{state=ST.OV;controls.enabled=true;$enter.classList.remove('hide');$enter.classList.add('show');sizeButton()});
+  transitionToOverview(2,{historyMode:'replace'});
 }
 
 // DYNAMIC BUTTON SIZING
@@ -158,44 +393,70 @@ const $back=document.getElementById('back-btn');
 const $hdr=document.getElementById('hdr');
 const $choicePrompt=document.getElementById('choice-prompt');
 
+if(embedded){
+  window.addEventListener('message',event=>{
+    if(event.origin!==window.location.origin||!event.data||event.data.source!==EMBEDDED_HOST_SOURCE)return;
+    if(event.data.type==='open-credits'){
+      openCreditsPanel();
+      return;
+    }
+    if(event.data.type!=='nav-apply')return;
+    const nextState={ [NAV_HISTORY_KEY]: { stage:event.data.stage||NAV_STAGE.OVERVIEW, section:event.data.section||null } };
+    if(!loaderFinished){
+      if(nextState[NAV_HISTORY_KEY].stage!==NAV_STAGE.OVERVIEW){
+        pendingEmbeddedNav=nextState;
+      }
+      return;
+    }
+    suppressNavHistory=true;
+    try{
+      applyHistoryState(nextState);
+    }finally{
+      suppressNavHistory=false;
+    }
+  });
+  postEmbeddedNav('nav-ready',currentNavStage,activePanelSection);
+}else{
+  replaceNavState(NAV_STAGE.OVERVIEW,null);
+  window.addEventListener('popstate',event=>{
+    if(!loaderFinished)return;
+    suppressNavHistory=true;
+    try{
+      applyHistoryState(event.state);
+    }finally{
+      suppressNavHistory=false;
+    }
+  });
+}
+
 document.getElementById('enter-btn').addEventListener('click',()=>{
   if(state!==ST.OV)return;state=ST.ZM;$enter.classList.add('hide');
-  flyCamera(CTR_POS,CTR_TGT,2,()=>{state=ST.CTR;$dirNav.classList.add('show');$back.classList.add('show');$choicePrompt.classList.add('show')});
+  controls.enabled=false;
+  flyCamera(CTR_POS,CTR_TGT,2,()=>{
+    state=ST.CTR;
+    $dirNav.classList.add('show');
+    $back.classList.add('show');
+    $choicePrompt.classList.add('show');
+    commitNavStage(NAV_STAGE.CENTER);
+  });
 });
 
 document.querySelectorAll('.d-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
     if(state!==ST.CTR)return;
-    const dir=btn.dataset.dir,sec=btn.dataset.section,dc=DCAM[dir];
-    clearDistrictButtonState();
-    btn.classList.add('is-activating');
-    document.querySelectorAll('.d-btn').forEach(other=>{if(other!==btn)other.classList.add('is-dimmed')});
-    if(!dc)return;state=ST.FLY;$dirNav.classList.remove('show');$choicePrompt.classList.remove('show');
-    const dv=DIR_VEC[dir];
-    const pullPos=[dv[0]*3, 7, dv[2]*3];
-    const pullTgt=[dv[0]*2, .5, dv[2]*2];
-    flyMulti([
-      {pos:pullPos,tgt:pullTgt,dur:.8},
-      {pos:dc.pos,tgt:dc.tgt,dur:1.2},
-    ],()=>{state=ST.PNL;const p=document.getElementById('panel-'+sec);if(p){p.classList.add('show');if(sec==='events')ensureFrameSource('fire-frame','fire');if(sec==='register')ensureFrameSource('water-frame','water');if(sec==='clubs')ensureFrameSource('earth-frame','earth');if(sec==='starnight')ensureFrameSource('air-frame','air');if(sec==='about')ensureFrameSource('sky-frame','sky');}});
+    transitionToPanel(btn.dataset.section,{historyMode:'push'});
   });
 });
 
 $back.addEventListener('click',()=>{
+  if(handleNavBackIntent())return;
   if(state===ST.CTR){
-    clearDistrictButtonState();
-    $dirNav.classList.remove('show');$back.classList.remove('show');$choicePrompt.classList.remove('show');$enter.classList.remove('show');$enter.classList.add('hide');state=ST.ZM;
-    flyCamera(OV_POS,OV_TGT,1.6,()=>{state=ST.OV;controls.enabled=true;$enter.classList.remove('hide');$enter.classList.add('show');sizeButton()});
+    transitionToOverview(1.6,{historyMode:'replace'});
     return;
   }
-  if(state!==ST.PNL)return;
-  const panel=document.querySelector('.cpanel.show');
-  if(panel){
-    panel.classList.remove('show');
-    clearDistrictFrames();
+  if(state===ST.PNL){
+    transitionToCenter(1.4,{historyMode:'replace'});
   }
-  state=ST.FLY;
-  flyCamera(CTR_POS,CTR_TGT,1.4,()=>{state=ST.CTR;clearDistrictButtonState();$dirNav.classList.add('show');$back.classList.add('show');$choicePrompt.classList.add('show')});
 });
 
 document.querySelectorAll('.cp-close').forEach(btn=>{
@@ -237,6 +498,11 @@ function updateIntro(){
     $enter.classList.remove('hide');
     $enter.classList.add('show');
     sizeButton();
+    if(embedded&&pendingEmbeddedAction==='open-credits'){
+      pendingEmbeddedAction=null;
+      openCreditsPanel();
+      return;
+    }
     if('requestIdleCallback' in window){
       window.requestIdleCallback(()=>preloadDistrictAssets(),{timeout:1800});
     }else{
@@ -397,6 +663,15 @@ function finishLoader(){
   syncMusicToggle();
   if(bar)bar.style.width='100%';
   startIntro();
+  if(embedded&&pendingEmbeddedNav&&pendingEmbeddedNav[NAV_HISTORY_KEY]?.stage!==NAV_STAGE.OVERVIEW){
+    suppressNavHistory=true;
+    try{
+      applyHistoryState(pendingEmbeddedNav);
+    }finally{
+      suppressNavHistory=false;
+      pendingEmbeddedNav=null;
+    }
+  }
   requestAnimationFrame(()=>loader.classList.add('done'));
   if(!embedded)$hdr.classList.add('show');
   setTimeout(()=>{loader.remove();},1200);
