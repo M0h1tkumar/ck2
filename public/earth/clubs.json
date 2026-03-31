@@ -70,7 +70,7 @@
           "description": "Solo-Spctra, Duo-xtra (Solo, duo western dance competitions). High-energy rhythmic performance.",
           "link": "https://forms.gle/VCn9V7NGJcRcg3so8",
           "date": "04/04/2026",
-          "time": "11:30 PM - 2:30 PM",
+          "time": "11:30 AM - 2:30 PM",
           "location": "Auditorium A",
           "prize": "9000",
           "contact": "Pratikshya Dash (8260703387), Baishali Das (9777809498), Sadeepan Panda (7605992175)"
@@ -84,34 +84,6 @@
           "location": "C-Block Gallery",
           "prize": "3000",
           "contact": "Pratikshya Dash (8260703387), Baishali Das (9777809498), Sadeepan Panda (7605992175)"
-        }
-      ]
-    },
-    {
-      "id": "smc",
-      "name": "SOA Music Club (SMC)",
-      "type": "Cultural",
-      "logo": "/Club Logo/SOA MUSIC CLUB.png",
-      "events": [
-        {
-          "name": "Naghma",
-          "description": "Opportunity for singers and instrumentalists to showcase classical or western musical skills.",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLSecL5NUCRXqNh1zYXkIq4LfJtL-WvbrJLJd2yaTIFruUqsZzQ/viewform?usp=publish-editor",
-          "date": "05/04/2026",
-          "time": "8:00 AM - 11:00 AM",
-          "location": "Auditorium A",
-          "prize": "6000",
-          "contact": "Nisith Ghadai (9437704064), Ankit Kumar (8709554631)"
-        },
-        {
-          "name": "Beatsync",
-          "description": "Dynamic platform for participants to showcase hip-hop talents through rap and beatboxing.",
-          "link": "https://forms.gle/a7dpXzMyn4SiFkxZ6",
-          "date": "05/04/2026",
-          "time": "11:00 AM - 2:00 PM",
-          "location": "Auditorium A",
-          "prize": "6000",
-          "contact": "Tshewang Lama (8910282150), Sidharth Aryaman (9556125462)"
         }
       ]
     },
@@ -172,30 +144,30 @@
       ]
     },
     {
-      "id": "gdgoc",
-      "name": "GDGoC",
-      "type": "Tech",
-      "logo": "/Club Logo/GDG.png",
+      "id": "radio",
+      "name": "SOA Radio Club",
+      "type": "Media",
+      "logo": "/Club Logo/SOA RADIO CLUB.png",
       "events": [
         {
-          "name": "AI Treasure Hunt",
-          "description": "Location-based challenge to solve riddles and complete tech tasks. Team Size: 3.",
-          "link": "https://forms.gle/TReLtKGQvyi9Aa8W6",
+          "name": "Dart-E-Dil Returns",
+          "description": "A high-energy team challenge where dart meets DAMSHARAS, Hit the center for the easiest charades, the middle for a fun twist, and the outer ring for the toughest acts!",
+          "link": "https://docs.google.com/forms/d/e/1FAIpQLScn5T6V4c6dPucJfCwuedQurWL143vNkmzUmJM7gTPLGWGCoQ/viewform",
           "date": "04/04/2026",
           "time": "8:00 AM Onwards",
-          "location": "Auditorium C & D",
+          "location": "E-Block Lawn",
           "prize": "6000",
-          "contact": "Harsh Kumar (6204706919), Jagnya Prasad Jena (8917577279)"
+          "contact": "Barsha Rani Sahoo (7846976597), Arkadeep Karmakar (8967367392)"
         },
         {
-          "name": "Maya Vyuh : The Prompt War",
-          "description": "AI + Communication Challenge recreating images using prompts. Team Size: 2.",
-          "link": "https://forms.gle/deq1LqKsmK9zbe4U8",
+          "name": "Asli Dhurandhar Kaun?",
+          "description": "Welcome to ASLI DHURANDHAR KAUN, where strangers become teams and every round is all about fun and laughter... From the suspense of Who's the Spy, to the thrill of Squid Game, and a surprise twist...",
+          "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5BplXXXwLiNqQK7Ant1Duppef713OE2uVr6KDbEcK-zlg-A/viewform",
           "date": "05/04/2026",
           "time": "8:00 AM Onwards",
-          "location": "Lab",
+          "location": "E-529",
           "prize": "6000",
-          "contact": "Harsh Kumar (6204706919), Jagnya Prasad Jena (8917577279)"
+          "contact": "Barsha Rani Sahoo (7846976597), Arkadeep Karmakar (8967367392)"
         }
       ]
     },
@@ -274,30 +246,30 @@
       ]
     },
     {
-      "id": "radio",
-      "name": "SOA Radio Club",
-      "type": "Media",
-      "logo": "/Club Logo/SOA RADIO CLUB.png",
+      "id": "smc",
+      "name": "SOA Music Club (SMC)",
+      "type": "Cultural",
+      "logo": "/Club Logo/SOA MUSIC CLUB.png",
       "events": [
         {
-          "name": "Dart-E-Dil Returns",
-          "description": "A high-energy team challenge where dart meets DAMSHARAS, Hit the center for the easiest charades, the middle for a fun twist, and the outer ring for the toughest acts!",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLScn5T6V4c6dPucJfCwuedQurWL143vNkmzUmJM7gTPLGWGCoQ/viewform",
-          "date": "04/04/2026",
-          "time": "8:00 AM Onwards",
-          "location": "E-Block Lawn",
+          "name": "Naghma",
+          "description": "Opportunity for singers and instrumentalists to showcase classical or western musical skills.",
+          "link": "https://docs.google.com/forms/d/e/1FAIpQLSecL5NUCRXqNh1zYXkIq4LfJtL-WvbrJLJd2yaTIFruUqsZzQ/viewform?usp=publish-editor",
+          "date": "05/04/2026",
+          "time": "8:00 AM - 11:00 AM",
+          "location": "Auditorium A",
           "prize": "6000",
-          "contact": "Barsha Rani Sahoo (7846976597), Arkadeep Karmakar (8967367392)"
+          "contact": "Nisith Ghadai (9437704064), Ankit Kumar (8709554631)"
         },
         {
-          "name": "Asli Dhurandhar Kaun?",
-          "description": "Welcome to ASLI DHURANDHAR KAUN, where strangers become teams and every round is all about fun and laughter... From the suspense of Who's the Spy, to the thrill of Squid Game, and a surprise twist...",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5BplXXXwLiNqQK7Ant1Duppef713OE2uVr6KDbEcK-zlg-A/viewform",
+          "name": "Beatsync",
+          "description": "Dynamic platform for participants to showcase hip-hop talents through rap and beatboxing.",
+          "link": "https://forms.gle/a7dpXzMyn4SiFkxZ6",
           "date": "05/04/2026",
-          "time": "8:00 AM Onwards",
-          "location": "E-529",
+          "time": "11:00 AM - 2:00 PM",
+          "location": "Auditorium A",
           "prize": "6000",
-          "contact": "Barsha Rani Sahoo (7846976597), Arkadeep Karmakar (8967367392)"
+          "contact": "Tshewang Lama (8910282150), Sidharth Aryaman (9556125462)"
         }
       ]
     },
@@ -493,7 +465,7 @@
           "time": "8:00 AM Onwards",
           "location": "E-522",
           "prize": "6000",
-          "contact": "Not provided"
+          "contact": "Neha Mohapatra (9827692349), Tri Bikram Parida (9861298142)"
         }
       ]
     },
@@ -522,7 +494,7 @@
       "logo": "/Club Logo/JAAGO.gif",
       "events": [
         {
-          "name": "Jaago Talent Hunt",
+          "name": "PLAY FEST",
           "description": "Surprise with miniature challenges of multiple games to enjoy with friends.",
           "link": "https://docs.google.com/forms/d/e/1FAIpQLSfOq93BH_fcWnO75E1qHFPjAArt1kAqJuoj8kXnhEsF_UTpTA/viewform?usp=dialog",
           "date": "03/04/2026",
@@ -530,6 +502,34 @@
           "location": "ITER Campus",
           "prize": "Social Impact Awards",
           "contact": "Kiran Panigrahi (8917616478)"
+        }
+      ]
+    },
+    {
+      "id": "gdgoc",
+      "name": "GDGoC",
+      "type": "Tech",
+      "logo": "/Club Logo/GDG.png",
+      "events": [
+        {
+          "name": "AI Treasure Hunt",
+          "description": "Location-based challenge to solve riddles and complete tech tasks. Team Size: 3.",
+          "link": "https://forms.gle/TReLtKGQvyi9Aa8W6",
+          "date": "04/04/2026",
+          "time": "8:00 AM Onwards",
+          "location": "Auditorium C & D",
+          "prize": "6000",
+          "contact": "Harsh Kumar (6204706919), Jagnya Prasad Jena (8917577279)"
+        },
+        {
+          "name": "Maya Vyuh : The Prompt War",
+          "description": "AI + Communication Challenge recreating images using prompts. Team Size: 2.",
+          "link": "https://forms.gle/deq1LqKsmK9zbe4U8",
+          "date": "05/04/2026",
+          "time": "8:00 AM Onwards",
+          "location": "Lab",
+          "prize": "6000",
+          "contact": "Harsh Kumar (6204706919), Jagnya Prasad Jena (8917577279)"
         }
       ]
     }
