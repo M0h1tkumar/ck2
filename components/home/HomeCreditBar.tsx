@@ -16,12 +16,12 @@ type ContactEntry = {
 };
 
 const creditEntries: CreditEntry[] = [
-  { tag: "Development", name: "Bhabesh Behera, Mohit Kumar, Rohit Gupta" },
-  { tag: "Design", name: "Mrikhil Mohanty, Pratham Srivastava" },
-  { tag: "Maintenance", name: "Manish Prakash Sahu" },
-  { tag: "Coordination", name: "Saswat Barai" },
+  { tag: "Developers", name: "Bhabesh Behera, Mohit Kumar, Rohit Gupta" },
+  { tag: "Designers", name: "Mrikhil Mohanty, Pratham Srivastava" },
+  { tag: "Maintainers", name: "Manish Prakash Sahu,Saswat Barai" },
+  // { tag: "Coordination", name: "" },
   { tag: "Guidance", name: "P. Sai Krishna, Asish Kumar Samantray, Subinay Das" },
-  { tag: "Special Thanks", name: "Ritu Dey, Soham Ghosh" },
+  { tag: "Special Thanks", name: "Ritu Dey" },
 ];
 
 const contactEntries: ContactEntry[] = [

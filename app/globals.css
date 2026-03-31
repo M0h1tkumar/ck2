@@ -496,7 +496,7 @@ body {
   position: fixed;
   z-index: 120;
   right: 20px;
-  bottom: 10px;
+  bottom: calc(10px + env(safe-area-inset-bottom, 0px));
   display: block;
   isolation: isolate;
   overflow: visible;
@@ -512,6 +512,8 @@ body {
   display: flex;
   align-items: flex-end;
   gap: 10px;
+  flex-wrap: wrap;
+  max-width: calc(100vw - 20px);
 }
 
 .credit-shell-item {
@@ -701,7 +703,7 @@ body {
 
 @media (max-width: 768px) {
   .credit-shell {
-    bottom: 14px;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
     right: 14px;
   }
 
@@ -735,13 +737,13 @@ body {
   .credit-bar {
     gap: 6px;
     padding: 6px 14px;
-    opacity: 0.55;
+    opacity: 1;
   }
 }
 
 @media (max-width: 480px) {
   .credit-shell {
-    bottom: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
     right: 10px;
   }
 
@@ -793,13 +795,13 @@ body {
     gap: 5px;
     padding: 5px 12px;
     border-radius: 5px;
-    opacity: 0.5;
+    opacity: 1;
   }
 }
 
 @media (max-width: 375px) {
   .credit-shell {
-    bottom: 8px;
+    bottom: calc(8px + env(safe-area-inset-bottom, 0px));
     right: 8px;
   }
 
@@ -838,13 +840,13 @@ body {
   .credit-bar {
     gap: 4px;
     padding: 4px 10px;
-    opacity: 0.45;
+    opacity: 1;
   }
 }
 
 @media (max-width: 320px) {
   .credit-shell {
-    bottom: 6px;
+    bottom: calc(6px + env(safe-area-inset-bottom, 0px));
     right: 6px;
   }
 
@@ -880,7 +882,7 @@ body {
     gap: 3px;
     padding: 3px 8px;
     border-radius: 4px;
-    opacity: 0.4;
+    opacity: 1;
   }
 }
 
