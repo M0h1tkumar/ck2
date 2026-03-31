@@ -400,6 +400,12 @@ if(embedded){
       openCreditsPanel();
       return;
     }
+    if(event.data.type==='music-toggle'){
+      if(!loaderPlaybackStarted)return;
+      if(loaderAudio&&!audioEnabled)loaderAudio.currentTime=0;
+      setLoaderAudioEnabled(!audioEnabled);
+      return;
+    }
     if(event.data.type!=='nav-apply')return;
     const nextState={ [NAV_HISTORY_KEY]: { stage:event.data.stage||NAV_STAGE.OVERVIEW, section:event.data.section||null } };
     if(!loaderFinished){

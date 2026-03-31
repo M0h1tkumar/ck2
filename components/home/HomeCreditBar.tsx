@@ -41,6 +41,7 @@ const contactEntries: ContactEntry[] = [
 
 export function HomeCreditBar() {
   const [openPanel, setOpenPanel] = useState<"credits" | "info" | null>(null);
+  const [isMusicPressed, setIsMusicPressed] = useState(false);
   const shellRef = useRef<HTMLDivElement>(null);
   const creditsPopoverId = "home-credits-popover";
   const infoPopoverId = "home-info-popover";
@@ -73,46 +74,76 @@ export function HomeCreditBar() {
     setOpenPanel((current) => (current === panel ? null : panel));
   }
 
+  function toggleMusic() {
+    setIsMusicPressed((current) => !current);
+    const frame = document.querySelector<HTMLIFrameElement>('iframe[src^="/3d/index.html"]');
+    frame?.contentWindow?.postMessage(
+      {
+        source: "genesis-home",
+        type: "music-toggle",
+      },
+      window.location.origin,
+    );
+  }
+
   return (
     <div ref={shellRef} className="credit-overlay-cluster">
       <div className="credit-shell credit-shell--left">
-        <button
-          type="button"
-          className="credit-bar credit-bar--info"
-          onClick={() => togglePanel("info")}
-          title="Toggle info"
-          aria-label="Toggle info"
-          aria-expanded={isInfoOpen}
-          aria-controls={infoPopoverId}
-        >
-          <span className="credit-badge" aria-hidden="true">
-            i
-          </span>
-          <span className="credit-text">Info</span>
-        </button>
+        <div className="credit-shell-row">
+          <div className="credit-shell-item">
+            <button
+              type="button"
+              className="credit-bar credit-bar--info"
+              onClick={() => togglePanel("info")}
+              title="Toggle info"
+              aria-label="Toggle info"
+              aria-expanded={isInfoOpen}
+              aria-controls={infoPopoverId}
+            >
+              <span className="credit-badge" aria-hidden="true">
+                i
+              </span>
+              <span className="credit-text">Info</span>
+            </button>
 
-        <div
-          id={infoPopoverId}
-          className={`credit-popover credit-popover--left credit-popover--vertical${isInfoOpen ? " is-open" : ""}`}
-          aria-hidden={!isInfoOpen}
-        >
-          <div className="credit-popover__header credit-popover__header--vertical">
-            <div className="credit-popover__eyebrow">Official Contacts</div>
-            <div className="credit-popover__title credit-popover__title--vertical">Chakravyuh Genesis 2026</div>
-          </div>
-          <div className="credit-popover__list credit-popover__list--vertical">
-            {contactEntries.map((entry) => (
-              <div key={entry.href} className="credit-entry credit-entry--contact">
-                <div className="credit-entry__content">
-                  <div className="credit-entry__tag">{entry.tag}</div>
-                  <strong className="credit-entry__name">{entry.name}</strong>
-                  <a className="credit-entry__phone" href={entry.href} aria-label={`Call ${entry.name} at ${entry.phone}`}>
-                    {entry.phone}
-                  </a>
-                </div>
+            <div
+              id={infoPopoverId}
+              className={`credit-popover credit-popover--left credit-popover--vertical${isInfoOpen ? " is-open" : ""}`}
+              aria-hidden={!isInfoOpen}
+            >
+              <div className="credit-popover__header credit-popover__header--vertical">
+                <div className="credit-popover__eyebrow">Official Contacts</div>
+                <div className="credit-popover__title credit-popover__title--vertical">Chakravyuh Genesis 2026</div>
               </div>
-            ))}
+              <div className="credit-popover__list credit-popover__list--vertical">
+                {contactEntries.map((entry) => (
+                  <div key={entry.href} className="credit-entry credit-entry--contact">
+                    <div className="credit-entry__content">
+                      <div className="credit-entry__tag">{entry.tag}</div>
+                      <strong className="credit-entry__name">{entry.name}</strong>
+                      <a className="credit-entry__phone" href={entry.href} aria-label={`Call ${entry.name} at ${entry.phone}`}>
+                        {entry.phone}
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
+
+          <button
+            type="button"
+            className="credit-bar credit-bar--music"
+            onClick={toggleMusic}
+            title="Toggle music"
+            aria-label="Toggle music"
+            aria-pressed={isMusicPressed}
+          >
+            <span className="credit-badge" aria-hidden="true">
+              ♪
+            </span>
+            <span className="credit-text">Music</span>
+          </button>
         </div>
       </div>
 

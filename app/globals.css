@@ -508,6 +508,16 @@ body {
   right: auto;
 }
 
+.credit-shell-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.credit-shell-item {
+  position: relative;
+}
+
 .credit-popover,
 .credit-bar {
   pointer-events: auto;
