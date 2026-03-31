@@ -210,6 +210,7 @@ function openEventDetail(eventKey) {
   setModalValueLines('m-date', [data.date, data.time]);
   setModalValueLines('m-loc', data.location);
   setModalValueLines('m-prize', data.prize);
+  setModalValueLines('m-contact', data.contact);
   setModalValueLines('m-desc', formatDescriptionLines(data.description));
   const regBtn = document.getElementById('m-link');
   if (!data.link || data.link.includes('Chakravyuh2K26Registration')) {
@@ -223,6 +224,7 @@ function openEventDetail(eventKey) {
     regBtn.style.opacity = '1';
     regBtn.style.pointerEvents = 'auto';
   }
+  if (modalContent) modalContent.scrollTop = 0;
   modal.classList.add('open');
 }
 
