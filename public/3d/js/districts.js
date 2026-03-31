@@ -1,4 +1,4 @@
-const DISTRICT_PAGE_VERSION = '20260330-air-sky-mobile-split-1';
+const DISTRICT_PAGE_VERSION = '20260331-mobile-content-sync-1';
 const BLANK_FRAME_URL = 'about:blank';
 
 // The district page routing below reflects the currently approved shipped experience.

@@ -6,7 +6,6 @@ import Image from "next/image";
 type CreditEntry = {
   tag: string;
   name: string;
-  href?: string;
 };
 
 type ContactEntry = {
@@ -20,7 +19,7 @@ const creditEntries: CreditEntry[] = [
   { tag: "Development", name: "Bhabesh Behera, Mohit Kumar, Rohit Gupta" },
   { tag: "Design", name: "Mrikhil Mohanty, Pratham Srivastava" },
   { tag: "Maintenance", name: "Manish Prakash Sahu" },
-  { tag: "Coordination", name: "Saswat Barei" },
+  { tag: "Coordination", name: "Saswat Barai" },
   { tag: "Guidance", name: "P. Sai Krishna, Asish Kumar Samantray, Subinay Das" },
   { tag: "Special Thanks", name: "Ritu Dey" },
 ];
@@ -154,33 +153,6 @@ export function HomeCreditBar() {
                   <div className="credit-entry__tag">{entry.tag}</div>
                   <strong className="credit-entry__name">{entry.name}</strong>
                 </div>
-                {entry.href ? (
-                  <a
-                    className="credit-entry__link"
-                    href={entry.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`Open portfolio for ${entry.name}`}
-                  >
-                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M7 13L13 7" />
-                      <path d="M8 7h5v5" />
-                      <path d="M13 11v3a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h3" />
-                    </svg>
-                  </a>
-                ) : (
-                  <span
-                    className="credit-entry__link credit-entry__link--disabled"
-                    aria-hidden="true"
-                    title="Portfolio link to be added"
-                  >
-                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M7 13L13 7" />
-                      <path d="M8 7h5v5" />
-                      <path d="M13 11v3a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h3" />
-                    </svg>
-                  </span>
-                )}
               </div>
             ))}
           </div>
