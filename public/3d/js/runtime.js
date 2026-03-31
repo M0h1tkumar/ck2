@@ -585,7 +585,7 @@ function setAudioPromptVisible(visible){
 
 function syncMusicToggle(){
   if(!musicToggle)return;
-  musicToggle.hidden=!loaderPlaybackStarted||loaderFinished;
+  musicToggle.hidden=!loaderPlaybackStarted;
   musicToggle.classList.toggle('is-on',audioEnabled);
   musicToggle.classList.toggle('is-off',!audioEnabled);
   musicToggle.setAttribute('aria-pressed',String(audioEnabled));
@@ -654,11 +654,10 @@ function finishLoader(){
     window.clearTimeout(loaderStartTimeoutId);
     loaderStartTimeoutId=0;
   }
-  if(loaderAudio){
+  if(loaderAudio&&!audioEnabled){
     loaderAudio.pause();
     loaderAudio.currentTime=0;
   }
-  audioEnabled=false;
   setAudioPromptVisible(false);
   syncMusicToggle();
   if(bar)bar.style.width='100%';
@@ -674,6 +673,10 @@ function finishLoader(){
   }
   requestAnimationFrame(()=>loader.classList.add('done'));
   if(!embedded)$hdr.classList.add('show');
+  if(audioEnabled){
+    if(loaderAudio)document.body.appendChild(loaderAudio);
+    if(musicToggle)document.body.appendChild(musicToggle);
+  }
   setTimeout(()=>{loader.remove();},1200);
 }
 
@@ -704,7 +707,7 @@ if(loaderVideo){
 if(musicToggle){
   syncMusicToggle();
   musicToggle.addEventListener('click',()=>{
-    if(loaderFinished||!loaderPlaybackStarted)return;
+    if(!loaderPlaybackStarted)return;
     if(loaderAudio&&!audioEnabled)loaderAudio.currentTime=0;
     setLoaderAudioEnabled(!audioEnabled);
   });
