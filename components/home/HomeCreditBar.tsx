@@ -21,7 +21,7 @@ const creditEntries: CreditEntry[] = [
   { tag: "Maintenance", name: "Manish Prakash Sahu" },
   { tag: "Coordination", name: "Saswat Barai" },
   { tag: "Guidance", name: "P. Sai Krishna, Asish Kumar Samantray, Subinay Das" },
-  { tag: "Special Thanks", name: "Ritu Dey" },
+  { tag: "Special Thanks", name: "Ritu Dey, Soham Ghosh" },
 ];
 
 const contactEntries: ContactEntry[] = [
