@@ -17,7 +17,7 @@
           "time": "8:00 AM - 11:00 AM",
           "location": "E-114",
           "prize": "6000",
-          "contact": "Kiran Panigrahi (8917616478), Pratikshya Dash (8260703387), Arnab Sahoo (9439140077)"
+          "contact": ""
         },
         {
           "name": "The Ai Tribunal",
@@ -27,7 +27,7 @@
           "time": "8:00 AM Onwards",
           "location": "E-013",
           "prize": "6000",
-          "contact": "Kiran Panigrahi (8917616478), Pratikshya Dash (8260703387), Abhinav (9142345529)"
+          "contact": ""
         }
       ]
     },
@@ -45,7 +45,7 @@
           "time": "8:00 AM Onwards",
           "location": "E-013",
           "prize": "6000",
-          "contact": "Akankshya Sahoo (7978562260), Abhisek Jena (7978836374)"
+          "contact": ""
         },
         {
           "name": "Color-E-Pic",
@@ -55,7 +55,7 @@
           "time": "8:00 AM Onwards",
           "location": "E-311",
           "prize": "6000",
-          "contact": "Akankshya Sahoo (7978562260), Abhisek Jena (7978836374)"
+          "contact": ""
         }
       ]
     },
@@ -73,7 +73,7 @@
           "time": "11:30 AM - 2:30 PM",
           "location": "Auditorium A",
           "prize": "9000",
-          "contact": "Pratikshya Dash (8260703387), Baishali Das (9777809498), Sadeepan Panda (7605992175)"
+          "contact": ""
         },
         {
           "name": "Apex Arena",
@@ -83,7 +83,7 @@
           "time": "8:00 AM Onwards",
           "location": "C-Block Gallery",
           "prize": "3000",
-          "contact": "Pratikshya Dash (8260703387), Baishali Das (9777809498), Sadeepan Panda (7605992175)"
+          "contact": ""
         }
       ]
     },
@@ -101,7 +101,7 @@
           "time": "8:00 AM - 11:00 AM",
           "location": "Auditorium A",
           "prize": "6000",
-          "contact": "P Sai Krishna (7205433228)"
+          "contact": ""
         },
         {
           "name": "Hypocrisy 2.0 (Collab with SLC)",
@@ -111,7 +111,7 @@
           "time": "11:30 AM - 2:30 PM",
           "location": "E-114",
           "prize": "6000",
-          "contact": "Not provided"
+          "contact": ""
         }
       ]
     },
@@ -123,23 +123,23 @@
       "events": [
         {
           "name": "Zer0ne",
-          "description": "High-intensity cybersecurity CTF where you exploit vulnerabilities, crack codes, and capture hidden flags. Think fast. Hack smart. Win",
+          "description": "ZerOne is a CTF event focused on cyber and data challenges that test real-world problem-solving under pressure.",
           "link": "https://docs.google.com/forms/d/e/1FAIpQLSfD9PRA9bLdxP-27C_gFCUIGQ7ZwfkQHqdjHYcAZM946joSTw/viewform?usp=header",
           "date": "03/04/2026",
           "time": "8:00 AM Onwards",
           "location": "lab",
           "prize": "6000",
-          "contact": "Subasis Mishra (9078912431), Mukesh kumar Padhi (8260646315)"
+          "contact": ""
         },
         {
           "name": "Rachitva",
           "description": "Design. Think. Pitch. Turn ideas into impactful solutions and sell them like a pro.",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLSf8olKiT6CbagqOWmy38Fou98-oVuXHgWXJjG_X4sUYdSiYyg/viewform?usp=header",
+          "link": "https://forms.gle/qGcGJ9ApYBzZqGfx5",
           "date": "05/04/2026",
           "time": "8:00 AM Onwards",
           "location": "Seminar hall",
           "prize": "6000",
-          "contact": "Subasis Mishra (9078912431), Mukesh kumar Padhi (8260646315)"
+          "contact": ""
         }
       ]
     },
@@ -157,7 +157,7 @@
           "time": "8:00 AM Onwards",
           "location": "E-Block Lawn",
           "prize": "6000",
-          "contact": "Barsha Rani Sahoo (7846976597), Arkadeep Karmakar (8967367392)"
+          "contact": ""
         },
         {
           "name": "Asli Dhurandhar Kaun?",
@@ -167,7 +167,7 @@
           "time": "8:00 AM Onwards",
           "location": "E-529",
           "prize": "6000",
-          "contact": "Barsha Rani Sahoo (7846976597), Arkadeep Karmakar (8967367392)"
+          "contact": ""
         }
       ]
     },
@@ -185,7 +185,7 @@
           "time": "8:00 AM Onwards",
           "location": "E-529 & E-522",
           "prize": "6000",
-          "contact": "Devanshu Singh (9427550414), Ansh Gupta (6207304254)"
+          "contact": ""
         },
         {
           "name": "Anant Chakra (Collab with Codex)",
@@ -195,7 +195,7 @@
           "time": "8:00 AM Onwards",
           "location": "E-314 & LAB",
           "prize": "6000",
-          "contact": "Devanshu Singh (9427550414), Ansh Gupta (6207304254)"
+          "contact": ""
         }
       ]
     },
@@ -213,7 +213,7 @@
           "time": "8:00 AM Onwards",
           "location": "LABS",
           "prize": "6000",
-          "contact": "Ayush K Tripathi (8932899372), Pritish Biswas (9801334862)"
+          "contact": ""
         },
         {
           "name": "Anant Chakra (Collab with SEC)",
@@ -223,7 +223,7 @@
           "time": "8:00 AM Onwards",
           "location": "E-314 & LAB",
           "prize": "6000",
-          "contact": "Devanshu Singh (9427550414), Ansh Gupta (6207304254)"
+          "contact": ""
         }
       ]
     },
@@ -241,7 +241,7 @@
           "time": "8:00 AM - 11:00 AM",
           "location": "Auditorium A",
           "prize": "6000",
-          "contact": "Abhinna Patnaik (9439450723), Shayan Shekhar Paul (9431211044)"
+          "contact": ""
         }
       ]
     },
@@ -259,7 +259,7 @@
           "time": "8:00 AM - 11:00 AM",
           "location": "Auditorium A",
           "prize": "6000",
-          "contact": "Nisith Ghadai (9437704064), Ankit Kumar (8709554631)"
+          "contact": ""
         },
         {
           "name": "Beatsync",
@@ -269,7 +269,7 @@
           "time": "11:00 AM - 2:00 PM",
           "location": "Auditorium A",
           "prize": "6000",
-          "contact": "Tshewang Lama (8910282150), Sidharth Aryaman (9556125462)"
+          "contact": ""
         }
       ]
     },
@@ -287,7 +287,7 @@
           "time": "8:00 AM Onwards",
           "location": "Auditorium C",
           "prize": "6000",
-          "contact": "Divyangi (8260594909), Pratishtha (8372985008)"
+          "contact": ""
         },
         {
           "name": "Nishaan-e-Hunr",
@@ -297,7 +297,7 @@
           "time": "8:00 AM Onwards",
           "location": "Auditorium D",
           "prize": "6000",
-          "contact": "Divyangi (8260594909), Pratishtha (8372985008)"
+          "contact": ""
         }
       ]
     },
@@ -315,7 +315,7 @@
           "time": "11:30 AM - 2:30 PM",
           "location": "E-114",
           "prize": "6000",
-          "contact": "Monalisha (6372921332), Ashish (7205691104)"
+          "contact": ""
         },
         {
           "name": "ReCast",
@@ -325,7 +325,7 @@
           "time": "8:00 AM Onwards",
           "location": "E-114",
           "prize": "6000",
-          "contact": "Not provided"
+          "contact": ""
         }
       ]
     },
@@ -343,7 +343,7 @@
           "time": "8:00 AM Onwards",
           "location": "Auditorium D",
           "prize": "6000",
-          "contact": "Ansujit Dalei (7853947209), Nikhilesh panda (9937105412)"
+          "contact": ""
         },
         {
           "name": "Adakari",
@@ -353,7 +353,7 @@
           "time": "8:00 AM Onwards",
           "location": "E-214",
           "prize": "6000",
-          "contact": "Ansujit Dalei (7853947209), Nikhilesh panda (9937105412)"
+          "contact": ""
         }
       ]
     },
@@ -371,7 +371,7 @@
           "time": "8:00 AM - 11:00 AM",
           "location": "E-Block Gallery",
           "prize": "6000",
-          "contact": "Priyanshu Kumar Jena (7682943276), Sairush Sahoo (6371193620)"
+          "contact": ""
         },
         {
           "name": "Bot Fc",
@@ -381,7 +381,7 @@
           "time": "8:00 AM - 11:00 AM",
           "location": "E-Block Gallery",
           "prize": "6000",
-          "contact": "Priyanshu Kumar Jena (7682943276), Sairush Sahoo (6371193620)"
+          "contact": ""
         }
       ]
     },
@@ -399,7 +399,7 @@
           "time": "8:00 AM - 11:00 AM",
           "location": "E-Block Lawn",
           "prize": "6000",
-          "contact": "Priyanshu Kumar Jena (7682943276), Aman Kashyap (7209287279)"
+          "contact": ""
         },
         {
           "name": "HoverMania",
@@ -409,7 +409,7 @@
           "time": "8:00 AM - 11:00 AM",
           "location": "E-Block Lawn",
           "prize": "6000",
-          "contact": "Priyanshu Kumar Jena (7682943276), Aman Kashyap (7209287279)"
+          "contact": ""
         }
       ]
     },
@@ -427,7 +427,7 @@
           "time": "11:30 AM - 2:30 PM",
           "location": "Auditorium A",
           "prize": "6000",
-          "contact": "Diya (9337959478), Sriya (9437456416)"
+          "contact": ""
         },
         {
           "name": "Fashion Face-Off",
@@ -437,7 +437,7 @@
           "time": "8:00 AM Onwards",
           "location": "E-414",
           "prize": "6000",
-          "contact": "Diya (9337959478), Sriya (9437456416)"
+          "contact": ""
         }
       ]
     },
@@ -451,21 +451,21 @@
           "name": "Captured narratives",
           "description": "Shoot and edit a series of 10 to 15 images to tell a story.",
           "link": "https://docs.google.com/forms/d/e/1FAIpQLSfbdXVawV2BWs3Y-H9s32ZljmcYE_8wgcm9kpcaoku6T80Aaw/viewform",
-          "date": "03/04/2026",
+          "date": "04/04/2026",
           "time": "8:00 AM Onwards",
           "location": "E-214",
           "prize": "6000",
-          "contact": "Neha Mohapatra (9827692349), Tri Bikram Parida (9861298142)"
+          "contact": ""
         },
         {
           "name": "Motion mania",
           "description": "60-second vertical video storytelling (Instagram Reel style).",
           "link": "https://docs.google.com/forms/d/e/1FAIpQLSd7zifmcPRybjhrE5WIdtNDYyrMhdlHyjLlXGF5kmtlIoWXAw/viewform",
-          "date": "05/04/2026",
+          "date": "03/04/2026",
           "time": "8:00 AM Onwards",
-          "location": "E-522",
+          "location": "E-214",
           "prize": "6000",
-          "contact": "Neha Mohapatra (9827692349), Tri Bikram Parida (9861298142)"
+          "contact": ""
         }
       ]
     },
@@ -483,7 +483,7 @@
           "time": "11:30 AM - 2:30 PM",
           "location": "LABS",
           "prize": "6000",
-          "contact": "Manish Prakash (9515862133), Khushee (9508944701)"
+          "contact": ""
         }
       ]
     },
@@ -494,13 +494,23 @@
       "logo": "/Club Logo/JAAGO.gif",
       "events": [
         {
-          "name": "PLAY FEST",
-          "description": "Surprise with miniature challenges of multiple games to enjoy with friends.",
+          "name": "PLAY FEST D-1",
+          "description": "RISE AND INFLATE - Small, Breathe, Big Impact ; SNACK THE CHANGE - Stronger Together, Higher We Rise ; JAAGO MINDSPARK - Awaken Knowledge, Ignite Change.",
           "link": "https://docs.google.com/forms/d/e/1FAIpQLSfOq93BH_fcWnO75E1qHFPjAArt1kAqJuoj8kXnhEsF_UTpTA/viewform?usp=dialog",
           "date": "03/04/2026",
           "time": "8:00 AM Onwards",
           "location": "E-023",
-          "prize": "Exciting wards",
+          "prize": "Exciting awards",
+          "contact": "Suvam (7749918959)"
+        },
+        {
+          "name": "PLAY FEST D-2",
+          "description": "AIM FOR IMPACT - Focus, Flip, Create Change ; PIECE BY PIECE - Building Meaning, One Step At A Time ; CARRY THE CAUSE - Moving Hope, Together",
+          "link": "https://docs.google.com/forms/d/e/1FAIpQLSfOq93BH_fcWnO75E1qHFPjAArt1kAqJuoj8kXnhEsF_UTpTA/viewform?usp=dialog",
+          "date": "04/04/2026",
+          "time": "8:00 AM Onwards",
+          "location": "E Block Gallery",
+          "prize": "Exciting awards",
           "contact": "Suvam (7749918959)"
         }
       ]
@@ -519,7 +529,7 @@
           "time": "8:00 AM Onwards",
           "location": "Auditorium C & D",
           "prize": "6000",
-          "contact": "Harsh Kumar (6204706919), Jagnya Prasad Jena (8917577279)"
+          "contact": ""
         },
         {
           "name": "Maya Vyuh : The Prompt War",
@@ -529,7 +539,7 @@
           "time": "8:00 AM Onwards",
           "location": "Lab",
           "prize": "6000",
-          "contact": "Harsh Kumar (6204706919), Jagnya Prasad Jena (8917577279)"
+          "contact": ""
         }
       ]
     }

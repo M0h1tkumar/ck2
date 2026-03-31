@@ -10,7 +10,7 @@ export default function Home() {
           <ThreeDShowcase />
         </section>
 
-        {/* SOA Logo — Top Left */}
+        {/* SOA Logo - Top Left */}
         <div className="logo-overlay logo-top-left">
           <Image
             src="/Club Logo/SOA-PNG.png"
@@ -22,7 +22,7 @@ export default function Home() {
           />
         </div>
 
-        {/* Genesis Logo — Top Right */}
+        {/* Genesis Logo - Top Right */}
         <div className="logo-overlay logo-top-right">
           <Image
             src="/Club Logo/genesislogo.png"
@@ -34,7 +34,7 @@ export default function Home() {
           />
         </div>
 
-        {/* Credit Bar — Bottom Right */}
+        {/* Home info and credits overlays - bottom corners */}
         <HomeCreditBar />
       </main>
     </>

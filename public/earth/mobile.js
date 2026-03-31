@@ -127,37 +127,7 @@ function getEventKey(club, event) {
 }
 
 function sortClubsAlphabetically(clubs) {
-  const sortedClubs = [...clubs].sort((left, right) => left.name.localeCompare(right.name, undefined, { sensitivity: 'base' }));
-  
-  // Position 4 (Index 3): SOA Literary Club
-  const slcIndex = sortedClubs.findIndex((club) => club.id === 'slc');
-  if (slcIndex !== -1) {
-    const [slc] = sortedClubs.splice(slcIndex, 1);
-    sortedClubs.splice(3, 0, slc);
-  }
-
-  // Position 5 (Index 4): Vogue
-  const vogueIndex = sortedClubs.findIndex((club) => club.id === 'vogue');
-  if (vogueIndex !== -1) {
-    const [vogue] = sortedClubs.splice(vogueIndex, 1);
-    sortedClubs.splice(4, 0, vogue);
-  }
-
-  // Position 11 (Index 10): Jaago (Start of 3rd Row)
-  const jaagoIndex = sortedClubs.findIndex((club) => club.id === 'jaago');
-  if (jaagoIndex !== -1) {
-    const [jaago] = sortedClubs.splice(jaagoIndex, 1);
-    sortedClubs.splice(10, 0, jaago);
-  }
-
-  // Swap GDGoC with VirtualShowreel (VS) bubble positions
-  const gdgocIndex = sortedClubs.findIndex((club) => club.id === 'gdgoc');
-  const vsIndex = sortedClubs.findIndex((club) => club.id === 'vs');
-  if (gdgocIndex !== -1 && vsIndex !== -1) {
-    [sortedClubs[gdgocIndex], sortedClubs[vsIndex]] = [sortedClubs[vsIndex], sortedClubs[gdgocIndex]];
-  }
-
-  return sortedClubs;
+  return [...clubs].sort((left, right) => left.name.localeCompare(right.name, undefined, { sensitivity: 'base' }));
 }
 
 function normalizeClubs(data) {
@@ -221,30 +191,16 @@ function setModalValueLines(elementId, lines) {
   }));
 }
 
-function splitContactEntries(contactText) {
-  const value = `${contactText ?? ''}`.trim();
-  if (!value) return ['-'];
-  if (/^not provided$/i.test(value)) return ['Not provided'];
+function formatDescriptionLines(description) {
+  const value = `${description ?? ''}`.trim();
+  if (!value) return '-';
 
-  const entries = [];
-  let currentEntry = '';
-  let bracketDepth = 0;
+  const segments = value
+    .split(/\s*(?:\r?\n|;)\s*/g)
+    .map((segment) => segment.replace(/\s+/g, ' ').trim())
+    .filter(Boolean);
 
-  for (const character of value) {
-    if (character === '(') bracketDepth += 1;
-    if (character === ')') bracketDepth = Math.max(0, bracketDepth - 1);
-
-    if (character === ',' && bracketDepth === 0) {
-      if (currentEntry.trim()) entries.push(currentEntry.trim());
-      currentEntry = '';
-      continue;
-    }
-
-    currentEntry += character;
-  }
-
-  if (currentEntry.trim()) entries.push(currentEntry.trim());
-  return entries.length ? entries : [value];
+  return segments.length ? segments : value;
 }
 
 function openEventDetail(eventKey) {
@@ -254,8 +210,7 @@ function openEventDetail(eventKey) {
   setModalValueLines('m-date', [data.date, data.time]);
   setModalValueLines('m-loc', data.location);
   setModalValueLines('m-prize', data.prize);
-  setModalValueLines('m-contact', splitContactEntries(data.contact));
-  setModalValueLines('m-desc', data.description);
+  setModalValueLines('m-desc', formatDescriptionLines(data.description));
   const regBtn = document.getElementById('m-link');
   if (!data.link || data.link.includes('Chakravyuh2K26Registration')) {
     regBtn.textContent = 'Registration Updating Shortly';

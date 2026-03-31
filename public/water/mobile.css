@@ -379,6 +379,30 @@
             line-height: 1.5;
         }
 
+        .log-content strong {
+            color: #f3fcff;
+            font-weight: 700;
+        }
+
+        .log-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 160px;
+            margin-top: 18px;
+            padding: 12px 18px;
+            background: #7dd0ff;
+            border: none;
+            border-radius: 999px;
+            color: #0d1a25;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(125, 208, 255, 0.2);
+        }
+
         /* MOBILE MERCH CAROUSEL */
         .merch-grid {
             display: flex;

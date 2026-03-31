@@ -352,6 +352,36 @@
             line-height: 1.5;
         }
 
+        .log-content strong {
+            color: #f3fcff;
+            font-weight: 700;
+        }
+
+        .log-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 168px;
+            margin-top: 18px;
+            padding: 12px 20px;
+            background: rgba(125, 208, 255, 0.08);
+            border: 1px solid rgba(125, 208, 255, 0.2);
+            border-radius: 999px;
+            color: #7dd0ff;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logistics-card:hover .log-action {
+            background: #7dd0ff;
+            color: #0d1a25;
+            box-shadow: 0 5px 15px rgba(125, 208, 255, 0.3);
+        }
+
         /* MERCH GALLERY STYLES */
         .merch-grid {
             display: grid;
