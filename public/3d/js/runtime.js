@@ -627,19 +627,22 @@ function startLoaderPlayback(){
   loaderPlaybackStarted=true;
   syncMusicToggle();
 
-  if(!loaderVideo||loaderVideo.error){
-    finishLoader();
-    return;
-  }
-
-  const playPromise=loaderVideo.play();
-  if(playPromise&&typeof playPromise.catch==='function'){
-    playPromise.catch(()=>finishLoader());
-  }
-
-  loaderStartTimeoutId=window.setTimeout(()=>{
-    if(!loaderFinished&&loaderVideo.readyState<2&&loaderVideo.currentTime===0)finishLoader();
-  },5000);
+  const totalTime = 6000;
+  const progressTime = 3000;
+  const start = performance.now();
+  const anim = (now) => {
+    if(loaderFinished) return;
+    let elapsed = now - start;
+    let p = Math.min(100, (elapsed / progressTime) * 100);
+    if(bar) bar.style.width = p + '%';
+    
+    if(elapsed >= totalTime){
+      finishLoader();
+    }else{
+      requestAnimationFrame(anim);
+    }
+  };
+  requestAnimationFrame(anim);
 }
 
 async function beginLoaderSequence(enableAudio){
@@ -686,29 +689,7 @@ function finishLoader(){
   setTimeout(()=>{loader.remove();},1200);
 }
 
-if(loaderVideo){
-  const syncLoaderProgress=()=>{
-    if(loaderFinished)return;
-    const duration=loaderVideo.duration;
-    if(Number.isFinite(duration)&&duration>0){
-      if(duration-loaderVideo.currentTime<=0.6){
-        finishLoader();
-        return;
-      }
-    }
-    if(bar&&Number.isFinite(duration)&&duration>0){
-      const progress=Math.min(100,(loaderVideo.currentTime/duration)*100);
-      bar.style.width=progress+'%';
-    }
-  };
-
-  loaderVideo.addEventListener('loadedmetadata',syncLoaderProgress);
-  loaderVideo.addEventListener('timeupdate',syncLoaderProgress);
-  loaderVideo.addEventListener('ended',finishLoader,{once:true});
-  loaderVideo.addEventListener('error',()=>{
-    if(loaderChoiceMade)finishLoader();
-  },{once:true});
-}
+// Video removed, progressing via requestAnimationFrame in startLoaderPlayback
 
 if(musicToggle){
   syncMusicToggle();
