@@ -284,9 +284,9 @@ function bindClubInteractions() {
   clubsGrid.addEventListener('click', (e) => e.stopPropagation());
   clubFocusOverlay.addEventListener('click', clearActiveCards);
   clubPopupRoot.addEventListener('click', (e) => e.stopPropagation());
-  closeModal.addEventListener('click', clearActiveCards);
-  modal.addEventListener('transitionend', () => {
-    if (!modal.classList.contains('open')) clearActiveCards();
+  closeModal.addEventListener('click', (e) => {
+    e.stopPropagation();
+    modal.classList.remove('open');
   });
 }
 
