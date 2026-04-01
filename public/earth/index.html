@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Earth Summon</title>
     <link rel="stylesheet" href="/earth/index.css">
 </head>
+
 <body>
     <div id="left-col">
         <div id="scene-container">
@@ -17,15 +19,32 @@
     <div id="right-col">
         <div class="content-shell">
             <div class="sticky-head">
-            <!-- Intentional shipped district labeling; do not "correct" this without product approval. -->
-            <div class="ev-marker">Agni District</div>
-            <h1 class="ev-title">CLUB EVENTS</h1>
-            <div class="ev-div"></div>
-            <p class="ev-copy">The Agni district gathers the clubs that give the fest its energy and momentum. Ignite your Intellect or fuel your Creativity—tap any club to reveal the heat they’re bringing to the fest.</p>
+                <!-- Intentional shipped district labeling; do not "correct" this without product approval. -->
+                <div class="ev-marker">Agni District</div>
+                <h1 class="ev-title">CLUB EVENTS</h1>
+                <div class="ev-div"></div>
+                <p class="ev-copy">The Agni district gathers the clubs that give the fest its energy and momentum.
+                    Ignite your Intellect or fuel your Creativity—tap any club to reveal the heat they're bringing to
+                    the fest.</p>
+                <div style="
+                    display: block;
+                    width: fit-content;
+                    margin: 10px auto 0;
+                    padding: 8px 18px;
+                    background: rgba(255, 255, 255, 0.08);
+                    border: 1px solid rgba(255, 255, 255, 0.18);
+                    border-radius: 50px;
+                    font-size: 11px;
+                    font-weight: 700;
+                    color: #ffffff;
+                    letter-spacing: 0.5px;
+                    text-align: center;
+                    text-shadow: 0 0 8px rgba(255,255,255,0.5), 0 0 18px rgba(255,255,255,0.25);
+                ">⚠️ ID Cards are mandatory to attend any competitions or events.</div>
             </div>
             <div class="scroll-body">
-            <div class="clubs-catalog" id="clubs-grid"></div>
-</div>
+                <div class="clubs-catalog" id="clubs-grid"></div>
+            </div>
         </div>
     </div>
     <div class="club-focus-overlay" id="club-focus-overlay"></div>
@@ -33,20 +52,137 @@
 
     <div id="ev-modal">
         <div class="modal-content">
-            <div class="modal-close" id="modal-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12" /></svg></div>
+            <div class="modal-close" id="modal-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg></div>
             <div class="modal-marker">Event Detail</div>
             <h2 class="modal-title" id="m-title">Event Name</h2>
             <div class="modal-grid">
-                <div class="modal-field"><label>Date / Time</label><div class="modal-value modal-value--stacked" id="m-date">-</div></div>
-                <div class="modal-field"><label>Location</label><div class="modal-value" id="m-loc">-</div></div>
-                <div class="modal-field"><label>Prize Pool</label><div class="modal-value" id="m-prize">-</div></div>
-                <div class="modal-field"><label>Contact</label><div class="modal-value modal-value--contacts" id="m-contact">-</div></div>
+                <div class="modal-field"><label>Date / Time</label>
+                    <div class="modal-value modal-value--stacked" id="m-date">-</div>
+                </div>
+                <div class="modal-field"><label>Location</label>
+                    <div class="modal-value" id="m-loc">-</div>
+                </div>
+                <div class="modal-field"><label>Prize Pool</label>
+                    <div class="modal-value" id="m-prize">-</div>
+                </div>
+                <div class="modal-field"><label>Contact</label>
+                    <div class="modal-value modal-value--contacts" id="m-contact">-</div>
+                </div>
             </div>
-            <div class="modal-field modal-field--description"><label>Description</label><div class="modal-value modal-value--description" id="m-desc">-</div></div>
+            <div class="modal-field modal-field--description"><label>Description</label>
+                <div class="modal-value modal-value--description" id="m-desc">-</div>
+            </div>
             <a href="#" class="reg-btn" id="m-link" target="_blank" rel="noopener noreferrer">Register Now</a>
         </div>
     </div>
 
+    <!-- RULES POPUP MODAL -->
+    <div id="rules-overlay" style="
+        position: fixed; inset: 0; z-index: 9999;
+        background: rgba(5, 2, 15, 0.85);
+        backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+        display: flex; align-items: center; justify-content: center;
+        opacity: 0; visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+    ">
+        <div id="rules-modal" style="
+            position: relative;
+            width: 92%; max-width: 520px;
+            background: linear-gradient(160deg, rgba(175, 110, 255, 0.12), rgba(10, 5, 22, 0.95));
+            border: 1px solid rgba(175, 110, 255, 0.28);
+            border-radius: 20px;
+            padding: 32px 28px 28px;
+            color: #fff;
+            font-family: inherit;
+            box-shadow: 0 8px 48px rgba(120, 60, 220, 0.25), 0 0 0 1px rgba(175, 110, 255, 0.08) inset;
+            transform: translateY(24px) scale(0.97);
+            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+        ">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="
+                    font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+                    color: rgba(195, 155, 255, 0.7); margin-bottom: 8px;
+                ">⚠ Mandatory Notice</div>
+                <h2 style="
+                    margin: 0; font-size: 20px; font-weight: 700;
+                    letter-spacing: 1.5px; text-transform: uppercase;
+                    background: linear-gradient(135deg, #d4b0ff, #a06cff);
+                    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                ">Rules &amp; Regulations</h2>
+                <div style="
+                    width: 48px; height: 2px; margin: 10px auto 0;
+                    background: linear-gradient(90deg, transparent, rgba(175, 110, 255, 0.6), transparent);
+                "></div>
+            </div>
+
+            <div style="
+                display: flex; align-items: flex-start; gap: 16px;
+                background: rgba(255, 60, 60, 0.08);
+                border: 1px solid rgba(255, 80, 80, 0.25);
+                border-radius: 14px;
+                padding: 20px;
+            ">
+                <div style="
+                    font-size: 42px; line-height: 1; flex-shrink: 0;
+                    filter: drop-shadow(0 0 8px rgba(255, 200, 50, 0.4));
+                ">⚠️</div>
+                <p style="
+                    margin: 0;
+                    font-size: 17px;
+                    line-height: 1.65;
+                    font-weight: 600;
+                    color: #ffffff;
+                    text-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+                ">ID Cards are mandatory to be worn at all times during the fest. Entry to the campus, competitions,
+                    and star night will be <span style="color: #ff6b6b; font-weight: 700;">strictly prohibited</span>
+                    without a valid College ID Card.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 22px;">
+                <button id="rules-acknowledge-btn" onclick="closeRulesPopup()" style="
+                    padding: 11px 40px;
+                    font-size: 12px; font-weight: 600;
+                    letter-spacing: 2px; text-transform: uppercase;
+                    color: #fff;
+                    background: linear-gradient(135deg, rgba(160, 90, 255, 0.55), rgba(120, 50, 220, 0.7));
+                    border: 1px solid rgba(175, 110, 255, 0.4);
+                    border-radius: 10px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    font-family: inherit;
+                ">I Acknowledge</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function closeRulesPopup() {
+            var o = document.getElementById('rules-overlay'), m = document.getElementById('rules-modal');
+            m.style.transform = 'translateY(24px) scale(0.97)';
+            o.style.opacity = '0'; o.style.visibility = 'hidden';
+            try { localStorage.setItem('ck2_rules_ack', '1'); } catch (e) { }
+        }
+        window.addEventListener('load', function () {
+            try { if (localStorage.getItem('ck2_rules_ack') === '1') return; } catch (e) { }
+            setTimeout(function () {
+                var o = document.getElementById('rules-overlay'), m = document.getElementById('rules-modal');
+                o.style.opacity = '1'; o.style.visibility = 'visible';
+                m.style.transform = 'translateY(0) scale(1)';
+            }, 1500);
+        });
+        document.getElementById('rules-overlay').addEventListener('click', function (e) { if (e.target === this) closeRulesPopup(); });
+        (function () {
+            var btn = document.getElementById('rules-acknowledge-btn');
+            btn.addEventListener('mouseenter', function () { btn.style.background = 'linear-gradient(135deg, rgba(175,110,255,0.75), rgba(140,70,240,0.9))'; btn.style.boxShadow = '0 0 20px rgba(160,100,255,0.35)'; });
+            btn.addEventListener('mouseleave', function () { btn.style.background = 'linear-gradient(135deg, rgba(160,90,255,0.55), rgba(120,50,220,0.7))'; btn.style.boxShadow = 'none'; });
+        })();
+    </script>
+
     <script src="/earth/index.js"></script>
 </body>
+
 </html>

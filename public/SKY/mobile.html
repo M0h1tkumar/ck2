@@ -23,9 +23,24 @@
                 <h1 class="ev-title">ABOUT</h1>
                 <div class="ev-div"></div>
                 <p class="ev-copy">ITER, Siksha 'O' Anusandhan (SOA) Deemed to be University, Bhubaneswar, is a leading institution in India with strong academic breadth and national recognition.</p>
+                <div style="
+                    display: block;
+                    width: fit-content;
+                    margin: 10px auto 0;
+                    padding: 8px 18px;
+                    background: rgba(255, 255, 255, 0.08);
+                    border: 1px solid rgba(255, 255, 255, 0.18);
+                    border-radius: 50px;
+                    font-size: 11px;
+                    font-weight: 700;
+                    color: #ffffff;
+                    letter-spacing: 0.5px;
+                    text-align: center;
+                    text-shadow: 0 0 8px rgba(255,255,255,0.5), 0 0 18px rgba(255,255,255,0.25);
+                ">⚠️ ID Cards are mandatory to attend any competitions or events.</div>
             </div>
 
-            <div class="scroll-body">
+            <!-- <div class="scroll-body">
                 <section class="vision-panel">
                     <div class="section-kicker">About</div>
                     <p class="section-copy">ITER, Siksha 'O' Anusandhan (SOA) Deemed to be University, Bhubaneswar, established under Section 3 of the UGC Act, 1956, is a leading institution in India.</p>
@@ -102,7 +117,7 @@
                             </div>
                         </article>
                     </div>
-                </section>
+                </section> -->
             
 <!-- CONTACT BLOCK START -->
 <section class="contact-block" style="margin: 2rem auto; padding: 1.5rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); width: 100%; max-width: 600px;">
@@ -123,6 +138,108 @@
         </div>
     </div>
 
+    <!-- RULES POPUP MODAL -->
+    <div id="rules-overlay" style="
+        position: fixed; inset: 0; z-index: 9999;
+        background: rgba(5, 2, 15, 0.85);
+        backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+        display: flex; align-items: center; justify-content: center;
+        opacity: 0; visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+    ">
+        <div id="rules-modal" style="
+            position: relative;
+            width: 92%; max-width: 520px;
+            background: linear-gradient(160deg, rgba(175, 110, 255, 0.12), rgba(10, 5, 22, 0.95));
+            border: 1px solid rgba(175, 110, 255, 0.28);
+            border-radius: 20px;
+            padding: 32px 28px 28px;
+            color: #fff;
+            font-family: inherit;
+            box-shadow: 0 8px 48px rgba(120, 60, 220, 0.25), 0 0 0 1px rgba(175, 110, 255, 0.08) inset;
+            transform: translateY(24px) scale(0.97);
+            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+        ">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="
+                    font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+                    color: rgba(195, 155, 255, 0.7); margin-bottom: 8px;
+                ">⚠ Mandatory Notice</div>
+                <h2 style="
+                    margin: 0; font-size: 20px; font-weight: 700;
+                    letter-spacing: 1.5px; text-transform: uppercase;
+                    background: linear-gradient(135deg, #d4b0ff, #a06cff);
+                    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                ">Rules &amp; Regulations</h2>
+                <div style="
+                    width: 48px; height: 2px; margin: 10px auto 0;
+                    background: linear-gradient(90deg, transparent, rgba(175, 110, 255, 0.6), transparent);
+                "></div>
+            </div>
+
+            <div style="
+                display: flex; align-items: flex-start; gap: 16px;
+                background: rgba(255, 60, 60, 0.08);
+                border: 1px solid rgba(255, 80, 80, 0.25);
+                border-radius: 14px;
+                padding: 20px;
+            ">
+                <div style="
+                    font-size: 42px; line-height: 1; flex-shrink: 0;
+                    filter: drop-shadow(0 0 8px rgba(255, 200, 50, 0.4));
+                ">⚠️</div>
+                <p style="
+                    margin: 0;
+                    font-size: 17px;
+                    line-height: 1.65;
+                    font-weight: 600;
+                    color: #ffffff;
+                    text-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+                ">ID Cards are mandatory to be worn at all times during the fest. Entry to the campus, competitions,
+                    and star night will be <span style="color: #ff6b6b; font-weight: 700;">strictly prohibited</span>
+                    without a valid College ID Card.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 22px;">
+                <button id="rules-acknowledge-btn" onclick="closeRulesPopup()" style="
+                    padding: 11px 40px;
+                    font-size: 12px; font-weight: 600;
+                    letter-spacing: 2px; text-transform: uppercase;
+                    color: #fff;
+                    background: linear-gradient(135deg, rgba(160, 90, 255, 0.55), rgba(120, 50, 220, 0.7));
+                    border: 1px solid rgba(175, 110, 255, 0.4);
+                    border-radius: 10px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    font-family: inherit;
+                ">I Acknowledge</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function closeRulesPopup() {
+            var o = document.getElementById('rules-overlay'), m = document.getElementById('rules-modal');
+            m.style.transform = 'translateY(24px) scale(0.97)';
+            o.style.opacity = '0'; o.style.visibility = 'hidden';
+            try { localStorage.setItem('ck2_rules_ack', '1'); } catch (e) { }
+        }
+        window.addEventListener('load', function () {
+            try { if (localStorage.getItem('ck2_rules_ack') === '1') return; } catch (e) { }
+            setTimeout(function () {
+                var o = document.getElementById('rules-overlay'), m = document.getElementById('rules-modal');
+                o.style.opacity = '1'; o.style.visibility = 'visible';
+                m.style.transform = 'translateY(0) scale(1)';
+            }, 1500);
+        });
+        document.getElementById('rules-overlay').addEventListener('click', function (e) { if (e.target === this) closeRulesPopup(); });
+        (function () {
+            var btn = document.getElementById('rules-acknowledge-btn');
+            btn.addEventListener('mouseenter', function () { btn.style.background = 'linear-gradient(135deg, rgba(175,110,255,0.75), rgba(140,70,240,0.9))'; btn.style.boxShadow = '0 0 20px rgba(160,100,255,0.35)'; });
+            btn.addEventListener('mouseleave', function () { btn.style.background = 'linear-gradient(135deg, rgba(160,90,255,0.55), rgba(120,50,220,0.7))'; btn.style.boxShadow = 'none'; });
+        })();
+    </script>
     <script src="/shared/mobile-viewport.js"></script>
     <script src="/SKY/mobile.js"></script>
 </body>
