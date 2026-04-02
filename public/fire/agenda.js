@@ -248,8 +248,27 @@
           )
           .join('');
 
+        let extraBlob = '';
+        if (day.key === 'day-3') {
+          extraBlob = `
+            <div style="
+                margin-bottom: 24px;
+                padding: 12px 18px;
+                background: rgba(255, 156, 96, 0.1);
+                border: 1px solid rgba(255, 156, 96, 0.25);
+                border-radius: 12px;
+                text-align: center;
+                color: #ffd9b0;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+            ">🎬 Dress Code for Day 3: <span style="font-weight: 800; color: #ffb27a;">Bollywood Inspired</span></div>
+          `;
+        }
+
         return `
           <section class="day-bucket${index === 0 ? ' active' : ''}" id="${escapeHtml(day.key)}">
+            ${extraBlob}
             ${groupsMarkup}
           </section>
         `;
