@@ -1,11 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Serif } from "next/font/google";
 import "./globals.css";
-
-const notoSerif = Noto_Serif({
-  subsets: ["latin"],
-  weight: ["400", "700", "900"],
-});
 
 export const metadata: Metadata = {
   title: "CHAKRAVYUH & GENESIS 2K26",
@@ -19,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${notoSerif.className}`}>
+    <html lang="en" className="dark">
       <body>{children}</body>
     </html>
   );

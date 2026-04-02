@@ -1,4 +1,4 @@
-// SKY / AKASH — Violet Cosmic Orb Animation
+// SKY / AKASH - Violet Cosmic Orb Animation
 const character = document.getElementById('character');
 const canvas = document.getElementById('orb-canvas');
 const ctx = canvas.getContext('2d');

@@ -155,7 +155,7 @@ body {
   transition: filter 0.3s ease;
 }
 
-/* Genesis logo — larger on desktop */
+/* Genesis logo - larger on desktop */
 .logo-img-lg {
   width: 96px;
   height: 96px;
@@ -254,7 +254,7 @@ body {
 }
 
 /* ─────────────────────────────────────
-   RESPONSIVE — Tablets & small laptops
+   RESPONSIVE - Tablets & small laptops
    ───────────────────────────────────── */
 @media (max-width: 768px) {
   .logo-overlay {
@@ -310,7 +310,7 @@ body {
 }
 
 /* ─────────────────────────────────────
-   RESPONSIVE — Standard phones (≤480px)
+   RESPONSIVE - Standard phones (≤480px)
    ───────────────────────────────────── */
 @media (max-width: 480px) {
   .logo-overlay {
@@ -373,7 +373,7 @@ body {
 }
 
 /* ─────────────────────────────────────
-   RESPONSIVE — Small phones (≤375px)
+   RESPONSIVE - Small phones (≤375px)
    (iPhone SE, Galaxy S series, etc.)
    ───────────────────────────────────── */
 @media (max-width: 375px) {
@@ -430,7 +430,7 @@ body {
 }
 
 /* ─────────────────────────────────────
-   RESPONSIVE — Very small phones (≤320px)
+   RESPONSIVE - Very small phones (≤320px)
    (iPhone 5/SE 1st gen, Galaxy Fold, etc.)
    ───────────────────────────────────── */
 @media (max-width: 320px) {
