@@ -1,7 +1,7 @@
 {
   "district": "earth",
-  "title": "Chakravyuh 2K26 Master Schedule",
-  "description": "Comprehensive schedule for all club events across technical, cultural, and literary domains.",
+  "title": "Chakravyuh 2K26 Final Results",
+  "description": "Official winner list for all club events across technical, cultural, and literary domains.",
   "clubs": [
     {
       "id": "iec",
@@ -12,22 +12,51 @@
         {
           "name": "The ScratchLabs",
           "description": "A 2-day startup simulation where teams of two tackle curated problem statements and use design thinking to create innovative solutions.",
-          "link": "https://www.ecellsoa.in/scratchlabs",
           "date": "03/04/2026 & 04/04/2026",
           "time": "8:00 AM - 11:00 AM",
           "location": "E-114",
           "prize": "6000",
-          "contact": "Kiran Panigrahi (8917616478), Pratikshya Dash (8260703387), Arnab Sahoo (9439140077)"
+          "contact": "Kiran Panigrahi (8917616478), Pratikshya Dash (8260703387), Arnab Sahoo (9439140077)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "E-corp (Avijit Chowdhury & Waiz Mirza)"
+            },
+            {
+              "rank": "2nd",
+              "name": "Starpurpose (Jibitesh Kumar Mishra, Tribhuwan Singh)"
+            },
+            {
+              "rank": "3rd",
+              "name": "CampusBite (Mausumi Nanda, Shreeja Sayena)"
+            }
+          ]
         },
         {
           "name": "The Ai Tribunal",
           "description": "A courtroom-style simulation where participants debate the ethics, impact, and reality of AI through structured arguments.",
-          "link": "https://www.ecellsoa.in/ai-tribunal",
           "date": "05/04/2026",
           "time": "8:00 AM Onwards",
           "location": "E-013",
           "prize": "6000",
-          "contact": "Kiran Panigrahi (8917616478), Pratikshya Dash (8260703387), Abhinav (9142345529)"
+          "contact": "Kiran Panigrahi (8917616478), Pratikshya Dash (8260703387), Abhinav (9142345529)",
+          "winners": [
+            {
+              "rank": "1st",
+              "award": "Best Delegate",
+              "name": "Aniket Khatua"
+            },
+            {
+              "rank": "2nd",
+              "award": "High Commendation",
+              "name": "Akankshya Jena"
+            },
+            {
+              "rank": "3rd",
+              "award": "Special Mention",
+              "name": "Aratrika Chaudhury"
+            }
+          ]
         }
       ]
     },
@@ -40,22 +69,48 @@
         {
           "name": "CineFolie",
           "description": "Theme provided on the spot. Video shot in campus based on theme. Max 5 participants per team.",
-          "link": "https://forms.gle/AzZNaPHnAsFKCYfU6",
           "date": "04/04/2026",
           "time": "8:00 AM Onwards",
           "location": "E-013",
           "prize": "6000",
-          "contact": "Akankshya Sahoo (7978562260), Abhisek Jena (7978836374)"
+          "contact": "Akankshya Sahoo (7978562260), Abhisek Jena (7978836374)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Cinedawgs"
+            },
+            {
+              "rank": "2nd",
+              "name": "Soulscape Films"
+            },
+            {
+              "rank": "3rd",
+              "name": "Akankshya Sahoo & Team"
+            }
+          ]
         },
         {
           "name": "Color-E-Pic",
           "description": "Participants capture photos based on a given color theme to make a story. Max 3 participants.",
-          "link": "https://forms.gle/AzZNaPHnAsFKCYfU6",
           "date": "05/04/2026",
           "time": "8:00 AM Onwards",
           "location": "E-311",
           "prize": "6000",
-          "contact": "Akankshya Sahoo (7978562260), Abhisek Jena (7978836374)"
+          "contact": "Akankshya Sahoo (7978562260), Abhisek Jena (7978836374)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Shutter-stocks"
+            },
+            {
+              "rank": "2nd",
+              "name": "Team White"
+            },
+            {
+              "rank": "3rd",
+              "name": "Team Sharks"
+            }
+          ]
         }
       ]
     },
@@ -66,24 +121,61 @@
       "logo": "/Club Logo/DANZA.png",
       "events": [
         {
-          "name": "Beat Drop Arena",
-          "description": "Solo-Spctra, Duo-xtra (Solo, duo western dance competitions). High-energy rhythmic performance.",
-          "link": "https://forms.gle/VCn9V7NGJcRcg3so8",
-          "date": "04/04/2026",
-          "time": "11:30 AM - 2:30 PM",
-          "location": "Auditorium A",
-          "prize": "9000",
-          "contact": "Pratikshya Dash (8260703387), Baishali Das (9777809498), Sadeepan Panda (7605992175)"
-        },
-        {
           "name": "Apex Arena",
           "description": "Solo Dance Battle (An electrifying solo battle). The final stage for elite solo dancers.",
-          "link": "https://forms.gle/gPztEAjhfp2V8yoR8",
           "date": "05/04/2026",
           "time": "8:00 AM Onwards",
           "location": "C-Block Gallery",
           "prize": "3000",
-          "contact": "Pratikshya Dash (8260703387), Baishali Das (9777809498), Sadeepan Panda (7605992175)"
+          "contact": "Pratikshya Dash (8260703387), Baishali Das (9777809498), Sadeepan Panda (7605992175)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Anurag Majumdar"
+            }
+          ]
+        },
+        {
+          "name": "Beat Drop Arena (Solo-Spctra)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Tanmaya Sahu"
+            },
+            {
+              "rank": "2nd",
+              "name": "Nitish Kumar Patra"
+            },
+            {
+              "rank": "3rd",
+              "name": "Maithili Bose"
+            }
+          ],
+          "description": "Western dance competition. Solo/Duo categories.",
+          "date": "04/04/2026",
+          "time": "11:30 AM Onwards",
+          "location": "C-Block Gallery",
+          "prize": "6000",
+          "contact": "Pratikshya Dash (8260703387), Baishali Das (9777809498)"
+        },
+        {
+          "name": "Beat Drop Arena (Duo-Xtra)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Susmita Pradhan & Khubi Kumari"
+            },
+            {
+              "rank": "2nd",
+              "name": "Mirza Farhan & Himesh Nayak"
+            }
+          ],
+          "description": "Western dance competition. Solo/Duo categories.",
+          "date": "04/04/2026",
+          "time": "11:30 AM Onwards",
+          "location": "C-Block Gallery",
+          "prize": "6000",
+          "contact": "Pratikshya Dash (8260703387), Baishali Das (9777809498)"
         }
       ]
     },
@@ -96,22 +188,44 @@
         {
           "name": "Techwiz 3.0",
           "description": "Technical quiz and problem-solving event. Final round involves advanced questions.",
-          "link": "https://forms.gle/j6pXM9Wv487WnEKZ6",
           "date": "04/04/2026",
           "time": "8:00 AM - 11:00 AM",
           "location": "Auditorium A",
           "prize": "6000",
-          "contact": "P Sai Krishna (7205433228)"
+          "contact": "P Sai Krishna (7205433228)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Spartans (Subroto Sharma, Gaurav Singh)"
+            },
+            {
+              "rank": "2nd",
+              "name": "Collision (Shree Guha, Saipriya Gouda)"
+            },
+            {
+              "rank": "3rd",
+              "name": "Code Titans (Priyanshu Jena, Ajay Kumar Ghosh)"
+            }
+          ]
         },
         {
           "name": "Hypocrisy 2.0 (Collab with SLC)",
           "description": "A Turn-Coat Debate where teams of two defend and oppose a motion.",
-          "link": "https://forms.gle/wK1a6ZsYs2wGEmts7",
           "date": "03/04/2026",
           "time": "11:30 AM - 2:30 PM",
           "location": "E-114",
           "prize": "18000",
-          "contact": "Rohit Gupta: +91 6206487031, Akash Raj: +91 7488901482"
+          "contact": "Rohit Gupta: +91 6206487031, Akash Raj: +91 7488901482",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Dibyajyoti Pal & Aratrika Chaudhury"
+            },
+            {
+              "rank": "2nd",
+              "name": "Yuvraj Singh & Aditya Biswabandhu"
+            }
+          ]
         }
       ]
     },
@@ -124,22 +238,48 @@
         {
           "name": "Zer0ne",
           "description": "ZerOne is a CTF event focused on cyber and data challenges that test real-world problem-solving under pressure.",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLSfD9PRA9bLdxP-27C_gFCUIGQ7ZwfkQHqdjHYcAZM946joSTw/viewform?usp=header",
           "date": "03/04/2026",
           "time": "8:00 AM Onwards",
           "location": "C-004 & C-005",
           "prize": "6000",
-          "contact": "Subasis Mishra (9078912431), Mukesh kumar Padhi (8260646315)"
+          "contact": "Subasis Mishra (9078912431), Mukesh kumar Padhi (8260646315)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Team Decrypt (Ahinsa Mohanty, Souhardya Banarjee, Saummya Swaroop)"
+            },
+            {
+              "rank": "2nd",
+              "name": "Abhimanyu (Subhransu Kumar Panda, Sanurag Nandi, Subhajyoti Dey)"
+            },
+            {
+              "rank": "3rd",
+              "name": "Plaint3xt (Ritu Dey, Soumyaranjan Mohanta, Manish Prakash Sahu)"
+            }
+          ]
         },
         {
           "name": "Rachitva",
           "description": "Impromptu design and communication skills competition ending in a professional pitch.",
-          "link": "https://forms.gle/qGcGJ9ApYBzZqGfx5",
           "date": "05/04/2026",
           "time": "8:00 AM Onwards",
           "location": "E-414",
           "prize": "6000",
-          "contact": "Subasis Mishra (9078912431), Mukesh kumar Padhi (8260646315)"
+          "contact": "Subasis Mishra (9078912431), Mukesh kumar Padhi (8260646315)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Akela Kaafi Hoo(Akash Raj)"
+            },
+            {
+              "rank": "2nd",
+              "name": "AR Elite (Abinash Das, Rudra Narayan Nahak)"
+            },
+            {
+              "rank": "3rd",
+              "name": "Team 2214310330 (Sanyukt Ku Rai, Omkar Acharya, Jay Dev Das)"
+            }
+          ]
         }
       ]
     },
@@ -152,22 +292,40 @@
         {
           "name": "Dart-E-Dil Returns",
           "description": "A high-energy team challenge where dart meets DAMSHARAS, Hit the center for the easiest charades, the middle for a fun twist, and the outer ring for the toughest acts!",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLScn5T6V4c6dPucJfCwuedQurWL143vNkmzUmJM7gTPLGWGCoQ/viewform",
           "date": "04/04/2026",
           "time": "8:00 AM Onwards",
           "location": "E-Block Lawn",
           "prize": "6000",
-          "contact": "Barsha Rani Sahoo (7846976597), Arkadeep Karmakar (8967367392)"
+          "contact": "Barsha Rani Sahoo (7846976597), Arkadeep Karmakar (8967367392)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Shreya Kumari, Anahita Singh, Ambika, Somi Khushi, Bishnupriya Pradhan"
+            }
+          ]
         },
         {
           "name": "Asli Dhurandhar Kaun?",
           "description": "Welcome to ASLI DHURANDHAR KAUN, where strangers become teams and every round is all about fun and laughter... From the suspense of Who's the Spy, to the thrill of Squid Game, and a surprise twist...",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5BplXXXwLiNqQK7Ant1Duppef713OE2uVr6KDbEcK-zlg-A/viewform",
           "date": "03/04/2026",
           "time": "8:00 AM Onwards",
           "location": "E-314 & E-321",
           "prize": "6000",
-          "contact": "Barsha Rani Sahoo (7846976597), Arkadeep Karmakar (8967367392)"
+          "contact": "Barsha Rani Sahoo (7846976597), Arkadeep Karmakar (8967367392)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Gourav Chaturvedi"
+            },
+            {
+              "rank": "2nd",
+              "name": "Mrudula Gulhane"
+            },
+            {
+              "rank": "3rd",
+              "name": "Nakul S Deshmukh"
+            }
+          ]
         }
       ]
     },
@@ -180,22 +338,48 @@
         {
           "name": "Medha Manthan",
           "description": "Individual quiz testing presence of mind on GK, arts, and communication.",
-          "link": "https://forms.gle/fyyLKu2Z1Aog3JQp6",
           "date": "03/04/2026",
           "time": "8:00 AM Onwards",
           "location": "E-515",
           "prize": "6000",
-          "contact": "Devanshu Singh (9427550414), Ansh Gupta (6207304254)"
+          "contact": "Devanshu Singh (9427550414), Ansh Gupta (6207304254)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Ayush Tripathi"
+            },
+            {
+              "rank": "2nd",
+              "name": "Soham Banerjee"
+            },
+            {
+              "rank": "3rd",
+              "name": "Ayush Kumar"
+            }
+          ]
         },
         {
           "name": "Anant Chakra (Collab with Codex)",
           "description": "Agentic AI Systems & Policy Design Challenge.",
-          "link": "https://forms.gle/vsjwj4S3ViPuq9A56",
           "date": "04/04/2026",
           "time": "8:00 AM Onwards",
           "location": "C-204 & C-210",
           "prize": "6000",
-          "contact": "Devanshu Singh (9427550414), Ansh Gupta (6207304254)"
+          "contact": "Devanshu Singh (9427550414), Ansh Gupta (6207304254)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Abhiranjan Kumar, Ayush Raj Chourasia, Tribhuwan Singh, Shreeya Rani Das"
+            },
+            {
+              "rank": "2nd",
+              "name": "Avanish Padhy, Arpita Padhi, Stuti Mohapatra, Satya Ranjan Kar"
+            },
+            {
+              "rank": "3rd",
+              "name": "Dibyanshu Tripathy, Aryan Mishra, Debopriyo Roy, Aniket Roy"
+            }
+          ]
         }
       ]
     },
@@ -208,22 +392,48 @@
         {
           "name": "Coders in Borderland",
           "description": "Story-based technical event testing coding, logic, and strategy.",
-          "link": "https://forms.gle/aQTy71dWyf5YQpiT6",
           "date": "05/04/2026",
           "time": "8:00 AM Onwards",
           "location": "C-204 & C-210",
           "prize": "6000",
-          "contact": "Ayush K Tripathi (8932899372), Pritish Biswas (9801334862)"
+          "contact": "Ayush K Tripathi (8932899372), Pritish Biswas (9801334862)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Jayita Mandal"
+            },
+            {
+              "rank": "2nd",
+              "name": "Harsh Garg"
+            },
+            {
+              "rank": "3rd",
+              "name": "Rashmi Anand"
+            }
+          ]
         },
         {
           "name": "Anant Chakra (Collab with SEC)",
           "description": "Agentic AI Systems & Policy Design Challenge.",
-          "link": "https://forms.gle/vsjwj4S3ViPuq9A56",
           "date": "04/04/2026",
           "time": "8:00 AM Onwards",
           "location": "C-204 & C-210",
           "prize": "6000",
-          "contact": "Devanshu Singh (9427550414), Ansh Gupta (6207304254)"
+          "contact": "Devanshu Singh (9427550414), Ansh Gupta (6207304254)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Abhiranjan Kumar, Ayush Raj Chourasia, Tribhuwan Singh, Shreeya Rani Das"
+            },
+            {
+              "rank": "2nd",
+              "name": "Avanish Padhy, Arpita Padhi, Stuti Mohapatra, Satya Ranjan Kar"
+            },
+            {
+              "rank": "3rd",
+              "name": "Dibyanshu Tripathy, Aryan Mishra, Debopriyo Roy, Aniket Roy"
+            }
+          ]
         }
       ]
     },
@@ -236,12 +446,25 @@
         {
           "name": "Natya Katha",
           "description": "Solo Dance Competition based on storytelling using a mystery prop.",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLSfOFwnyNAPFsOsS8x2bOhFEUASmFRAojNvToBvCuXe49prEwA/viewform?usp=dialog",
           "date": "05/04/2026",
           "time": "12:00 PM - 2:30 PM",
           "location": "Auditorium A",
           "prize": "6000",
-          "contact": "Abhinna Patnaik (9439450723), Shayan Shekhar Paul (9431211044)"
+          "contact": "Abhinna Patnaik (9439450723), Shayan Shekhar Paul (9431211044)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Shreyashri Pattanaik & Akankshya Acharya"
+            },
+            {
+              "rank": "2nd",
+              "name": "Ananya Chandra & Srija Adhikari"
+            },
+            {
+              "rank": "3rd",
+              "name": "Puspanjali Nayak"
+            }
+          ]
         }
       ]
     },
@@ -252,24 +475,72 @@
       "logo": "/Club Logo/SOA MUSIC CLUB.png",
       "events": [
         {
-          "name": "Naghma",
-          "description": "Opportunity for singers and instrumentalists to showcase classical or western musical skills.",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLSecL5NUCRXqNh1zYXkIq4LfJtL-WvbrJLJd2yaTIFruUqsZzQ/viewform?usp=publish-editor",
-          "date": "05/04/2026",
-          "time": "8:00 AM - 11:00 AM",
+          "name": "Solo Singing (Naghma)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Shweta Ghosh"
+            },
+            {
+              "rank": "2nd",
+              "name": "Rudra madhab madala"
+            }
+          ],
+          "description": "Opportunity for singers and instrumentalists to showcase their mastery.",
+          "date": "03/04/2026",
+          "time": "8:00 AM Onwards",
           "location": "Auditorium A",
           "prize": "6000",
-          "contact": "Nisith Ghadai (9437704064), Ankit Kumar (8709554631)"
+          "contact": "Devanshu Singh (9427550414), Ansh Gupta (6207304254)"
         },
         {
-          "name": "Beatsync",
-          "description": "Dynamic platform for participants to showcase hip-hop talents through rap and beatboxing.",
-          "link": "https://forms.gle/a7dpXzMyn4SiFkxZ6",
-          "date": "05/04/2026",
-          "time": "11:00 AM - 2:00 PM",
+          "name": "Solo Instrumental (Naghma)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Arijit Lye"
+            },
+            {
+              "rank": "2nd",
+              "name": "Nishant Mohapatra"
+            }
+          ],
+          "description": "Opportunity for singers and instrumentalists to showcase their mastery.",
+          "date": "03/04/2026",
+          "time": "8:00 AM Onwards",
           "location": "Auditorium A",
           "prize": "6000",
-          "contact": "Tshewang Lama (8910282150), Sidharth Aryaman (9556125462)"
+          "contact": "Devanshu Singh (9427550414), Ansh Gupta (6207304254)"
+        },
+        {
+          "name": "Beatbox Battle (Beatsync)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Tshewang Tashi Lama"
+            }
+          ],
+          "description": "Dynamic platform for participants to showcase hip-hop talents like rap and beatboxing.",
+          "date": "04/04/2026",
+          "time": "8:00 AM Onwards",
+          "location": "Auditorium A",
+          "prize": "6000",
+          "contact": "Devanshu Singh (9427550414), Ansh Gupta (6207304254)"
+        },
+        {
+          "name": "Rap Showcase (Beatsync)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Sidharth Aryaman"
+            }
+          ],
+          "description": "Dynamic platform for participants to showcase hip-hop talents like rap and beatboxing.",
+          "date": "04/04/2026",
+          "time": "8:00 AM Onwards",
+          "location": "Auditorium A",
+          "prize": "6000",
+          "contact": "Devanshu Singh (9427550414), Ansh Gupta (6207304254)"
         }
       ]
     },
@@ -282,22 +553,48 @@
         {
           "name": "Earthen Expressions",
           "description": "A Pot Painting Competition. Individual participation.",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLSdPBqsqKXqZdXHTgefzyT__ba28bxx9CkIMp9c2FGSH_s4VZg/viewform?usp=dialog",
           "date": "03/04/2026",
           "time": "8:00 AM Onwards",
           "location": "Auditorium C",
           "prize": "6000",
-          "contact": "Divyangi (8260594909), Pratishtha (8372985008)"
+          "contact": "Divyangi (8260594909), Pratishtha (8372985008)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Sayan Das"
+            },
+            {
+              "rank": "2nd",
+              "name": "Aditya Prasad Jena"
+            },
+            {
+              "rank": "3rd",
+              "name": "Abinash Dash"
+            }
+          ]
         },
         {
           "name": "Nishaan-e-Hunr",
           "description": "Body Safe Sketch, Tattoo creating competition.",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnny-IdlDMOgInN_nIE99xd_4l2CSa60RHqLwa6E6yj1xZHw/viewform?usp=dialog",
           "date": "05/04/2026",
           "time": "8:00 AM Onwards",
           "location": "Auditorium D",
           "prize": "6000",
-          "contact": "Divyangi (8260594909), Pratishtha (8372985008)"
+          "contact": "Divyangi (8260594909), Pratishtha (8372985008)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Yash Raj Jaiswal"
+            },
+            {
+              "rank": "2nd",
+              "name": "Arya Tiwari"
+            },
+            {
+              "rank": "3rd",
+              "name": "Ayush Kumar"
+            }
+          ]
         }
       ]
     },
@@ -310,22 +607,44 @@
         {
           "name": "Hypocrisy ki bhi seema hoti hai 2.0",
           "description": "A Turn-Coat Debate where teams of two defend and oppose a motion.",
-          "link": "https://forms.gle/wK1a6ZsYs2wGEmts7",
           "date": "03/04/2026",
           "time": "11:30 AM - 2:30 PM",
           "location": "E-114",
           "prize": "18000",
-          "contact": "Monalisha (6372921332), Ashish (7205691104)"
+          "contact": "Monalisha (6372921332), Ashish (7205691104)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Dibyajyoti Pal & Aratrika Chaudhury"
+            },
+            {
+              "rank": "2nd",
+              "name": "Yuvraj Singh & Aditya Biswabandhu"
+            }
+          ]
         },
         {
           "name": "ReCast",
           "description": "Twisted Declamation reimaging well-known pieces with alternate endings.",
-          "link": "https://forms.gle/7BUqqgMvDSJkdMAY7",
           "date": "05/04/2026",
           "time": "8:00 AM Onwards",
           "location": "E-114",
           "prize": "6000",
-          "contact": "Rohit Gupta: +91 6206487031, Akash Raj: +91 7488901482"
+          "contact": "Rohit Gupta: +91 6206487031, Akash Raj: +91 7488901482",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Aratrika Chaudhury"
+            },
+            {
+              "rank": "2nd",
+              "name": "Vaibhav Krishnan"
+            },
+            {
+              "rank": "3rd",
+              "name": "Deb Shankar Mitra"
+            }
+          ]
         }
       ]
     },
@@ -337,7 +656,7 @@
       "events": [
         {
           "name": "Takhleeqi",
-          "description": "Character nahi… poora Bollywood moment bano!",
+          "description": "Character nahi\u2026 poora Bollywood moment bano!",
           "link": "https://forms.gle/VJPNyLQPQJwmt9BQ7",
           "date": "05/04/2026",
           "time": "8:00 AM Onwards",
@@ -366,22 +685,48 @@
         {
           "name": "Robo Race",
           "description": "Build and race a robot through an obstacle-filled track.",
-          "link": "https://chakravyuh.iterroboticsclub.com/",
           "date": "03/04/2026",
           "time": "8:00 AM - 11:00 AM",
           "location": "E-Block Gallery",
           "prize": "6000",
-          "contact": "Priyanshu Kumar Jena (7682943276), Sairush Sahoo (6371193620)"
+          "contact": "Priyanshu Kumar Jena (7682943276), Sairush Sahoo (6371193620)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Anshuman Barik, Jasmine Jayasmita"
+            },
+            {
+              "rank": "2nd",
+              "name": "Saumya Kumari, Tanya Sinha, Muskan Gupta, Sushree Sudipta Jena"
+            },
+            {
+              "rank": "3rd",
+              "name": "Ansuman Behera, Naibedya Rath, Padmashree Sahoo, Debashis Sahoo"
+            }
+          ]
         },
         {
           "name": "Bot Fc",
           "description": "Compete in robotic football where bots battle to score goals.",
-          "link": "https://chakravyuh.iterroboticsclub.com/",
           "date": "05/04/2026",
           "time": "8:00 AM - 11:00 AM",
           "location": "E-Block Gallery",
           "prize": "6000",
-          "contact": "Priyanshu Kumar Jena (7682943276), Sairush Sahoo (6371193620)"
+          "contact": "Priyanshu Kumar Jena (7682943276), Sairush Sahoo (6371193620)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Anshuman Behera, Naibedya Rath"
+            },
+            {
+              "rank": "2nd",
+              "name": "Aditya Parida, Ankit Raj"
+            },
+            {
+              "rank": "3rd",
+              "name": "Jasmine Jayasmita, Anshuman Barik"
+            }
+          ]
         }
       ]
     },
@@ -394,22 +739,48 @@
         {
           "name": "Aero Innovation",
           "description": "Pilot a hovercraft across mixed terrain navigating obstacles.",
-          "link": "https://forms.gle/PkSf2z53TY9ugiY66",
           "date": "03/04/2026",
           "time": "8:00 AM - 11:00 AM",
           "location": "E-Block Lawn",
           "prize": "6000",
-          "contact": "Priyanshu Kumar Jena (7682943276), Aman Kashyap (7209287279)"
+          "contact": "Priyanshu Kumar Jena (7682943276), Aman Kashyap (7209287279)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Jay Kumar, Anmol Singh, Adarsh Anand"
+            },
+            {
+              "rank": "2nd",
+              "name": "Snigdha Pandey, Disha Khawas, Abhijeet Singh"
+            },
+            {
+              "rank": "3rd",
+              "name": "Arpit Rout, Avanish Mohanta, Mayank Pradhan, Sourav Mishra"
+            }
+          ]
         },
         {
           "name": "HoverMania",
           "description": "Guide a drone through challenges and drop an egg safely.",
-          "link": "https://forms.gle/JiduigP5AFudrZwn7",
           "date": "04/04/2026",
           "time": "8:00 AM - 11:00 AM",
           "location": "C-Block Gallery",
           "prize": "6000",
-          "contact": "Priyanshu Kumar Jena (7682943276), Aman Kashyap (7209287279)"
+          "contact": "Priyanshu Kumar Jena (7682943276), Aman Kashyap (7209287279)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Arpit Rout"
+            },
+            {
+              "rank": "2nd",
+              "name": "Anshuman Barik, Jasmine Jayasmita"
+            },
+            {
+              "rank": "3rd",
+              "name": "Shaurya Salona, Khwahish Agarwal"
+            }
+          ]
         }
       ]
     },
@@ -422,21 +793,47 @@
         {
           "name": "Mr. and Miss ITER",
           "description": "Personality and talent-based competition involving walk and talent rounds.",
-          "link": "https://forms.gle/NRxgUmQPDqmMRgx88",
           "date": "03/04/2026",
           "time": "11:30 AM - 2:30 PM",
           "location": "Auditorium A",
           "prize": "6000",
-          "contact": "Diya (9337959478), Sriya (9437456416)"
+          "contact": "Diya (9337959478), Sriya (9437456416)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Ansuman Nayak & Ankita Khatua"
+            }
+          ]
         },
         {
           "name": "Fashion Face-Off",
           "description": "Competition for designers and makeup artists to showcase complete looks.",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLSfWhsoYQcRrIcg_xeUA5KC0I1XE3VCXaVm8kiXXzYMa-HOjkA/viewform",
           "date": "04/04/2026",
           "time": "8:00 AM Onwards",
           "location": "E-414",
           "prize": "6000",
+          "contact": "Diya (9337959478), Sriya (9437456416)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Amit Kumar Baliarsingh & Tanushri Rana"
+            }
+          ]
+        },
+        {
+          "name": "Physitron - Best Physique",
+          "winners": [
+            {
+              "rank": "1st",
+              "title": "ITER SHREE",
+              "name": "Lagnajit Parida"
+            }
+          ],
+          "description": "Best Physique competition (ITER Shree / ITER Kumar).",
+          "date": "05/04/2026",
+          "time": "2:00 PM Onwards",
+          "location": "Auditorium A",
+          "prize": "Trophy",
           "contact": "Diya (9337959478), Sriya (9437456416)"
         }
       ]
@@ -450,22 +847,48 @@
         {
           "name": "Captured narratives",
           "description": "Shoot and edit a series of 10 to 15 images to tell a story.",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLSfbdXVawV2BWs3Y-H9s32ZljmcYE_8wgcm9kpcaoku6T80Aaw/viewform",
           "date": "04/04/2026",
           "time": "8:00 AM Onwards",
           "location": "E-214",
           "prize": "6000",
-          "contact": "Neha Mohapatra (9827692349), Tri Bikram Parida (9861298142)"
+          "contact": "Neha Mohapatra (9827692349), Tri Bikram Parida (9861298142)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Aaditya Mahoto"
+            },
+            {
+              "rank": "2nd",
+              "name": "Zenith Rana"
+            },
+            {
+              "rank": "3rd",
+              "name": "Swayam Bhardwaj"
+            }
+          ]
         },
         {
           "name": "Motion mania",
           "description": "60-second vertical video storytelling (Instagram Reel style).",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLSd7zifmcPRybjhrE5WIdtNDYyrMhdlHyjLlXGF5kmtlIoWXAw/viewform",
           "date": "03/04/2026",
           "time": "8:00 AM Onwards",
           "location": "E-214",
           "prize": "6000",
-          "contact": "Neha Mohapatra (9827692349), Tri Bikram Parida (9861298142)"
+          "contact": "Neha Mohapatra (9827692349), Tri Bikram Parida (9861298142)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Priyabrata Nanda, Harekrishna, Deepak"
+            },
+            {
+              "rank": "2nd",
+              "name": "Pridhesh Nair"
+            },
+            {
+              "rank": "3rd",
+              "name": "Abhirup, Tatwamasi"
+            }
+          ]
         }
       ]
     },
@@ -478,12 +901,25 @@
         {
           "name": "Spinotage",
           "description": "Technical challenges with unpredictable sabotages testing logic and strategy.",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLSerp8ENecoMA6Ps31wnAQ41j92CJtEaEdH4c-xbq6D7q5xamw/viewform",
           "date": "04/04/2026",
           "time": "12:00 PM - 3:00 PM",
           "location": "C-204 & C-210",
           "prize": "6000",
-          "contact": "Manish Prakash (9515862133), Khushee (9508944701)"
+          "contact": "Manish Prakash (9515862133), Khushee (9508944701)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Harshit Shahdeo, Anu Shri, Jhalak Mishra, Arpan Ghosh"
+            },
+            {
+              "rank": "2nd",
+              "name": "Anshita Dash, Shaurya Deep Rai, Omm Prasad Jena"
+            },
+            {
+              "rank": "3rd",
+              "name": "Madhav Kumar, Anjali Kumari, Soham Sundar Bhuin, Dibyashree Sahoo"
+            }
+          ]
         }
       ]
     },
@@ -494,24 +930,119 @@
       "logo": "/Club Logo/JAAGO.gif",
       "events": [
         {
-          "name": "PLAY FEST",
-          "description": "Surprise with miniature challenges of multiple games to enjoy with friends.",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLSfOq93BH_fcWnO75E1qHFPjAArt1kAqJuoj8kXnhEsF_UTpTA/viewform?usp=dialog",
-          "date": "03/04/2026",
-          "time": "8:00 AM Onwards",
-          "location": "E-013",
-          "prize": "Social Impact Awards",
-          "contact": "Suvam (7749918959)"
-        },
-        {
-          "name": "PLAY FEST",
-          "description": "Surprise with miniature challenges of multiple games to enjoy with friends.",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLSfOq93BH_fcWnO75E1qHFPjAArt1kAqJuoj8kXnhEsF_UTpTA/viewform?usp=dialog",
-          "date": "04/04/2026",
+          "name": "Rise & Inflate",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Kumar Baishya Mohanty"
+            },
+            {
+              "rank": "2nd",
+              "name": "Md Ishtiaqu"
+            },
+            {
+              "rank": "3rd",
+              "name": "Prithvi Raj"
+            }
+          ],
+          "description": "Social service event aimed at awareness and impact.",
+          "date": "03/04/2026 & 04/04/2026",
           "time": "8:00 AM Onwards",
           "location": "E-Block Lawn",
-          "prize": "Social Impact Awards",
-          "contact": "Suvam (7749918959)"
+          "prize": "N/A",
+          "contact": "Volunteers at Jaago"
+        },
+        {
+          "name": "Stack the Change",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Akankhya Dash & Sarmistha Khatua"
+            },
+            {
+              "rank": "2nd",
+              "name": "Saloni Suman Sahu and Paoli Mukherjee"
+            },
+            {
+              "rank": "3rd",
+              "name": "Aayushi Dehury and Armaan Mohammad"
+            }
+          ],
+          "description": "Social service event aimed at awareness and impact.",
+          "date": "03/04/2026 & 04/04/2026",
+          "time": "8:00 AM Onwards",
+          "location": "E-Block Lawn",
+          "prize": "N/A",
+          "contact": "Volunteers at Jaago"
+        },
+        {
+          "name": "Jaago MindSpark",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Harsh Kumar"
+            },
+            {
+              "rank": "2nd",
+              "name": "Harshit Das"
+            },
+            {
+              "rank": "3rd",
+              "name": "Dhurti Kumar Patro"
+            }
+          ],
+          "description": "Social service event aimed at awareness and impact.",
+          "date": "03/04/2026 & 04/04/2026",
+          "time": "8:00 AM Onwards",
+          "location": "E-Block Lawn",
+          "prize": "N/A",
+          "contact": "Volunteers at Jaago"
+        },
+        {
+          "name": "Carry the Cause",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Utkarsh Kashyap & Kumar Yashwanth"
+            },
+            {
+              "rank": "2nd",
+              "name": "S Saswata and Riya Chandra"
+            },
+            {
+              "rank": "3rd",
+              "name": "PRITHVI RAJ and RAHUL TOPPO"
+            }
+          ],
+          "description": "Social service event aimed at awareness and impact.",
+          "date": "03/04/2026 & 04/04/2026",
+          "time": "8:00 AM Onwards",
+          "location": "E-Block Lawn",
+          "prize": "N/A",
+          "contact": "Volunteers at Jaago"
+        },
+        {
+          "name": "Aim for Impact",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Armaan Mohammad"
+            },
+            {
+              "rank": "2nd",
+              "name": "Utsav Mathur"
+            },
+            {
+              "rank": "3rd",
+              "name": "Prajakta Choudhary"
+            }
+          ],
+          "description": "Social service event aimed at awareness and impact.",
+          "date": "03/04/2026 & 04/04/2026",
+          "time": "8:00 AM Onwards",
+          "location": "E-Block Lawn",
+          "prize": "N/A",
+          "contact": "Volunteers at Jaago"
         }
       ]
     },
@@ -524,22 +1055,48 @@
         {
           "name": "AI Treasure Hunt",
           "description": "Location-based challenge to solve riddles and complete tech tasks. Team Size: 3.",
-          "link": "https://forms.gle/TReLtKGQvyi9Aa8W6",
           "date": "04/04/2026",
           "time": "8:00 AM Onwards",
           "location": "Auditorium C & D",
           "prize": "6000",
-          "contact": "Harsh Kumar (6204706919), Jagnya Prasad Jena (8917577279)"
+          "contact": "Harsh Kumar (6204706919), Jagnya Prasad Jena (8917577279)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Team: We are Groot (Lead: Vedant Pandey)"
+            },
+            {
+              "rank": "2nd",
+              "name": "Team: Team Arjuna (Lead: Soumya Prakash Nayak)"
+            },
+            {
+              "rank": "3rd",
+              "name": "Team: Decypher (Saurav Kumar Rout)"
+            }
+          ]
         },
         {
           "name": "Maya Vyuh : The Prompt War",
           "description": "AI + Communication Challenge recreating images using prompts. Team Size: 2.",
-          "link": "https://forms.gle/deq1LqKsmK9zbe4U8",
           "date": "05/04/2026",
           "time": "8:00 AM Onwards",
           "location": "C-204 & C-210",
           "prize": "6000",
-          "contact": "Harsh Kumar (6204706919), Jagnya Prasad Jena (8917577279)"
+          "contact": "Harsh Kumar (6204706919), Jagnya Prasad Jena (8917577279)",
+          "winners": [
+            {
+              "rank": "1st",
+              "name": "Team: Hamster (Lead: Surajit Sahoo)"
+            },
+            {
+              "rank": "2nd",
+              "name": "Team: The Chosen One's (Lead: Ritesh Kumar Mahato)"
+            },
+            {
+              "rank": "3rd",
+              "name": "Team: Inference (Lead: Satyajeet Nayak)"
+            }
+          ]
         }
       ]
     }

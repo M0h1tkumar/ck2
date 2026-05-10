@@ -211,17 +211,45 @@ function openEventDetail(eventKey) {
   setModalValueLines('m-prize', data.prize);
   setModalValueLines('m-contact', data.contact);
   setModalValueLines('m-desc', formatDescriptionLines(data.description));
+  
+  const winnersContainer = document.getElementById('m-winners');
+  const winnersList = document.getElementById('m-winners-list');
   const regBtn = document.getElementById('m-link');
-  if (!data.link || data.link.includes('Chakravyuh2K26Registration')) {
-    regBtn.textContent = 'Registration Updating Shortly';
+
+  if (data.winners && data.winners.length > 0) {
+    winnersContainer.style.display = 'block';
+    winnersList.innerHTML = data.winners.map(w => `
+      <div class="winner-item">
+        <div class="winner-rank">${w.rank}</div>
+        <div class="winner-info">
+          ${w.title ? `<div class="winner-title">${w.title}</div>` : ''}
+          ${w.award ? `<div class="winner-title">${w.award}</div>` : ''}
+          <div class="winner-name">${w.name}</div>
+          ${w.reg_no ? `<div class="winner-reg">${w.reg_no}</div>` : ''}
+        </div>
+      </div>
+    `).join('');
+    
+    regBtn.textContent = 'Winners Announced';
     regBtn.href = 'javascript:void(0)';
-    regBtn.style.opacity = '0.6';
+    regBtn.style.opacity = '0.7';
     regBtn.style.pointerEvents = 'none';
+    regBtn.style.background = 'linear-gradient(180deg, #c2a14a 0%, #a1833c 100%)';
   } else {
-    regBtn.textContent = 'Register Now';
-    regBtn.href = data.link;
-    regBtn.style.opacity = '1';
-    regBtn.style.pointerEvents = 'auto';
+    winnersContainer.style.display = 'none';
+    if (!data.link || data.link.includes('Chakravyuh2K26Registration')) {
+      regBtn.textContent = 'Registration Updating Shortly';
+      regBtn.href = 'javascript:void(0)';
+      regBtn.style.opacity = '0.6';
+      regBtn.style.pointerEvents = 'none';
+      regBtn.style.background = 'linear-gradient(180deg, #e2c56a 0%, #c2a14a 100%)';
+    } else {
+      regBtn.textContent = 'Register Now';
+      regBtn.href = data.link;
+      regBtn.style.opacity = '1';
+      regBtn.style.pointerEvents = 'auto';
+      regBtn.style.background = 'linear-gradient(180deg, #e2c56a 0%, #c2a14a 100%)';
+    }
   }
   modal.classList.add('open');
 }
